@@ -1,0 +1,83 @@
+<div class="bg-light signup-input-text pt-5" id="signup-form2">
+	<div class="max-width-container d-flex justify-content-center align-items-center pt-5">
+		<div class="border rounded color-black bg-white mt-2" style="width: 1000px; position: relative;">
+			<div class="text-center pb-3 pt-3 background-thicker-light">
+				<h3>Set up your Profile</h3>
+				<p class="color-light font-small font-500">Let us know you more</p>
+			</div>
+			<form action="#" class="p-5 pt-4">
+				<div class="row">
+					<div class="col-md-6">
+						<label class="required color-light text-start">Select Experience</label>
+						<div class="d-flex justify-content-center mb-4">
+							<input type="checkbox" class="btn-check" id="work--xp" autocomplete="off" onclick="workCheckBox()">
+							<label class="btn btn-light m-1 color-black font-500 border" for="work--xp">
+								I have work experience
+							</label>
+							<input type="checkbox" class="btn-check" id="student--xp" autocomplete="off"
+								onclick="workCheckBox()">
+							<label class="btn btn-light m-1 color-black font-500 border" for="student--xp">
+								I am a student/fresh graduate
+							</label>
+						</div>
+
+						<label for="firstname" class="required color-light text-start">
+							First Name
+						</label>
+						<input type="text" name="firstname" id="firstname" required class="form-control color-black mb-1"
+							maxlength="20">
+
+						<label for="lastname" class="required color-light text-start">
+							Last Name
+						</label>
+						<input type="text" name="lastname" id="lastname" required class="form-control color-black mb-1"
+							maxlength="20">
+
+						<label for="contactnumber" class="required color-light text-start">
+							Contact Number
+						</label>
+						<input type="text" name="contactnumber" id="contactnumber" required
+							class="form-control color-black mb-1" maxlength="20">
+
+						<label for="residing" class="required color-light text-start">
+							Currently residing in
+						</label>
+						<div class="d-flex justify-content-center mb-2">
+							<input type="text" required class="form-control color-black me-1" placeholder="Philippines"
+								maxlength=" 15" disabled>
+							<div class="input-group">
+								<select class="form-select color-light" id="inputGroupSelect03"
+									aria-label="Example select with button addon">
+									<option selected>Municipality</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="specializations" class="required color-light text-start">
+							Preferred Specializations
+						</label>
+						<input type="text" name="specializations" id="expectedSalary" required
+							class="form-control color-black mb-2" maxlength="70">
+
+						<label for="specializations" class="required color-light text-start">
+							Monthly salary expectation
+						</label>
+						<input type="text" name="expectedsalary" id="expectedSalary" required
+							class="form-control color-black mb-2" placeholder="Disabled" maxlength="15" disabled>
+						<label for="self-description" class="required color-light text-start">
+							Description about yourself
+						</label>
+						<textarea class="form-control color-black mb-4 fontsize-13" id="self-description" rows="4"></textarea>
+					</div>
+				</div>
+				<div class="d-flex align-items-center">
+					<a href="#" type="button" class="btn btn-primary px-5 py-2 font-small ms-auto">Next</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,62 @@
+@keyframes sticky-animation{
+    0%{
+        top: -130px;
+        opacity: 0;
+    }
+    100%{
+        top: 0;
+        opacity: 100%;
+    }
+}
+
+@keyframes left-to-textPosition{
+    0%{
+        margin-left: -200px;
+        opacity: 0%;
+    }
+    50%{
+        margin-left: 3px;
+    }
+    100%{
+        margin-left: 0;
+        opacity: 100%;
+    }
+}
+
+@keyframes bottom-to-featuresPosition{
+    0%{
+        margin-top:200px;
+        opacity: 0;
+    }
+    50%{
+        margin-top: -8px;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes transitionShow{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+#signup--dropdown{
+    animation-name: transitionShow;
+    animation-duration: 0.4s;
+}
+
+
+#index-text h1, #featured-jobs, #index-text p{
+    animation-name: left-to-textPosition;
+    animation-duration: 1.5s;
+}
+
+#featured-jobs{
+    animation-name: bottom-to-featuresPosition;
+    animation-duration: 0.8s;
+}

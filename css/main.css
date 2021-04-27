@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
+}
+
+.feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+    color: #555555;
+    margin-right: 2px;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    transition: 0.4s;
+}
+
+nav ul li a {
+    font-weight: 500;
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
+}
+
+.background-blue nav ul li a.opened, .background-blue nav ul li a:hover{
+    border-bottom: 2px solid #fff;
+    transition: 0.4s;
+}
+
+.sticky{
+    background-color: #fff !important;
+    transition: 0.2s;
+    animation-name: sticky-animation;
+    animation-duration: 0.8s;
+}
+
+.sticky a.opened, .sticky a:hover, .background-thicker-light a.opened, .background-thicker-light a:hover{
+    color: #0d6efd !important;
+    transition: 0.2s;
+}
+
+
+
+.sticky nav ul li a, .sticky #web-id, .sticky #sign-up-btn{
+    color: rgb(54, 61, 71) !important;
+}
+
+#index-text h1{
+    font-size: 3.4rem;
+}
+
+#index-text{
+    margin-bottom: 300px;
+}
+
+#index-text button, #log-in-btn{
+    font-weight: 500;
+}
+
+#index-alert{
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    animation-name: float;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 5s;
+}
+
+@keyframes float{
+    from{
+       transform: translate(0, 0px); 
+    }
+    65%{
+        transform: translate(0, 10px); 
+    }
+    to{
+    transform: translate(0, 0px); 
+    }
+}
+
+#web-id, #footer-web-id{
+    text-decoration: none;
+    letter-spacing: 0.18em
+}
+
+#sign-up-btn, #index-alert a, #footer-nav nav ul li a{
+    font-weight: 500;
+    color: #363d47;
+}
+
+#sign-up-btn:hover{
+    background-color: rgba(0, 0, 255, 0.034);
+}
+
+
+#first-container{
+    background-image: url(../images/svg/background-blue.svg);
+    background-size: 100% auto;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    margin-top: 70px;
+}
+
+#index-right{
+    position: relative;
+}
+
+#index-right img{
+    height: 70%;
+    margin-top: 40px;
+    margin-left: -80px;
+    position: relative;
+}
+
+#circle01{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    opacity: 20%;
+    right: 0;
+}
+
+#media .feather{
+    height: 20px;
+    width: 20px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+#footer-nav a:hover, #footer-nav a.opened{
+    color: #0d6efd !important;
+    border-color: #0d6efd !important;
+}
+
+#media .feather:hover, #footer-web-id:hover, .sticky #web-id:hover {
+    color: #0d6efd !important;
+}
+
+#fifth-container{
+    background-image: linear-gradient(to right, #4b95ce, #8fb2ce);
+}
+
+#fourth-container div.image-container::after{
+    content: "";
+    background-color: #f7f7f7;
+    height: inherit;
+    width: inherit;
+    position: absolute;
+    display: block;
+    z-index: -1;
+    transform: rotate(8deg);
+}
+
+#fourth-container h6{
+    font-weight: 600;
+}
+
+#fourth-container div.image-container{
+    width: 570px;
+    height: 430px;
+    background-color: rgb(238, 238, 238);
+}
+
+#jobsearch-input{
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#location-select{
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    color: #6c757d;
+}
+
+#search-btn02 .feather{
+    height: 18px;
+    width: 18px;
+}
+
+#featured-jobs a{
+    background: none;
+    border: none;
+}
+
+#featured-jobs a:hover{
+    background: #0d6dfd5b;
+    border: #0d6dfd5b;
+}
+
+.column-container{
+    width: auto;
+    height: 200px;
+    background-color: #fff;
+}
+
+.column-container-a h5:hover{
+    color: #0d6efd !important;
+}
+
+.column-container .feather{
+    width: 30px;
+    height: 30px;
+}
+
+.column-container:hover{
+    background-color: #f8f9fa;
+}
+
+.column-container .round{
+    height: 70px;
+    width: 70px;
+    margin-bottom: 4px;
+}
+
+.column-container .round:hover{
+    height: 74px;
+    width: 74px;
+    margin-bottom: 0;
+    transition: 0.2s;
+}
+
+.column-container .round:hover .feather{
+    width: 32px;
+    height: 32px;
+    transition: 0.2s;
+}
+
+#third-container .card{
+    width: 100%;
+    height: 190px;
+    margin-top: 20px;
+    border: none;
+    border-left: 4px solid #fff;
+    transition: 0.6s;
+}
+
+#third-container .card:hover{
+    border-left: 4px solid #0d6efd;
+    box-sizing: border-box;
+}
+
+#third-container .card .rounded{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 60px;
+    width: 60px;
+    /* font-size: 14px !important; */
+}
+
+#third-container .card .rounded img{
+    width: 100%;
+}
+
+#second-container, #third-container{
+    padding-left: 90px; 
+    padding-right: 90px;
+}
+
+.carousel-item {
+    height: 20rem;
+    width: 100%;
+    position: relative;
+    padding: 40px;
+}
+
+.carousel-container{
+    position: relative;
+    width: 32rem;
+    height: 20rem;
+    margin: auto;
+}
+
+.carousel-container .image-container{
+    height: 80px;
+    width: 80px;
+    margin: auto;
+}
+
+#spinner-wrapper {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 99;
+    opacity: 100%;
+    transition: 0.4s;
+    visibility: visible;
+    background-color: #fff;
+}
+
+#spinner-wrapper.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#spinner-wrapper .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    animation: 1.4s linear infinite spinner-border;
+}
+
+#address--section .feather{
+    height: 20px;
+    width: 20px;
+    margin: 0 !important;
+}
+
+#address--section .image-container{
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+}
+
+.map-container{
+    width: 100%;
+    height: 350px;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#landing--btn-group ul{
+    transform: translate(0px, 44px) !important;
+    min-width: 15rem;
+    transition: 3s;
+}
+
+form label.required:after {
+    color: red;
+    content: " *";
+}
+
+.signup-input-text label{
+    font-size: 13px;
+}
+
+.signup-input-text input, .signup-input-text select{
+    font-size: 13px;
+}
+
+#work--xp:active + .btn-light, #work--xp:checked + .btn-light, #student--xp:active + .btn-light, #student--xp:checked + .btn-light{
+    color: #fff !important;
+    background-color: #0a58ca !important;
+    border-color: #0a53be !important;
+}
+
+
+
