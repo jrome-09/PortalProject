@@ -10,7 +10,8 @@
 					<div class="col-md-6">
 						<label class="required color-light text-start">Select Experience</label>
 						<div class="d-flex justify-content-center mb-4">
-							<input type="checkbox" class="btn-check" id="work--xp" autocomplete="off" onclick="workCheckBox()">
+							<input type="checkbox" class="btn-check" id="work--xp" autocomplete="off"
+								onclick="workCheckBox()">
 							<label class="btn btn-light m-1 color-black font-500 border" for="work--xp">
 								I have work experience
 							</label>
@@ -20,29 +21,32 @@
 								I am a student/fresh graduate
 							</label>
 						</div>
-
+					</div>
+				</div>
+				<div class="row mb-4">
+					<div class="col-md-6">
 						<label for="firstname" class="required color-light text-start">
 							First Name
 						</label>
-						<input type="text" name="firstname" id="firstname" required class="form-control color-black mb-1"
-							maxlength="20">
+						<input type="text" name="firstname" id="firstname" required
+							class="form-control color-black mb-2" maxlength="20">
 
 						<label for="lastname" class="required color-light text-start">
 							Last Name
 						</label>
-						<input type="text" name="lastname" id="lastname" required class="form-control color-black mb-1"
+						<input type="text" name="lastname" id="lastname" required class="form-control color-black mb-2"
 							maxlength="20">
 
 						<label for="contactnumber" class="required color-light text-start">
 							Contact Number
 						</label>
 						<input type="text" name="contactnumber" id="contactnumber" required
-							class="form-control color-black mb-1" maxlength="20">
+							class="form-control color-black mb-2" maxlength="20">
 
 						<label for="residing" class="required color-light text-start">
 							Currently residing in
 						</label>
-						<div class="d-flex justify-content-center mb-2">
+						<div class="d-flex justify-content-center">
 							<input type="text" required class="form-control color-black me-1" placeholder="Philippines"
 								maxlength=" 15" disabled>
 							<div class="input-group">
@@ -68,14 +72,17 @@
 						</label>
 						<input type="text" name="expectedsalary" id="expectedSalary" required
 							class="form-control color-black mb-2" placeholder="Disabled" maxlength="15" disabled>
+
 						<label for="self-description" class="required color-light text-start">
 							Description about yourself
 						</label>
-						<textarea class="form-control color-black mb-4 fontsize-13" id="self-description" rows="4"></textarea>
+						<textarea class="form-control color-black fontsize-13" id="self-description"
+							rows="4"></textarea>
 					</div>
 				</div>
 				<div class="d-flex align-items-center">
-					<a href="setup-profile-2.php" type="button" class="btn btn-primary px-5 py-2 font-small ms-auto">Save and Continue</a>
+					<a href="setup-profile-2.php" type="button"
+						class="btn btn-primary px-5 py-2 font-small ms-auto">Save and Continue</a>
 				</div>
 			</form>
 		</div>
