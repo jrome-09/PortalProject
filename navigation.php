@@ -46,7 +46,7 @@
 				</a>
 				<ul class="dropdown-menu pb-4" id="signup--dropdown">
 					<small>
-						<li class="mx-2 "><a class="dropdown-item rounded py-2 color-black font-500" href="signup-form-1.php">For Job seekers</a></li>
+						<li class="mx-2 "><a class="dropdown-item rounded py-2 color-black font-500" href="signup-form.php">For Job seekers</a></li>
 						<li class="mx-2 "><a class="dropdown-item rounded py-2 color-black font-500" href="#">For Employers</a></li>
 					</small>
 				</ul>
