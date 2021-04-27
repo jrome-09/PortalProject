@@ -14,7 +14,7 @@ require "html/head.html";
     ?>
     <main>
         <?php
-        require "html/signup-form1.html";
+        require "html/signup-form.html";
         ?>
     </main>
     <?php
