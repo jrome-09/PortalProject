@@ -38,24 +38,11 @@
 					</small>
 				</ul>
 			</nav>
-
-
-			<!-- <div class="btn-group me-1 ms-auto" id="landing--btn-group">
-				<a type="button" class="btn dropdown-toggle color-white border-none shadow-sm" data-bs-toggle="dropdown" aria-expanded="false" id="sign-up-btn">
-					<small>Sign up</small>
-				</a>
-				<ul class="dropdown-menu pb-4" id="signup--dropdown">
-					<small>
-						<li class="mx-2 "><a class="dropdown-item rounded py-2 color-black font-500" href="signup-form.php">For Job seekers</a></li>
-						<li class="mx-2 "><a class="dropdown-item rounded py-2 color-black font-500" href="#">For Employers</a></li>
-					</small>
-				</ul>
-			</div> -->
-			<div class="ms-auto log-sign-container">
+			<div id="logsign-container" class="ms-auto color-white" >
 				<small>
 					<a href="#" class="color-white me-1 ms-auto no-text-decor font-500 py-1 px-2 ms-auto" id="login-btn">Login</a>
 					|
-					<a href="#" class="color-white me-1 ms-1 no-text-decor font-500 py-1 px-2" id="signup-btn">Sign up</a>
+					<a href="#" class="color-white me-1 ms-1    no-text-decor font-500 py-1 px-2" id="signup-btn">Sign up</a>
 				</small>
 				<a href="#" class="btn btn-outline-primary border-2 color-white px-4 py-2 font-500" id="employers-btn"><small>For Employers</small></a>
 			</div>

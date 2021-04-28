@@ -46,9 +46,7 @@ nav ul li a, #signup-btn, #login-btn {
     transition: 0.2s;
 }
 
-
-
-.sticky nav ul li a, .sticky #web-id, .sticky #signup-btn, .sticky #login-btn, .sticky .log-sign-container {
+.sticky nav ul li a, .sticky #web-id, .sticky #signup-btn, .sticky #login-btn, .sticky #logsign-container {
     color: rgb(54, 61, 71) !important;
 }
 

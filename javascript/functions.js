@@ -1,5 +1,5 @@
 function changeColor() {
-    var ids = ["home", "about", "contacts", "explore", "trace", "web-id", "sign-up-btn"];
+    var ids = ["home", "about", "contacts", "explore", "trace", "web-id", "signup-btn", "login-btn", "logsign-container"];
     for (var i = 0; i < ids.length; i++) {
         var select = document.getElementById(ids[i]);
         select.classList.add("color-black");
