@@ -9,6 +9,23 @@
     }
 }
 
+@keyframes pop-animation-on {
+    0% {
+        visibility: hidden;
+        top: -20%;
+        opacity: 0%;
+    }
+
+    60% {
+        top: 12%;
+    }
+
+    100% {
+        opacity: 100%;
+        top: 10%;
+    }
+}
+
 @keyframes left-to-textPosition{
     0%{
         margin-left: -200px;

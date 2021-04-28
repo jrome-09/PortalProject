@@ -1,0 +1,62 @@
+<div class="border p-4 rounded color-black signup-input-text bg-white mt-5 translate-middle-x" id="emp-login-form">
+    <div class="p1 d-flex justify-content-end">
+        <a href="#"><span data-feather="x" onclick="ShowEmpLoginForm()" id="emp-log-close"></span></a>
+    </div>
+    <div class="text-center mb-3">
+        <h4>Employer Login</h4>
+        <p class="color-light font-small font-500">Start hiring now!</p>
+    </div>
+    <form action="#">
+        <label for="login--email" class="required color-light text-start">Email Address</label>
+        <input type="email" name="login--email" id="login--email" required
+            class="form-control color-black mb-2 text-center" maxlength="15">
+
+        <label for="login-password" class="required color-light text-start">Password</label>
+        <input type="password" name="login-password" id="login-password" required
+            class="form-control color-black mb-2 text-center" maxlength="15">
+        <div class="form-check d-flex ps-0">
+            <input class="form-check-input me-1 ms-0" type="checkbox" value="" id="showhide-ckeckBox">
+            <label class="form-check-label fontsize-13 color-light" for="Conditions-ckeckBox">
+                show/hide password
+            </label>
+        </div>
+        <div class="d-flex justify-content-center">
+            <a type="button" href="setup-profile-1.php" class="btn btn-primary font-small font-500 px-5 mt-2">
+                Sign in
+            </a>
+        </div>
+        <small>
+            <p class="font-small text-center color-black mt-2">New User? <a href="signup-form.php">Register now</a></p>
+        </small>
+    </form>
+</div>
+
+<style>
+    #emp-login-form {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        visibility: hidden;
+        opacity: 0;
+        width: 420px;
+        transition: 0.4s;
+    }
+
+    #blur.blur {
+        filter: blur(20px);
+        pointer-events: none;
+        user-select: none;
+        transition: 0.4s;
+
+    }
+
+
+    #emp-login-form.visible {
+        z-index: 99;
+        visibility: visible;
+        top: 10%;
+        opacity: 1;
+        animation-name: pop-animation-on;
+        animation-duration: 0.6s;
+    }
+</style>
