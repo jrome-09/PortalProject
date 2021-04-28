@@ -40,7 +40,7 @@
 			</nav>
 
 
-			<div class="btn-group me-1 ms-auto" id="landing--btn-group">
+			<!-- <div class="btn-group me-1 ms-auto" id="landing--btn-group">
 				<a type="button" class="btn dropdown-toggle color-white border-none shadow-sm" data-bs-toggle="dropdown" aria-expanded="false" id="sign-up-btn">
 					<small>Sign up</small>
 				</a>
@@ -50,11 +50,15 @@
 						<li class="mx-2 "><a class="dropdown-item rounded py-2 color-black font-500" href="#">For Employers</a></li>
 					</small>
 				</ul>
+			</div> -->
+			<div class="ms-auto">
+				<small>
+					<a href="#" class="color-white me-1 ms-auto no-text-decor font-500 py-1 px-2 ms-auto">Login</a>
+					|
+					<a href="#" class="color-white me-1 ms-auto no-text-decor font-500 py-1 px-2">Sign up</a>
+				</small>
+				<a href="#" class="btn btn-outline-primary border-2 color-white px-5 py-2" id="employers-btn"><small>For Employers</small></a>
 			</div>
-
-			<button type="button" class="btn btn-primary px-5 shadow-sm" id="log-in-btn">
-				<small>Log in</small>
-			</button>
 		</div>
 	</div>
 </header>
