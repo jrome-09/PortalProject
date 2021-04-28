@@ -24,12 +24,12 @@ header{
     transition: 0.4s;
 }
 
-nav ul li a {
+nav ul li a, #signup-btn, #login-btn {
     font-weight: 500;
     border-bottom: 2px solid rgba(255, 255, 255, 0);
 }
 
-.background-blue nav ul li a.opened, .background-blue nav ul li a:hover{
+.background-blue nav ul li a.opened, .background-blue nav ul li a:hover, #signup-btn:hover, #login-btn:hover{
     border-bottom: 2px solid #fff;
     transition: 0.4s;
 }
@@ -48,8 +48,16 @@ nav ul li a {
 
 
 
-.sticky nav ul li a, .sticky #web-id, .sticky #sign-up-btn{
+.sticky nav ul li a, .sticky #web-id, .sticky #signup-btn, .sticky #login-btn, .sticky .log-sign-container {
     color: rgb(54, 61, 71) !important;
+}
+
+.sticky #employers-btn, .sticky #signup-btn:hover, .sticky #login-btn:hover{
+    color: #0d6efd !important;
+}
+
+.sticky #employers-btn:hover{
+    color: #fff !important;
 }
 
 #index-text h1{
