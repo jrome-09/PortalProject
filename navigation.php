@@ -40,9 +40,11 @@
 			</nav>
 			<div id="logsign-container" class="ms-auto color-white" >
 				<small>
-					<a href="#" class="color-white me-1 ms-auto no-text-decor font-500 py-1 px-2 ms-auto" id="login-btn">Login</a>
+					
+					<a href="signup-form.php" class="color-white me-1 ms-1    no-text-decor font-500 py-1 px-2" id="signup-btn">Sign up</a>
 					|
-					<a href="#" class="color-white me-1 ms-1    no-text-decor font-500 py-1 px-2" id="signup-btn">Sign up</a>
+					<a href="#" class="color-white me-1 ms-auto no-text-decor font-500 py-1 px-2 ms-auto" id="login-btn">Login</a>
+					
 				</small>
 				<a href="#" class="btn btn-outline-primary border-2 color-white px-4 py-2 font-500" id="employers-btn"><small>For Employers</small></a>
 			</div>
