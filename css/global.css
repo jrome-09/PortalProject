@@ -16,3 +16,8 @@
     color: #555555;
     margin-right: 2px;
 }
+
+#web-id, #footer-web-id{
+    text-decoration: none;
+    letter-spacing: 0.18em
+}

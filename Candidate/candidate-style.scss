@@ -2,3 +2,12 @@ $primary: #0d6efd;
 $black: rgb(54, 61, 71);
 $light: #69707a;
 $white: #fff;
+
+
+.image-container{
+    background-color: $light;
+}
+
+#candidate-navbar nav ul li a:hover{
+    color: $primary !important;
+}
