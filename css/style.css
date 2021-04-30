@@ -111,6 +111,10 @@ input[type=number] {
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.192)!important;
 }
 
+.shadow-sm-hover:hover{
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+}
+
 .flex-middle{
     display: flex;
     justify-content: center;
@@ -127,4 +131,23 @@ input[type=number] {
 
 .fontsize-14{
     font-size: 14px !important;
+}
+
+.border-left-hover, .border-left-primary-2{
+    position: relative;
+}
+
+.border-left-hover:hover::before, .border-left-primary-2::before{
+    transition: 2s;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border: 2px solid #0d6efd;
+    border-bottom-left-radius: .25rem;
+    border-top-left-radius: .25rem;  
+    transition: 2s;
+    -webkit-transition: all 2s;
+    -moz-transition: all 2s;
 }

@@ -1,4 +1,4 @@
-<head id="candidate-navbar shadow-sm" class="bg-white">
+<header id="candidate-navbar" class="bg-white">
 	<div class="max-width-container py-1">
 		<div class="d-flex align-items-center my-2">
 			<div class="d-flex align-items-center">
@@ -36,4 +36,4 @@
 			</div>
 		</div>
 	</div>
-</head>
+</header>
