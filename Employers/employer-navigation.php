@@ -11,7 +11,7 @@
                 <ul class="m-0">
                     <small>
                         <li class="d-inline-block">
-                            <a href="#" class="color-black me-1 ms-1 no-text-decor font-500 px-1" id="jseeker-btn">Job Seeker</a>
+                            <a href="../index.php" class="color-black me-1 ms-1 no-text-decor font-500 px-1" id="jseeker-btn">Job Seeker</a>
                         </li>
                         |
                         <li class="d-inline-block">
