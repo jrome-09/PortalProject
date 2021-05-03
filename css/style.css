@@ -99,6 +99,10 @@ input[type=number] {
     transition: 0.4s;
 }
 
+.hover-bg-light:hover{
+    color: #29527a !important;
+    transition: 0.4s;
+}
 
 .full-time, .full-time:hover{
     color: #0b5dd7b0;
@@ -150,4 +154,8 @@ input[type=number] {
     transition: 2s;
     -webkit-transition: all 2s;
     -moz-transition: all 2s;
+}
+
+.bt-visible-primary-4{
+    border-top: 4px solid #0d6efd !important;
 }

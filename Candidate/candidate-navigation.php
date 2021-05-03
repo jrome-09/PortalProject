@@ -10,7 +10,7 @@
 			<nav class="mx-2">
 				<ul class="m-0">
 					<li class="d-inline-block">
-						<a href="#" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Search Jobs</a>
+						<a href="jobs.php" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Search Jobs</a>
 					</li>
 					<li class="d-inline-block">
 						<a href="#" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Company Profiles</a>
