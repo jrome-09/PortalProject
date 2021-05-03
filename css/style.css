@@ -100,7 +100,7 @@ input[type=number] {
 }
 
 .hover-bg-light:hover{
-    color: #29527a !important;
+    background-color: #f8f9fa !important;
     transition: 0.4s;
 }
 

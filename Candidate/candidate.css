@@ -24,8 +24,17 @@
     list-style-type: disc;
 }
 
+div.jobs{
+    height: 100%;
+}
+
 .jobs.bt-visible-primary-4{
     border-left: 1px solid #dee2e6;
     border-right: 1px solid #dee2e6;
     border-bottom: 1px solid #dee2e6;
+}
+
+.date-posted{
+    bottom: 1.5rem;
+    right: 1.5rem;
 }

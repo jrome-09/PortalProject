@@ -47,22 +47,142 @@ require "../html/head.html";
         <div class="bg-white">
             <div class="max-width-container">
                 <h5 class="color-black feather-20 mb-3">Job Offers</h5>
-                <a href="#" class="no-text-decor">
-                    <div class="rounded p-4 mb-2 shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light">
-                        <div class="image-container d-inline-block border round mb-3" style="height: 50px; width: 50px;"></div>
-                        <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
-                        <h6 class="mb-0 color-black">Software Developer</h6>
-                        <p class="fontsize-13 color-black mb-3">Company Name</p>
-                        <p class="fontsize-13 color-black m-0">Vigan City Ilocos Sur</p>
-                        <p class="fontsize-13 color-black mb-3 font-500">PHP 20-30k Monthly</p>
-                        <ul>
-                            <li class="fontsize-13 color-black bullets">Front End Development</li>
-                            <li class="fontsize-13 color-black bullets">Back End Development</li>
-                        </ul>
-                        <p class="font-super--small color-light m-0 text-end">Date Posted: 0/0/2021</p>
-
+                <div class="row">
+                    <div class="col-md-4 pb-4">
+                        <a href="#" class="no-text-decor">
+                            <div class="rounded p-4 shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
+                                <div class="image-container d-inline-block border round mb-3" style="height: 50px; width: 50px;"></div>
+                                <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
+                                <h6 class="mb-0 color-black">Software Developer</h6>
+                                <p class="fontsize-13 color-black mb-3">Company Name</p>
+                                <p class="fontsize-13 color-black m-0">Vigan City Ilocos Sur</p>
+                                <p class="fontsize-13 color-black mb-3 font-500">PHP 20-30k Monthly</p>
+                                <ul class="mb-5">
+                                    <li class="fontsize-13 color-black bullets">Front End Development</li>
+                                    <li class="fontsize-13 color-black bullets">Back End Development</li>
+                                </ul>
+                                <div class="position-absolute date-posted">
+                                    <p class="font-super--small color-light m-0 text-end">Date Posted: 0/0/2021</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                    <div class="col-md-4 pb-4">
+                        <a href="#" class="no-text-decor">
+                            <div class="rounded p-4 shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
+                                <div class="image-container d-inline-block border round mb-3" style="height: 50px; width: 50px;"></div>
+                                <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
+                                <h6 class="mb-0 color-black">Software Developer</h6>
+                                <p class="fontsize-13 color-black mb-3">Company Name</p>
+                                <p class="fontsize-13 color-black m-0">Vigan City Ilocos Sur</p>
+                                <p class="fontsize-13 color-black mb-3 font-500">PHP 20-30k Monthly</p>
+                                <ul class="mb-5">
+                                    <li class="fontsize-13 color-black bullets">Front End Development</li>
+                                    <li class="fontsize-13 color-black bullets">Back End Development</li>
+                                </ul>
+                                <div class="position-absolute date-posted">
+                                    <p class="font-super--small color-light m-0 text-end">Date Posted: 0/0/2021</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 pb-4">
+                        <a href="#" class="no-text-decor">
+                            <div class="rounded p-4 shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
+                                <div class="image-container d-inline-block border round mb-3" style="height: 50px; width: 50px;"></div>
+                                <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
+                                <h6 class="mb-0 color-black">Software Developer</h6>
+                                <p class="fontsize-13 color-black mb-3">Company Name</p>
+                                <p class="fontsize-13 color-black m-0">Vigan City Ilocos Sur</p>
+                                <p class="fontsize-13 color-black mb-3 font-500">PHP 20-30k Monthly</p>
+                                <ul class="mb-5">
+                                    <li class="fontsize-13 color-black bullets">Front End Development</li>
+                                    <li class="fontsize-13 color-black bullets">Back End Development</li>
+                                </ul>
+                                <div class="position-absolute date-posted">
+                                    <p class="font-super--small color-light m-0 text-end">Date Posted: 0/0/2021</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 pb-4">
+                        <a href="#" class="no-text-decor">
+                            <div class="rounded p-4 shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
+                                <div class="image-container d-inline-block border round mb-3" style="height: 50px; width: 50px;"></div>
+                                <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
+                                <h6 class="mb-0 color-black">Software Developer</h6>
+                                <p class="fontsize-13 color-black mb-3">Company Name</p>
+                                <p class="fontsize-13 color-black m-0">Vigan City Ilocos Sur</p>
+                                <p class="fontsize-13 color-black mb-3 font-500">PHP 20-30k Monthly</p>
+                                <ul class="mb-5">
+                                    <li class="fontsize-13 color-black bullets">Front End Development</li>
+                                    <li class="fontsize-13 color-black bullets">Back End Development</li>
+                                </ul>
+                                <div class="position-absolute date-posted">
+                                    <p class="font-super--small color-light m-0 text-end">Date Posted: 0/0/2021</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 pb-4">
+                        <a href="#" class="no-text-decor">
+                            <div class="rounded p-4 shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
+                                <div class="image-container d-inline-block border round mb-3" style="height: 50px; width: 50px;"></div>
+                                <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
+                                <h6 class="mb-0 color-black">Software Developer</h6>
+                                <p class="fontsize-13 color-black mb-3">Company Name</p>
+                                <p class="fontsize-13 color-black m-0">Vigan City Ilocos Sur</p>
+                                <p class="fontsize-13 color-black mb-3 font-500">PHP 20-30k Monthly</p>
+                                <ul class="mb-5">
+                                    <li class="fontsize-13 color-black bullets">Front End Development</li>
+                                    <li class="fontsize-13 color-black bullets">Back End Development</li>
+                                </ul>
+                                <div class="position-absolute date-posted">
+                                    <p class="font-super--small color-light m-0 text-end">Date Posted: 0/0/2021</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 pb-4">
+                        <a href="#" class="no-text-decor">
+                            <div class="rounded p-4 shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
+                                <div class="image-container d-inline-block border round mb-3" style="height: 50px; width: 50px;"></div>
+                                <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
+                                <h6 class="mb-0 color-black">Software Developer</h6>
+                                <p class="fontsize-13 color-black mb-3">Company Name</p>
+                                <p class="fontsize-13 color-black m-0">Vigan City Ilocos Sur</p>
+                                <p class="fontsize-13 color-black mb-3 font-500">PHP 20-30k Monthly</p>
+                                <ul class="mb-5">
+                                    <li class="fontsize-13 color-black bullets">Front End Development</li>
+                                    <li class="fontsize-13 color-black bullets">Back End Development</li>
+                                </ul>
+                                <div class="position-absolute date-posted">
+                                    <p class="font-super--small color-light m-0 text-end">Date Posted: 0/0/2021</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+                </div>
+                <div class="d-flex justify-content-end">
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link fontsize-14" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link fontsize-14" href="#">1</a></li>
+                            <li class="page-item" aria-current="page">
+                                <a class="page-link fontsize-14" href="#">2</a>
+                            </li>
+                            <li class="page-item fontsize-14"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item fontsize-14">
+                                <a class="page-link fontsize-14" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </main>
