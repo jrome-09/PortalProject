@@ -33,3 +33,30 @@
     margin-left: 8px;
     margin-right: 8px;
 }
+
+#spinner-wrapper {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 99;
+    opacity: 100%;
+    transition: 0.4s;
+    visibility: visible;
+    background-color: #fff;
+}
+
+#spinner-wrapper.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#spinner-wrapper .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    animation: 1.4s linear infinite spinner-border;
+}

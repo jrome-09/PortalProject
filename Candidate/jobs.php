@@ -3,13 +3,17 @@ require "../html/head.html";
 ?>
 
 <body>
+    <div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     <link rel="stylesheet" href="candidate.css">
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/style.css">
     <?php
     require "../html/script.html";
     require "candidate-navigation.php"
     ?>
+
     <main>
         <div class="background-thicker-light">
             <div class="max-width-container">
@@ -38,7 +42,7 @@ require "../html/head.html";
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                            <button class="btn btn-primary" type="button">Search</button>
+                            <button class="btn btn-primary fontsize-14" type="button">Search</button>
                         </div>
                     </div>
                 </form>
@@ -195,6 +199,7 @@ require "../html/head.html";
     <script src="../javascript/scroll.js"></script>
     <script src="../javascript/onclick.js"></script>
     <script>
+        loadPage();
         feather.replace();
     </script>
 </body>
