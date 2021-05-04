@@ -55,14 +55,14 @@ require "../html/head.html";
 					<div class="col-md-6 p-1" id="multiply-application">
 						<div class="bg-white rounded border p-4 shadow-sm-hover">
 							<div class="row">
-								<div class="col-md-2">
-									<div class="d-flex justify-content-center align-items-center">
-										<div class="image-container rounded background-thicker-light" style="height: 70px; width: 70px;">
+								<div class="col-lg-2">
+									<div class="d-flex justify-content-start align-items-center">
+										<div class="image-container rounded background-thicker-light mb-2 d-block" style="height: 70px; width: 70px; min-width: 70px;">
 
 										</div>
 									</div>
 								</div>
-								<div class="col-md-10">
+								<div class="col-lg-10">
 
 									<div class="btn-group float-end">
 										<button type="button" class="btn p-1 border-1 rounded-circle hover-text-primary hover-text-feather" data-bs-toggle="dropdown"><span data-feather="chevron-down" style="height: 22px; width: 22px;"></span></button>
