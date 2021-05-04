@@ -28,7 +28,7 @@
 					<button type="button" class="btn rounded-end color-black fontsize-14 font-500 hover-text-primary hover-text-feather" id="user-name" data-bs-toggle="dropdown">Username <span data-feather="chevron-down" class="color-black"></span></button>
 					<ul class="dropdown-menu mt-1 p-2">
 						<li><a href="#" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">User Profile</a></li>
-						<li><a href="#" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">Job Applications</a></li>
+						<li><a href="job-applications.php" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">Job Applications</a></li>
 						<li><a href="#" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">Logout</a></li>
 					</ul>
 				</div>
