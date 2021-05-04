@@ -55,7 +55,7 @@ require "../html/head.html";
                     <div class="col-md-4 pb-4" id="multiply-application">
                         <a href="#" class="no-text-decor">
                             <div class="rounded p-4 shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
-                                <div class="image-container d-inline-block border round mb-3" style="height: 50px; width: 50px;"></div>
+                                <div class="image-container d-inline-block border rounded mb-2 background-thicker-light" style="height: 60px; width: 60px;"></div>
                                 <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
                                 <h6 class="mb-0 color-black">Software Developer</h6>
                                 <p class="fontsize-13 color-black mb-3">Company Name</p>

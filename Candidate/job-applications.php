@@ -53,7 +53,7 @@ require "../html/head.html";
 				</div>
 				<div class="row" id="application-row-container">
 					<div class="col-md-6 p-1" id="multiply-application">
-						<div class="bg-white rounded border p-4">
+						<div class="bg-white rounded border p-4 shadow-sm-hover">
 							<div class="row">
 								<div class="col-md-2">
 									<div class="d-flex justify-content-center align-items-center">
@@ -68,7 +68,7 @@ require "../html/head.html";
 										<button type="button" class="btn p-1 border-1 rounded-circle hover-text-primary hover-text-feather" data-bs-toggle="dropdown"><span data-feather="chevron-down" style="height: 22px; width: 22px;"></span></button>
 										<ul class="dropdown-menu mt-1 p-2">
 											<li><a href="#" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">View Submitted Profile</a></li>
-											<li><a href="job-applications.php" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">Withdraw Application</a></li>
+											<li><a href="#" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">Withdraw Application</a></li>
 										</ul>
 									</div>
 
