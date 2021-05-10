@@ -105,6 +105,9 @@ require "../html/head.html";
                             <p class="font-super--small color-light m-0 align-self-end">Date Posted: 0/0/2021</p>
                         </div>
                     </a>
+                    <div class="text-end mt-4">
+                        <a href="#" type="button" class="btn btn-primary font-500 fontsize-14">Open Bookmarks</a>
+                    </div>
                 </div>
 
             </div>

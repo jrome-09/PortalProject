@@ -8,15 +8,15 @@ require "../html/head.html";
 			<span class="visually-hidden">Loading...</span>
 		</div>
 	</div>
-	<link rel="stylesheet" href="candidate.css">
+	<!-- <link rel="stylesheet" href="candidate.css"> -->
 	<?php
 	require "../html/script.html";
-	require "candidate-navigation.php"
+	// require "candidate-navigation.php"
 	?>
 	<main>
 		<div class="bg-light pt-5">
 			<div class="max-width-container">
-				<div class=" p-4 bg-white rounded mb-2">
+				<div class=" p-5 bg-white rounded mb-2">
 					<div class="row">
 						<div class="col-lg-9">
 							<div class="image-container rounded border bg-light mb-2" style="height: 70px; width: 70px;"></div>
@@ -32,7 +32,7 @@ require "../html/head.html";
 						</div>
 					</div>
 				</div>
-				<div class=" p-4 bg-white rounded">
+				<div class=" p-5 bg-white rounded">
 					<p class="fontsize-14 font-400 color-black">Job Highlights</p>
 					<ol class="mb-5">
 						<li class="bullets fontsize-13 color-black mb-1">Job Highlight 1</li>

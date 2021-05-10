@@ -8,10 +8,10 @@ require "../html/head.html";
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    <link rel="stylesheet" href="candidate.css">
+    <link rel="stylesheet" href="../Candidate/candidate.css">
     <?php
     require "../html/script.html";
-    require "candidate-navigation.php"
+    require "../Candidate/candidate-navigation.php"
     ?>
 
     <main>
@@ -52,8 +52,8 @@ require "../html/head.html";
             <div class="max-width-container">
                 <h5 class="color-black feather-20 mb-3">Job Offers</h5>
                 <div class="row" id="application-row-container">
-                    <div class="col-md-4 pb-4" id="multiply-application">
-                        <a href="#" class="no-text-decor">
+                    <div class="col-lg-4 pb-4" id="multiply-application">
+                        <a href="job-details.php" class="no-text-decor">
                             <div class="rounded p-4 shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
                                 <div class="image-container d-inline-block border rounded mb-2 background-thicker-light" style="height: 60px; width: 60px;"></div>
                                 <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
@@ -65,6 +65,7 @@ require "../html/head.html";
                                     <li class="fontsize-13 color-black bullets">Front End Development</li>
                                     <li class="fontsize-13 color-black bullets">Back End Development</li>
                                 </ul>
+                                <p class="fontsize-13 color-light mb-0">Type: Full Time</p>
                                 <div class="position-absolute date-posted">
                                     <p class="font-super--small color-light m-0 text-end">Date Posted: 0/0/2021</p>
                                 </div>

@@ -72,7 +72,7 @@ require "../html/head.html";
 										</ul>
 									</div>
 
-									<a href="#">
+									<a href="../Jobs/job-details.php">
 										<h6 class="mb-0">Software Developer</h6>
 									</a>
 									<p class="color-black fontsize-14">Company Name</p>
