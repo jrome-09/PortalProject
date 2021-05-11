@@ -106,7 +106,7 @@ require "../html/head.html";
                         </div>
                     </a>
                     <div class="text-end mt-4">
-                        <a href="#" type="button" class="btn btn-primary font-500 fontsize-14">Open Bookmarks</a>
+                        <a href="bookmarks.php" type="button" class="btn btn-primary font-500 fontsize-14">Open Bookmarks</a>
                     </div>
                 </div>
 

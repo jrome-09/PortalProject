@@ -47,6 +47,13 @@ input[type=number] {
     margin: auto;
 }
 
+.max-width-container-sm{
+    width: 100%;
+    max-width: 1000px;
+    padding: 50px;
+    margin: auto;
+}
+
 .no-text-decor{
     text-decoration: none;
 }

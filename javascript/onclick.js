@@ -16,3 +16,8 @@ function ShowEmpLoginForm(){
     form_id.classList.toggle("visible");
     blur_id.classList.toggle("blur");
 }
+
+function ShowDetails(){
+    const form_id = document.getElementById('job-details');
+    form_id.classList.toggle("visible");
+}
