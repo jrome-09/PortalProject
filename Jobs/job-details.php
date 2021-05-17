@@ -8,10 +8,10 @@ require "../html/head.html";
 			<span class="visually-hidden">Loading...</span>
 		</div>
 	</div>
-	<!-- <link rel="stylesheet" href="candidate.css"> -->
+	<link rel="stylesheet" href="../Candidate/candidate.css">
 	<?php
 	require "../html/script.html";
-	// require "candidate-navigation.php"
+	require "../Candidate/candidate-navigation.php"
 	?>
 	<main>
 		<div class="bg-light pt-5">
@@ -27,8 +27,9 @@ require "../html/head.html";
 							<p class="color-light fontsize-14">Date Posted: May 1, 2021</p>
 						</div>
 						<div class="col-lg-3 d-flex flex-column justify-content-center ">
-							<div class="btn btn-primary my-2 font-500 fontsize-14 shadow-sm-hover">Apply now</div>
+							<a href="../Candidate/profile-preview.php" type="button" class="btn btn-primary my-2 font-500 fontsize-14 shadow-sm-hover d-block">Apply now</a>
 							<div class="btn btn-light border my-2 fontsize-14 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
+
 						</div>
 					</div>
 				</div>
