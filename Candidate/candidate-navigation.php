@@ -95,7 +95,7 @@
 							<a href="../Jobs/jobs.php" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Search Jobs</a>
 						</li>
 						<li class="d-inline-block">
-							<a href="../Employers/employers-profile.page.php" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Employer Profiles</a>
+							<a href="../Employers/employers-profile-page.php" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Employer Profiles</a>
 						</li>
 						<li class="d-inline-block">
 							<a href="#" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">CCIT Alumni</a>
