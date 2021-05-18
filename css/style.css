@@ -32,6 +32,12 @@ input[type=number] {
     font-weight: 600 !important;
 }
 
+.hw-100px{
+    min-width: 100px;
+    height: 100px;
+    width: 100px;
+}
+
 .width-100{
     width: 100%;
 }
