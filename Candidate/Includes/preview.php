@@ -18,13 +18,13 @@
         }
     }
 </style>
-<div class="border">
-    <div class="border-bottom p-4">
+<div class="border bg-white rounded">
+    <div class="border-bottom p-4 ">
         <div class="text-end">
             <p class="font-super--small color-light">Last Updated: 00 Jan 2021</p>
         </div>
         <div class="d-flex" id="header-infoflex">
-            <div class="border background-thicker-light image-container rounded" style="height: 100px; width: 100px; min-width: 100px;">
+            <div class="border bg-light image-container rounded" style="height: 100px; width: 100px; min-width: 100px;">
 
             </div>
             <div class="mt-1 ms-3" id="infoflex-text">
