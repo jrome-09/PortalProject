@@ -31,7 +31,7 @@
 							</a>
 						</li>
 						<li class="d-inline-block mx-1">
-							<a href="Alumni/alumni.index.php" class="color-white no-text-decor py-1 px-2" id="trace">
+							<a href="Alumni/alumni-index.php" class="color-white no-text-decor py-1 px-2" id="trace">
 								Trace Alumni
 							</a>
 						</li>
