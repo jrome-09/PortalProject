@@ -107,6 +107,10 @@ input[type=number] {
     transition: 0.3s;
 }
 
+.hover-text-danger:hover, .hover-text-feather-danger:hover > .feather{
+    color:#dc3545 !important;
+}
+
 .hover-text-primary:hover, .hover-text-feather:hover > .feather{
     color: #0d6efd !important;
     transition: 0.4s;
