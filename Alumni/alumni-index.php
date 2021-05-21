@@ -11,12 +11,13 @@ require "../html/head.html";
 	<link rel="stylesheet" href="../Candidate/candidate.css">
 	<link rel="stylesheet" href="../css/global.css">
 	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="index.css">
 	<?php
 	require "../html/script.html";
 	require "../Candidate/candidate-navigation.php"
 	?>
 	<main>
-		<div class="bg-light" style="margin-top: 74px;">
+		<div class="bg-light margin-top-nav">
 			<div class="max-width-container">
 				<div class="d-flex justify-content-end">
 					<div class="input-group mb-3" style="max-width: 500px;">
@@ -29,7 +30,7 @@ require "../html/head.html";
 					<div class="border-bottom background-thicker-light px-4 py-2">
 						<div class="row flex-column-reverse flex-sm-row">
 							<div class="col-sm-10 d-flex color-light fontsize-13 flex-wrap" id="selectedFilterContainer">
-								<a href="#" id="selectedUnemployed" class="btn bg-light mb-2 me-2 shadow-sm hover-text-danger hover-text-feather-danger p-1 fontsize-13 color-light">
+								<a href="#" id="selectedUnemployed" onclick="removeFilter(this.id)" class="btn bg-light mb-2 me-2 shadow-sm hover-text-danger hover-text-feather-danger p-1 fontsize-13 color-light">
 									<p class="mb-0 d-inline-block font-500">Unemployed</p>
 									<span data-feather="x" style="height: 14px; width: 14px;"></span>
 								</a>
@@ -53,98 +54,60 @@ require "../html/head.html";
 											</div>
 										</div>
 										<div class="background-thicker-light px-4 py-3 text-end" id="filter-header">
-											<button type="button" class="btn btn-primary fontsize-14 font-500 px-4">Filter</button>
+											<button type="button" onclick="getBoxes()" class="btn btn-primary fontsize-14 font-500 px-4">Filter</button>
 										</div>
 									</div>
+
+									<script src="filter.function.js"></script>
 									<script>
 										cloneFilter();
-										cloneSelected()
-
-										function cloneSelected() {
-											const filter = ["Self-Employed", "Employed", "BS Computer Science", "BS Information Technology", "BS Library and Information Science", "Diploma in Computer Technology"];
-											for (var i = 0; i < filter.length; i++) {
-												const filter_id = document.getElementById("selectedUnemployed");
-												var divclone = filter_id.cloneNode(true);
-												divclone.id = "selected" + filter[i];
-												var child = divclone.children;
-												child[0].innerHTML = filter[i];
-												var parentcon = document.getElementById("selectedFilterContainer");
-												parentcon.appendChild(divclone);
-											}
-										}
-
-										function cloneFilter() {
-											const filter = ["Self-Employed", "Employed", "BS Computer Science", "BS Information Technology", "BS Library and Information Science", "Diploma in Computer Technology"];
-											for (var i = 0; i < filter.length; i++) {
-												const form_id = document.getElementById("form-check");
-												var divclone = form_id.cloneNode(true);
-												var child = divclone.children;
-												child[0].id = filter[i];
-												child[1].innerHTML = filter[i];
-												child[1].setAttribute("for", filter[i]);
-												var parentcon = document.getElementById("filter-content");
-												parentcon.appendChild(divclone);
-											}
-										}
-
-										function setFilter() {
-											document.getElementById('filter-list-card').classList.toggle('active');
-										}
+										cloneSelected();
 									</script>
-									<style>
-										#selectedFilterContainer a {
-											padding: 0 0.25rem !important;
-											display: none;
-										}
-
-										#selectedFilter .feather {
-											height: 14px !important;
-											width: 14px !important;
-										}
-
-										#filter-top {
-											width: 100%;
-											height: 0.3rem;
-										}
-
-										@keyframes filterToggle {
-											0% {
-												opacity: 0;
-												top: 0;
-											}
-
-											60% {
-												top: 40px;
-											}
-
-											100% {
-												opacity: 1;
-												top: 36px;
-											}
-										}
-
-
-										#filter-list-card {
-											width: 300px;
-											right: 0;
-											transition: 0.4s;
-											opacity: 1;
-											display: none;
-										}
-
-										#filter-list-card.active {
-											animation-name: filterToggle;
-											animation-duration: 0.4s;
-											top: 36px;
-											display: block;
-										}
-									</style>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="bg-white p-4">
-
+						<div class="row" id="alumni-row-container">
+							<div class="col-md-3 pb-3" id="alumni-col">
+								<div class="border p-4 bg-white rounded fontsize-14 color-black text-center alumni-card">
+									<div class="hw-100px mb-2 bg-light border  mx-auto rounded"></div>
+									<p class="font-500 mb-1">Jerome Cabrera</p>
+									<p class="font-500 color-light font-super--small">BS Information Technology</p>
+									<a href="profile-preview.php" type="button" class="btn btn-primary fontsize-13 font-500 px-5">View</a>
+								</div>
+							</div>
+						</div>
+						<div class="d-flex justify-content-end">
+							<nav aria-label="...">
+								<ul class="pagination mb-0">
+									<li class="page-item disabled">
+										<a class="page-link fontsize-14" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+									</li>
+									<li class="page-item active"><a class="page-link fontsize-14" href="#">1</a></li>
+									<li class="page-item" aria-current="page">
+										<a class="page-link fontsize-14" href="#">2</a>
+									</li>
+									<li class="page-item fontsize-14"><a class="page-link" href="#">3</a></li>
+									<li class="page-item fontsize-14">
+										<a class="page-link fontsize-14" href="#">Next</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<style>
+							.alumni-card {
+								border-top: 4px solid #0d6efd !important;
+							}
+						</style>
+						<script>
+							for (i = 0; i < 11; i++) {
+								const Mydiv = document.getElementById("alumni-col");
+								var divclone = Mydiv.cloneNode(true);
+								var parentcon = document.getElementById("alumni-row-container");
+								parentcon.appendChild(divclone);
+							}
+						</script>
 					</div>
 				</div>
 			</div>
@@ -153,8 +116,6 @@ require "../html/head.html";
 	<?php
 	require "../html/footer.html";
 	?>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 	<script src="../javascript/functions.js"></script>
 	<script src="../javascript/scroll.js"></script>
 	<script src="../javascript/onclick.js"></script>
