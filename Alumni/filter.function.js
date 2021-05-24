@@ -1,7 +1,7 @@
 var checked = [];
 function getBoxes() {
     checked = [];
-    var box_ids = ["Unemployed", "Self-Employed", "Employed", "BS Computer Science", "BS Information Technology", "BS Library and Information Science", "Diploma in Computer Technology"];;
+    var box_ids = ["Unemployed", "Self-Employed", "Employed", "Current Student", "BS Computer Science", "BS Information Technology", "BS Library and Information Science", "Diploma in Computer Technology"];;
     for (let i = 0; i < box_ids.length; i++) {
         var nospace = box_ids[i].split(" ").join("");
         var box = document.getElementById(nospace);
@@ -25,7 +25,7 @@ function removeFilter(button_id) {
 }
 
 function cloneSelected() {
-    const filter = ["Self-Employed", "Employed", "BS Computer Science", "BS Information Technology", "BS Library and Information Science", "Diploma in Computer Technology"];
+    const filter = ["Self-Employed", "Employed", "Current Student", "BS Computer Science", "BS Information Technology", "BS Library and Information Science", "Diploma in Computer Technology"];
     for (var i = 0; i < filter.length; i++) {
         const filter_id = document.getElementById("selectedUnemployed");
         var divclone = filter_id.cloneNode(true);
@@ -38,7 +38,7 @@ function cloneSelected() {
 }
 
 function cloneFilter() {
-    const filter = ["Self-Employed", "Employed", "BS Computer Science", "BS Information Technology", "BS Library and Information Science", "Diploma in Computer Technology"];
+    const filter = ["Self-Employed", "Employed", "Current Student", "BS Computer Science", "BS Information Technology", "BS Library and Information Science", "Diploma in Computer Technology"];
     for (var i = 0; i < filter.length; i++) {
         const form_id = document.getElementById("form-check");
         var divclone = form_id.cloneNode(true);
