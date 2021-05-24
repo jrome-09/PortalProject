@@ -106,6 +106,10 @@ input[type=number] {
     background-color: rgba(255, 255, 255, 0.76) !important;
 }
 
+.hover-text-underline:hover{
+    text-decoration: underline !important;
+}
+
 .part-time, .part-time:hover{
     color: #ff6046 ;
     background: #ffd8d2;
