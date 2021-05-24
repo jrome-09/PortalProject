@@ -20,10 +20,17 @@ require "../html/head.html";
     <main>
         <div class="bg-light margin-top-nav">
             <div class="max-width-container">
-                
+                <?php
+                    require "preview.inc.php";
+                ?>
             </div>
         </div>
     </main>
+    <style>
+        .btn-hide{
+            visibility: hidden;
+        }
+    </style>
 
     <?php
     require "../html/footer.html";

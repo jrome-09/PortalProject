@@ -55,3 +55,8 @@ function cloneFilter() {
 function setFilter() {
     document.getElementById('filter-list-card').classList.toggle('active');
 }
+
+function toggleAlumniDetails(){
+    document.getElementById('preview-modal').classList.toggle('active');
+    document.getElementById('blur').classList.toggle('active');
+}
