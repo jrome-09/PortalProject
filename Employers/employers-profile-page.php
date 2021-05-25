@@ -105,6 +105,7 @@ require "../html/head.html";
     <script>
         loadPage();
         feather.replace();
+        document.getElementById('employer-prof-link').classList.toggle('active');
     </script>
 </body>
 

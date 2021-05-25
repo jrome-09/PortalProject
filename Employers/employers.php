@@ -39,6 +39,7 @@ require "style-link.html";
         <script>
             loadPage();
             feather.replace();
+
         </script>
     </div>
 </body>

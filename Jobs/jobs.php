@@ -112,6 +112,7 @@ require "../html/head.html";
     <script>
         loadPage();
         feather.replace();
+        document.getElementById('jobs-link').classList.toggle('active');
     </script>
 </body>
 

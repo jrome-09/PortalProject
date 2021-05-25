@@ -124,6 +124,7 @@ require "../html/head.html";
     <script>
         loadPage();
         feather.replace();
+        document.getElementById('mypage-link').classList.toggle('active');
     </script>
 </body>
 

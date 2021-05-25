@@ -69,8 +69,8 @@ require "../html/head.html";
 							</div>
 						</div>
 						<div class="bg-white p-4">
-							<div class="row" id="alumni-row-container">
-								<div class="col-md-3 pb-3" id="alumni-col">
+							<div class="row justify-content-center" id="alumni-row-container">
+								<div class="col-sm-3 pb-3" id="alumni-col">
 									<div class="border p-4 bg-white rounded fontsize-14 color-black text-center alumni-card">
 										<div class="hw-100px mb-2 bg-light border  mx-auto rounded"></div>
 										<p class="font-500 mb-1">Jerome Cabrera</p>
@@ -101,6 +101,9 @@ require "../html/head.html";
 							<style>
 								.alumni-card {
 									border-top: 4px solid #0d6efd !important;
+								}
+								#alumni-col{
+									min-width: 260px;
 								}
 							</style>
 							<script>
@@ -179,6 +182,7 @@ require "../html/head.html";
 	<script>
 		loadPage();
 		feather.replace();
+		document.getElementById('alumni-link').classList.toggle('active');
 	</script>
 </body>
 

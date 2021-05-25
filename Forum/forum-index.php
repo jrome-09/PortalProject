@@ -33,6 +33,7 @@ require "../html/head.html";
     <script>
         loadPage();
         feather.replace();
+        document.getElementById('forum-link').classList.toggle('active');
     </script>
 </body>
 

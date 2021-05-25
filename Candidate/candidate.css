@@ -43,3 +43,82 @@ div.jobs{
     margin-right: calc(var(--bs-gutter-x)/ -5);
     margin-left: calc(var(--bs-gutter-x)/ -5);
 }
+
+
+
+
+@media screen and (max-width: 1096px) {
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        border-bottom: 1px solid #dee2e6;
+        border-top: 1px solid #dee2e6
+    }
+
+    header nav{
+        display: block !important;
+    }
+
+    header nav ul li,
+    #left button {
+        margin-bottom: 30px;
+    }
+
+    #mobile--nav {
+        flex-direction: column;
+        justify-content: start !important;
+        position: absolute;
+        top: 74px;
+        left: -100%;
+        padding: 50px;
+        padding-top: 20px;
+        height: 100vh;
+        background-color: #f8f9fa;
+        transition: 0.8s;
+        z-index: 50;
+    }
+
+    #mobile--nav.active{
+        left: 0;
+        transition: 0.84s;
+    }
+
+    #left {
+        margin-top: 50px;
+        margin-left: 0 !important;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #bars {
+        display: block !important;
+    }
+
+    #nav-outer-container {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+}
+
+header nav{
+    display: flex;
+    align-items: center;
+}
+
+#bars {
+    display: none;
+
+}
+
+#mobile--nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

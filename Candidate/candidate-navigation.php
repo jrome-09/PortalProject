@@ -1,80 +1,3 @@
-<style>
-	@media screen and (max-width: 1096px) {
-		header nav ul {
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			margin: 0;
-			padding: 0;
-			padding-top: 50px;
-			padding-bottom: 50px;
-			border-bottom: 1px solid #dee2e6;
-			border-top: 1px solid #dee2e6
-		}
-
-		header nav{
-			display: block !important;
-		}
-
-		header nav ul li,
-		#left button {
-			margin-bottom: 30px;
-		}
-
-		#mobile--nav {
-			flex-direction: column;
-			justify-content: start !important;
-			position: absolute;
-			top: 74px;
-			left: -100%;
-			padding: 50px;
-			padding-top: 20px;
-			height: 100vh;
-			background-color: #f8f9fa;
-			transition: 0.8s;
-			z-index: 50;
-		}
-
-		#mobile--nav.active{
-			left: 0;
-			transition: 0.84s;
-		}
-
-		#left {
-			margin-top: 50px;
-			margin-left: 0 !important;
-			text-align: center;
-			display: flex;
-			flex-direction: column;
-		}
-
-		#bars {
-			display: block !important;
-		}
-
-		#nav-outer-container {
-			width: 100%;
-			justify-content: space-between;
-		}
-
-	}
-
-	header nav{
-		display: flex;
-		align-items: center;
-	}
-
-	#bars {
-		display: none;
-
-	}
-
-	#mobile--nav {
-		display: flex;
-		justify-content: space-between;
-		width: 100%;
-	}
-</style>
 
 <header id="candidate-navbar" class="bg-white">
 	<div class="max-width-container py-1">
@@ -89,19 +12,19 @@
 				<nav class="mx-2">
 					<ul class="m-0">
 						<li class="d-inline-block">
-							<a href="../Candidate/candidate.php" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">MyPage</a>
+							<a href="../Candidate/candidate.php" id="mypage-link" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">MyPage</a>
 						</li>
 						<li class="d-inline-block">
-							<a href="../Jobs/jobs.php" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Search Jobs</a>
+							<a href="../Jobs/jobs.php" id="jobs-link" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Search Jobs</a>
 						</li>
 						<li class="d-inline-block">
-							<a href="../Employers/employers-profile-page.php" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Employer Profiles</a>
+							<a href="../Employers/employers-profile-page.php" id="employer-prof-link" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Employer Profiles</a>
 						</li>
 						<li class="d-inline-block">
-							<a href="../Alumni/alumni-index.php" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">CCIT Alumni</a>
+							<a href="../Alumni/alumni-index.php" id="alumni-link" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">CCIT Alumni</a>
 						</li>
 						<li class="d-inline-block">
-							<a href="../Forum/forum-index.php" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Forum</a>
+							<a href="../Forum/forum-index.php" id="forum-link" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Forum</a>
 						</li>
 					</ul>
 				</nav>
@@ -122,6 +45,13 @@
 				<span data-feather="align-justify" onclick="toggle_nav()" id="bars" style="height: 32px; width: 32px;" class="hover-text-primary"></span>
 			</div>
 		</div>
+		<style>
+			#mobile--nav nav ul li a.active{
+				border-bottom: 2px solid #0d6efd;
+				color: #0d6efd !important;
+				padding-bottom: 0.5rem;
+			}
+		</style>
 		<script>
 			function toggle_nav(){
 				const id = document.getElementById('mobile--nav');
