@@ -183,6 +183,7 @@ require "../html/head.html";
 		loadPage();
 		feather.replace();
 		document.getElementById('alumni-link').classList.toggle('active');
+		document.title = "CCIT | Alumni Page"
 	</script>
 </body>
 

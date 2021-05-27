@@ -7,7 +7,7 @@
 			<span class="font-super--small color-light border-bottom"> Last Updated: 00-00-21</span>
 		</div>
 		<div class="image-container hw-100px border bg-light mx-auto rounded"></div>
-		<div class="text-center color-black fomtsize-14 border-bottom mb-3">
+		<div class="text-center color-black fontsize-14 border-bottom mb-3">
 			<p class="mb-1 font-500">Jerome Cabrera</p>
 			<p class="font-super--small color-light">BS Information Technology</p>
 		</div>
@@ -115,7 +115,7 @@
 		<div class="border-bottom text-start color-black fontsize-14 mb-4">
 			<div class="d-flex mb-3 align-items-center color-black">
 				<span data-feather="briefcase" class="me-2"></span>
-				<h6 class="font-500 mb-0">Employement</h6>
+				<h6 class="font-500 mb-0">Employment</h6>
 			</div>
 			<div class="row mb-2">
 				<div class="col-lg-2">

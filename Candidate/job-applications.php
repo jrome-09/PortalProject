@@ -9,6 +9,10 @@ require "../html/head.html";
 		</div>
 	</div>
 	<link rel="stylesheet" href="candidate.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/animations.css">
+	<link rel="stylesheet" href="../css/global.css">
 	<?php
 	require "../html/script.html";
 	require "candidate-navigation.php"
@@ -17,20 +21,20 @@ require "../html/head.html";
 		<div class="background-thicker-light">
 			<div class="max-width-container pb-3 mt-3">
 				<form action="#" class="mt-4">
-					<div class="d-flex align-items-center">
-						<div class="input-group flex-nowrap me-1">
+					<div class="d-flex align-items-center search-box-container">
+						<div class="input-group flex-nowrap me-1 mb-2">
 							<div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
 								<span data-feather="search" class="color-black"></span>
 							</div>
 							<input type="text" class="form-control border-start-0 fontsize-14" placeholder="Job Title...">
 						</div>
-						<div class="input-group flex-nowrap me-1">
+						<div class="input-group flex-nowrap me-1 mb-2">
 							<div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
 								<span data-feather="map-pin" class="color-black"></span>
 							</div>
 							<input type="text" class="form-control fontsize-14 border-start-0" placeholder="Area/City or Town">
 						</div>
-						<div class="input-group">
+						<div class="input-group mb-2">
 							<div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
 								<span data-feather="user" class="color-black"></span>
 							</div>
@@ -108,6 +112,7 @@ require "../html/head.html";
 	<script>
 		loadPage();
 		feather.replace();
+		document.title = "Candidate | Job Applications";
 	</script>
 </body>
 

@@ -40,7 +40,8 @@ require "../html/head.html";
     <script src="../javascript/onclick.js"></script>
     <script>
         loadPage();
-        feather.replace();
+        feather.replace(); 
+        document.title = "CCIT | Alumni Details"
     </script>
 </body>
 

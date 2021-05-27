@@ -10,12 +10,12 @@ require "html/head.html";
    </div>
    <?php
    require "html/script.html";
-   require "navigation.php";
+   require "includes/nav.inc.php";
    ?>
    <main>
       <div id="first-container" class="bg-light">
-         <div class="max-width-container">
-            <div class="row">
+         <div class="max-width-container" style="margin-top: 74px;">
+            <!-- <div class="row">
                <div class="col-md-7" id="index-text">
                   <h1 class="mt-5 color-white"><strong>College of<br>Communication and<br>Information Technology</strong></h1>
                   <small class="color-white">
@@ -49,111 +49,159 @@ require "html/head.html";
                   </div>
 
                </div>
+            </div> -->
+            <div class="text-center m-auto color-black" style="max-width: 700px;">
+               <h1>College of Communication and Information Technology</h1>
+               <p class="color-black fontsize-13">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat nemo distinctio iure facilis ex illum quibusdam doloribus exercitationem similique quis beatae, odio dolorum quod alias aliquid officia eaque. Adipisci, facere.</p>
+            </div>
+            <div class=" color-black font-super--small text-center mb-2" id="featured-jobs">
+               <a href="#" class="btn font-small p-1 m-1 shadow-sm">Web Developer</a>
+               <a href="#" class="btn font-small p-1 m-1 shadow-sm">Web Designer</a>
+               <a href="#" class="btn font-small p-1 m-1 shadow-sm">IOS Developer</a>
+               <a href="#" class="btn font-small p-1 m-1 shadow-sm">Android Designer</a>
+            </div>
+            <div class="search-container fontsize-14 m-auto" style="max-width: 900px;">
+               <form action="#">
+                  <div class="d-flex align-items-center search-box-container">
+                     <div class="input-group flex-nowrap me-1 mb-2">
+                        <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
+                           <span data-feather="search" class="color-black"></span>
+                        </div>
+                        <input type="text" class="form-control border-start-0 fontsize-14" placeholder="Job Title...">
+                     </div>
+                     <div class="input-group flex-nowrap me-1 mb-2">
+                        <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
+                           <span data-feather="map-pin" class="color-black"></span>
+                        </div>
+                        <input type="text" class="form-control fontsize-14 border-start-0" placeholder="Area/City or Town">
+                     </div>
+                     <div class="">
+
+                     </div>
+                     <div class="input-group mb-2 sp-group">
+                        <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
+                           <span data-feather="user" class="color-black"></span>
+                        </div>
+                        <select name="" id="searchSelect" class="form-select color-light border-start-0 fontsize-14">
+                           <option selected>Specialization</option>
+                           <option value="1">One</option>
+                           <option value="2">Two</option>
+                           <option value="3">Three</option>
+                        </select>
+                        <button class="btn btn-primary fontsize-14" type="button" style="z-index: 0;">
+                           <span data-feather="search" class="text-white me-1" style="height: 18px; width: 18px; margin-bottom: .04rem;"></span>
+                           Search
+                        </button>
+                     </div>
+                  </div>
+               </form>
             </div>
          </div>
       </div>
       <div id="second-container" class="bg-light">
          <div class="max-width-container">
             <h4 class="color-black text-center mt-5"><strong>What we can do</strong></h4>
-            <p class="text-center mb-2 color-light">Lorem, ipsum dolor sit amet consectetur adipisicing</p>
-            <div class="row p-3">
-               <div class="col-lg-3 border column-container p-4">
-                  <a href="#" class="no-text-decor column-container-a">
-                     <div class="d-flex justify-content-center">
-                        <div class="image-container round bg-primary">
-                           <span class="color-white" data-feather="compass"></span>
+            <p class="text-center mb-2 color-light fontsize-14">Lorem, ipsum dolor sit amet consectetur adipisicing</p>
+            <div class="row p-3 justify-content-center">
+               <div class="col-md-3 con-us">
+                  <div class=" border column-container mb-2 p-4 rounded">
+                     <a href="#">
+                        <div class="d-flex justify-content-center">
+                           <div class="image-container round bg-primary">
+                              <span class="color-white" data-feather="compass"></span>
+                           </div>
                         </div>
-                     </div>
+                     </a>
                      <div class="text-center">
-                        <small>
-                           <h5 class="color-black font-600 mt-2"><small>View Alumni</small></h5>
-                           <p class="mt-3 color-light"><small>(0000 Alumni)</small></p>
-                        </small>
+                        <h6 class="color-black font-600 mt-2"><a href="#"> View Alumni</a></h6>
+                        <p class="mt-0 color-light fontsize-13">(0000 Alumni)</p>
                      </div>
-                  </a>
+                  </div>
                </div>
-               <div class="col-lg-3 border column-container p-4">
-                  <a href="#" class="no-text-decor column-container-a">
-                     <div class="d-flex justify-content-center">
-                        <div class="image-container round" style="background-color: #26ae61;">
-                           <span class="color-white" data-feather="search"></span>
+               <div class="col-md-3 con-us">
+                  <div class=" border column-container mb-2 p-4 rounded">
+                     <a href="#">
+                        <div class="d-flex justify-content-center">
+                           <div class="image-container round" style="background-color: #26ae61;">
+                              <span class="color-white" data-feather="search"></span>
+                           </div>
                         </div>
-                     </div>
+                     </a>
                      <div class="text-center">
-                        <small>
-                           <h5 class="color-black font-600 mt-2"><small>Find a Job</small></h5>
-                           <p class="mt-3 color-light"><small>(0000 Jobs)</small></p>
-                        </small>
+                        <h6 class="color-black font-600 mt-2"><a href="#">Find a Job</a></h6>
+                        <p class="mt-0 color-light fontsize-13">(0000 Jobs)</p>
                      </div>
-                  </a>
+                  </div>
                </div>
-               <div class="col-lg-3 border column-container p-4">
-                  <a href="#" class="no-text-decor column-container-a">
-                     <div class="d-flex justify-content-center">
-                        <div class="image-container round" style="background-color: #ff8000;">
-                           <span class="color-white" data-feather="check-circle"></span>
+               <div class="col-md-3 con-us">
+                  <div class=" border column-container mb-2 p-4 rounded">
+                     <a href="#">
+                        <div class="d-flex justify-content-center">
+                           <div class="image-container round" style="background-color: #ff8000;">
+                              <span class="color-white" data-feather="check-circle"></span>
+                           </div>
                         </div>
-                     </div>
+                     </a>
                      <div class="text-center">
-                        <small>
-                           <h5 class="color-black font-600 mt-2"><small>Legit Employer</small></h5>
-                           <p class="mt-3 color-light"><small>(0000 Employers)</small></p>
-                        </small>
+                        <h6 class="color-black font-600 mt-2"><a href="#"> Legit Employer</a></h6>
+                        <p class="mt-0 color-light fontsize-13">(0000 Employers)</p>
                      </div>
-                  </a>
+                  </div>
                </div>
-               <div class="col-lg-3 border column-container p-4">
-                  <a href="#" class="no-text-decor column-container-a">
-                     <div class="d-flex justify-content-center">
-                        <div class="image-container round" style="background-color:#fbc1f0;">
-                           <span class="color-white" data-feather="calendar"></span>
+               <div class="col-md-3 con-us">
+                  <div class=" border column-container mb-2 p-4 rounded">
+                     <a href="#">
+                        <div class="d-flex justify-content-center">
+                           <div class="image-container round" style="background-color:#fbc1f0;">
+                              <span class="color-white" data-feather="calendar"></span>
+                           </div>
                         </div>
-                     </div>
+                     </a>
                      <div class="text-center">
-                        <small>
-                           <h5 class="color-black font-600 mt-2"><small>College Activities</small></h5>
-                           <p class="mt-3 color-light"><small>(0000 Activities)</small></p>
-                        </small>
+                        <h6 class="color-black font-600 mt-2"><a href="#">College Activities</a></h6>
+                        <p class="mt-3 color-light fontsize-13">(0000 Activities)</p>
+
                      </div>
-                  </a>
+                  </div>
                </div>
-               <div class="col-lg-3 border column-container p-4">
-                  <a href="#" class="no-text-decor column-container-a">
-                     <div class="d-flex justify-content-center">
-                        <div class="image-container round" style="background-color: #40e0d0;">
-                           <span class="color-white" data-feather="book-open"></span>
+               <div class="col-md-3 con-us">
+                  <div class=" border column-container mb-2 p-4 rounded">
+                     <a href="#">
+                        <div class="d-flex justify-content-center">
+                           <div class="image-container round" style="background-color: #40e0d0;">
+                              <span class="color-white" data-feather="book-open"></span>
+                           </div>
                         </div>
-                     </div>
+                     </a>
                      <div class="text-center">
-                        <small>
-                           <h5 class="color-black font-600 mt-2"><small>Forum</small></h5>
-                           <p class="mt-3 color-light"><small>(0000 Post)</small></p>
-                        </small>
+                        <h6 class="color-black font-600 mt-2"><a href="#">Forum</a></h6>
+                        <p class="mt-0 color-light fontsize-13">(0000 Post)</p>
+
                      </div>
-                  </a>
+                  </div>
                </div>
-               <div class="col-lg-3 border column-container p-4">
-                  <a href="#" class="no-text-decor column-container-a">
-                     <div class="d-flex justify-content-center">
-                        <div class="image-container round" style="background-color:#1d64b4;">
-                           <span class="color-white" data-feather="clipboard"></span>
+               <div class="col-md-3 con-us">
+                  <div class=" border column-container mb-2 p-4 rounded">
+                     <a href="#">
+                        <div class="d-flex justify-content-center">
+                           <div class="image-container round" style="background-color:#1d64b4;">
+                              <span class="color-white" data-feather="clipboard"></span>
+                           </div>
                         </div>
-                     </div>
+                     </a>
                      <div class="text-center">
-                        <small>
-                           <h5 class="color-black font-600 mt-2"><small>Post a Job</small></h5>
-                           <p class="mt-3 color-light"><small>(0000 Post)</small></p>
-                        </small>
+                        <h6 class="color-black font-600 mt-2"><a href="#"> Post a Job</a></h6>
+                        <p class="mt-0 color-light fontsize-13">(0000 Post)</p>
                      </div>
-                  </a>
+                  </div>
                </div>
             </div>
          </div>
       </div>
       <div id="third-container" class="bg-white">
-         <div class="max-width-container">
+         <!-- <div class="max-width-container">
             <h4 class="color-black text-center mt-2"><strong>Featured Jobs</strong></h4>
-            <p class="text-center mb-2 color-light">Lorem, ipsum dolor sit amet consectetur adipisicing</p>
+            <p class="text-center mb-2 color-light fontsize-14">Lorem, ipsum dolor sit amet consectetur adipisicing</p>
             <div class="row">
                <div class="col-lg-4">
                   <div class="card shadow-sm p-4 d-flex flex-row">
@@ -257,44 +305,199 @@ require "html/head.html";
                   </div>
                </div>
             </div>
+         </div> -->
+         <div class="max-width-container">
+            <h4 class="color-black text-center mt-2"><strong>New Posted Jobs</strong></h4>
+            <p class="text-center mb-2 color-light fontsize-14">Lorem, ipsum dolor sit amet consectetur adipisicing</p>
+            <div class="border rounded p-4 mb-2">
+               <div class="row" id="application-row-container">
+                  <div class="col-lg-4 pb-4" id="multiply-application">
+                     <a href="Jobs/job-details.php" class="no-text-decor">
+                        <div class="rounded p-4 bg-white shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
+                           <div class="image-container d-inline-block border rounded mb-2 background-thicker-light" style="height: 60px; width: 60px;"></div>
+                           <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
+                           <h6 class="mb-0 color-black">Software Developer</h6>
+                           <p class="fontsize-13 color-black mb-3">Company Name</p>
+                           <p class="fontsize-13 color-black m-0">Vigan City Ilocos Sur</p>
+                           <p class="fontsize-13 color-black mb-3 font-500">PHP 20-30k Monthly</p>
+                           <ul class="mb-2">
+                              <li class="fontsize-13 color-black bullets">Front End Development</li>
+                              <li class="fontsize-13 color-black bullets">Back End Development</li>
+                           </ul>
+                           <p class="fontsize-13 color-light mb-0">Type: Full Time</p>
+                           <div class="position-absolute date-posted">
+                              <p class="font-super--small color-light m-0 text-end">Date Posted: 0/0/2021</p>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </div>
+            <script>
+               for (i = 0; i < 5; i++) {
+                  const Mydiv = document.getElementById("multiply-application");
+                  var divclone = Mydiv.cloneNode(true);
+                  var parentcon = document.getElementById("application-row-container");
+                  parentcon.appendChild(divclone);
+               }
+            </script>
+            <div class="d-flex justify-content-end">
+               <nav aria-label="...">
+                  <ul class="pagination">
+                     <li class="page-item disabled">
+                        <a class="page-link fontsize-14" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                     </li>
+                     <li class="page-item active"><a class="page-link fontsize-14" href="#">1</a></li>
+                     <li class="page-item" aria-current="page">
+                        <a class="page-link fontsize-14" href="#">2</a>
+                     </li>
+                     <li class="page-item fontsize-14"><a class="page-link" href="#">3</a></li>
+                     <li class="page-item fontsize-14">
+                        <a class="page-link fontsize-14" href="#">Next</a>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
          </div>
       </div>
       <div id="fourth-container">
          <div class="max-width-container">
-            <h5 class="color-black text-center mb-5">
-               <strong>Successful Graduates</strong>
-            </h5>
-            <div class="row justify-content-center">
+            <h4 class="color-black text-center mb-5">
+               <strong>Successful Graduates of CCIT</strong>
+            </h4>
+            <div class="row justify-content-center mb-5">
                <div class="col-md-6 d-flex align-items-center justify-content-center">
                   <div class="image-container">
 
                   </div>
                </div>
                <div class="col-md-6 p-5 color-black">
-                  <h6 class="color-black">Lorem ipsum dolor sit amet.</h6>
-                  <small>
-                     <p class="color-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut illum dolor
-                        quibusdam, sint nulla
-                        adipisci beatae dicta vitae voluptate, quasi architecto nam quidem ea pariatur, perspiciatis
-                        magnam in? Necessitatibus, ducimus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-                        illum dolor quibusdam, sint nulla
-                        adipisci beatae dicta vitae voluptate, quasi architecto nam quidem ea pariatur, perspiciatis
-                        magnam in? Necessitatibus, ducimus.
-                     </p>
-                  </small>
+                  <p class="mb-1 font-500">Jerome Cabrera</p>
+                  <div class="border-bottom text-start color-black fontsize-14 mb-4">
+                     <div class="d-flex mb-3 align-items-center color-black">
+                        <span data-feather="users" class="me-2"></span>
+                        <h6 class="font-500 mb-0">Education</h6>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">University:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">University of Northern Philippines</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">College:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">College of Communication and Information Technology</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Course:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">BS Information Technology</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="border-bottom text-start color-black fontsize-14 mb-4">
+                     <div class="d-flex mb-3 align-items-center color-black">
+                        <span data-feather="briefcase" class="me-2"></span>
+                        <h6 class="font-500 mb-0">Employment</h6>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Status:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">Student</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Company:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">N/A</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Position:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">N/A</p>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" type="button" class="btn btn-primary fontsize-14 font-500">View Full Details</a>
                </div>
                <div class="col-md-6 p-5 color-black">
-                  <h6 class="color-black">Lorem ipsum dolor sit amet.</h6>
-                  <small>
-                     <p class="color-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut illum dolor
-                        quibusdam, sint nulla
-                        adipisci beatae dicta vitae voluptate, quasi architecto nam quidem ea pariatur, perspiciatis
-                        magnam in? Necessitatibus, ducimus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-                        illum dolor quibusdam, sint nulla
-                        adipisci beatae dicta vitae voluptate, quasi architecto nam quidem ea pariatur, perspiciatis
-                        magnam in? Necessitatibus, ducimus.
-                     </p>
-                  </small>
+                  <p class="mb-1 font-500">Jigs Cxyrel Crisologo</p>
+                  <div class="border-bottom text-start color-black fontsize-14 mb-4">
+                     <div class="d-flex mb-3 align-items-center color-black">
+                        <span data-feather="users" class="me-2"></span>
+                        <h6 class="font-500 mb-0">Education</h6>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">University:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">University of Northern Philippines</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">College:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">College of Communication and Information Technology</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Course:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">BS Information Technology</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="border-bottom text-start color-black fontsize-14 mb-4">
+                     <div class="d-flex mb-3 align-items-center color-black">
+                        <span data-feather="briefcase" class="me-2"></span>
+                        <h6 class="font-500 mb-0">Employment</h6>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Status:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">Student</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Company:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">N/A</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Position:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">N/A</p>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" type="button" class="btn btn-primary fontsize-14 font-500">View Full Details</a>
                </div>
                <div class="col-md-6 d-flex align-items-center justify-content-center">
                   <div class="image-container">
@@ -307,54 +510,168 @@ require "html/head.html";
                   </div>
                </div>
                <div class="col-md-6 p-5">
-                  <h6 class="color-black">Lorem ipsum dolor sit amet.</h6>
-                  <small>
-                     <p class="color-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut illum dolor
-                        quibusdam, sint nulla
-                        adipisci beatae dicta vitae voluptate, quasi architecto nam quidem ea pariatur, perspiciatis
-                        magnam in? Necessitatibus, ducimus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-                        illum dolor quibusdam, sint nulla
-                        adipisci beatae dicta vitae voluptate, quasi architecto nam quidem ea pariatur, perspiciatis
-                        magnam in? Necessitatibus, ducimus.
-                     </p>
-                  </small>
+                  <p class="mb-1 font-500">Kathleen Joy Bernal</p>
+                  <div class="border-bottom text-start color-black fontsize-14 mb-4">
+                     <div class="d-flex mb-3 align-items-center color-black">
+                        <span data-feather="users" class="me-2"></span>
+                        <h6 class="font-500 mb-0">Education</h6>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">University:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">University of Northern Philippines</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">College:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">College of Communication and Information Technology</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Course:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">BS Information Technology</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="border-bottom text-start color-black fontsize-14 mb-4">
+                     <div class="d-flex mb-3 align-items-center color-black">
+                        <span data-feather="briefcase" class="me-2"></span>
+                        <h6 class="font-500 mb-0">Employment</h6>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Status:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">Student</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Company:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">N/A</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Position:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">N/A</p>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" type="button" class="btn btn-primary fontsize-14 font-500">View Full Details</a>
+               </div>
+               <div class="col-md-6 p-5">
+                  <p class="mb-1 font-500">Mhark Alfred Diaz</p>
+                  <div class="border-bottom text-start color-black fontsize-14 mb-4">
+                     <div class="d-flex mb-3 align-items-center color-black">
+                        <span data-feather="users" class="me-2"></span>
+                        <h6 class="font-500 mb-0">Education</h6>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">University:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">University of Northern Philippines</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">College:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">College of Communication and Information Technology</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Course:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">BS Information Technology</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="border-bottom text-start color-black fontsize-14 mb-4">
+                     <div class="d-flex mb-3 align-items-center color-black">
+                        <span data-feather="briefcase" class="me-2"></span>
+                        <h6 class="font-500 mb-0">Employment</h6>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Status:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">Student</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Company:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">N/A</p>
+                        </div>
+                     </div>
+                     <div class="row mb-2">
+                        <div class="col-lg-2">
+                           <p class="color-light fontsize-13 mb-0">Position:</p>
+                        </div>
+                        <div class="col-lg-10">
+                           <p class="color-black fontsize-14 mb-0">N/A</p>
+                        </div>
+                     </div>
+                  </div>
+                  <a href="#" type="button" class="btn btn-primary fontsize-14 font-500">View Full Details</a>
+               </div>
+               <div class="col-md-6 d-flex align-items-center justify-content-center">
+                  <div class="image-container">
+
+                  </div>
                </div>
             </div>
-            <div class="mt-5 text-center">
-               <a href="#" class="btn btn-primary">View More</a>
+            <div class="mt-5 text-center pt-5">
+               <a href="#" class="btn btn-primary fontsize-14 font-500">View More</a>
             </div>
          </div>
       </div>
       <div id="fifth-container" class="background-blue">
          <div class="max-width-container">
-            <h4 class="color-white text-center"><strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
-                  Deleniti harum beatae mollitia? Odit </strong></h4>
-            <button type="button" class="btn btn-light px-5 py-2 font-500 d-block m-auto mt-4 color-black" id="l-more-btn">
-               <small>Meet our Team</small>
+            <h5 class="color-white text-center"><strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+                  Deleniti harum beatae mollitia? Odit </strong></h5>
+            <button type="button" class="btn btn-light px-5 py-2 fontsize-14 font-500 d-block m-auto mt-4 color-black" id="l-more-btn">
+               Meet our Team
             </button>
          </div>
       </div>
-      <div class="alert alert-light border alert-dismissible fade show d-inline-block shadow" role="alert" id="index-alert">
-         <small>
-            <a href="#" class="no-text-decor color-black"><strong>Welcome!</strong> Need Any Help?</a>
-            <a type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></a>
-         </small>
+      <div class="alert alert-light border alert-dismissible fade show d-inline-block shadow" role="alert" id="index-alert" style="z-index:20;">
+         <a href="#" class="no-text-decor color-black fontsize-13"><strong>Welcome!</strong> Need Any Help?</a>
+         <a type="button" class="btn-close" data-bs-dismiss="alert" a Fria-label="Close"></a>
       </div>
    </main>
    <?php
    require "html/footer.html";
    ?>
-   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
    <script src="javascript/functions.js"></script>
    <script src="javascript/scroll.js"></script>
    <script>
       loadPage();
       feather.replace();
-      const nav_id = document.getElementById('nav-head');
-      const home_id = document.getElementById('home');
-      nav_id.classList.add("background-blue");
-      home_id.classList.add("opened");
+      document.getElementById('index-link').classList.toggle('active');
+      document.title = "CCIT Alumni Tracing and Job Portal"
    </script>
 </body>
 

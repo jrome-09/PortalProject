@@ -17,7 +17,7 @@
     margin-right: 2px;
 }
 
-header{
+/* header{
     position: fixed;
     top: 0;
     z-index: 100;
@@ -57,7 +57,7 @@ nav ul li a, #signup-btn, #login-btn {
 
 .sticky #employers-btn:hover, .background-thicker-light #employers-btn:hover, #emp-register{
     color: #fff !important;
-}
+} */
 
 #index-text h1{
     font-size: 3.4rem;
@@ -102,7 +102,7 @@ nav ul li a, #signup-btn, #login-btn {
     letter-spacing: 0.18em;
 }
 
-#sign-up-btn, #index-alert a, #footer-nav nav ul li a{
+/* #sign-up-btn, #index-alert a, #footer-nav nav ul li a{
     font-weight: 500;
     color: #363d47;
 }
@@ -138,7 +138,7 @@ nav ul li a, #signup-btn, #login-btn {
     background-color: #fff;
     opacity: 20%;
     right: 0;
-}
+} */
 
 #media .feather{
     height: 20px;
@@ -203,14 +203,19 @@ nav ul li a, #signup-btn, #login-btn {
 }
 
 #featured-jobs a:hover{
-    background: #0d6dfd5b;
-    border: #0d6dfd5b;
+    background: #0d6efd;
+    border: #0d6efd;
+    color:#fff;
 }
 
 .column-container{
     width: auto;
-    height: 200px;
+    height: 174px;
     background-color: #fff;
+}
+
+.con-us{
+    min-width: 260px;
 }
 
 .column-container-a h5:hover{
@@ -218,17 +223,18 @@ nav ul li a, #signup-btn, #login-btn {
 }
 
 .column-container .feather{
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
 }
 
 .column-container:hover{
     background-color: #f8f9fa;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
 }
 
 .column-container .round{
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
     margin-bottom: 4px;
 }
 
@@ -264,8 +270,8 @@ nav ul li a, #signup-btn, #login-btn {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     /* font-size: 14px !important; */
 }
 
@@ -287,8 +293,8 @@ nav ul li a, #signup-btn, #login-btn {
 
 .carousel-container{
     position: relative;
-    width: 32rem;
-    height: 20rem;
+    width: auto;
+    min-height: 20rem;
     margin: auto;
 }
 
@@ -345,5 +351,29 @@ form label.required:after {
     border-color: #0a53be !important;
 }
 
+.jobs.bt-visible-primary-4 {
+    border-left: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
 
+.date-posted {
+    bottom: 1.5rem;
+    right: 1.5rem;
+}
+
+@media screen and (max-width: 960px) {
+    .search-box-container {
+        flex-direction: column;
+    }
+
+    .sp-group{
+        margin-left: -.25rem;
+    }
+
+    #second-container, #third-container{
+        padding-left: 0; 
+        padding-right: 0;
+    }
+}
 

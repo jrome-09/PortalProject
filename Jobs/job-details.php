@@ -9,6 +9,10 @@ require "../html/head.html";
 		</div>
 	</div>
 	<link rel="stylesheet" href="../Candidate/candidate.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/animations.css">
+	<link rel="stylesheet" href="../css/global.css">
 	<?php
 	require "../html/script.html";
 	require "../Candidate/candidate-navigation.php"
@@ -94,6 +98,7 @@ require "../html/head.html";
 	<script>
 		loadPage();
 		feather.replace();
+		document.title = "CCIT | Job Details";
 	</script>
 </body>
 

@@ -19,22 +19,22 @@ require "../html/head.html";
         <div class="background-thicker-light pt-5">
             <br>
             <div class="max-width-container">
-                <h3 class="mt-5 mb-4">Search for your Dream Job</h3>
+                <h4 class="mt-5 mb-4">Search for your Dream Job</h4>
                 <form action="#">
-                    <div class="d-flex align-items-center">
-                        <div class="input-group flex-nowrap me-1">
+                    <div class="d-flex align-items-center search-box-container">
+                        <div class="input-group flex-nowrap me-1 mb-2">
                             <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
                                 <span data-feather="search" class="color-black"></span>
                             </div>
                             <input type="text" class="form-control border-start-0 fontsize-14" placeholder="Job Title...">
                         </div>
-                        <div class="input-group flex-nowrap me-1">
+                        <div class="input-group flex-nowrap me-1 mb-2">
                             <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
                                 <span data-feather="map-pin" class="color-black"></span>
                             </div>
                             <input type="text" class="form-control fontsize-14 border-start-0" placeholder="Area/City or Town">
                         </div>
-                        <div class="input-group">
+                        <div class="input-group mb-2">
                             <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
                                 <span data-feather="user" class="color-black"></span>
                             </div>
@@ -50,9 +50,9 @@ require "../html/head.html";
                 </form>
             </div>
         </div>
-        <div class="bg-white">
+        <div class="bg-light">
             <div class="max-width-container">
-                <div class="border p-4 rounded mb-5 border-left-primary-2">
+                <div class="border bg-white p-4 rounded mb-5 border-left-primary-2">
                     <div class="row">
                         <div class="col-md-6">
                             <h5 class="color-black">Welcome Username</h5>
@@ -73,11 +73,11 @@ require "../html/head.html";
                         </div>
                     </div>
                 </div>
-                <div class="border p-4 rounded">
+                <div class="border p-4 rounded bg-white">
                     <h5 class="color-black feather-20"><span data-feather="bookmark"></span> Saved Jobs</h5>
                     <a href="#" class="no-text-decor">
                         <div class="border rounded p-4 d-flex align-items-center mb-2 shadow-sm-hover border-left-hover">
-                            <div class="image-container border round" style="height: 50px; width: 50px;"></div>
+                            <div class="image-container background-thicker-light border round min-50" style="height: 50px; width: 50px;"></div>
                             <div class="ps-2 flex-fill">
                                 <h6 class="m-0 color-black">Software Developer</h6>
                                 <p class="fontsize-13 color-light m-0">Company Name</p>
@@ -87,7 +87,7 @@ require "../html/head.html";
                     </a>
                     <a href="#" class="no-text-decor">
                         <div class="border rounded p-4 d-flex align-items-center mb-2 shadow-sm-hover border-left-hover">
-                            <div class="image-container border round" style="height: 50px; width: 50px;"></div>
+                            <div class="image-container background-thicker-light border round min-50" style="height: 50px; width: 50px;"></div>
                             <div class="ps-2 flex-fill">
                                 <h6 class="m-0 color-black">Front End Developer</h6>
                                 <p class="fontsize-13 color-light m-0">Company Name</p>
@@ -97,7 +97,7 @@ require "../html/head.html";
                     </a>
                     <a href="#" class="no-text-decor">
                         <div class="border rounded p-4 d-flex align-items-center mb-2 shadow-sm-hover border-left-hover">
-                            <div class="image-container border round" style="height: 50px; width: 50px;"></div>
+                            <div class="image-container background-thicker-light border round min-50" style="height: 50px; width: 50px;"></div>
                             <div class="ps-2 flex-fill">
                                 <h6 class="m-0 color-black">Back End Developer</h6>
                                 <p class="fontsize-13 color-light m-0">Company Name</p>
@@ -125,6 +125,7 @@ require "../html/head.html";
         loadPage();
         feather.replace();
         document.getElementById('mypage-link').classList.toggle('active');
+        document.title = "Candidate | Homepage"
     </script>
 </body>
 

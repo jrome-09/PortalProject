@@ -30,7 +30,7 @@
             <div id="forum-header" class="p-4 background-thicker-light">
             </div>
             <div id="forum-content">
-                <div id="thread01" class="border-bottom px-4 py-2 color-black">
+                <div id="thread01" class="border-bottom px-4 py-2 color-black bg-white">
                     <div class="row">
                         <div class="col-sm-9 text-start d-flex align-items-center">
                             <div class="image-container border background-thicker-light rounded-pill" style="height: 40px; min-width: 40px;">

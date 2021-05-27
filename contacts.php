@@ -10,12 +10,12 @@ require "html/head.html";
     </div>
     <?php
     require "html/script.html";
-    require "navigation.php";
+    require "includes/nav.inc.php";
     ?>
     <main>
         <div class="background-thicker-light">
-            <div class="max-width-container d-flex align-items-center justify-content-center" style="height: 250px;">
-                <h3 class="color-black mt-5"><strong>Contact</strong></h3>
+            <div class="max-width-container d-flex align-items-center justify-content-center mt-4" style="height: 250px;">
+                <h3 class="color-black mt-5"><strong>Contacts</strong></h3>
             </div>
         </div>
         <div class="max-width-container">
@@ -25,41 +25,41 @@ require "html/head.html";
                         <h6 class="color-black font-500 mb-4">SEND US A MESSAGE</h6>
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" id="sender--name" class="form-control color-black" placeholder="Your Name">
-                                <label for="Sender--name" class="color-light font-small mb-4">Please enter your name</label>
+                                <input type="text" id="sender--name" class="form-control color-black fontsize-14" placeholder="Your Name">
+                                <label for="Sender--name" class="color-light fontsize-13 mb-4">Please enter your name</label>
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" id="sender--email" class="form-control color-black" placeholder="Your Email">
-                                <label for="Sender--email" class="color-light font-small mb-4">Please enter your email</label>
+                                <input type="text" id="sender--email" class="form-control color-black fontsize-14" placeholder="Your Email">
+                                <label for="Sender--email" class="color-light fontsize-13 mb-4">Please enter your email</label>
                             </div>
                         </div>
-                        <input type="text" id="sender--subject" class="form-control color-black" placeholder="Message Subject">
-                        <label for="sender--subject" class="color-light font-small mb-4">Please the message subject</label>
-                        <textarea class="form-control color-black mb-4" id="sender--message" rows="4" placeholder="Your Message"></textarea>
-                        <button type="button" class="btn btn-primary">SEND MESSAGE</button>
+                        <input type="text" id="sender--subject" class="form-control color-black fontsize-14" placeholder="Message Subject">
+                        <label for="sender--subject" class="color-light fontsize-13 mb-4">Please the message subject</label>
+                        <textarea class="form-control color-black mb-4 fontsize-14" id="sender--message" rows="4" placeholder="Your Message"></textarea>
+                        <button type="button" class="btn btn-primary fontsize-13 font-500">SEND MESSAGE</button>
                     </div>
                     <div class="col-md-6" id="address--section">
                         <h6 class="color-black font-500 mb-4">Contact Address</h6>
-                        <div class="border p-4">
+                        <div class="border p-4 fontsize-13">
                             <div class="d-flex align-items-center pb-5">
                                 <div class="bg-primary image-container round"><span data-feather="map-pin" class="color-white"></span></div>
                                 <div class="ps-2">
-                                    <div class="color-light font-small">College: College of Communication and Information Technology</div>
-                                    <div class="color-light font-small">University Address: </div>
+                                    <div class="color-light">College: College of Communication and Information Technology</div>
+                                    <div class="color-light">University Address: </div>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center pb-5">
                                 <div class="bg-primary image-container round"><span data-feather="mail" class="color-white"></span></div>
                                 <div class="ps-2">
-                                    <div class="color-light font-small">Administrator: admin.ccit@unp.edu.ph</div>
-                                    <div class="color-light font-small">College: ccit@unp.edu.ph</div>
+                                    <div class="color-light">Administrator: admin.ccit@unp.edu.ph</div>
+                                    <div class="color-light">College: ccit@unp.edu.ph</div>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center pb-5">
                                 <div class="bg-primary image-container round"><span data-feather="phone" class="color-white"></span></div>
                                 <div class="ps-2">
-                                    <div class="color-light font-small">Administrator: admin.ccit@unp.edu.ph</div>
-                                    <div class="color-light font-small">College: ccit@unp.edu.ph</div>
+                                    <div class="color-light">Administrator: admin.ccit@unp.edu.ph</div>
+                                    <div class="color-light">College: ccit@unp.edu.ph</div>
                                 </div>
                             </div>
                         </div>
@@ -79,12 +79,9 @@ require "html/head.html";
     <script src="javascript/scroll.js"></script>
     <script>
         loadPage();
-        changeColor();
-        feather.replace()
-        const nav_id = document.getElementById('nav-head');
-        nav_id.classList.add("background-thicker-light");
-        nav_id.classList.remove("background-blue");
-        document.getElementById('contacts').classList.add("opened");
+        feather.replace();
+        document.getElementById('contacts-link').classList.toggle('active');
+        document.title = "CCIT | Contacts"
     </script>
 </body>
 

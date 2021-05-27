@@ -157,6 +157,7 @@ require "../html/head.html";
         loadPage();
         feather.replace();
         document.getElementById('forum-link').classList.toggle('active');
+        document.title = "CCIT | Forum Thread";
     </script>
 </body>
 

@@ -191,6 +191,10 @@ input[type=number] {
     border-top: 4px solid #0d6efd !important;
 }
 
+.z-0{
+    z-index: 0 !important;
+}
+
 @media screen and (max-width: 961px){
     .max-width-container{
         padding-left: 20px;

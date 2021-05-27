@@ -1,4 +1,4 @@
-#candidate-navbar{
+#index-header{
     width: 100%;
     position: fixed;
     top: 0;
@@ -6,58 +6,28 @@
     z-index: 5;
 }
 
-#footer-nav nav ul li a{
-    border-bottom: 2px solid rgba(255, 255, 255, 0);
+#index-header nav{
+    display: flex;
+    align-items: center;
 }
 
-#footer-nav a:hover, #footer-nav a.opened {
-    color: #0d6efd !important;
-    border-color: #0d6efd !important;
+#bars {
+    display: none;
+
 }
 
-.feather-20 .feather{
-    height: 20px;
-    width: 20px;
+#mobile--nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
-
-.bullets{
-    list-style-type: disc;
-}
-
-div.jobs{
-    height: 100%;
-}
-
-.jobs.bt-visible-primary-4{
-    border-left: 1px solid #dee2e6;
-    border-right: 1px solid #dee2e6;
-    border-bottom: 1px solid #dee2e6;
-}
-
-.date-posted{
-    bottom: 1.5rem;
-    right: 1.5rem;
-}
-
-#application-row-container{
-    margin-right: calc(var(--bs-gutter-x)/ -5);
-    margin-left: calc(var(--bs-gutter-x)/ -5);
-}
-
-@media screen and (max-width: 960px) {
-    .search-box-container {
-        flex-direction: column;
-    }
-
-    .min-50{
-        min-width: 50px;
-    }
-}
-
-
-
 
 @media screen and (max-width: 1096px) {
+
+    #index-header .btn-group li{
+        margin-bottom: 0;
+    }
+    
     header nav ul {
         display: flex;
         flex-direction: column;
@@ -75,7 +45,7 @@ div.jobs{
     }
 
     header nav ul li,
-    #left button {
+    #left a {
         margin-bottom: 30px;
     }
 
@@ -115,20 +85,7 @@ div.jobs{
         justify-content: space-between;
     }
 
-}
-
-header nav{
-    display: flex;
-    align-items: center;
-}
-
-#bars {
-    display: none;
-
-}
-
-#mobile--nav {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+    #v-line{
+        display: none !important;
+    }
 }

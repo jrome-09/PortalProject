@@ -9,6 +9,10 @@ require "../html/head.html";
         </div>
     </div>
     <link rel="stylesheet" href="../Candidate/candidate.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/global.css">
     <?php
     require "../html/script.html";
     require "../Candidate/candidate-navigation.php"
@@ -17,22 +21,22 @@ require "../html/head.html";
     <main>
         <div class="background-thicker-light">
             <div class="max-width-container">
-                <h3 class="mt-5 mb-4">Search for your Dream Job</h3>
+                <h4 class="mt-5 mb-4">Search for your Dream Job</h4>
                 <form action="#">
-                    <div class="d-flex align-items-center">
-                        <div class="input-group flex-nowrap me-1">
+                    <div class="d-flex align-items-center search-box-container">
+                        <div class="input-group flex-nowrap me-1 mb-2">
                             <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
                                 <span data-feather="search" class="color-black"></span>
                             </div>
                             <input type="text" class="form-control border-start-0 fontsize-14" placeholder="Job Title...">
                         </div>
-                        <div class="input-group flex-nowrap me-1">
+                        <div class="input-group flex-nowrap me-1 mb-2">
                             <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
                                 <span data-feather="map-pin" class="color-black"></span>
                             </div>
                             <input type="text" class="form-control fontsize-14 border-start-0" placeholder="Area/City or Town">
                         </div>
-                        <div class="input-group">
+                        <div class="input-group mb-2">
                             <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
                                 <span data-feather="user" class="color-black"></span>
                             </div>
@@ -48,13 +52,13 @@ require "../html/head.html";
                 </form>
             </div>
         </div>
-        <div class="bg-white">
+        <div class="bg-light">
             <div class="max-width-container">
-                <h5 class="color-black feather-20 mb-3">Job Offers</h5>
+                <h5 class="color-black feather-20 mb-3 ms-2">Job Offers</h5>
                 <div class="row" id="application-row-container">
                     <div class="col-lg-4 pb-4" id="multiply-application">
                         <a href="job-details.php" class="no-text-decor">
-                            <div class="rounded p-4 shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
+                            <div class="rounded p-4 bg-white shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
                                 <div class="image-container d-inline-block border rounded mb-2 background-thicker-light" style="height: 60px; width: 60px;"></div>
                                 <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
                                 <h6 class="mb-0 color-black">Software Developer</h6>
@@ -75,13 +79,13 @@ require "../html/head.html";
                 </div>
                 <script>
                     for (i = 0; i < 8; i++) {
-						const Mydiv = document.getElementById("multiply-application");
-						var divclone = Mydiv.cloneNode(true);
-						var parentcon = document.getElementById("application-row-container");
-						parentcon.appendChild(divclone);
-					}
+                        const Mydiv = document.getElementById("multiply-application");
+                        var divclone = Mydiv.cloneNode(true);
+                        var parentcon = document.getElementById("application-row-container");
+                        parentcon.appendChild(divclone);
+                    }
                 </script>
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-end me-1">
                     <nav aria-label="...">
                         <ul class="pagination">
                             <li class="page-item disabled">
@@ -113,6 +117,7 @@ require "../html/head.html";
         loadPage();
         feather.replace();
         document.getElementById('jobs-link').classList.toggle('active');
+        document.title = "CCIT | Job List"
     </script>
 </body>
 

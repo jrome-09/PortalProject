@@ -1,4 +1,3 @@
-
 <?php
 require "../html/head.html";
 ?>
@@ -10,6 +9,10 @@ require "../html/head.html";
 		</div>
 	</div>
 	<link rel="stylesheet" href="../Candidate/candidate.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/animations.css">
+	<link rel="stylesheet" href="../css/global.css">
 	<?php
 	require "../html/script.html";
 	require "../Candidate/candidate-navigation.php"
@@ -18,8 +21,8 @@ require "../html/head.html";
 		<div class="bg-light pt-5">
 			<div class="max-width-container">
 				<?php
-                    require "Includes/preview.php";
-                ?>
+				require "Includes/preview.php";
+				?>
 			</div>
 		</div>
 	</main>

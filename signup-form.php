@@ -10,7 +10,7 @@ require "html/head.html";
     </div>
     <?php
     require "html/script.html";
-    require "navigation.php";
+    require "includes/nav.inc.php";
     ?>
     <main>
         <?php
@@ -26,9 +26,6 @@ require "html/head.html";
         loadPage();
         changeColor();
         feather.replace()
-        const nav_id = document.getElementById('nav-head');
-        nav_id.classList.add("background-thicker-light");
-        nav_id.classList.remove("background-blue");
     </script>
 
 </body>

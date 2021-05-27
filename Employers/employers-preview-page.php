@@ -9,6 +9,10 @@ require "../html/head.html";
         </div>
     </div>
     <link rel="stylesheet" href="../Candidate/candidate.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/global.css">
     <?php
     require "../html/script.html";
     require "../Candidate/candidate-navigation.php"
@@ -188,11 +192,11 @@ require "../html/head.html";
                     </div>
                     <script>
                         for (i = 0; i < 2; i++) {
-						const Mydiv = document.getElementById("multiply-application");
-						var divclone = Mydiv.cloneNode(true);
-						var parentcon = document.getElementById("application-row-container");
-						parentcon.appendChild(divclone);
-					}
+                            const Mydiv = document.getElementById("multiply-application");
+                            var divclone = Mydiv.cloneNode(true);
+                            var parentcon = document.getElementById("application-row-container");
+                            parentcon.appendChild(divclone);
+                        }
                     </script>
                 </div>
             </div>
@@ -211,6 +215,7 @@ require "../html/head.html";
     <script>
         loadPage();
         feather.replace();
+        document.title = "CCIT | Employers Details";
     </script>
 </body>
 

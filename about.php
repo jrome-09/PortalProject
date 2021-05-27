@@ -10,12 +10,12 @@ require "html/head.html";
     </div>
     <?php
     require "html/script.html";
-    require "navigation.php";
+    require "includes/nav.inc.php";
     ?>
 
     <main>
         <div class="background-thicker-light">
-            <div class="max-width-container d-flex align-items-center justify-content-center" style="height: 250px;">
+            <div class="max-width-container d-flex align-items-center justify-content-center mt-4" style="height: 250px;">
                 <h3 class="color-black mt-5"><strong>About us</strong></h3>
             </div>
         </div>
@@ -23,8 +23,8 @@ require "html/head.html";
             <div class="max-width-container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4 class="mb-4">What we can do</h4>
-                        <p class="font-small color-light">
+                        <h4 class="mb-4 font-500 color-black">What we can do</h4>
+                        <p class="fontsize-14 mb-4 color-light">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium itaque neque, assumenda
                             voluptatum nostrum temporibus suscipit molestiae minus aspernatur, eveniet aut? Modi libero
                             voluptatum, necessitatibus assumenda perspiciatis id quam! Eos!
@@ -33,7 +33,7 @@ require "html/head.html";
                             voluptatum nostrum temporibus suscipit molestiae minus aspernatur, eveniet aut? Modi libero
                             voluptatum, necessitatibus assumenda perspiciatis id quam! Eos!
                         </p>
-                        <a href="#" class="btn btn-primary">Get Started</a>
+                        <a href="#" class="btn btn-primary fontsize-14 font-500 mb-5">Get Started</a>
                     </div>
                     <div class="col-md-6 flex-middle">
                         <div class="image-container" style="height: 300px; width: 500px; background-color: rgb(240, 240, 240);">
@@ -46,8 +46,8 @@ require "html/head.html";
         <div class="bg-light">
             <div class="max-width-container">
                 <div class="text-center">
-                    <h4 class="mb-2 color-black">Project Team</h4>
-                    <p class="font-small color-light">
+                    <h4 class="mb-2 color-black font-500">Project Team</h4>
+                    <p class="fontsize-14 color-light">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Laudantium itaque neque, assumenda
                     </p>
                 </div>
@@ -64,8 +64,8 @@ require "html/head.html";
                                 <div class="round image-container background-thicker-light mb-3">
 
                                 </div>
-                                <h5 class="color-black">Jerome Cabrera</h5>
-                                <p class="font-small color-light">
+                                <h5 class="color-black font-500">Jerome Cabrera</h5>
+                                <p class="fontsize-13 color-light">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Laudantium itaque neque, assumenda
                                 </p>
 
@@ -74,8 +74,8 @@ require "html/head.html";
                                 <div class="round image-container background-thicker-light mb-3">
 
                                 </div>
-                                <h5 class="color-black">Jigs Cxyrel Crisologo</h5>
-                                <p class="font-small color-light">
+                                <h5 class="color-black font-500">Jigs Cxyrel Crisologo</h5>
+                                <p class="fontsize-13 color-light">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Laudantium itaque neque, assumenda
                                 </p>
 
@@ -84,8 +84,8 @@ require "html/head.html";
                                 <div class="round image-container background-thicker-light mb-3">
 
                                 </div>
-                                <h5 class="color-black">Kathleen Joy Bernal</h5>
-                                <p class="font-small color-light">
+                                <h5 class="color-black font-500">Kathleen Joy Bernal</h5>
+                                <p class="fontsize-13 color-light">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Laudantium itaque neque, assumenda
                                 </p>
 
@@ -94,11 +94,10 @@ require "html/head.html";
                                 <div class="round image-container background-thicker-light mb-3">
 
                                 </div>
-                                <h5 class="color-black">Mhark Alfred Diaz</h5>
-                                <p class="font-small color-light">
+                                <h5 class="color-black font-500">Mhark Alfred Diaz</h5>
+                                <p class="fontsize-13 color-light">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Laudantium itaque neque, assumenda
                                 </p>
-
                             </div>
                         </div>
                     </div>
@@ -115,12 +114,9 @@ require "html/head.html";
     <script src="javascript/scroll.js"></script>
     <script>
         loadPage();
-        changeColor();
-        feather.replace()
-        const nav_id = document.getElementById('nav-head');
-        nav_id.classList.add("background-thicker-light");
-        nav_id.classList.remove("background-blue");
-        document.getElementById('about').classList.add("opened");
+        feather.replace();
+        document.getElementById('about-link').classList.toggle('active');
+        document.title = "CCIT | About"
     </script>
 
 </body>
