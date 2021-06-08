@@ -1,5 +1,5 @@
 <?php
-require "../html/head.html";
+require "alumni-head.html";
 ?>
 
 <body>
@@ -41,6 +41,7 @@ require "../html/head.html";
     <script>
         loadPage();
         feather.replace(); 
+        document.getElementById('alumni-link').classList.toggle('active');
         document.title = "CCIT | Alumni Details"
     </script>
 </body>

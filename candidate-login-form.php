@@ -24,8 +24,7 @@ require "html/head.html";
     <script src="javascript/scroll.js"></script>
     <script>
         loadPage();
-        changeColor();
-        feather.replace()
+        feather.replace();
     </script>
 
 </body>

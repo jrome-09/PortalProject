@@ -39,7 +39,7 @@
                     <a href="signup-form.php" id="signup-btn" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Sign up</a>
                     <p class="mb-0 color-black d-inline-block" id="v-line">|</p>
                     <a href="candidate-login-form.php" id="login-btn" class="fontsize-14 font-500 no-text-decor color-black hover-text-primary mx-2 px-1">Login</a>
-                    <a href="#" type="button" class="btn btn-outline-primary border-2 px-4 py-2 fontsize-14 font-500">For Employers</a>
+                    <a href="Employers/index.php" type="button" class="btn btn-outline-primary border-2 px-4 py-2 fontsize-14 font-500">For Employers</a>
                 </div>
             </div>
             <div class="d-flex justify-content-center">

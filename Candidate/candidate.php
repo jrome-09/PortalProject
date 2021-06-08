@@ -1,5 +1,5 @@
 <?php
-require "../html/head.html";
+require "candidate-head.html";
 ?>
 
 <body>
@@ -8,9 +8,7 @@ require "../html/head.html";
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    <link rel="stylesheet" href="candidate.css">
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/style.css">
+
     <?php
     require "../html/script.html";
     require "candidate-navigation.php"

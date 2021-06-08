@@ -42,7 +42,6 @@
                         sampleemail@gmail.com
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

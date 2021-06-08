@@ -1,5 +1,4 @@
 <?php
-require "../html/head.html";
 require "style-link.html";
 ?>
 
@@ -31,15 +30,12 @@ require "style-link.html";
         <?php
         require "../html/footer.html";
         ?>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
         <script src="../javascript/functions.js"></script>
         <script src="../javascript/scroll.js"></script>
         <script src="../javascript/onclick.js"></script>
         <script>
             loadPage();
             feather.replace();
-
         </script>
     </div>
 </body>

@@ -73,11 +73,22 @@ require "html/head.html";
                         <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
                            <span data-feather="map-pin" class="color-black"></span>
                         </div>
-                        <input type="text" class="form-control fontsize-14 border-start-0" placeholder="Area/City or Town">
+                        <input type="text" class="form-control fontsize-14 border-start-0" id="location-autocomplete" placeholder="Location...">
                      </div>
-                     <div class="">
 
-                     </div>
+                     <!-- <script>
+                        function initialize() {
+                           var input = document.getElementById('location-autocomplete');
+                           new google.maps.places.Autocomplete(input);
+                        }
+
+                        google.maps.event.addDomListener(window, 'load', initialize);
+                     </script> -->
+                     <!-- <script>
+                        var input = document.getElementById('location-autocomplete');
+                        var autocomplete = new google.maps.places.Autocomplete(input);
+                     </script> -->
+
                      <div class="input-group mb-2 sp-group">
                         <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
                            <span data-feather="user" class="color-black"></span>

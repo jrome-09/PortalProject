@@ -59,7 +59,7 @@
 			</div>
 			<div class="row mb-2">
 				<div class="col-lg-2">
-					<p class="color-light fontsize-13 mb-0">Awards:</p>
+					<p class="color-light fontsize-13 mb-0">Academic Awards:</p>
 				</div>
 				<div class="col-lg-10">
 					<p class="color-black fontsize-14 mb-0">N/A</p>
@@ -67,7 +67,7 @@
 			</div>
 			<div class="row mb-2">
 				<div class="col-lg-2">
-					<p class="color-light fontsize-13 mb-0">Year Graduated:</p>
+					<p class="color-light fontsize-13 mb-0">Graduation Year:</p>
 				</div>
 				<div class="col-lg-10">
 					<p class="color-black fontsize-14 mb-0">2022</p>
@@ -149,7 +149,7 @@
 			</div>
 			<div class="row mb-2">
 				<div class="col-lg-2">
-					<p class="color-light fontsize-13 mb-0">Current Recidence:</p>
+					<p class="color-light fontsize-13 mb-0">Current Residence:</p>
 				</div>
 				<div class="col-lg-10">
 					<p class="color-black fontsize-14 mb-0">Vigan City Ilocos Sur</p>
