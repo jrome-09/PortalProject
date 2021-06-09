@@ -47,7 +47,7 @@
             </div>
         </div>
         <style>
-            #mobile--nav nav ul li a.active {
+            #mobile--nav nav ul li a.active, #signup-btn.active, #login-btn.active {
                 border-bottom: 2px solid #0d6efd;
                 color: #0d6efd !important;
                 padding-bottom: 0.5rem;

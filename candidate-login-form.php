@@ -25,6 +25,7 @@ require "html/head.html";
     <script>
         loadPage();
         feather.replace();
+        document.getElementById('login-btn').classList.toggle('active');
     </script>
 
 </body>

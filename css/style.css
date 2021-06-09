@@ -32,6 +32,10 @@ input[type=number] {
     font-weight: 600 !important;
 }
 
+.font-700{
+    font-weight: 700 !important;
+}
+
 .hw-100px{
     min-width: 100px;
     height: 100px;
@@ -193,6 +197,10 @@ input[type=number] {
 
 .z-0{
     z-index: 0 !important;
+}
+
+.border-input{
+    border: 1px solid #ced4da !important;
 }
 
 @media screen and (max-width: 961px){
