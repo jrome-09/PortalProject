@@ -1,0 +1,67 @@
+<div id="ball-loader" class="p-5 bg-danger">
+    <div id="loader-container">
+        <div class="bg-primary" id="ball">
+        </div>
+    </div>
+    <div id="shadow">
+
+    </div>
+</div>
+<style>
+    #shadow {
+        background-color: rgb(8, 8, 8, 0.05);
+        width: 49px;
+        height: 10px;
+        border-radius: 50%;
+        position: relative;
+        top: 80px;
+        margin: auto;
+    }
+
+    #loader-container{
+        height: 40px;
+        width: 45px;
+        margin: auto;
+    }
+
+    #ball-loader {
+        height: 300px;
+    }
+
+    #ball {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        position: relative;
+        margin: auto;
+        top: 50%;
+        animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+        10% {
+            height: 40px;
+            width: 40px;
+        }
+
+        20% {
+            height: 44px;
+            width: 36px;
+        }
+
+        50% {
+            height: 25px;
+            width: 45px;
+            transform: translateY(80px);
+        }
+
+        75% {
+            height: 40px;
+            width: 38px;
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+</style>
