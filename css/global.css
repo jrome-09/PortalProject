@@ -60,3 +60,35 @@
     height: 3rem;
     animation: 1.4s linear infinite spinner-border;
 }
+
+
+.swal2-popup {
+    width: 400px !important;
+    margin-right: 17px !important;
+}
+
+.swal2-title {
+    color: rgb(54, 61, 71) !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+
+
+.swal2-html-container {
+    color: #69707a !important;
+    padding-top: 0 !important;
+    font-size: 13px !important;
+}
+
+.swal2-styled.swal2-confirm:hover {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd !important;
+}
+
+.swal2-styled.swal2-confirm {
+    background-color: #0d6efd !important;
+}

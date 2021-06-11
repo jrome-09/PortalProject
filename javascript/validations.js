@@ -57,10 +57,10 @@ function CheckForm() {
                     result.innerHTML = "*Password not matched"
                 }else{
                     if (document.getElementById('Conditions-checkBox').checked == true) {
+                        document.getElementById("ball-loader").classList.add("active");
                         console.log('Validation Complete!');
+                        setTimeout("SubmitForm()", 2000);
                         
-                        SubmitForm();
-
                     }else{
                         console.log('Agree to the Terms and Conditions.')
                     }

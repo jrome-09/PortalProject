@@ -1,4 +1,4 @@
-<div id="ball-loader" class="p-5 bg-danger">
+<div id="ball-loader" class="p-5">
     <div id="loader-container">
         <div class="bg-primary" id="ball">
         </div>
@@ -14,8 +14,10 @@
         height: 10px;
         border-radius: 50%;
         position: relative;
-        top: 80px;
+        top: 76px;
         margin: auto;
+        animation: shrink 1s infinite;
+        z-index: -1;
     }
 
     #loader-container{
@@ -26,6 +28,19 @@
 
     #ball-loader {
         height: 300px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: hidden;
+        opacity: 0;
+        transition: 1s;
+    }
+
+    #ball-loader.active{
+        visibility: visible !important;
+        opacity: 1;
+        transition: 1;
     }
 
     #ball {
@@ -36,6 +51,12 @@
         margin: auto;
         top: 50%;
         animation: bounce 1s infinite;
+    }
+
+    @keyframes shrink{
+        50%{
+            transform: scaleX(0.5);
+        }
     }
 
     @keyframes bounce {
