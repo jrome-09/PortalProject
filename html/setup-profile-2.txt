@@ -1,0 +1,47 @@
+<div class="bg-light signup-input-text pt-5" id="profile-2">
+    <div class="max-width-container d-flex justify-content-center align-items-center pt-5">
+        <div class="border rounded color-black bg-white mt-2" style="width: 500px; position: relative;">
+            <div class="text-center pb-3 pt-3 background-thicker-light">
+                <h3>Setup your Profile</h3>
+                <p class="color-light font-small font-500">Let us know you more</p>
+            </div>
+            <form action="#" class="p-5 pt-4">
+                <label for="university" class="required color-light text-start">
+                    Attended University
+                </label>
+                <input type="text" name="university" id="university" required class="form-control color-black mb-2"
+                    maxlength="20">
+
+                <label for="university-address" class="required color-light text-start">
+                    Institute/University Address
+                </label>
+                <input type="text" name="university-address" id="university-address" required
+                    class="form-control color-black mb-2" maxlength="20">
+
+                <label for="graduationYear" class="required color-light text-start">
+                    Graduation Year
+                </label>
+                <div class="input-group mb-2">
+                    <select class="form-select color-light" id="graduationYear"
+                        aria-label="Example select with button addon">
+                        <option selected> </option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+
+                <label for="field-of-study" class="required color-light text-start">
+                    Field of Study
+                </label>
+                <input type="text" name="field-of-study" id="field-of-study" required
+                    class="form-control color-black mb-4" maxlength="20">
+
+                <div class="d-flex align-items-center">
+                    <a href="setup-profile-3.php" type="button"
+                        class="btn btn-primary px-5 py-2 font-small m-auto">Save and Continue</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

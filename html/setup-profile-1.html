@@ -5,25 +5,27 @@
 				<h3>Setup your Profile</h3>
 				<p class="color-light font-small font-500">Let us know you more</p>
 			</div>
-			<form action="#" class="p-5 pt-4">
+			<form action="#" class="p-5 pt-4" id="formProfile1">
 				<div class="row">
 					<div class="col-md-6">
 						<label class="required color-light text-start">Select Experience</label>
-						<div class="d-flex justify-content-center mb-4">
-							<input type="checkbox" class="btn-check" id="work--xp" autocomplete="off"
-								onclick="workCheckBox()">
+						<div class="d-flex justify-content-center mb-4 flex-col-740">
+							<input type="checkbox" name="experiencedCheckbox" class="btn-check" id="work--xp"
+								autocomplete="off" onclick="workCheckBox()">
 							<label class="btn btn-light m-1 color-black font-500 border" for="work--xp">
 								I have work experience
 							</label>
-							<input type="checkbox" class="btn-check" id="student--xp" autocomplete="off"
-								onclick="workCheckBox()">
+							<input type="checkbox" name="studentCheckbox" class="btn-check" id="student--xp"
+								autocomplete="off" onclick="workCheckBox()">
 							<label class="btn btn-light m-1 color-black font-500 border" for="student--xp">
 								I am a student/fresh graduate
 							</label>
+
+							<input type="hidden" id="experienceType" name="expType">
 						</div>
 					</div>
 				</div>
-				<div class="row mb-4">
+				<div class="row mb-0">
 					<div class="col-md-6">
 						<label for="firstname" class="required color-light text-start">
 							First Name
@@ -46,43 +48,92 @@
 						<label for="residing" class="required color-light text-start">
 							Currently residing in
 						</label>
-						<div class="d-flex justify-content-center">
-							<input type="text" required class="form-control color-black me-1" placeholder="Philippines"
+						<div class="d-flex justify-content-center m-flex-col">
+							<input type="text" class="form-control color-black me-1 mb-2" placeholder="Philippines"
 								maxlength=" 15" disabled>
-							<div class="input-group">
-								<select class="form-select color-light" id="inputGroupSelect03"
-									aria-label="Example select with button addon">
-									<option selected>Municipality</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Three</option>
-								</select>
-							</div>
+							<input type="text" name="address" id="contactnumber" required
+								class="form-control color-black mb-2" placeholder="City">
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="specializations" class="required color-light text-start">
-							Preferred Specializations
+						<label for="university" class="required color-light text-start">
+							Attended University
 						</label>
-						<input type="text" name="specializations" id="expectedSalary" required
+						<input type="text" name="university" id="university" required
 							class="form-control color-black mb-2" maxlength="70">
 
-						<label for="specializations" class="required color-light text-start">
-							Monthly salary expectation
+						<label for="university-address" class="required color-light text-start">
+							University Address
 						</label>
-						<input type="text" name="expectedsalary" id="expectedSalary" required
-							class="form-control color-black mb-2" placeholder="Disabled" maxlength="15" disabled>
+						<input type="text" name="university-address" id="university-address" required
+							class="form-control color-black mb-2" maxlength="15">
 
-						<label for="self-description" class="required color-light text-start">
-							Description About You
+						<label for="graduation-year" class="required color-light text-start">
+							Graduation Year
 						</label>
-						<textarea class="form-control color-black fontsize-13" id="self-description"
-							rows="4"></textarea>
+						<input type="text" name="graduation-year" id="graduation-year" required
+							class="form-control color-black mb-2" maxlength="15">
+
+						<label for="field" class="required color-light text-start">
+							Field of Study
+						</label>
+						<div id="dropdown-container" class="position-relative">
+							<div class="form-control mb-1" onclick="showList()">
+								<span class="color-black fontsize-13" id="control-selected">Select Field</span>
+								<span data-feather="chevron-down" class="color-black"></span>
+							</div>
+							<input type="hidden" id="hiddenField" name="field">
+							<div class="option-container border rounded shadow-sm bg-white p-2" id="options">
+								<ul class="p-0 color-black fontsize-13" id="list__ul">
+									<li class="p-2 rounded" id="AdvertisingMedia" onclick="optionSelect(this.id)">
+										Advertising Media</li>
+								</ul>
+							</div>
+						</div>
+						<style>
+							#dropdown-container .form-control {
+								width: 100%;
+								min-height: 35px;
+								display: flex;
+								align-items: center;
+								justify-content: space-between;
+							}
+
+							.option-container ul {
+								width: 100%;
+								max-height: 300px;
+								overflow-y: scroll;
+							}
+
+							.option-container {
+								position: absolute;
+								width: 100%;
+
+								visibility: hidden;
+								opacity: 0;
+								transition: 0.2s;
+							}
+
+							.option-container.active {
+								visibility: visible;
+								opacity: 1;
+								transition: 0.2s;
+							}
+
+							.option-container ul li:hover {
+								background-color: #f8f9fa !important;
+								cursor: default;
+							}
+						</style>
 					</div>
 				</div>
+				<label for="self-description" class="required color-light text-start">
+					Description About You
+				</label>
+				<textarea class="form-control color-black fontsize-13 mb-4" id="self-description" rows="4" name="selfDescription"></textarea>
 				<div class="d-flex align-items-center">
-					<a href="setup-profile-2.php" type="button"
-						class="btn btn-primary px-5 py-2 font-small ms-auto">Save and Continue</a>
+					<a href="#" type="submit" class="btn btn-primary px-5 py-2 font-small ms-auto"
+						onclick="ValidateProfile1()">Save and Continue</a>
 				</div>
 			</form>
 		</div>

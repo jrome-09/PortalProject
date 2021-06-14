@@ -9,9 +9,17 @@ function SubmitForm() {
                 title: 'Sign up Sucessful!',
                 text: 'You have succesfully created your account. Please set up your profile.',
                 confirmButtonText: 'Get Started'
+            }).then(function(){
+                window.location = "setup-profile-1.php";
             })
             
         }
     });
     document.getElementById("ball-loader").classList.remove("active");
+}
+
+function SubmitProfile1() {
+    $.post("includes/formSubmit.inc.php", $("#formProfile1").serialize(), function (data) {
+        console.log(data);
+    });
 }

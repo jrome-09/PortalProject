@@ -208,4 +208,14 @@ input[type=number] {
         padding-left: 20px;
         padding-right: 20px;
     }
+
+    .m-flex-col{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 740px){
+    .flex-col-740{
+        flex-direction: column;
+    }
 }

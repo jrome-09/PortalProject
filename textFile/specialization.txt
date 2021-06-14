@@ -1,0 +1,69 @@
+Agriculture/Aquaculture/Forestry
+Airline Operation/Airport Management
+Architecture
+Art/Design/Creative Multimedia
+Biology
+BioTechnology
+Business Studies/Administration/Management
+Chemistry
+Commerce
+Computer Science/Information Technology
+Dentistry
+Economics
+Journalism
+Education/Teaching/Training
+Engineering (Aviation/Aeronautics/Astronautics)
+Engineering (Bioengineering/Biomedical)
+Engineering (Chemical)
+Engineering (Civil)
+Engineering (Computer/Telecommunication)
+Engineering (Electrical/Electronic)
+Engineering (Environmental/Healthy/Safety)
+Engineering (Industrial)
+Engineering (Marine)
+Engineering (Material Science)
+Engineering (Mechanical)
+Engineering (Mechatronic/Electromechanical)
+Engineering (Metal Fabricstion/Tool and Die/Welding)
+Engineering (Mining/Mineral)
+Engineering (Petroleum/Oil/Gas)
+Engineering (Others)
+Finance/Accountancy/Banking
+Food & Beverage Services Management
+Food Technology/Nutrition/Dietetics
+Geographical Science
+Geology/Geophysics
+History
+Hospitality/Tourism/Hotel Management
+Humanities/Liberal Arts
+Logistic/Transportation
+Law
+Library Management
+Linguistic/Languages
+Mass Communications
+Mathematics
+Medical Science
+Medicine
+Maritime Studies
+Marketing
+Music/Performing/Arts Studies
+Nursing
+Optometry
+Personal Services
+Pharmacy/Pharmacology
+Philosophy
+Physical Therapy/Physiotherapy
+Physics
+Political Science
+Property Development/Real State Management
+Protective Services & Management
+Psychology
+Quantity Survey
+Science and Technology
+Secretarial
+Social Science/Sociology
+Sports Science & Management
+Textile/Fashion Design
+Urban Studies/Town Planning
+Veterinary
+Others

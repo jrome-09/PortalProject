@@ -8,8 +8,7 @@
     <title>This is the test Page</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
-
-    <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
     <?php
     require "html/script.html";
     ?>
@@ -17,52 +16,51 @@
 
 <body>
     <div class="max-width-container">
-        <div class="btn btn-primary" id="btnalert">
-            Click me!
+        <div id="dropdown-container">
+            <div class="form-control mb-1" onclick="showList()">
+                <span class="color-black fontsize-13" id="control-selected">Selected</span>
+                <span data-feather="chevron-down" class="color-black"></span>
+            </div>
+
+            <div class="option-container border rounded shadow-sm" id="options">
+                <ul class="p-2 color-black fontsize-13" id="list__ul">
+                    <li class="p-2 rounded" id="AdvertisingMedia" onclick="optionSelect(this.id)">Advertising Media</li>
+                </ul>
+            </div>
         </div>
-
-        <script>
-            $('#btnalert').click(function() {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Sign up Sucessful!',
-                    text: 'You have succesfully created your account. Please set up your profile.',
-                    confirmButtonText: 'Get Started'
-                })
-            });
-            document.getElementsByClassName("swal2-confirm").innerHTML = "Get Started";
-        </script>
         <style>
-            .swal2-popup {
-                width: 400px;
+            #dropdown-container .form-control{
+                width: 100%;
+                min-height: 35px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
             }
 
-            .swal2-title {
-                color: rgb(54, 61, 71) !important;
-                font-size: 24px;
-                font-weight: 700;
-                margin-bottom: 8px !important;
-                font-family: 'Poppins', sans-serif
+            .option-container {
+                max-height: 300px;
+                overflow-y: scroll;
+                visibility: hidden;
+                opacity: 0;
+                transition: 0.2s;
             }
 
-            .swal2-html-container {
-                color: #69707a !important;
-                padding-top: 0 !important;
-                font-size: 13px !important;
+            .option-container.active{
+                visibility: visible;
+                opacity: 1;
+                transition: 0.2s;
             }
 
-            .swal2-styled.swal2-confirm:hover {
-                color: #fff;
-                background-color: #0d6efd;
-                border-color: #0d6efd;
-            }
-
-            .swal2-styled.swal2-confirm {
-                background-color: #0d6efd !important;
+            .option-container ul li:hover {
+                background-color: #f8f9fa !important;
             }
         </style>
-
     </div>
+    <script src="javascript/functions.js"></script>
+    <script>
+        GetTextList()
+        feather.replace();
+    </script>
 </body>
 
 </html>

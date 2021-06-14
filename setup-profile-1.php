@@ -1,34 +1,46 @@
 <?php
-require "html/head.html";
+session_start();
+if (isset($_SESSION["uemail"])) {
+    require "html/head.html";
 ?>
 
-<body>
-    <div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
-        <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+    <body>
+        <link rel="stylesheet" href="Candidate/candidate.css">
+        <div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </div>
-    </div>
-    <?php
-    require "html/script.html";
-    require "includes/nav.inc.php";
-    ?>
-    <main>
         <?php
-        require "html/setup-profile-1.html";
+        require "html/script.html";
+        require "Candidate/candidate-navigation.php";
         ?>
-    </main>
-    <?php
-    require "html/footer.html";
-    ?>
-    <script src="javascript/functions.js"></script>
-    <script src="javascript/scroll.js"></script>
-    <script>
-        loadPage();
-        changeColor();
-        feather.replace()
-    </script>
+        <main>
+            <?php
+            require "html/setup-profile-1.html";
+            ?>
+        </main>
+        <?php
+        require "html/footer.html";
+        ?>
+        <script src="javascript/functions.js"></script>
+        <script src="javascript/scroll.js"></script>
+        <script src="javascript/validations.js"></script>
+        <script src="javascript/jQueryRequest.js"></script>
+        <script>
+            loadPage();
+            feather.replace()
+            changeLink();
+            GetTextList();
+        </script>
 
-</body>
+    </body>
 
-</html>
-</body>
+    </html>
+    </body>
+
+<?php
+} else {
+    header("location: index.php");
+}
+?>

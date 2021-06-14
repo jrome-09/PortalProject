@@ -3,7 +3,7 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-function passwordKeypress(){
+function passwordKeypress() {
     document.getElementById('password-result').classList.remove('text-danger');
 }
 
@@ -55,13 +55,13 @@ function CheckForm() {
             if (ValidatePassword(password)) {
                 if (password != conpassword) {
                     result.innerHTML = "*Password not matched"
-                }else{
+                } else {
                     if (document.getElementById('Conditions-checkBox').checked == true) {
                         document.getElementById("ball-loader").classList.add("active");
                         console.log('Validation Complete!');
                         setTimeout("SubmitForm()", 2000);
-                        
-                    }else{
+
+                    } else {
                         console.log('Agree to the Terms and Conditions.')
                     }
                 }
@@ -75,3 +75,16 @@ function CheckForm() {
     }
 }
 
+function ValidateProfile1() {
+    var exp = '';
+    if (document.getElementById("work--xp").checked) {
+        exp = 'experienced';
+    } else if (document.getElementById("student--xp").checked) {
+        exp = 'student';
+    }
+
+    console.log("Work Experience: " + exp); 
+    document.getElementById('experienceType').value = exp;
+
+    SubmitProfile1();
+}

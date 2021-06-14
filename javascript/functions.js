@@ -30,3 +30,40 @@ function workCheckBox() {
     jQuery("#work--xp").click(uncheck);
     jQuery("#student--xp").click(uncheck);
 }
+
+function changeLink() {
+    const ids = ['mypage-link', 'jobs-link', 'employer-prof-link', 'alumni-link', 'forum-link', 'job-app-link', 'bookmarks-link', 'emp-btn-link'];
+    const c = "Candidate", j = "Jobs", e = "Employers", a = "Alumni", f = "Forum";
+    const link = [c + '/candidate.php', j + '/jobs.php', c + '/employer-profile-page.php', a + '/alumni-index.php', f + '/forum-index.php', c + '/job-applications.php', c + '/booksmarks.php', e + '/employer-page.php'];
+    for (let i = 0; i < ids.length; i++) {
+        document.getElementById(ids[i]).href = link[i];
+    }
+}
+
+function GetTextList() {
+    fetch('textFile/specialization.txt')
+        .then(response => response.text())
+        .then(data => {
+            var array = data.split("\n");
+            for (let i = 0; i < array.length; i++) {
+                const li__id = document.getElementById("AdvertisingMedia");
+                var clone = li__id.cloneNode(true);
+                clone.id = array[i].split(" ").join("");
+                clone.innerHTML = array[i];
+                const parentContainer = document.getElementById('list__ul');
+                parentContainer.appendChild(clone);
+            }
+        });
+}
+
+function showList() {
+    document.getElementById('options').classList.toggle('active');
+}
+
+function optionSelect(option_id) {
+    const inner = document.getElementById(option_id).innerHTML;
+    document.getElementById('control-selected').innerHTML = inner;
+    document.getElementById('hiddenField').value = inner;
+    console.log(inner);
+    showList();
+}

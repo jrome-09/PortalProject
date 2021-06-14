@@ -14,7 +14,7 @@ require "html/head.html";
     ?>
     <main>
         <?php
-        require "html/setup-profile-2.html";
+        require "html/setup-profile-3.html";
         ?>
     </main>
     <?php
@@ -26,6 +26,7 @@ require "html/head.html";
         loadPage();
         changeColor();
         feather.replace()
+
     </script>
 
 </body>

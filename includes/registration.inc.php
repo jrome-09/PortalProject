@@ -19,7 +19,9 @@ if ($uidExists === false) {
     mysqli_stmt_execute($stmt);
 
     echo 'Data Inserted Successfully!';
-
+    session_start();
+    $_SESSION["uemail"] = $email;
+    
 } else {
     echo 'Email already exist.';
 }
