@@ -86,5 +86,7 @@ function ValidateProfile1() {
     console.log("Work Experience: " + exp); 
     document.getElementById('experienceType').value = exp;
 
-    SubmitProfile1();
+    document.getElementById("ball-loader").classList.add("active");
+    setTimeout("SubmitProfile1()", 2000);
+
 }

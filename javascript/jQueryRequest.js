@@ -21,5 +21,9 @@ function SubmitForm() {
 function SubmitProfile1() {
     $.post("includes/formSubmit.inc.php", $("#formProfile1").serialize(), function (data) {
         console.log(data);
+        // if (data === "Data Inserted Successfully!") {
+        //     window.location = "setup-profile-2.php"
+        // }
+        // document.getElementById("ball-loader").classList.remove("active");
     });
 }

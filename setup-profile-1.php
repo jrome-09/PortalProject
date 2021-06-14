@@ -18,6 +18,7 @@ if (isset($_SESSION["uemail"])) {
         <main>
             <?php
             require "html/setup-profile-1.html";
+            require "html/ball-animation.html"
             ?>
         </main>
         <?php
