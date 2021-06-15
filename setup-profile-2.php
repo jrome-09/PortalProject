@@ -3,14 +3,21 @@ require "html/head.html";
 ?>
 
 <body>
+    <link rel="stylesheet" href="Candidate/candidate.css">
     <div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
         <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
     <?php
+    session_start();
     require "html/script.html";
-    require "includes/nav.inc.php";
+    if (isset($_SESSION["uemail"])) {
+        require "Candidate/candidate-navigation.php";
+    } else {
+        require "includes/nav.inc.php";
+    }
+
     ?>
     <main>
         <?php
@@ -22,11 +29,13 @@ require "html/head.html";
     ?>
     <script src="javascript/functions.js"></script>
     <script src="javascript/scroll.js"></script>
+    <script src="javascript/validations.js"></script>
+    <script src="javascript/jQueryRequest.js"></script>
     <script>
         loadPage();
-        changeColor();
         feather.replace()
-
+        changeLink();
+        GetPositionList();
     </script>
 
 </body>

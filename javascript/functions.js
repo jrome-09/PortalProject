@@ -41,7 +41,7 @@ function changeLink() {
 }
 
 function GetTextList() {
-    fetch('textFile/specialization.txt')
+    fetch('textFile/field.txt')
         .then(response => response.text())
         .then(data => {
             var array = data.split("\n");
@@ -56,13 +56,56 @@ function GetTextList() {
         });
 }
 
+function GetPositionList() {
+    fetch('textFile/position-levels.txt')
+        .then(response => response.text())
+        .then(data => {
+            var array = data.split("\n");
+            for (let i = 0; i < array.length; i++) {
+                const li__id = document.getElementById("CEO/SVP/AVP/VP/Director");
+                var clone = li__id.cloneNode(true);
+                clone.id = array[i].split(" ").join("");
+                clone.innerHTML = array[i];
+                const parentContainer = document.getElementById('list__ul__Position');
+                parentContainer.appendChild(clone);
+            }
+        });
+}
+
+function GetYearList() {
+    for (let i = 2029; i > 1961 ; i--) {
+         const li__id = document.getElementById("2030");
+         var clone = li__id.cloneNode(true);
+         clone.id = [i];
+         clone.innerHTML = i;
+         const parentContainer = document.getElementById('list__ul__Year');
+         parentContainer.appendChild(clone);
+    }
+}
+
+function showPositionList() {
+    document.getElementById('optionsPosition').classList.toggle('active');
+}
+
 function showList() {
     document.getElementById('options').classList.toggle('active');
 }
 
+function showYearList() {
+    document.getElementById('optionsYear').classList.toggle('active');
+}
+
+function YearSelect(year_id) {
+    const inner = document.getElementById(year_id).innerHTML;
+    document.getElementById('control-selected-year').innerHTML = inner;
+    document.getElementById('hiddenYear').value = inner;
+    console.log(inner);
+    showYearList();
+}
+
 function optionSelect(option_id) {
     const inner = document.getElementById(option_id).innerHTML;
-    document.getElementById('control-selected').innerHTML = inner;
+    document.getElementById('control-selected-field').innerHTML = inner;
     document.getElementById('hiddenField').value = inner;
     console.log(inner);
     showList();

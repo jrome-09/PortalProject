@@ -33,6 +33,7 @@ if (isset($_SESSION["uemail"])) {
             feather.replace()
             changeLink();
             GetTextList();
+            GetYearList();
         </script>
 
     </body>

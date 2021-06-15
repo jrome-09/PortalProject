@@ -9,13 +9,16 @@ if (isset($_POST['firstname'])) {
     $address = 'Philippines ' . $_POST['address'];
     $university = $_POST['university'];
     $universityAddress = $_POST['university-address'];
-    $graduation_year = $_POST['graduation-year'];
+    $graduation_year = $_POST['graduation_year'];
     $field = $_POST['field'];
     $selfDescription = $_POST['selfDescription'];
 
+    $field = str_replace("\n", "", $field);
+    $field = str_replace("\r", "", $field);
+
     session_start();
 
-    $userType = CheckEducation($university, $graduation_year);
+    $userType = CheckEducation($university, $graduation_year, $field);
 
     $sql = "UPDATE `seekers` SET first_name = ?, last_name = ?, contact_number = ?, user_address = ?, self_description = ?, work_experience = ?, university = ?, university_address = ?, graduation_year = ?, field = ?, user_type = ? WHERE email_address = ? ";
     $stmt = mysqli_stmt_init($conn);
@@ -26,7 +29,8 @@ if (isset($_POST['firstname'])) {
     mysqli_stmt_bind_param($stmt, "ssisssssisss", $firstname, $lastname, $contactnumber, $address, $selfDescription, $exp, $university, $universityAddress, $graduation_year, $field, $userType, $_SESSION['uemail']);
     mysqli_stmt_execute($stmt);
 
-    // echo 'Data Inserted Successfully!';
-    echo $result;
+    $_SESSION["username"] = $firstname . " " . $lastname;
+
+    echo 'Data Inserted Successfully!';
     exit();
 }

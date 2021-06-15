@@ -23,10 +23,11 @@ function uidExists($conn, $email)
 }
 
 
-function CheckEducation($university, $year)
+function CheckEducation($university, $year, $field)
 {
     $result = "";
-    if (strtolower($university) == "university of northern philippines") {
+    $array = ["university of northern philippines", "Computer Science/Information Technology"];
+    if (strtolower($university) === $array[0] && $field === $array[1]) {
         if ($year < 2020) {
             $result = "Alumni";
         }else {

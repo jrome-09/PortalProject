@@ -1,4 +1,14 @@
 
+<?php
+	session_start();
+	$nav_username;
+	if (isset($_SESSION["username"])) {
+		$nav_username = $_SESSION["username"];
+	}else {
+		$nav_username = "Username";
+	}
+?>
+
 <header id="candidate-navbar" class="bg-white">
 	<div class="max-width-container py-1">
 		<div class="d-flex align-items-center my-2" id="nav-outer-container">
@@ -30,7 +40,7 @@
 				</nav>
 				<div class="ms-auto" id="left">
 					<div class="btn-group">
-						<button type="button" class="btn rounded-end color-black fontsize-14 font-500 hover-text-primary hover-text-feather" id="user-name" data-bs-toggle="dropdown">Username <span data-feather="chevron-down" class="color-black"></span></button>
+						<button type="button" class="btn rounded-end color-black fontsize-14 font-500 hover-text-primary hover-text-feather" id="user-name" data-bs-toggle="dropdown"><?php echo $nav_username ?> <span data-feather="chevron-down" class="color-black"></span></button>
 						<ul class="dropdown-menu mt-1 p-2">
 							<li><a href="#" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">User Profile</a></li>
 							<li><a href="job-applications.php" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400" id="job-app-link">Job Applications</a></li>
