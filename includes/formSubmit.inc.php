@@ -2,35 +2,28 @@
 require "db_connection.inc.php";
 require "functions.inc.php";
 if (isset($_POST['firstname'])) {
-    $exp = $_POST['expType'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $contactnumber = $_POST['contactnumber'];
-    $address = 'Philippines ' . $_POST['address'];
-    $university = $_POST['university'];
-    $universityAddress = $_POST['university-address'];
-    $graduation_year = $_POST['graduation_year'];
-    $field = $_POST['field'];
-    $selfDescription = $_POST['selfDescription'];
-
-    $field = str_replace("\n", "", $field);
-    $field = str_replace("\r", "", $field);
-
     session_start();
+    $first_name = $_POST['firstname'];
+    $last_name = $_POST['lastname'];
+    $contact_number = $_POST['contactnumber'];
+    $address = $_POST['address']; 
+    $experience_type = $_POST['expType'];
+    $email_address = $_SESSION['uemail'];
+    $password = $_SESSION['pass'];
+    $self_desc = $_POST['selfDescription'];
 
-    $userType = CheckEducation($university, $graduation_year, $field);
+    $update_result = UpdateDetails($conn, $first_name, $last_name, $contact_number, $address, $experience_type, $email_address, $password, $self_desc);
+    
+    $university_name = $_POST['university'];
+    $university_address = $_POST['university-address'];
+    $graduation_year = $_POST['graduation_year'];
+    $selected_field = $_POST['field'];
 
-    $sql = "UPDATE `seekers` SET first_name = ?, last_name = ?, contact_number = ?, user_address = ?, self_description = ?, work_experience = ?, university = ?, university_address = ?, graduation_year = ?, field = ?, user_type = ? WHERE email_address = ? ";
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        echo 'Statement Error:';
-        exit();
+    $user_name = $first_name . " " . $last_name;
+
+    $save_college_result = update_college_details($conn, $email_address, $user_name, $university_name, $university_address, $graduation_year, $selected_field);
+
+    if ($update_result && $save_college_result) {
+        echo "Data Inserted Successfully!";
     }
-    mysqli_stmt_bind_param($stmt, "ssisssssisss", $firstname, $lastname, $contactnumber, $address, $selfDescription, $exp, $university, $universityAddress, $graduation_year, $field, $userType, $_SESSION['uemail']);
-    mysqli_stmt_execute($stmt);
-
-    $_SESSION["username"] = $firstname . " " . $lastname;
-
-    echo 'Data Inserted Successfully!';
-    exit();
 }
