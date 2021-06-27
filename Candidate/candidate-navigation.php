@@ -45,7 +45,7 @@
 							<li><a href="#" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">User Profile</a></li>
 							<li><a href="job-applications.php" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400" id="job-app-link">Job Applications</a></li>
 							<li><a href="bookmarks.php" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400" id="bookmarks-link">Bookmarks</a></li>
-							<li><a href="#" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">Logout</a></li>
+							<li><a href="../includes/logout.inc.php" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">Logout</a></li>
 						</ul>
 					</div>
 					<a href="#" type="button" id="emp-btn-link" class="btn btn-outline-primary border-2 px-4 py-2 fontsize-14 font-500">For Employers</a>

@@ -154,7 +154,7 @@ require "html/head.html";
                         </div>
                      </a>
                      <div class="text-center">
-                        <h6 class="color-black font-600 mt-2"><a href="#"> Legit Employer</a></h6>
+                        <h6 class="color-black font-600 mt-2"><a href="#"> Employer Profiles</a></h6>
                         <p class="mt-0 color-light fontsize-13">(0000 Employers)</p>
                      </div>
                   </div>
@@ -318,7 +318,7 @@ require "html/head.html";
             </div>
          </div> -->
          <div class="max-width-container">
-            <h4 class="color-black text-center mt-2"><strong>New Posted Jobs</strong></h4>
+            <h4 class="color-black text-center mt-2"><strong>Recently Posted Jobs</strong></h4>
             <p class="text-center mb-2 color-light fontsize-14">Lorem, ipsum dolor sit amet consectetur adipisicing</p>
             <div class="border rounded p-4 mb-2">
                <div class="row" id="application-row-container">
@@ -373,8 +373,8 @@ require "html/head.html";
       </div>
       <div id="fourth-container">
          <div class="max-width-container">
-            <h4 class="color-black text-center mb-5">
-               <strong>Successful Graduates of CCIT</strong>
+            <h4 class="color-black text-center mb-5 m-auto" style="max-width: 800px;">
+               <strong>Successful Graduates of the College of Communication and Information Technology</strong>
             </h4>
             <div class="row justify-content-center mb-5">
                <div class="col-md-6 d-flex align-items-center justify-content-center">

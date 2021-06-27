@@ -19,7 +19,7 @@ require "alumni-head.html";
 
 					<div class="d-flex justify-content-end">
 						<div class="input-group mb-3" style="max-width: 500px;">
-							<input type="text" class="form-control fontsize-14" placeholder="Recipient's username">
+							<input type="text" class="form-control fontsize-14" placeholder="Search Alumni">
 							<button class="btn btn-primary" type="button"><span data-feather="search" class="color-white" style="height: 18px; width: 18px;"></span></button>
 						</div>
 					</div>
