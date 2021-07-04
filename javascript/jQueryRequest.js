@@ -33,3 +33,19 @@ function SubmitProfile1() {
         document.getElementById("ball-loader").classList.remove("active");
     });
 }
+
+function submit_work_experience() {
+    $.post("includes/formSubmit.inc.php", $("#user_experience_form").serialize(), function (data) {
+        console.log(data);
+        window.location = "Candidate/candidate.php";
+    });
+}
+
+function login_user(){
+    $.post("includes/login.inc.php", $("#login_form").serialize(), function (data) {
+        console.log(data);
+        if (data == "logged in.") {
+            window.location = "Candidate/candidate.php";
+        }
+    });
+}

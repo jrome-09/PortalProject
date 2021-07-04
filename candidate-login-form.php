@@ -21,7 +21,8 @@ require "html/head.html";
     require "html/footer.html";
     ?>
     <script src="javascript/functions.js"></script>
-    <script src="javascript/scroll.js"></script>
+    <script src="javascript/validations.js"></script>
+    <script src="javascript/jQueryRequest.js"></script>
     <script>
         loadPage();
         feather.replace();
