@@ -8,6 +8,7 @@
     <title>This is the test Page</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css">
     <script src="https://unpkg.com/feather-icons"></script>
     <?php
     require "html/script.html";
@@ -16,49 +17,24 @@
 
 <body>
     <div class="max-width-container">
-        <div id="dropdown-container">
-            <div class="form-control mb-1" onclick="showList()">
-                <span class="color-black fontsize-13" id="control-selected">Selected</span>
-                <span data-feather="chevron-down" class="color-black"></span>
-            </div>
-
-            <div class="option-container border rounded shadow-sm" id="options">
-                <ul class="p-2 color-black fontsize-13" id="list__ul">
-                    <li class="p-2 rounded" id="AdvertisingMedia" onclick="optionSelect(this.id)">Advertising Media</li>
-                </ul>
-            </div>
-        </div>
-        <style>
-            #dropdown-container .form-control{
-                width: 100%;
-                min-height: 35px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-            .option-container {
-                max-height: 300px;
-                overflow-y: scroll;
-                visibility: hidden;
-                opacity: 0;
-                transition: 0.2s;
-            }
-
-            .option-container.active{
-                visibility: visible;
-                opacity: 1;
-                transition: 0.2s;
-            }
-
-            .option-container ul li:hover {
-                background-color: #f8f9fa !important;
-            }
-        </style>
+        <button type="button" class="btn btn-success fontsize-13 font-500" onclick="success_click()">Success Alert</button>
+        <button type="button" class="btn btn-danger fontsize-13 font-500">Danger Alert</button>
+        <button type="button" class="btn btn-primary fontsize-13 font-500">Job Applied Alert</button>
     </div>
     <script src="javascript/functions.js"></script>
     <script>
-        GetTextList()
+        function success_click() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Upload Error!',
+                text: "Please check your file and send it again",
+                confirmButtonText: 'Close',
+                // showCancelButton: true,
+                // cancelButtonColor: '#d33',
+                // cancelButtonText: 'No!'
+
+            })
+        }
         feather.replace();
     </script>
 </body>
