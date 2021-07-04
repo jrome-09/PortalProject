@@ -5,12 +5,12 @@
                 <h4>User Log in</h4>
                 <p class="color-light font-small font-500">Find the job that you want</p>
             </div>
-            <form action="#">
+            <form action="#" id="login_form">
                 <label for="login--email" class="required color-light text-start">Email Address</label>
-				<input type="email" name="login--email" id="login--email" required class="form-control color-black mb-2 text-center" maxlength="15">
+				<input type="email" name="login_email" id="login--email" required class="form-control color-black mb-2 text-center">
 
                 <label for="login-password" class="required color-light text-start">Password</label>
-				<input type="password" name="login-password" id="login-password" required class="form-control color-black mb-2 text-center" maxlength="15">
+				<input type="password" name="login_password" id="login-password" required class="form-control color-black mb-2 text-center">
                 <div class="form-check d-flex ps-0">
 					<input class="form-check-input me-1 ms-0" type="checkbox" value="" id="showhide-ckeckBox">
 					<label class="form-check-label font-super--small color-light" for="Conditions-ckeckBox">
@@ -18,7 +18,7 @@
 					</label>
 				</div>
                 <div class="d-flex justify-content-center">
-					<a type="button" href="Candidate/candidate.php" class="btn btn-primary font-small font-500 px-5 mt-2">
+					<a type="button" onclick="login_user()" href="#" class="btn btn-primary font-small font-500 px-5 mt-2">
 						Sign in
 					</a>
 				</div>
