@@ -115,6 +115,10 @@ div.jobs{
         justify-content: space-between;
     }
 
+    .notification_web{
+        display: none;
+    }
+
 }
 
 header nav{

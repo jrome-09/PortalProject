@@ -111,7 +111,7 @@
     transition: 0.2s;
 }
 
-#options.active, #optionsYear.active, #optionsPosition.active{
+#options.active, #optionsYear.active, #optionsPosition.active, #optionsSpecialization.active, #optionsIndustry.active{
     visibility: visible;
     opacity: 1;
     transition: 0.2s;

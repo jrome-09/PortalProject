@@ -123,7 +123,7 @@ require "candidate-head.html";
         loadPage();
         feather.replace();
         document.getElementById('mypage-link').classList.toggle('active');
-        document.title = "Candidate | Homepage"
+        document.title = "Candidate | Homepage";
     </script>
 </body>
 

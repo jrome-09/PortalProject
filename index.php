@@ -62,47 +62,55 @@ require "html/head.html";
             </div>
             <div class="search-container fontsize-14 m-auto" style="max-width: 900px;">
                <form action="#">
-                  <div class="d-flex align-items-center search-box-container">
-                     <div class="input-group flex-nowrap me-1 mb-2">
-                        <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
-                           <span data-feather="search" class="color-black"></span>
+                  <div class="row">
+                     <div class="col-lg-3 px-1 mb-2">
+                        <div class="input-group">
+                           <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
+                              <span data-feather="search" class="color-black"></span>
+                           </div>
+                           <input type="text" class="form-control border-start-1 fontsize-14" placeholder="Job Title...">
                         </div>
-                        <input type="text" class="form-control border-start-0 fontsize-14" placeholder="Job Title...">
                      </div>
-                     <div class="input-group flex-nowrap me-1 mb-2">
-                        <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
-                           <span data-feather="map-pin" class="color-black"></span>
+                     <div class="col-lg-3 px-1 mb-2">
+                        <div class="input-group">
+                           <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
+                              <span data-feather="map-pin" class="color-black"></span>
+                           </div>
+                           <input type="text" class="form-control fontsize-14 border-start-1" id="location-autocomplete" placeholder="Location...">
                         </div>
-                        <input type="text" class="form-control fontsize-14 border-start-0" id="location-autocomplete" placeholder="Location...">
                      </div>
+                     <div class="col-lg-6 px-1 mb-2">
+                        <div class="input-group">
+                           <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
+                              <span data-feather="user" class="color-black"></span>
+                           </div>
 
-                     <!-- <script>
-                        function initialize() {
-                           var input = document.getElementById('location-autocomplete');
-                           new google.maps.places.Autocomplete(input);
-                        }
+                           <div class="form-control" onclick="showSpecializationList()" style="max-height: 38px; overflow: hidden;">
+                              <span class="color-black fontsize-13" id="specialization-input">Specialization</span>
+                              <span data-feather="chevron-down" class="color-black" id="chevron"></span>
+                           </div>
+                           <input type="hidden" id="hiddenSpecialization" name="specialization">
+                           <div class="option-container border rounded shadow-sm bg-white p-2" id="optionsSpecialization">
+                              <ul class="p-0 color-black fontsize-13" id="list__ul__Specialization">
+                                 <li class="p-2 rounded" id="ActuarialScience/Statistic" onclick="specialization_select(this.id)">Actuarial Science/Statistic</li>
+                              </ul>
+                           </div>
 
-                        google.maps.event.addDomListener(window, 'load', initialize);
-                     </script> -->
-                     <!-- <script>
-                        var input = document.getElementById('location-autocomplete');
-                        var autocomplete = new google.maps.places.Autocomplete(input);
-                     </script> -->
+                           <style>
+                              #chevron{
+                                 position: absolute;
+                                 right: 2px;
+                                 top: 10px;
+                              }
+                              #optionsSpecialization{
+                                 margin-top: 2.5rem;
+                              }
+                           </style>
 
-                     <div class="input-group mb-2 sp-group">
-                        <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
-                           <span data-feather="user" class="color-black"></span>
+                           <button class="btn btn-primary fontsize-14" type="button" style="z-index: 0;">
+                              Search
+                           </button>
                         </div>
-                        <select name="" id="searchSelect" class="form-select color-light border-start-0 fontsize-14">
-                           <option selected>Specialization</option>
-                           <option value="1">One</option>
-                           <option value="2">Two</option>
-                           <option value="3">Three</option>
-                        </select>
-                        <button class="btn btn-primary fontsize-14" type="button" style="z-index: 0;">
-                           <span data-feather="search" class="text-white me-1" style="height: 18px; width: 18px; margin-bottom: .04rem;"></span>
-                           Search
-                        </button>
                      </div>
                   </div>
                </form>
@@ -682,7 +690,8 @@ require "html/head.html";
       loadPage();
       feather.replace();
       document.getElementById('index-link').classList.toggle('active');
-      document.title = "CCIT Alumni Tracing and Job Portal"
+      document.title = "CCIT Alumni Tracing and Job Portal";
+      GetSpecializationList();
    </script>
 </body>
 
