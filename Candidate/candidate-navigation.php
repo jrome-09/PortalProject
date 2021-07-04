@@ -1,12 +1,11 @@
-
 <?php
-	session_start();
-	$nav_username;
-	if (isset($_SESSION["username"])) {
-		$nav_username = $_SESSION["username"];
-	}else {
-		$nav_username = "Username";
-	}
+session_start();
+$nav_username;
+if (isset($_SESSION["username"])) {
+	$nav_username = $_SESSION["username"];
+} else {
+	$nav_username = "Username";
+}
 ?>
 
 <header id="candidate-navbar" class="bg-white">
@@ -38,7 +37,7 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="ms-auto" id="left">
+				<div class="ms-auto position-relative" id="left">
 					<div class="btn-group">
 						<button type="button" class="btn rounded-end color-black fontsize-14 font-500 hover-text-primary hover-text-feather" id="user-name" data-bs-toggle="dropdown"><?php echo $nav_username ?> <span data-feather="chevron-down" class="color-black"></span></button>
 						<ul class="dropdown-menu mt-1 p-2">
@@ -48,6 +47,18 @@
 							<li><a href="../includes/logout.inc.php" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">Logout</a></li>
 						</ul>
 					</div>
+					<span class="notification_container me-3 notification_web">
+						<span data-feather="bell" onclick="toggle_dropdown_notification()"></span>
+						<div class="position-absolute bg-white shadow-sm border rounded notification_dropdown" id="web_notification_dropdown">
+							<header class="bg-light p-3  fontsize-14 color-black font-500 border-bottom">
+								Alerts
+							</header>
+							<main>
+
+							</main>
+						</div>
+					</span>
+
 					<a href="#" type="button" id="emp-btn-link" class="btn btn-outline-primary border-2 px-4 py-2 fontsize-14 font-500">For Employers</a>
 				</div>
 			</div>
@@ -56,16 +67,34 @@
 			</div>
 		</div>
 		<style>
-			#mobile--nav nav ul li a.active{
+			#mobile--nav nav ul li a.active {
 				border-bottom: 2px solid #0d6efd;
 				color: #0d6efd !important;
 				padding-bottom: 0.5rem;
 			}
+
+			.notification_dropdown {
+				width: 100%;
+				height: 400px;
+				max-height: 400px;
+				margin-top: 2px;
+				overflow-y: scroll;
+				border-top: 2px solid #0d6efd !important;
+				visibility: hidden;
+			}
+
+			.notification_dropdown.active {
+				visibility: visible;
+			}
 		</style>
 		<script>
-			function toggle_nav(){
+			function toggle_nav() {
 				const id = document.getElementById('mobile--nav');
 				id.classList.toggle('active');
+			}
+
+			function toggle_dropdown_notification() {
+				document.getElementById('web_notification_dropdown').classList.toggle('active');
 			}
 		</script>
 
