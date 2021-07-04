@@ -10,7 +10,13 @@ require "alumni-head.html";
 	</div>
 	<?php
 	require "../html/script.html";
-	require "../Candidate/candidate-navigation.php"
+	session_start();
+	if (isset($_SESSION['username'])) {
+		require "../Candidate/candidate-navigation.php";
+	}else {
+		require "../includes/nav.inc.php";
+	}
+	
 	?>
 	<div id="blur">
 		<main>
