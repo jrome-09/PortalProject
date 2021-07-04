@@ -72,19 +72,59 @@ function GetPositionList() {
         });
 }
 
+function GetSpecializationList() {
+    fetch('textFile/specialization.txt')
+        .then(response => response.text())
+        .then(data => {
+            var array = data.split("\n");
+            for (let i = 0; i < array.length; i++) {
+                const li__id = document.getElementById("ActuarialScience/Statistic");
+                var clone = li__id.cloneNode(true);
+                clone.id = array[i].split(" ").join("");
+                clone.innerHTML = array[i];
+                const parentContainer = document.getElementById('list__ul__Specialization');
+                parentContainer.appendChild(clone);
+            }
+        });
+}
+
+function GetIndustryList() {
+    fetch('textFile/industry.txt')
+        .then(response => response.text())
+        .then(data => {
+            var array = data.split("\n");
+            for (let i = 0; i < array.length; i++) {
+                const li__id = document.getElementById("Accounting/Audit/TaxServices");
+                var clone = li__id.cloneNode(true);
+                clone.id = array[i].split(" ").join("");
+                clone.innerHTML = array[i];
+                const parentContainer = document.getElementById('list__ul__Industry');
+                parentContainer.appendChild(clone);
+            }
+        });
+}
+
 function GetYearList() {
-    for (let i = 2029; i > 1961 ; i--) {
-         const li__id = document.getElementById("2030");
-         var clone = li__id.cloneNode(true);
-         clone.id = [i];
-         clone.innerHTML = i;
-         const parentContainer = document.getElementById('list__ul__Year');
-         parentContainer.appendChild(clone);
+    for (let i = 2029; i > 1961; i--) {
+        const li__id = document.getElementById("2030");
+        var clone = li__id.cloneNode(true);
+        clone.id = [i];
+        clone.innerHTML = i;
+        const parentContainer = document.getElementById('list__ul__Year');
+        parentContainer.appendChild(clone);
     }
 }
 
 function showPositionList() {
     document.getElementById('optionsPosition').classList.toggle('active');
+}
+
+function showIndustryList() {
+    document.getElementById('optionsIndustry').classList.toggle('active');
+}
+
+function showSpecializationList() {
+    document.getElementById('optionsSpecialization').classList.toggle('active');
 }
 
 function showList() {
@@ -99,7 +139,7 @@ function YearSelect(year_id) {
     const inner = document.getElementById(year_id).innerHTML;
     document.getElementById('control-selected-year').innerHTML = inner;
     document.getElementById('hiddenYear').value = inner;
-    console.log(inner);
+    console.log("Graduation Year:" + " " + inner);
     showYearList();
 }
 
@@ -107,6 +147,36 @@ function optionSelect(option_id) {
     const inner = document.getElementById(option_id).innerHTML;
     document.getElementById('control-selected-field').innerHTML = inner;
     document.getElementById('hiddenField').value = inner;
-    console.log(inner);
+    console.log("Field of Study:" + " " + inner);
     showList();
+}
+
+function position_select(position_ID) {
+    const inner = document.getElementById(position_ID).innerHTML;
+    document.getElementById('level-input').innerHTML = inner;
+    document.getElementById('hiddenPosition').value = inner;
+    console.log("Position Level:" + " " + inner);
+    showPositionList();
+}
+
+function specialization_select(specialization_ID) {
+    const inner = document.getElementById(specialization_ID).innerHTML;
+    document.getElementById('specialization-input').innerHTML = inner;
+    document.getElementById('hiddenSpecialization').value = inner;
+    console.log("Specialization:" + " " + inner);
+    showSpecializationList();
+}
+
+function industry_select(industry_ID) {
+    const inner = document.getElementById(industry_ID).innerHTML;
+    document.getElementById('industry-input').innerHTML = inner;
+    document.getElementById('hiddenIndustry').value = inner;
+    console.log("Industry:" + " " + inner);
+    showIndustryList();
+}
+
+function erase_input() {
+    document.getElementById('hiddenIndustry').value = "";
+    document.getElementById('hiddenSpecialization').value = "";
+    document.getElementById('hiddenPosition').value = "";
 }

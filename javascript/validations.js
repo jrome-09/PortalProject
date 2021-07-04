@@ -88,5 +88,8 @@ function ValidateProfile1() {
 
     document.getElementById("ball-loader").classList.add("active");
     setTimeout("SubmitProfile1()", 2000);
+}
 
+function past_experience_form_validation(){
+    submit_work_experience();
 }

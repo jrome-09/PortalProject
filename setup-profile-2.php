@@ -36,6 +36,9 @@ require "html/head.html";
         feather.replace()
         changeLink();
         GetPositionList();
+        GetSpecializationList();
+        GetIndustryList();
+        erase_input();
     </script>
 
 </body>

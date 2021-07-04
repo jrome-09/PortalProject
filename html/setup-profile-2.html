@@ -6,11 +6,12 @@
 				<p class="color-light font-small font-500">Share us your previous work experience</p>
 				<div class="col-md-6"></div>
 			</div>
-			<form action="#" class="p-5 pt-4">
+			<form action="#" class="p-5 pt-4" id="user_experience_form">
 				<div class="row">
 					<div class="col-md-6">
 						<p class="font-small color-light font-500">
-							This is optional. You can skip this form if you don't have any work experience or has a current job.
+							This is optional. You can skip this form if you don't have any work experience or has a
+							current job.
 						</p>
 					</div>
 				</div>
@@ -19,40 +20,53 @@
 						<label for="company-name" class="required color-light text-start">
 							Company Name / Employer Name
 						</label>
-						<input type="text" name="company-name" id="company-name" class="form-control color-black mb-2">
+						<input type="text" name="company_name" id="company-name" class="form-control color-black mb-2">
 
 						<label for="company-address" class="required color-light text-start">
 							Company Address
 						</label>
-						<input type="text" name="company-name" id="company-address" class="form-control color-black mb-2">
+						<input type="text" name="company_address" id="company-address"
+							class="form-control color-black mb-2">
 
 						<label for="position-title" class="required color-light text-start">
 							Position Title
 						</label>
-						<input type="text" name="position-title" id="position-title" class="form-control color-black mb-2">
+						<input type="text" name="position_title" id="position-title"
+							class="form-control color-black mb-2">
 
 						<label for="graduationYear" class="required color-light text-start">
 							Specialization
 						</label>
-						<div class="input-group">
-							<select class="form-select color-light" id="graduationYear">
-								<option selected> </option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
-							</select>
+						<div class="dropdown-container position-relative">
+							<div class="form-control mb-2" onclick="showSpecializationList()">
+								<span class="color-black fontsize-13" id="specialization-input"></span>
+								<span data-feather="chevron-down" class="color-black"></span>
+							</div>
+							<input type="hidden" id="hiddenSpecialization" name="specialization">
+							<div class="option-container border rounded shadow-sm bg-white p-2"
+								id="optionsSpecialization">
+								<ul class="p-0 color-black fontsize-13" id="list__ul__Specialization">
+									<li class="p-2 rounded" id="ActuarialScience/Statistic"
+										onclick="specialization_select(this.id)">Actuarial Science/Statistic</li>
+								</ul>
+							</div>
 						</div>
 
 						<label for="industry" class="required color-light text-start">
-							industry
+							Industry
 						</label>
-						<div class="input-group">
-							<select class="form-select color-light" id="industry">
-								<option selected> </option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
-							</select>
+						<div class="dropdown-container position-relative">
+							<div class="form-control mb-2" onclick="showIndustryList()">
+								<span class="color-black fontsize-13" id="industry-input"></span>
+								<span data-feather="chevron-down" class="color-black"></span>
+							</div>
+							<input type="hidden" id="hiddenIndustry" name="industry">
+							<div class="option-container border rounded shadow-sm bg-white p-2" id="optionsIndustry">
+								<ul class="p-0 color-black fontsize-13" id="list__ul__Industry">
+									<li class="p-2 rounded" id="Accounting/Audit/TaxServices"
+										onclick="industry_select(this.id)">Accounting / Audit / Tax Services</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 
@@ -62,14 +76,15 @@
 							Position Level
 						</label>
 						<div class="dropdown-container position-relative">
-							<div class="form-control mb-2"  onclick="showPositionList()">
+							<div class="form-control mb-2" onclick="showPositionList()">
 								<span class="color-black fontsize-13" id="level-input"></span>
 								<span data-feather="chevron-down" class="color-black"></span>
 							</div>
-							<input type="hidden" id="hiddenPosition" name="position-level">
+							<input type="hidden" id="hiddenPosition" name="position_level">
 							<div class="option-container border rounded shadow-sm bg-white p-2" id="optionsPosition">
 								<ul class="p-0 color-black fontsize-13" id="list__ul__Position">
-									<li class="p-2 rounded" id="CEO/SVP/AVP/VP/Director" onclick="PositionSelect(this.id)">CEO / SVP / AVP / VP / Director</li>
+									<li class="p-2 rounded" id="CEO/SVP/AVP/VP/Director"
+										onclick="position_select(this.id)">CEO / SVP / AVP / VP / Director</li>
 								</ul>
 							</div>
 						</div>
@@ -77,27 +92,21 @@
 						<label for="monthly-salary" class="required color-light text-start">
 							Monthly Salary
 						</label>
-						<div class="d-flex justify-content-center mb-2">
-							<div class="input-group me-1">
-								<select class="form-select color-light" id="monthly-salary">
-									<option selected>Currency</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Three</option>
-								</select>
-							</div>
-							<input type="text" name="company-name" id="company-name" required class="form-control color-black"
-								maxlength="20">
+						<div class="input-group mb-2">
+							<span class="input-group-text fontsize-13 color-light font-500">PHP</span>
+							<input type="text" class="form-control color-black fontsize-13" name="monthly_salary">
 						</div>
 
 						<label for="self-description" class="required color-light text-start">
 							Experience and Description
 						</label>
-						<textarea class="form-control color-black fontsize-13" id="self-description" rows="5"></textarea>
+						<textarea class="form-control color-black fontsize-13" id="experience-description"
+							rows="5" name="experience_description"></textarea>
 					</div>
 				</div>
 				<div class="d-flex align-items-center">
-					<a href="#" type="button" class="btn btn-primary px-5 py-2 font-small ms-auto">Save</a>
+					<a href="#" type="button" class="btn btn-primary px-5 py-2 font-small ms-auto"
+						onclick="past_experience_form_validation()">Save</a>
 				</div>
 			</form>
 		</div>
