@@ -1,0 +1,67 @@
+Actuarial Science/Statistic
+Advertising/Media Planning
+Agriculture/Forestry/Fisheries
+Architecture/Interior Design
+Arts/Creative/Graphics Design
+Aviation/Aircraft Maintenance
+Banking/Financial Services
+Biomediacal
+Biotechnology
+Chemistry
+Clerical/Administrative Support
+Corporate Strategy/Top Management
+Customer Service
+Digital Marketing
+E-commerce
+Education
+Engineering - Chemical
+Engineering - Civil/Construction/Structural
+Engineering - Electrical
+Engineering - Electronics/Communication
+Engineering - Environmental/Health/Safety
+Engineering - Industrial
+Engineering - Mechanical/Automotive
+Engineering - Oil/Gas
+Engineering - Others
+Entertainment/Performing Arts
+Finance - Audit/Taxation
+Finance - Corporate Finance/Investment/Merchant Banking
+Finance - General/Cost Accounting
+Food Technology/Nutritionist
+Food/Beverage/Restaurant Service
+General Work (Housekeeper, Driver, Dispatch, Messenger, etc)
+Geology/Geophysics
+Healthcare - Doctor/Diagnosis
+Healthcare - Pharmacy
+Hotel Management/Tourism Services
+Human Resources
+IT/Computer - Hardware
+IT/Computer - Network/System/Database Admin
+IT/Computer - Software
+Journalist/Editor
+Law/Legal Services
+Logistic/Supply Chain
+Maintenance/Repair (Facilities and Machinery)
+Manufacturing/Production Operations
+Marketing/Business Development
+Merchandising
+Personal Care/Beauty/Fitness Service
+Process Design & Control/Instrumentation
+Property/Real Estate
+Public Relations/Communication
+Publishing/Printing
+Purchasing/Inventory/Material & Warehouse Management
+Quality Control/Assurance
+Quality Surveying
+Sales - Corporate
+Sales - Engineering/Technical/IT
+Sales - Financial Services(Insurance, Unit, Trust, etc)
+Sales - Retail/General
+Sales - Telesales/Telemarketing
+Science and Technology/Laboratory
+Secretarial/Executive & Personal Assistant
+Security/Armed Forces/Protective Services
+Social and Counceling Services
+Technical and Helpdesk Support
+Training and Development
+Others
