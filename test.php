@@ -16,25 +16,39 @@
 </head>
 
 <body>
-    <div class="max-width-container">
-        <button type="button" class="btn btn-success fontsize-13 font-500" onclick="success_click()">Success Alert</button>
-        <button type="button" class="btn btn-danger fontsize-13 font-500">Danger Alert</button>
-        <button type="button" class="btn btn-primary fontsize-13 font-500">Job Applied Alert</button>
-    </div>
+    <main>
+        <div class="max-width-container">
+            <form action="#" id="upload_form">
+                <input type="file" class="form-control fontsize-14 mb-2" name="resume_file">
+                <button type="button" class="btn btn-primary" id="btn-submit" name="file_btn">Submit</button>
+            </form>
+            <div id="result"">Result</div>
+        </div>
+        <script>
+            $("#btn-submit").click(function() {
+                var form = $('#upload_form')[0];
+                var data = new FormData(form);
+                $.ajax({
+                    type: "POST",
+                    enctype: "multipart/form-data",
+                    url: "includes/formSubmit.inc.php",
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    timeout: 600000,
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    error: function(e) {
+                        $("#result").text(e.responseText);
+                    }
+                })
+            });
+        </script>
+    </main>
     <script src="javascript/functions.js"></script>
     <script>
-        function success_click() {
-            Swal.fire({
-                icon: 'error',
-                title: 'Upload Error!',
-                text: "Please check your file and send it again",
-                confirmButtonText: 'Close',
-                // showCancelButton: true,
-                // cancelButtonColor: '#d33',
-                // cancelButtonText: 'No!'
-
-            })
-        }
         feather.replace();
     </script>
 </body>
