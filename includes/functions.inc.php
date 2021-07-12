@@ -172,3 +172,41 @@ function insert_user_experience($conn, $user_id, $user_name, $employer_name, $co
     return true;
     mysqli_stmt_close($stmt);
 }
+
+function submit_resume($resume, $uid)
+{
+    $file = $resume;
+    $fileName = $file['name'];
+    $fileTmpName = $file['tmp_name'];
+    $fileError = $file['error'];
+    $fileType = $file['type'];
+
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+
+    $allowed = array('pdf', 'doc', 'docx');
+
+    if (in_array($fileActualExt, $allowed)) {
+        if ($fileError === 0) {
+            $NewFileName = "resume_" . $uid .  "." . $fileActualExt;
+            $fileDestination = '../uploads/resume/' . $NewFileName;
+            move_uploaded_file($fileTmpName, $fileDestination);
+            return $fileDestination;
+        }else {
+            return false;
+        }
+    }else {
+        return false;
+    }
+}
+
+function submit_application($conn, $uid, $username, $job_id, $job_name, $employer_id, $employer_name, $resume_filename){
+
+    $sql = "INSERT INTO `application`(`applicant_id`, `applicant_name`, `job_id`, `job_title`, `employer_id`, `employer_name`, `applicant_resume`, `application_status`) VALUES ('$uid', '$username', '$job_id', '$job_name', '$employer_id', '$employer_name', '$resume_filename', '0')";
+    if ($conn->query($sql) === TRUE) {
+        return true;
+    }else {
+        return false;
+    }
+
+}

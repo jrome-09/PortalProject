@@ -59,7 +59,7 @@ if (isset($_POST['company_name'])) {
         $get_user_id = uidExists($conn, $user_email);
 
         if ($get_user_id) {
-          
+
             $user_name = $_SESSION["username"];
             $user_id = $get_user_id['_id'];
             $check_uid = check_userExperienceID_exist($conn, $user_id);
@@ -78,9 +78,35 @@ if (isset($_POST['company_name'])) {
                 if ($insert) {
                     echo "Data Inserted";
                 }
-                
+
                 exit();
             }
         }
     }
 }
+
+if (isset($_POST["resume_file"])) {
+
+    session_start();
+    $uid = $_SESSION["uid"];
+    $username = $_SESSION["username"];
+    $job_id = $_POST["job_id"];
+    $job_name = $_POST["job_name"];
+    $employer_id = $_POST["employer_id"];
+    $employer_name = $_POST["employer_name"];
+    $resume = $_FILES["uploaded_resume_file"];
+
+    //Upload Resume
+    $resume_filename = submit_resume($resume, $uid);
+
+    //Add to Database
+    if ($resume_filename) {
+        $submit = submit_application($conn, $uid, $username, $job_id, $job_name, $employer_id, $employer_name, $resume_filename);
+        if ($submit) {
+            echo "success";
+        }
+    }
+   
+}
+
+

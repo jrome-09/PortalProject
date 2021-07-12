@@ -34,7 +34,16 @@ function workCheckBox() {
 function changeLink() {
     const ids = ['mypage-link', 'jobs-link', 'employer-prof-link', 'alumni-link', 'forum-link', 'job-app-link', 'bookmarks-link', 'emp-btn-link'];
     const c = "Candidate", j = "Jobs", e = "Employers", a = "Alumni", f = "Forum";
-    const link = [c + '/candidate.php', j + '/jobs.php', c + '/employer-profile-page.php', a + '/alumni-index.php', f + '/forum-index.php', c + '/job-applications.php', c + '/booksmarks.php', e + '/employer-page.php'];
+    const link = [c + '/candidate.php', j + '/jobs.php', e + '/employers-profile-page.php', a + '/alumni-index.php', f + '/forum-index.php', c + '/job-applications.php', c + '/bookmarks.php', e + '/employer-page.php'];
+    for (let i = 0; i < ids.length; i++) {
+        document.getElementById(ids[i]).href = link[i];
+    }
+}
+
+function changeLink_inner() {
+    const ids = ['mypage-link', 'jobs-link', 'employer-prof-link', 'alumni-link', 'forum-link', 'job-app-link', 'bookmarks-link', 'emp-btn-link'];
+    const c = "../Candidate", j = "../Jobs", e = "../Employers", a = "../Alumni", f = "../Forum";
+    const link = [c + '/candidate.php', j + '/jobs.php', e + '/employers-profile-page.php', a + '/alumni-index.php', f + '/forum-index.php', c + '/job-applications.php', c + '/bookmarks.php', e + '/employer-page.php'];
     for (let i = 0; i < ids.length; i++) {
         document.getElementById(ids[i]).href = link[i];
     }
@@ -74,6 +83,22 @@ function GetPositionList() {
 
 function GetSpecializationList() {
     fetch('textFile/specialization.txt')
+        .then(response => response.text())
+        .then(data => {
+            var array = data.split("\n");
+            for (let i = 0; i < array.length; i++) {
+                const li__id = document.getElementById("ActuarialScience/Statistic");
+                var clone = li__id.cloneNode(true);
+                clone.id = array[i].split(" ").join("");
+                clone.innerHTML = array[i];
+                const parentContainer = document.getElementById('list__ul__Specialization');
+                parentContainer.appendChild(clone);
+            }
+        });
+}
+
+function GetSpecializationList_inner() {
+    fetch('../textFile/specialization.txt')
         .then(response => response.text())
         .then(data => {
             var array = data.split("\n");
@@ -133,6 +158,30 @@ function showList() {
 
 function showYearList() {
     document.getElementById('optionsYear').classList.toggle('active');
+}
+
+function showCourseList() {
+    document.getElementById('optionsCourse').classList.toggle('active');
+}
+
+function CourseSelect(course_id) {
+    const inner = document.getElementById(course_id).innerHTML;
+    document.getElementById('control-selected-course').innerHTML = inner;
+    document.getElementById('hiddenCourse').value = inner;
+    console.log("Course:" + " " + inner);
+    showCourseList();
+}
+
+function showDegreeList() {
+    document.getElementById('optionsDegree').classList.toggle('active');
+}
+
+function DegreeSelect(degree_id) {
+    const inner = document.getElementById(degree_id).innerHTML;
+    document.getElementById('control-selected-degree').innerHTML = inner;
+    document.getElementById('hiddenDegree').value = inner;
+    console.log("Degree Earned:" + " " + inner);
+    showDegreeList();
 }
 
 function YearSelect(year_id) {

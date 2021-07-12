@@ -1,3 +1,5 @@
+
+
 <style>
     #job-details {
         position: fixed;
@@ -45,6 +47,7 @@
         transition: 0.4s;
     }
 </style>
+
 <div class="max-width-container-sm px-3 py-1 border-top border-bottom" id="job-details">
     <div class=" p-5 bg-white rounded mb-2 border shadow">
         <div class="d-flex justify-content-end">
@@ -116,15 +119,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    $(document).mouseup(function(e) {
-        const id = document.getElementById('job-details');
-        if (id.classList.contains('visible')) {
-            var container = $("#job-details");
-            if (!container.is(event.target) && !container.has(event.target).length) {
-                ShowDetails()
-            }
-        }
-    });
-</script>
