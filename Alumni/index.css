@@ -48,3 +48,50 @@
     top: 36px;
     display: block;
 }
+
+.max-width-container.form-alumni, .mx-900px{
+    max-width: 900px;
+}
+
+.max-width-500px{
+    max-width: 500px;
+}
+
+.max-width-container.header-div{
+    height: 80px;
+}
+
+.form-main{
+    padding-top: 100px;
+}
+
+.min-width-200{
+    min-width: 200px;
+}
+
+.min-width-285{
+    min-width: 285.417px;
+}
+
+form label.required:after {
+    color: red;
+    content: " *";
+}
+
+header.bg-primary{
+    z-index: 99;
+}
+
+@media screen and (max-width: 800px){
+    #form-header-name h5{
+        font-size: 14px;
+    }
+
+    #form-header-name p{
+        font-size: 12px !important;
+    }
+
+    #form-return-btn{
+        display: none;
+    }
+}
