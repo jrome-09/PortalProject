@@ -87,8 +87,15 @@
 <div class="d-flex flex-column my-4" style="max-width: 500px;">
     <p class="fontsize-13 color-light font-500 mb-0">Submit your resume:</p>
     <p class="font-super--small text-primary mb-2 font-500"> By submitting your resume, you let the employers to know you more and to make hiring decisions and help you get your first interview. </p>
-    <input type="file" class="form-control fontsize-14" >
+    <form action="#" id="hidden_application_form">
+        <input type="hidden" name="resume_file">
+        <input type="file" class="form-control fontsize-14" name="uploaded_resume_file">
+        <input type="hidden" name="job_id" value="<?php echo $_POST["job_id-hidden_input"]; ?>">
+        <input type="hidden" name="job_name" value="<?php echo $_POST["job_name-hidden_input"]; ?>">
+        <input type="hidden" name="employer_id" value="<?php echo $_POST["employer_id-hidden_input"]; ?>">
+        <input type="hidden" name="employer_name" value="<?php echo $_POST["employer_name-hidden_input"]; ?>">
+    </form>
 </div>
 <div class="text-end">
-    <a href="#" type="button" class="btn btn-primary fontsize-13 font-500 px-5 py-2">Submit</a>
+    <button type="submit" onclick="submit_application()" type="button" class="btn btn-primary fontsize-13 font-500 px-5 py-2">Submit</button>
 </div>

@@ -18,7 +18,7 @@ require "candidate-head.html";
             <br>
             <div class="max-width-container">
                 <h4 class="mt-5 mb-4">Search for your Dream Job</h4>
-                <form action="#">
+                <!-- <form action="#">
                     <div class="d-flex align-items-center search-box-container">
                         <div class="input-group flex-nowrap me-1 mb-2">
                             <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
@@ -45,7 +45,11 @@ require "candidate-head.html";
                             <button class="btn btn-primary fontsize-14" type="button">Search</button>
                         </div>
                     </div>
-                </form>
+                </form> -->
+
+                <?php
+                    require "../html/search-form.html";
+                ?>
             </div>
         </div>
         <div class="bg-light">
@@ -114,16 +118,14 @@ require "candidate-head.html";
     <?php
     require "../html/footer.html";
     ?>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <script src="../javascript/functions.js"></script>
-    <script src="../javascript/scroll.js"></script>
     <script src="../javascript/onclick.js"></script>
     <script>
         loadPage();
         feather.replace();
         document.getElementById('mypage-link').classList.toggle('active');
         document.title = "Candidate | Homepage";
+        GetSpecializationList_inner();
     </script>
 </body>
 

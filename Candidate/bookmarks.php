@@ -109,6 +109,15 @@ require "candidate-head.html";
 		loadPage();
 		feather.replace();
 		document.title = "Candidate | Bookmarks";
+		$(document).mouseup(function(e) {
+        const id = document.getElementById('job-details');
+        if (id.classList.contains('visible')) {
+            var container = $("#job-details");
+            if (!container.is(event.target) && !container.has(event.target).length) {
+                ShowDetails()
+            }
+        }
+    });
 	</script>
 </body>
 
