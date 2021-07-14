@@ -31,6 +31,66 @@ function workCheckBox() {
     jQuery("#student--xp").click(uncheck);
 }
 
+function sexCheckBox() {
+    const checkBoxIDs = ["male_checkbox", "female_checkbox"];
+    function uncheck(event) {
+        var id = event.target.id;
+        checkBoxIDs.forEach(function (id) {
+            if (id != event.target.id) {
+                document.getElementById(id).checked = false;
+            }
+        })
+    }
+    jQuery("#male_checkbox").click(uncheck);
+    jQuery("#female_checkbox").click(uncheck);
+}
+
+function residenceCheckBox() {
+    const checkBoxIDs = ["urban_checkbox", "rural_checkbox"];
+    function uncheck(event) {
+        var id = event.target.id;
+        checkBoxIDs.forEach(function (id) {
+            if (id != event.target.id) {
+                document.getElementById(id).checked = false;
+            }
+        })
+    }
+    jQuery("#urban_checkbox").click(uncheck);
+    jQuery("#rural_checkbox").click(uncheck);
+}
+
+function civilstatusCheckBox() {
+    const checkBoxIDs = ["single_checkbox", "married_checkbox", "separated_checkbox", "widowed_checkbox"];
+    function uncheck(event) {
+        var id = event.target.id;
+        checkBoxIDs.forEach(function (id) {
+            if (id != event.target.id) {
+                document.getElementById(id).checked = false;
+            }
+        })
+    }
+    jQuery("#single_checkbox").click(uncheck);
+    jQuery("#married_checkbox").click(uncheck);
+    jQuery("#separated_checkbox").click(uncheck);
+    jQuery("#widowed_checkbox").click(uncheck);
+}
+
+function salaryCheckBox() {
+    const checkBoxIDs = ["php1_checkbox", "php2_checkbox", "php3_checkbox", "php4_checkbox"];
+    function uncheck(event) {
+        var id = event.target.id;
+        checkBoxIDs.forEach(function (id) {
+            if (id != event.target.id) {
+                document.getElementById(id).checked = false;
+            }
+        })
+    }
+    jQuery("#php1_checkbox").click(uncheck);
+    jQuery("#php2_checkbox").click(uncheck);
+    jQuery("#php3_checkbox").click(uncheck);
+    jQuery("#php4_checkbox").click(uncheck);
+}
+
 function changeLink() {
     const ids = ['mypage-link', 'jobs-link', 'employer-prof-link', 'alumni-link', 'forum-link', 'job-app-link', 'bookmarks-link', 'emp-btn-link'];
     const c = "Candidate", j = "Jobs", e = "Employers", a = "Alumni", f = "Forum";
@@ -179,7 +239,7 @@ function showDegreeList() {
 function DegreeSelect(degree_id) {
     const inner = document.getElementById(degree_id).innerHTML;
     document.getElementById('control-selected-degree').innerHTML = inner;
-    document.getElementById('hiddenDegree').value = inner;
+    document.getElementById('degree_earned').value = inner;
     console.log("Degree Earned:" + " " + inner);
     showDegreeList();
 }
@@ -187,7 +247,7 @@ function DegreeSelect(degree_id) {
 function YearSelect(year_id) {
     const inner = document.getElementById(year_id).innerHTML;
     document.getElementById('control-selected-year').innerHTML = inner;
-    document.getElementById('hiddenYear').value = inner;
+    document.getElementById('graduation_year').value = inner;
     console.log("Graduation Year:" + " " + inner);
     showYearList();
 }
