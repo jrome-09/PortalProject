@@ -92,7 +92,7 @@ header.bg-primary {
 #separated_checkbox:active.btn-light, #separated_checkbox:checked+.btn-light, #widowed_checkbox:active+.btn-light, #widowed_checkbox:checked+.btn-light, 
 #urban_checkbox:active.btn-light, #urban_checkbox:checked+.btn-light, #rural_checkbox:active+.btn-light, #rural_checkbox:checked+.btn-light,
 #php1_checkbox:active.btn-light, #php1_checkbox:checked+.btn-light, #php2_checkbox:active+.btn-light, #php2_checkbox:checked+.btn-light, 
-#php3_checkbox:active.btn-light, #php3_checkbox:checked+.btn-light, #php4_checkbox:active+.btn-light, #php4_checkbox:checked+.btn-light
+#php3_checkbox:active.btn-light, #php3_checkbox:checked+.btn-light, #php4_checkbox:active+.btn-light, #php4_checkbox:checked+.btn-light,
 #studentleader_checkbox:active.btn-light,  #studentleader_checkbox:checked+.btn-light, #studentjournalist_checkbox:active+.btn-light, #studentjournalist_checkbox:checked+.btn-light, 
 #organizationmember_checkbox:active.btn-light, #organizationmember_checkbox:checked+.btn-light,
 #none_checkbox:active.btn-light, #none_checkbox:checked+.btn-light, #magnacumlaude_checkbox:active+.btn-light, #magnacumlaude_checkbox:checked+.btn-light, 
@@ -100,7 +100,19 @@ header.bg-primary {
 #leadership_checkbox:active.btn-light, #leadership_checkbox:checked+.btn-light, #sportsaward_checkbox:active.btn-light, #sportsaward_checkbox:checked+.btn-light,
 #cssnc2_checkbox:active.btn-light, #cssnc2_checkbox:checked+.btn-light, #anc2_checkbox:active+.btn-light, #anc2_checkbox:checked+.btn-light, 
 #t2danc2_checkbox:active.btn-light, #t2danc2_checkbox:checked+.btn-light, #t3danc2_checkbox:active.btn-light, #t3danc2_checkbox:checked+.btn-light, 
-#vgdnc3_checkbox:active.btn-light, #vgdnc3_checkbox:checked+.btn-light, #wdnc2_checkbox:active.btn-light, #wdnc2_checkbox:checked+.btn-light
+#vgdnc3_checkbox:active.btn-light, #vgdnc3_checkbox:checked+.btn-light, #wdnc2_checkbox:active.btn-light, #wdnc2_checkbox:checked+.btn-light, 
+#employed_checkbox:active.btn-light, #employed_checkbox:checked+.btn-light, #self-employed_checkbox:active.btn-light, #self-employed_checkbox:checked+.btn-light, 
+#unemployed_checkbox:active.btn-light, #unemployed_checkbox:checked+.btn-light, #exp-unemployed_checkbox:active.btn-light, #exp-unemployed_checkbox:checked+.btn-light,
+#permanent_checkbox:active.btn-light, #permanent_checkbox:checked+.btn-light, #temporary_checkbox:active.btn-light, #temporary_checkbox:checked+.btn-light, 
+#contractual_checkbox:active.btn-light, #contractual_checkbox:checked+.btn-light, #casual_checkbox:active.btn-light, #casual_checkbox:checked+.btn-light,
+#government_checkbox:active.btn-light, #government_checkbox:checked+.btn-light, #private_checkbox:active.btn-light, #private_checkbox:checked+.btn-light,
+#day0006_checkbox:active.btn-light, #day0006_checkbox:checked+.btn-light, #day0712_checkbox:active.btn-light, #day0712_checkbox:checked+.btn-light,
+#day1318_checkbox:active.btn-light, #day1318_checkbox:checked+.btn-light, #day1924_checkbox:active.btn-light, #day1924_checkbox:checked+.btn-light,
+#day24above_checkbox:active.btn-light, #day24above_checkbox:checked+.btn-light, #ictyes_checkbox:active.btn-light, #ictyes_checkbox:checked+.btn-light, 
+#icno_checkbox:active.btn-light, #ictno_checkbox:checked+.btn-light, #reason01_checkbox:active.btn-light, #reason01_checkbox:checked+.btn-light, 
+#reason02_checkbox:active.btn-light, #reason02_checkbox:checked+.btn-light, #reason03_checkbox:active.btn-light, #reason03_checkbox:checked+.btn-light, 
+#reason04_checkbox:active.btn-light, #reason04_checkbox:checked+.btn-light, #reason05_checkbox:active.btn-light, #reason05_checkbox:checked+.btn-light, 
+#reason06_checkbox:active.btn-light, #reason06_checkbox:checked+.btn-light
 {
     color: #fff !important;
     background-color: #0a58ca !important;
