@@ -104,23 +104,20 @@ function false_class(label) {
     label.classList.add("color-black");
 }
 
-function remove_value() {
-    $("#sex").val("");
-    $("#civil_status").val("");
-    $("#residence").val("");
-    $("#monthly_salary").val("");
-    $("#organization_affiliation").val("");
-    $("#academic_awards").val("");
+function clear_value(ids) {
+    for (let i = 0; i < ids.length; i++) {
+        document.getElementById(ids[i]).value = "";
+    }
 }
 
 
 function validate_alumni_form01() {
-    remove_value();
+    var chckbxs = ['sex', 'civil_status', 'residence', 'monthly_salary', 'organization_affiliation', 'academic_awards']
+    clear_value(chckbxs);
     var ids = ["full_name", "contact_number", "email_address", "address", "age", "sex", "civil_status", "residence", "monthly_salary", "graduation_year", "degree_earned", "organization_affiliation", "academic_awards", "ict_certification"];
-    var permission = false;
+    var permission;
 
     var sex_chbx_ids = ['male_checkbox', 'female_checkbox'];
-
     if (document.getElementById(sex_chbx_ids[0]).checked) {
         document.getElementById('sex').value = "Male";
     } else if (document.getElementById(sex_chbx_ids[1].checked)) {
@@ -170,7 +167,7 @@ function validate_alumni_form01() {
     for (let i = 0; i < award_chbx_ids.length; i++) {
         if (document.getElementById(award_chbx_ids[i]).checked) {
             awards_checked = awards_checked + "/" + awards[i];
-        } 
+        }
     }
     if (document.getElementById('otherawards_input').value != "") {
         awards_checked = awards_checked + "/" + document.getElementById('otherawards_input').value;
@@ -183,7 +180,7 @@ function validate_alumni_form01() {
     for (let i = 0; i < certificates_chbx_ids.length; i++) {
         if (document.getElementById(certificates_chbx_ids[i]).checked) {
             certificates_checked = certificates_checked + "/" + certificates[i];
-        } 
+        }
     }
     if (document.getElementById('othercertificates_input').value != "") {
         certificates_checked = certificates_checked + "/" + document.getElementById('othercertificates_input').value;
@@ -191,6 +188,7 @@ function validate_alumni_form01() {
     document.getElementById('ict_certification').value = certificates_checked;
 
 
+    var error_empty;
     for (let i = 0; i < ids.length; i++) {
         var value = document.getElementById(ids[i]).value;
         var labels = document.getElementsByTagName('label');
@@ -200,20 +198,299 @@ function validate_alumni_form01() {
                     true_class(labels[x]);
                 }
             }
-            document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+            error_empty = true;
         } else {
             for (let x = 0; x < labels.length; x++) {
                 if (labels[x].htmlFor === ids[i]) {
                     false_class(labels[x]);
                 }
             }
-            document.getElementById('error_result').innerHTML = "";
-            permission = false;
         }
     }
 
+    if (error_empty) {
+        document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+        permission = false;
+    } else {
+        document.getElementById('error_result').innerHTML = "";
+        permission = true;
+    }
 
-    if (permission == true) {
-        console.log("Permission Granted!")
+    if (permission) {
+        alumni_form01_submit();
+    }
+}
+
+function validate_employment_profile() {
+    $("#employment_status").val("");
+    var permission = false;
+
+    var employments_chbx_ids = ["employed_checkbox", "self-employed_checkbox", "unemployed_checkbox", "exp-unemployed_checkbox"];
+    var employments = ["Employed", "Self-Employed", "Unemployed", "Experienced Unemployed"];
+    for (let i = 0; i < employments_chbx_ids.length; i++) {
+        if (document.getElementById(employments_chbx_ids[i]).checked) {
+            document.getElementById('employment_status').value = employments[i];
+        }
+    }
+
+    if (document.getElementById("employment_status").value == "") {
+        var labels = document.getElementsByTagName('label');
+        for (let x = 0; x < labels.length; x++) {
+            if (labels[x].htmlFor === "employment_status") {
+                true_class(labels[x]);
+                document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+            }
+        }
+        persmission = false;
+    } else {
+        permission = true;
+    }
+
+    if (permission) {
+        alumni_form02_submit();
+    }
+}
+
+function validate_alumni_form03_employed() {
+    var chckbxs = ['employment_field', 'monthly_income', 'employment_field', 'employment_length', 'ict_related']
+    clear_value(chckbxs);
+    var ids = ["employer_name", "employer_address", "present_position", "employment_type", "monthly_income", "employment_field", "employment_length", "ict_related"];
+    var permission;
+
+    var status_chbx_ids = ['permanent_checkbox', 'temporary_checkbox', 'contractual_checkbox', 'casual_checkbox'];
+    var status = ['Permanent', 'Temporary', 'Contractual', 'Casual'];
+    for (let i = 0; i < status_chbx_ids.length; i++) {
+        if (document.getElementById(status_chbx_ids[i]).checked) {
+            document.getElementById('employment_type').value = status[i];
+        }
+    }
+
+    var income_chbx_ids = ['php1_checkbox', 'php2_checkbox', 'php3_checkbox', 'php4_checkbox'];
+    var income = ['Below Php 10,000.00', 'PHP 10,000.00 - 19,999.99', 'Php 20,000.00 - 29,999.99', 'PHP 30,000.00 and above']
+    for (let i = 0; i < income_chbx_ids.length; i++) {
+        if (document.getElementById(income_chbx_ids[i]).checked) {
+            document.getElementById('monthly_income').value = income[i];
+        }
+    }
+
+    var field_chbx_ids = ['government_checkbox', 'private_checkbox'];
+    var field = ['Government', 'Private']
+    for (let i = 0; i < field_chbx_ids.length; i++) {
+        if (document.getElementById(field_chbx_ids[i]).checked) {
+            document.getElementById('employment_field').value = field[i];
+        }
+    }
+
+    var length_chbx_ids = ['day0006_checkbox', 'day0712_checkbox', 'day1318_checkbox', 'day1924_checkbox', 'day24above_checkbox'];
+    var length = ['0 - 6 months', '7 - 12 months', '13 - 18 months', '19 - 24 months', 'more than 24 months']
+    for (let i = 0; i < length_chbx_ids.length; i++) {
+        if (document.getElementById(length_chbx_ids[i]).checked) {
+            document.getElementById('employment_length').value = length[i];
+        }
+    }
+
+    var related_chbx_ids = ['ictyes_checkbox', 'ictno_checkbox'];
+    var related = ['Yes', 'No']
+    for (let i = 0; i < related_chbx_ids.length; i++) {
+        if (document.getElementById(related_chbx_ids[i]).checked) {
+            document.getElementById('ict_related').value = related[i];
+        }
+    }
+
+    var error_empty;
+    for (let i = 0; i < ids.length; i++) {
+        var value = document.getElementById(ids[i]).value;
+        var labels = document.getElementsByTagName('label');
+        if (value == "") {
+            for (let x = 0; x < labels.length; x++) {
+                if (labels[x].htmlFor === ids[i]) {
+                    true_class(labels[x]);
+                }
+            }
+            error_empty = true;
+        } else {
+            for (let x = 0; x < labels.length; x++) {
+                if (labels[x].htmlFor === ids[i]) {
+                    false_class(labels[x]);
+                }
+            }
+        }
+    }
+
+    if (error_empty) {
+        document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+        permission = false;
+    } else {
+        document.getElementById('error_result').innerHTML = "";
+        permission = true;
+    }
+
+    if (permission) {
+        var form_id = "employment_profile_employed_form"
+        submit_alumni_form03(form_id);
+    }
+}
+
+function validate_alumni_form03_self_employed() {
+    var chckbxs = ['reasons', 'monthly_income']
+    clear_value(chckbxs);
+    var ids = ["reasons", "business_type", "business_name", "business_description", "monthly_income"];
+    var permission;
+
+    var reason_chbx_ids = ['reason01_checkbox', 'reason02_checkbox', 'reason03_checkbox', 'reason04_checkbox', 'reason05_checkbox', 'reason06_checkbox']
+    var reason = ['I am managing a family-owned company.', 'I wanted to open my own business.', 'I prefer working freelance than in a company.',
+        'I cannot find a job opportunity related to my field.', 'There are job offerings relevant to my course but the salary is too low.',
+        'I applied for jobs relevant to my field but I lacked experience.'];
+    var reason_checked = "";
+    for (let i = 0; i < reason_chbx_ids.length; i++) {
+        if (document.getElementById(reason_chbx_ids[i]).checked) {
+            reason_checked = reason_checked + "/" + reason[i];
+        }
+    }
+    if (document.getElementById('otherreason_input').value != "") {
+        reason_checked = reason_checked + "/" + document.getElementById('otherreason_input').value;
+    }
+    document.getElementById('reasons').value = reason_checked;
+
+    var income_chbx_ids = ['php1_checkbox', 'php2_checkbox', 'php3_checkbox', 'php4_checkbox'];
+    var income = ['Below Php 10,000.00', 'PHP 10,000.00 - 19,999.99', 'Php 20,000.00 - 29,999.99', 'PHP 30,000.00 and above']
+    for (let i = 0; i < income_chbx_ids.length; i++) {
+        if (document.getElementById(income_chbx_ids[i]).checked) {
+            document.getElementById('monthly_income').value = income[i];
+        }
+    }
+
+    var error_empty;
+    for (let i = 0; i < ids.length; i++) {
+        var value = document.getElementById(ids[i]).value;
+        var labels = document.getElementsByTagName('label');
+        if (value == "") {
+            for (let x = 0; x < labels.length; x++) {
+                if (labels[x].htmlFor === ids[i]) {
+                    true_class(labels[x]);
+                }
+            }
+            error_empty = true;
+        } else {
+            for (let x = 0; x < labels.length; x++) {
+                if (labels[x].htmlFor === ids[i]) {
+                    false_class(labels[x]);
+                }
+            }
+        }
+    }
+
+    if (error_empty) {
+        document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+        permission = false;
+    } else {
+        document.getElementById('error_result').innerHTML = "";
+        permission = true;
+    }
+
+    if (permission) {
+        var form_id = "employment_profile_self_employed_form"
+        submit_alumni_form03(form_id);
+    }
+}
+
+function validate_alumni_form03_unemployed() {
+    document.getElementById("reasons").value = "";
+    var permission;
+
+    var reason_chbx_ids = ["reason01_checkbox", "reason02_checkbox", "reason03_checkbox", "reason04_checkbox", "reason05_checkbox"];
+    var reason = ["I cannot find a job opportunity related to my field.", "There are IT-related job offerings but the salary is too low.", " I wasn’t hired because of lack of work experience.", "I had to take care of family concerns.", "I have health problem."];
+    var reason_checked = "";
+    for (let i = 0; i < reason_chbx_ids.length; i++) {
+        if (document.getElementById(reason_chbx_ids[i]).checked) {
+            reason_checked = reason_checked + "/" + reason[i];
+        }
+    }
+    if (document.getElementById('otherreason_input').value != "") {
+        reason_checked = reason_checked + "/" + document.getElementById('otherreason_input').value;
+    }
+    document.getElementById('reasons').value = reason_checked;
+
+    var error_empty;
+    var value = document.getElementById("reasons").value;
+    var labels = document.getElementsByTagName('label');
+    if (value == "") {
+        for (let x = 0; x < labels.length; x++) {
+            if (labels[x].htmlFor === "reasons") {
+                true_class(labels[x]);
+            }
+        }
+        error_empty = true;
+    } else {
+        for (let x = 0; x < labels.length; x++) {
+            if (labels[x].htmlFor === "reasons") {
+                false_class(labels[x]);
+            }
+        }
+    }
+
+    if (error_empty) {
+        document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+        permission = false;
+    } else {
+        document.getElementById('error_result').innerHTML = "";
+        permission = true;
+    }
+
+    if (permission) {
+        var form_id = "employment_profile_unemployed_form"
+        submit_alumni_form03(form_id);
+    }
+}
+
+function validate_af03_exp_employed() {
+    document.getElementById("reasons").value = "";
+    var ids = ["employer_name-exp", "recent_position", "reasons"];
+    var permission;
+
+    var reason_chbx_ids = ['reason01_checkbox', 'reason02_checkbox', 'reason03_checkbox', 'reason04_checkbox']
+    var reason = ['My salary was low.', 'I had to take care of family concerns.', 'I have health problem.', 'My recent work was not related to my specialization'];
+    var reason_checked = "";
+    for (let i = 0; i < reason_chbx_ids.length; i++) {
+        if (document.getElementById(reason_chbx_ids[i]).checked) {
+            reason_checked = reason_checked + "/" + reason[i];
+        }
+    }
+    if (document.getElementById('otherreason_input').value != "") {
+        reason_checked = reason_checked + "/" + document.getElementById('otherreason_input').value;
+    }
+    document.getElementById('reasons').value = reason_checked;
+
+    var error_empty;
+    for (let i = 0; i < ids.length; i++) {
+        var value = document.getElementById(ids[i]).value;
+        var labels = document.getElementsByTagName('label');
+        if (value == "") {
+            for (let x = 0; x < labels.length; x++) {
+                if (labels[x].htmlFor === ids[i]) {
+                    true_class(labels[x]);
+                }
+            }
+            error_empty = true;
+        } else {
+            for (let x = 0; x < labels.length; x++) {
+                if (labels[x].htmlFor === ids[i]) {
+                    false_class(labels[x]);
+                }
+            }
+        }
+    }
+
+    if (error_empty) {
+        document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+        permission = false;
+    } else {
+        document.getElementById('error_result').innerHTML = "";
+        permission = true;
+    }
+
+    if (permission) {
+        var form_id = "employment_profile_experienced_employed_form"
+        submit_alumni_form03(form_id);
     }
 }

@@ -59,6 +59,34 @@ function residenceCheckBox() {
     jQuery("#rural_checkbox").click(uncheck);
 }
 
+function employment_fieldCheckBox() {
+    const checkBoxIDs = ["government_checkbox", "private_checkbox"];
+    function uncheck(event) {
+        var id = event.target.id;
+        checkBoxIDs.forEach(function (id) {
+            if (id != event.target.id) {
+                document.getElementById(id).checked = false;
+            }
+        })
+    }
+    jQuery("#government_checkbox").click(uncheck);
+    jQuery("#private_checkbox").click(uncheck);
+}
+
+function ict_relatedCheckBox() {
+    const checkBoxIDs = ["ictyes_checkbox", "ictno_checkbox"];
+    function uncheck(event) {
+        var id = event.target.id;
+        checkBoxIDs.forEach(function (id) {
+            if (id != event.target.id) {
+                document.getElementById(id).checked = false;
+            }
+        })
+    }
+    jQuery("#ictyes_checkbox").click(uncheck);
+    jQuery("#ictno_checkbox").click(uncheck);
+}
+
 function civilstatusCheckBox() {
     const checkBoxIDs = ["single_checkbox", "married_checkbox", "separated_checkbox", "widowed_checkbox"];
     function uncheck(event) {
@@ -73,6 +101,55 @@ function civilstatusCheckBox() {
     jQuery("#married_checkbox").click(uncheck);
     jQuery("#separated_checkbox").click(uncheck);
     jQuery("#widowed_checkbox").click(uncheck);
+}
+
+function employment_statusCheckBox() {
+    const checkBoxIDs = ["permanent_checkbox", "temporary_checkbox", "contractual_checkbox", "casual_checkbox"];
+    function uncheck(event) {
+        var id = event.target.id;
+        checkBoxIDs.forEach(function (id) {
+            if (id != event.target.id) {
+                document.getElementById(id).checked = false;
+            }
+        })
+    }
+    jQuery("#permanent_checkbox").click(uncheck);
+    jQuery("#temporary_checkbox").click(uncheck);
+    jQuery("#contractual_checkbox").click(uncheck);
+    jQuery("#casual_checkbox").click(uncheck);
+}
+
+function employment_lengthCheckBox() {
+    const checkBoxIDs = ["day0006_checkbox", "day0712_checkbox", "day1318_checkbox", "day1924_checkbox", "day24above_checkbox"];
+    function uncheck(event) {
+        var id = event.target.id;
+        checkBoxIDs.forEach(function (id) {
+            if (id != event.target.id) {
+                document.getElementById(id).checked = false;
+            }
+        })
+    }
+    jQuery("#day0006_checkbox").click(uncheck);
+    jQuery("#day0712_checkbox").click(uncheck);
+    jQuery("#day1318_checkbox").click(uncheck);
+    jQuery("#day1924_checkbox").click(uncheck);
+    jQuery("#day24above_checkbox").click(uncheck);
+}
+
+function employmentCheckBox() {
+    const checkBoxIDs = ["employed_checkbox", "self-employed_checkbox", "unemployed_checkbox", "exp-unemployed_checkbox"];
+    function uncheck(event) {
+        var id = event.target.id;
+        checkBoxIDs.forEach(function (id) {
+            if (id != event.target.id) {
+                document.getElementById(id).checked = false;
+            }
+        })
+    }
+    jQuery("#employed_checkbox").click(uncheck);
+    jQuery("#self-employed_checkbox").click(uncheck);
+    jQuery("#unemployed_checkbox").click(uncheck);
+    jQuery("#exp-unemployed_checkbox").click(uncheck);
 }
 
 function salaryCheckBox() {

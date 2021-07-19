@@ -84,3 +84,57 @@ function submit_application() {
     //     console.log(data);
     // });
 }
+
+function alumni_form01_submit() {
+    $.post("includes/form_submit.inc.php", $("#form01_form").serialize(), function (data) {
+        window.location = "form02.php";
+    });
+}
+
+function alumni_form02_submit() {
+    $.post("includes/form_submit.inc.php", $("#employment_profile_form").serialize(), function (data) {
+        console.log(data);
+
+        const status = ["Employed", "Self-Employed", "Unemployed", "Experienced Unemployed"];
+
+        if (data === status[0]) {
+            window.location = "form03-employed.php";
+        } else if (data === status[1]) {
+            window.location = "form03-self_employed.php";
+        } else if (data === status[2]) {
+            window.location = "form03-unemployed.php";
+        } else if (data === status[3]) {
+            window.location = "form03-experienced_unemployed.php";
+        } else {
+            alert("Something went wrong! Please refresh the page.");
+        }
+    });
+}
+
+// function alumni_submit_form03_employed() {
+//     $.post("includes/form_submit.inc.php", $("#employment_profile_employed_form").serialize(), function (data) {
+//         console.log(data);
+//         if (data === "Session saved!") {
+//             window.location = "form04-identification.php";
+//         } else {
+//             alert("Something went wrong! Please refresh the page.");
+//         }
+//     });
+// }
+
+function submit_alumni_form03(form) {
+    $.post("includes/form_submit.inc.php", $("#" + form).serialize(), function (data) {
+        console.log(data);
+        if (data === "Session saved!") {
+            window.location = "form04-identification.php";
+        } else {
+            alert("Something went wrong! Please refresh the page.");
+        }
+    });
+}
+
+function get_session() {
+    $.post("includes/form_submit.inc.php", $("#get_session_form").serialize(), function (data) {
+        console.log(data);
+    });
+}
