@@ -172,6 +172,10 @@ input[type=number] {
     font-size: 14px !important;
 }
 
+.fontsize-24{
+    font-size: 24px !important;
+}
+
 .border-left-hover, .border-left-primary-2{
     position: relative;
 }

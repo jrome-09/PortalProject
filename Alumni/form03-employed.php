@@ -22,12 +22,12 @@ require "../html/script.html";
                         <input type="text" class="form-control mb-2 fontsize-14" id="employer_name" name="employer_name">
                         <label for="employer_address" class="required color-light text-start fontsize-13 mb-1">Address of Company/Employer:</label>
                         <input type="text" class="form-control mb-2 fontsize-14" id="employer_address" name="employer_address">
-                        <label for="present_position" class="required color-light text-start fontsize-13 mb-1">Present Position:</label>
+                        <label for="present_position" class="required color-light text-start fontsize-13 mb-1">Your Present Position:</label>
                         <input type="text" class="form-control mb-2 fontsize-14" id="present_position" name="present_position">
                     </main>
                 </div>
                 <div class="border rounded bg-white mb-2 p-4">
-                    <label for="employment_type" class="required color-light text-start fontsize-13 mb-1">Employment Status:</label>
+                    <label for="employment_type" class="required color-light text-start fontsize-13 mb-2">Employment type:</label>
                     <div class="income_div mb-2">
                         <input type="checkbox" name="permanent_checkbox" class="btn-check" id="permanent_checkbox" autocomplete="off" onclick="employment_statusCheckBox()">
                         <label class="btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="permanent_checkbox">

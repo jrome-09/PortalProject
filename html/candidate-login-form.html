@@ -1,6 +1,6 @@
 <div class="bg-light signup-input-text pt-5" id="candidate-login-form">
     <div class="max-width-container d-flex justify-content-center align-items-center pt-5">
-        <div class="border p-4 rounded color-black bg-white mt-5" style="width: 420px;">
+        <div class="border p-4 rounded shadow-sm color-black bg-white mt-5" style="width: 420px;">
             <div class="text-center mb-3">
                 <h4>User Log in</h4>
                 <p class="color-light font-small font-500">Find the job that you want</p>
@@ -17,8 +17,11 @@
 						show/hide password
 					</label>
 				</div>
+                <div class="swal2-validation-message fontsize-13 d-none mb-2" id="swal2-validation-message" style="display: flex;">
+                    <!-- Invalid email address. -->
+                </div>
                 <div class="d-flex justify-content-center">
-					<a type="button" onclick="login_user()" href="#" class="btn btn-primary font-small font-500 px-5 mt-2">
+					<a type="button" href="#" onclick="validate_login()" class="btn btn-primary font-small font-500 px-5 mt-2">
 						Sign in
 					</a>
 				</div>

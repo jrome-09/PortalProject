@@ -14,7 +14,8 @@ require "candidate-head.html";
     require "candidate-navigation.php"
     ?>
     <main>
-        <div class="background-thicker-light pt-5">
+        <div class="background-thicker-light pt-5 position-relative">
+        <div class="bg-image position-absolute top-0 left-0"></div>
             <br>
             <div class="max-width-container">
                 <h4 class="mt-5 mb-4">Search for your Dream Job</h4>
@@ -46,7 +47,6 @@ require "candidate-head.html";
                         </div>
                     </div>
                 </form> -->
-
                 <?php
                     require "../html/search-form.html";
                 ?>

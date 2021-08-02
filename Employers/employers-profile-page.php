@@ -1,5 +1,5 @@
 <?php
-require "../html/head.html";
+require "style-link.html";
 ?>
 
 <body>
@@ -9,18 +9,20 @@ require "../html/head.html";
         </div>
     </div>
     <link rel="stylesheet" href="../Candidate/candidate.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/global.css">
     <?php
     require "../html/script.html";
-    require "../Candidate/candidate-navigation.php"
+    session_start();
+    if (isset($_SESSION["username"])) {
+        require "../Candidate/candidate-navigation.php";
+    } else {
+        require "../includes/nav.inc.php";
+    }
     ?>
     <main>
-        <div class="background-thicker-light" style="margin-top: 74px; height: 168px;">
-            <div class="max-width-container " id="srch-mwidth">
-                <div class="bg-white p-5 pt-4 shadow-sm">
+        <div class="background-thicker-light " style="margin-top: 74px; height: 168px;">
+        <div class="bg-image"></div>
+            <div class="max-width-container posittion-relative" id="srch-mwidth">
+                <div class="bg-white border rounded p-5 pt-4 shadow-sm">
                     <div class="text-end">
                         <p class="font-super--small color-light">Over 000 Employers</p>
                     </div>
@@ -109,8 +111,26 @@ require "../html/head.html";
     <script>
         loadPage();
         feather.replace();
-        document.getElementById('employer-prof-link').classList.toggle('active');
-        document.title = "CCIT | Employer List";
+        document.getElementById('nav-stylesheet').href = "../css/index-nav.css"
+        document.getElementById('web-id').href = "../index.php"
+        document.getElementById('index-link').href = "../index.php"
+        document.getElementById('about-link').href = "../about.php"
+        document.getElementById('contacts-link').href = "../contacts.php"
+        document.getElementById('alumni-link').href = "../Alumni/alumni-index.php"
+        document.getElementById('emp-profiles-link').href = "#"
+        document.getElementById('jobs-link-out').href = "../Jobs/jobs.php"
+        document.getElementById('forum-link').href = "../Forum/forum-index.php"
+        document.getElementById('signup-btn').href = "../signup-form.php"
+        document.getElementById('login-btn').href = "../candidate-login-form.php"
+        document.getElementById('for_emp').href = "../Employers/index.php"
+        <?php
+        if (isset($_SESSION["username"])) {
+        ?>
+            document.getElementById('employer-prof-link').classList.toggle('active');
+        <?php
+        }
+        ?>
+        document.title = "CCIT | Employer List"
     </script>
 </body>
 

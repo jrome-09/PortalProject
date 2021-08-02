@@ -13,8 +13,10 @@ require "html/head.html";
    require "includes/nav.inc.php";
    ?>
    <main>
-      <div id="first-container" class="bg-light">
-         <div class="max-width-container" style="margin-top: 74px;">
+      <div id="first-container" class="bg-light position-relative">
+         <div class="bg-full">
+         </div>
+         <div class="max-width-container position-relative" style="margin-top: 74px;">
             <!-- <div class="row">
                <div class="col-md-7" id="index-text">
                   <h1 class="mt-5 color-white"><strong>College of<br>Communication and<br>Information Technology</strong></h1>
@@ -85,7 +87,7 @@ require "html/head.html";
                               <span data-feather="user" class="color-black"></span>
                            </div>
 
-                           <div class="form-control" onclick="showSpecializationList()" style="max-height: 38px; overflow: hidden;">
+                           <div class="form-control" onclick="showSpecializationList()" style="max-height: 35px; overflow: hidden;">
                               <span class="color-black fontsize-13" id="specialization-input">Specialization</span>
                               <span data-feather="chevron-down" class="color-black" id="chevron"></span>
                            </div>

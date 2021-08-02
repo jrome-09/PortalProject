@@ -11,14 +11,21 @@ require "job-head.html";
 
     <?php
     require "../html/script.html";
-    require "../Candidate/candidate-navigation.php"
+    session_start();
+    if (isset($_SESSION["username"])) {
+        require "../Candidate/candidate-navigation.php";
+    } else {
+        require "../includes/nav.inc.php";
+    }
+
     ?>
 
     <main>
-        <div class="background-thicker-light">
-            <div class="max-width-container">
+        <div class="background-thicker-light position-relative">
+            <div class="bg-image position-absolute top-0 left-0"></div>
+            <div class="max-width-container position-relative">
                 <h4 class="mt-5 mb-4">Search for your Dream Job</h4>
-                <form action="#">
+                <!-- <form action="#">
                     <div class="d-flex align-items-center search-box-container">
                         <div class="input-group flex-nowrap me-1 mb-2">
                             <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
@@ -45,7 +52,10 @@ require "job-head.html";
                             <button class="btn btn-primary fontsize-14" type="button">Search</button>
                         </div>
                     </div>
-                </form>
+                </form> -->
+                <?php
+                require "../html/search-form.html";
+                ?>
             </div>
         </div>
         <div class="bg-light">
@@ -60,10 +70,10 @@ require "job-head.html";
                         $highlights = explode("/", $row["job_highlights"]);
                     ?>
                         <div class="col-lg-4 pb-4" id="div_job0_<?php echo $row["_id"] ?>">
-                            <a href="#" class="no-text-decor" id="btn-job0_<?php echo $row["_id"] ?>" onclick="job_submit(this.id)">
-                                <div class="rounded p-4 bg-white shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
-                                    <div class="image-container d-inline-block border rounded mb-2 background-thicker-light" style="height: 60px; width: 60px;"></div>
-                                    <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
+                            <div class="rounded p-4 bg-white shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
+                                <div class="image-container d-inline-block border rounded mb-2 background-thicker-light" style="height: 60px; width: 60px;"></div>
+                                <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
+                                <a href="#" class="no-text-decor" id="btn-job0_<?php echo $row["_id"] ?>" onclick="job_submit(this.id)">
                                     <h6 class="mb-0 color-black"><?php echo $row["job_title"] ?></h6>
                                     <p class="fontsize-13 color-black mb-3"><?php echo $row["employer_name"] ?></p>
                                     <p class="fontsize-13 color-black m-0"><?php echo $row["job_address"] ?></p>
@@ -76,8 +86,9 @@ require "job-head.html";
                                     <div class="position-absolute date-posted">
                                         <p class="font-super--small color-light m-0 text-end">Date Posted: <?php echo $row["date_posted"] ?></p>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
+
                         </div>
                     <?php
                     }
@@ -139,15 +150,37 @@ require "job-head.html";
     <?php
     require "../html/footer.html";
     ?>
+    <?php
+    if (isset($_SESSION["username"])) {
+    } else {
+    ?>
+        <script>
+            document.getElementById('web-id').href = "../index.php"
+            document.getElementById('index-link').href = "../index.php"
+            document.getElementById('about-link').href = "../about.php"
+            document.getElementById('contacts-link').href = "../contacts.php"
+            document.getElementById('alumni-link').href = "../Alumni/alumni-index.php"
+            document.getElementById('emp-profiles-link').href = "../Employers/employers-profile-page.php"
+            document.getElementById('jobs-link-out').href = "#"
+            document.getElementById('forum-link').href = "../Forum/forum-index.php"
+            document.getElementById('signup-btn').href = "../signup-form.php"
+            document.getElementById('login-btn').href = "../candidate-login-form.php"
+            document.getElementById('for_emp').href = "../Employers/index.php"
+            document.getElementById('nav-stylesheet').href = "../css/index-nav.css"
+        </script>
+    <?php
+    }
+    ?>
     <script src="../javascript/functions.js"></script>
     <script src="../javascript/onclick.js"></script>
     <script src="../javascript/jQueryRequest.js"></script>
+    <script src="../javascript/scroll.js"></script>
     <script>
         loadPage();
         feather.replace();
         document.getElementById('jobs-link').classList.toggle('active');
         document.title = "CCIT | Job List";
-        changeLink_inner();
+        GetSpecializationList_inner();
     </script>
 </body>
 

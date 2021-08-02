@@ -2,7 +2,9 @@
     <div class="max-width-container pb-2 margin-top-nav">
         <div class="p-4 background-thicker-light color-black d-flex align-items-center justify-content-between border rounded">
             <p class="mb-0 font-500 fontsize-14">New Posts</p>
-            <a href="#" type="button" class="btn btn-primary px-4 fontsize-14 font-500">
+            <a href="#" <?php if (!isset($_SESSION["username"])) {
+                            echo "onclick = show_toast_swal()";
+                        }?> type="button" class="btn btn-primary px-4 fontsize-14 font-500">
                 <span data-feather="edit" class="color-white" style="margin-bottom: 0.10rem;"></span>
                 Post Thread
             </a>
@@ -69,8 +71,8 @@
     </div>
 </div>
 <style>
-    @media screen and (max-width: 961px){
-        #forum-by-textend{
+    @media screen and (max-width: 961px) {
+        #forum-by-textend {
             display: none;
         }
     }

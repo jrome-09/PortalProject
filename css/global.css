@@ -60,7 +60,29 @@
     animation: 1.4s linear infinite spinner-border;
 }
 
-.swal2-popup {
+.me-17px {
+    margin-right: 17px !important;
+}
+
+.mb-8px {
+    margin-bottom: 8px;
+}
+
+.swal-width-400 {
+    width: 400px !important;
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.swal-btn-primary {
+    color: #fff !important;
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+}
+
+/* .swal2-popup {
     width: 400px !important;
     margin-right: 17px !important;
 }
@@ -87,7 +109,7 @@
 
 .swal2-styled.swal2-confirm {
     background-color: #0d6efd !important;
-}
+} */
 
 .dropdown-container .form-control {
     width: 100%;
@@ -111,7 +133,7 @@
     transition: 0.2s;
 }
 
-#options.active, #optionsYear.active, #optionsPosition.active, #optionsSpecialization.active, #optionsIndustry.active, #optionsCourse.active, #optionsDegree.active{
+#options.active, #optionsYear.active, #optionsPosition.active, #optionsSpecialization.active, #optionsIndustry.active, #optionsCourse.active, #optionsDegree.active {
     visibility: visible;
     opacity: 1;
     transition: 0.2s;

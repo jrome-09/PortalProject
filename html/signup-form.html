@@ -1,6 +1,6 @@
 <div class="bg-light signup-input-text pt-5" id="signup-form">
 	<div class="max-width-container d-flex justify-content-center align-items-center pt-5">
-		<div class="border p-4 rounded color-black bg-white mt-2" style="width: 420px;">
+		<div class="border p-4 rounded color-black bg-white mt-2 shadow-sm" style="width: 420px;">
 			<div class="text-center mb-3">
 				<h6>Sign up</h6>
 				<h2>Create your Account</h2>
@@ -16,7 +16,10 @@
 					Make sure it's at least 15 characters OR at least 8 characters including a number and a lowercase letter.</p>
 					<label for="password" class="required color-light text-start">Confirm Password</label>
 				<input type="password" required minlength="8" maxlength="15" name="confirmpassword" id="confirmpassword" required="required" class="form-control mb-2">
-					<div class="fontsize-13 text-danger" id="result"></div>
+					<!-- <div class="fontsize-13 text-danger" id="result"></div> -->
+					<div class="swal2-validation-message fontsize-13 d-none mb-2" id="swal2-validation-message" style="display: flex;">
+						<!-- Invalid email address. -->
+					</div>
 				<div class="form-check d-flex mt-1 ps-0">
 					<input class="form-check-input me-1 ms-0" required type="checkbox" value="" id="Conditions-checkBox">
 					<label class="form-check-label font-super--small color-light" for="Conditions-checkBox">

@@ -13,13 +13,19 @@ require "html/head.html";
     require "includes/nav.inc.php";
     ?>
     <main>
-        <div class="background-thicker-light">
+        <div class="hero-header bg-light position-relative text-center mt-4" style="height: 250px;">
+            <div class="bg-image m-auto d-block"></div>
+            <div class="position-absolute top-50 start-50 translate-middle">
+                <h2 class="color-black mt-5 text-decoration-underline">Contacts</h2>
+            </div>
+        </div>
+        <!-- <div class="background-thicker-light">
             <div class="max-width-container d-flex align-items-center justify-content-center mt-4" style="height: 250px;">
                 <h3 class="color-black mt-5"><strong>Contacts</strong></h3>
             </div>
-        </div>
+        </div> -->
         <div class="max-width-container">
-            <div class="card p-4 border-0" style="box-shadow: 0 .125rem 1rem rgba(0,0,0,.075) !important;">
+            <div class="card p-4 border" style="box-shadow: 0 .125rem 1rem rgba(0,0,0,.075) !important;">
                 <div class="row">
                     <div class="col-md-6">
                         <h6 class="color-black font-500 mb-4">SEND US A MESSAGE</h6>

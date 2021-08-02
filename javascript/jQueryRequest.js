@@ -1,15 +1,22 @@
 function SubmitForm() {
     $.post("includes/registration.inc.php", $("#registrationForm").serialize(), function (data) {
         if (data == 'Email already exist.') {
-            result.innerHTML = "*Email Already Existed";
+            show_swal_validation("Email Already Existed");
         } else if (data == "Something went wrong.") {
+            show_swal_validation("Something went wrong! Please Refresh the page");
             console.log("Something went wrong! Please Refresh the page");
         } else if (data == "Data Inserted Successfully!") {
             Swal.fire({
                 icon: 'success',
-                title: 'Sign up Sucessful!',
+                title: 'Signed up Sucessfully!',
                 text: 'You have succesfully created your account. Please set up your profile.',
-                confirmButtonText: 'Get Started'
+                confirmButtonText: 'Get Started',
+                customClass: {
+                    popup: "me-17px swal-width-400 font-poppins",
+                    title: "color-black font-700 fontsize-24",
+                    htmlContainer: "color-light pt-0 fontsize-13",
+                    confirmButton: "btn swal-btn-primary px-2"
+                }
             }).then(function () {
                 window.location = "setup-profile-1.php";
             })
@@ -41,11 +48,45 @@ function submit_work_experience() {
     });
 }
 
+function show_swal_validation(alert_text) {
+    var swal_id = document.getElementById("swal2-validation-message")
+    swal_id.classList.remove("d-none");
+    swal_id.innerHTML = alert_text;
+}
+
+function hide_swal_validation() {
+    document.getElementById("swal2-validation-message").classList.add("d-none");
+}
+
 function login_user() {
     $.post("includes/login.inc.php", $("#login_form").serialize(), function (data) {
         console.log(data);
-        if (data == "logged in.") {
-            window.location = "Candidate/candidate.php";
+        if (data === "logged in.") {
+            hide_swal_validation();
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Signed in successfully'
+            }).then(function () {
+                window.location = "Candidate/candidate.php";
+            });
+           
+            document.getElementById("swal2-validation-message").innerHTML = "";
+        } else if (data === "email does not exist.") {
+            show_swal_validation("Invalid email or password.")
+        }else if (data === "wrong password.") {
+            show_swal_validation("Invalid email or password.")
         }
     });
 }
@@ -136,5 +177,26 @@ function submit_alumni_form03(form) {
 function get_session() {
     $.post("includes/form_submit.inc.php", $("#get_session_form").serialize(), function (data) {
         console.log(data);
+    });
+}
+
+function submit_session() {
+    $.post("includes/form_submit.inc.php", $("#sessionsubmit_form").serialize(), function (data) {
+        console.log(data);
+        if (data === "Information Saved!") {
+            const icon = "success"
+            const title = "Information Submitted!"
+            const text = "You have succesfully submitted your information."
+            const button = "Close"
+            const location = ""
+            show_alert(icon, title, text, button);
+        } else {
+            const icon = "error"
+            const title = "Submittion Failed!"
+            const text = "Failed submitting your Information. Please refresh the page and try again."
+            const button = "Close"
+            const location = "form04-identification.php"
+            show_alert(icon, title, text, button);
+        }
     });
 }

@@ -10,7 +10,12 @@ require "job-head.html";
 	</div>
 	<?php
 	require "../html/script.html";
-	require "../Candidate/candidate-navigation.php";
+	session_start();
+	if (isset($_SESSION["username"])) {
+		require "../Candidate/candidate-navigation.php";
+	} else {
+		require "../includes/nav.inc.php";
+	}
 
 	$_id = $_POST["job_input"];
 	$_id_explode = explode("_", $_id)[1];
@@ -26,7 +31,7 @@ require "job-head.html";
 	<main>
 		<div class="bg-light pt-5">
 			<div class="max-width-container">
-				<div class=" p-5 bg-white rounded mb-2">
+				<div class=" p-5 bg-white rounded border mb-2">
 					<div class="row">
 						<div class="col-lg-9">
 							<div class="image-container rounded border bg-light mb-2" style="height: 70px; width: 70px;"></div>
@@ -37,19 +42,28 @@ require "job-head.html";
 							<p class="color-light fontsize-14">Date Posted: <?php echo $row["date_posted"]; ?></p>
 						</div>
 						<div class="col-lg-3 d-flex flex-column justify-content-center ">
-							<a href="#" onclick="submit_job_id()" type="button" class="btn btn-primary my-2 font-500 fontsize-14 shadow-sm-hover d-block">Apply now</a>
+							<!-- onclick="submit_job_id()" -->
+							<a href="#" id="apply_btn" type="button" <?php if (isset($_SESSION["username"])) {
+																			echo "onclick = submit_job_id()";
+																		} else {
+																			echo "onclick = show_toast_swal()";
+																		} ?> class="btn btn-primary my-2 font-500 fontsize-14 shadow-sm-hover d-block">Apply now</a>
 							<form action="../Candidate/profile-preview.php" method="post" id="hidden_job_id">
 								<input type="hidden" value="<?php echo $_id_explode; ?>" name="job_id-hidden_input">
-								<input type="hidden" value="<?php echo $row["job_title"];?>" name="job_name-hidden_input">
+								<input type="hidden" value="<?php echo $row["job_title"]; ?>" name="job_name-hidden_input">
 								<input type="hidden" value="<?php echo $row["employer_id"]; ?>" name="employer_id-hidden_input">
 								<input type="hidden" value="<?php echo $row["employer_name"]; ?>" name="employer_name-hidden_input">
 							</form>
-							<div class="btn btn-light border my-2 fontsize-14 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
+							<div <?php if (isset($_SESSION["username"])) {
+										
+									} else {
+										echo "onclick = show_toast_swal()";
+									} ?> class="btn btn-light border my-2 fontsize-14 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
 
 						</div>
 					</div>
 				</div>
-				<div class=" p-5 bg-white rounded">
+				<div class=" p-5 bg-white border rounded">
 					<p class="fontsize-14 font-400 color-black">Job Highlights</p>
 					<ol class="mb-5">
 
@@ -124,13 +138,38 @@ require "job-head.html";
 	?>
 	<script src="../javascript/functions.js"></script>
 	<script src="../javascript/onclick.js"></script>
+	<script src="../javascript/scroll.js"></script>
+	<script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 	<script>
 		loadPage();
+
+		<?php
+		if (isset($_SESSION["username"])) {
+		?>
+			document.getElementById('jobs-link').classList.toggle('active');
+
+		<?php
+		} else {
+		?>
+			document.getElementById('nav-stylesheet').href = "../css/index-nav.css"
+			document.getElementById('web-id').href = "../index.php"
+			document.getElementById('index-link').href = "../index.php"
+			document.getElementById('about-link').href = "../about.php"
+			document.getElementById('contacts-link').href = "../contacts.php"
+			document.getElementById('alumni-link').href = "../Alumni/alumni-index.php"
+			document.getElementById('emp-profiles-link').href = "../Employers/employers-profile-page.php"
+			document.getElementById('jobs-link-out').href = "../Jobs/jobs.php"
+			document.getElementById('forum-link').href = "../Forum/forum-index.php"
+			document.getElementById('signup-btn').href = "../signup-form.php"
+			document.getElementById('login-btn').href = "../candidate-login-form.php"
+			document.getElementById('for_emp').href = "../Employers/index.php"
+		<?php
+		}
+		?>
 		feather.replace();
-		document.getElementById('jobs-link').classList.toggle('active');
 		document.title = "CCIT | Job Details";
 		console.log("<?php echo $_id; ?>");
-		changeLink_inner();
+		// changeLink_inner();
 
 		function submit_job_id() {
 			form = document.getElementById("hidden_job_id");

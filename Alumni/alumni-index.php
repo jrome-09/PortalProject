@@ -186,6 +186,18 @@ require "alumni-head.html";
 		feather.replace();
 		document.getElementById('alumni-link').classList.toggle('active');
 		document.title = "CCIT | Alumni Page"
+		document.getElementById('web-id').href = "../index.php"
+        document.getElementById('index-link').href = "../index.php"
+        document.getElementById('about-link').href = "../about.php"
+        document.getElementById('contacts-link').href = "../contacts.php"
+        document.getElementById('alumni-link').href = "#"
+        document.getElementById('emp-profiles-link').href = "../Employers/employers-profile-page.php"
+        document.getElementById('jobs-link-out').href = "../Jobs/jobs.php"
+        document.getElementById('forum-link').href = "../Forum/forum-index.php"
+        document.getElementById('signup-btn').href = "../signup-form.php"
+        document.getElementById('login-btn').href = "../candidate-login-form.php"
+        document.getElementById('for_emp').href = "../Employers/index.php"
+		document.getElementById('nav-stylesheet').href = "../css/index-nav.css"
 	</script>
 </body>
 

@@ -23,6 +23,8 @@ require "html/head.html";
     <script src="javascript/functions.js"></script>
     <script src="javascript/validations.js"></script>
     <script src="javascript/jQueryRequest.js"></script>
+    <script src="javascript/scroll.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script>
         loadPage();
         feather.replace();

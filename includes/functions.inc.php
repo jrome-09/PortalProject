@@ -210,3 +210,7 @@ function submit_application($conn, $uid, $username, $job_id, $job_name, $employe
     }
 
 }
+
+function get_alumni_lastID($conn){
+
+}

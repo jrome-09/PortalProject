@@ -18,7 +18,7 @@ require "../html/script.html";
 				</header>
 				<main class="p-4">
 					<form action="#" id="employment_profile_form">
-						<label for="employment_status" class="required color-light text-start fontsize-14 mb-1">Employment Type:</label>
+						<label for="employment_status" class="required color-light text-start fontsize-13 mb-2">Employment Status:</label>
 						<div class="income_div mb-2">
 							<input type="checkbox" name="employed_checkbox" class="btn-check" id="employed_checkbox" autocomplete="off" onclick="employmentCheckBox()">
 							<label class="btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="employed_checkbox">
@@ -26,18 +26,18 @@ require "../html/script.html";
 							</label>
 							<br>
 							<input type="checkbox" name="self-employed_checkbox" class="btn-check" id="self-employed_checkbox" autocomplete="off" onclick="employmentCheckBox()">
-                        <label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="self-employed_checkbox">
-							Self-Employed
+							<label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="self-employed_checkbox">
+								Self-Employed
 							</label>
 							<br>
 							<input type="checkbox" name="unemployed_checkbox" class="btn-check" id="unemployed_checkbox" autocomplete="off" onclick="employmentCheckBox()">
-                        <label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="unemployed_checkbox">
-							Unemployed
+							<label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="unemployed_checkbox">
+								Unemployed
 							</label>
 							<br>
 							<input type="checkbox" name="exp-unemployed_checkbox" class="btn-check" id="exp-unemployed_checkbox" autocomplete="off" onclick="employmentCheckBox()">
-                        <label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="exp-unemployed_checkbox">
-							Currently Unemployed but Had Been Employed Before
+							<label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="exp-unemployed_checkbox">
+								Currently Unemployed but Had Been Employed Before
 							</label>
 
 							<input type="hidden" id="employment_status" name="employment_status">
