@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+	session_start();
+}
 $nav_username;
 if (isset($_SESSION["username"])) {
 	$nav_username = $_SESSION["username"];

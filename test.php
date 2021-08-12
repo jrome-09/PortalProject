@@ -16,40 +16,28 @@
 </head>
 
 <body>
-    <main>
-        <div class="max-width-container">
-            <form action="#" id="upload_form">
-                <input type="file" class="form-control fontsize-14 mb-2" name="resume_file">
-                <button type="button" class="btn btn-primary" id="btn-submit" name="file_btn">Submit</button>
-            </form>
-            <div id="result"">Result</div>
+    <link rel="stylesheet" href="Alumni/index.css">
+    <?php
+    require "includes/nav.inc.php";
+    ?>
+    <main class="bg-light">
+        <div class="max-width-container mt-5">
+            <?php
+            require "html/profile_setup03.html";
+            ?>
         </div>
-        <script>
-            $("#btn-submit").click(function() {
-                var form = $('#upload_form')[0];
-                var data = new FormData(form);
-                $.ajax({
-                    type: "POST",
-                    enctype: "multipart/form-data",
-                    url: "includes/formSubmit.inc.php",
-                    data: data,
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    timeout: 600000,
-                    success: function(data) {
-                        console.log(data);
-                    },
-                    error: function(e) {
-                        $("#result").text(e.responseText);
-                    }
-                })
-            });
-        </script>
     </main>
     <script src="javascript/functions.js"></script>
+    <script src="javascript/scroll.js"></script>
+    <script src="javascript/validations.js"></script>
+    <script src="javascript/jQueryRequest.js"></script>
     <script>
         feather.replace();
+        // GetTextList();
+        // GetYearList();
+        GetSpecializationList()
+        GetPositionList()
+        GetIndustryList()
     </script>
 </body>
 

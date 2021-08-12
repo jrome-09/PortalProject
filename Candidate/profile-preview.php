@@ -1,5 +1,11 @@
 <?php
 require "candidate-head.html";
+require "../includes/db_connection.inc.php";
+require "../includes/functions.inc.php";
+session_start();
+$user = uidExists($conn, $_SESSION["uemail"]);
+$college = get_college($conn, $user["_id"]);
+$experience = get_experience($conn, $user["_id"]);
 ?>
 
 <body>
@@ -40,9 +46,12 @@ require "candidate-head.html";
 	<script src="../javascript/functions.js"></script>
 	<script src="../javascript/onclick.js"></script>
 	<script src="../javascript/jQueryRequest.js"></script>
+	<script src="../javascript/scroll.js"></script>
+	<script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 	<script>
 		loadPage();
 		feather.replace();
+		document.getElementById('jobs-link').classList.toggle('active');
 	</script>
 </body>
 

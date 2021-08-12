@@ -486,3 +486,14 @@ function show_toast_swal() {
     title: "You must login first.",
   })
 }
+
+function readUpload(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $('#user_profile_upload')
+              .attr('src', e.target.result)
+      };
+      reader.readAsDataURL(input.files[0]);
+  }
+}

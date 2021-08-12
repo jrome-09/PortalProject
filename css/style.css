@@ -36,6 +36,22 @@ input[type=number] {
     font-weight: 700 !important;
 }
 
+.min-h-200{
+    min-height: 200px;
+}
+
+.max-h-200{
+    max-height: 200%;
+}
+
+.mxw-900px{
+    max-width: 900px;
+}
+
+.min-width-200{
+    min-width: 200px;
+}
+
 .hw-100px{
     min-width: 100px;
     height: 100px;
@@ -46,6 +62,11 @@ input[type=number] {
     min-width: 50px;
     height: 50px;
     width: 50px;
+}
+
+.hw-100pcent{
+    height: 100%;
+    width: 100%;
 }
 
 .width-100{

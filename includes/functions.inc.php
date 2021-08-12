@@ -22,6 +22,52 @@ function uidExists($conn, $email)
     mysqli_stmt_close($stmt);
 }
 
+function get_college($conn, $uid)
+{
+    $sql = "SELECT * FROM college_details WHERE user_id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "Statement Error";
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $uid);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function get_experience($conn, $uid)
+{
+    $sql = "SELECT * FROM user_experience WHERE user_id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "Statement Error";
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $uid);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
 
 function CheckEducation($university, $year, $field)
 {
@@ -40,15 +86,31 @@ function CheckEducation($university, $year, $field)
     return $result;
 }
 
-function UpdateDetails($conn, $first_name, $last_name, $contact_number, $address, $experience_type, $email_address, $password, $self_desc)
+// function UpdateDetails($conn, $first_name, $last_name, $contact_number, $address, $experience_type, $email_address, $password, $self_desc)
+// {
+//     $sql = "UPDATE `jobseeker` SET `first_name`=?,`last_name`=?,`contact_number`=?,`address`=?,`experience_type`=?,`email_address`=?,`password`=?,`self_description`=? WHERE `email_address` = ?";
+//     $stmt = mysqli_stmt_init($conn);
+//     if (!mysqli_stmt_prepare($stmt, $sql)) {
+//         return 'statement_error: update';
+//         exit();
+//     }
+//     mysqli_stmt_bind_param($stmt, "sssssssss", $first_name, $last_name, $contact_number, $address, $experience_type, $email_address, $password, $self_desc, $email_address);
+//     mysqli_stmt_execute($stmt);
+//     $_SESSION["username"] = $first_name . " " . $last_name;
+
+//     return true;
+//     mysqli_stmt_close($stmt);
+// }
+
+function UpdateDetails($conn, $first_name, $middle_name, $last_name, $age, $sex, $contact_number, $address, $experience_type, $self_desc, $user_profile, $email_address)
 {
-    $sql = "UPDATE `jobseeker` SET `first_name`=?,`last_name`=?,`contact_number`=?,`address`=?,`experience_type`=?,`email_address`=?,`password`=?,`self_description`=? WHERE `email_address` = ?";
+    $sql = "UPDATE `jobseeker` SET `first_name`=?,`middle_name`=?,`last_name`=?,`age`=?,`sex`=?,`contact_number`=?,`address`=?,`experience_type`=?,`self_description`=?,`user_profile`=? WHERE email_address = ?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         return 'statement_error: update';
         exit();
     }
-    mysqli_stmt_bind_param($stmt, "sssssssss", $first_name, $last_name, $contact_number, $address, $experience_type, $email_address, $password, $self_desc, $email_address);
+    mysqli_stmt_bind_param($stmt, "sssisssssss", $first_name, $middle_name, $last_name, $age, $sex, $contact_number, $address, $experience_type, $self_desc, $user_profile, $email_address);
     mysqli_stmt_execute($stmt);
     $_SESSION["username"] = $first_name . " " . $last_name;
 
@@ -201,16 +263,60 @@ function submit_resume($resume, $uid)
 }
 
 function submit_application($conn, $uid, $username, $job_id, $job_name, $employer_id, $employer_name, $resume_filename){
-
-    $sql = "INSERT INTO `application`(`applicant_id`, `applicant_name`, `job_id`, `job_title`, `employer_id`, `employer_name`, `applicant_resume`, `application_status`) VALUES ('$uid', '$username', '$job_id', '$job_name', '$employer_id', '$employer_name', '$resume_filename', '0')";
+    $sql = "INSERT INTO `application`(`applicant_id`, `applicant_name`, `job_id`, `job_title`, `employer_id`, `employer_name`, `applicant_resume`, `application_status`, `date_created`) VALUES ('$uid', '$username', '$job_id', '$job_name', '$employer_id', '$employer_name', '$resume_filename', '0', now())";
     if ($conn->query($sql) === TRUE) {
         return true;
     }else {
         return false;
     }
-
 }
 
-function get_alumni_lastID($conn){
+function get_application($conn, $uid, $job_id)
+{
+    $sql = "SELECT * FROM application WHERE applicant_id = ? and job_id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "Statement Error";
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "ii", $uid, $job_id);
+    mysqli_stmt_execute($stmt);
 
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function submit_profile($profile, $uid)
+{
+    $file = $profile;
+    $fileName = $file['name'];
+    $fileTmpName = $file['tmp_name'];
+    $fileError = $file['error'];
+    $fileType = $file['type'];
+
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+
+    $allowed = array('jpg', 'jpeg', 'png', 'gif');
+
+    if (in_array($fileActualExt, $allowed)) {
+        if ($fileError === 0) {
+            $NewFileName = "profile_" . $uid .  "." . $fileActualExt;
+            $fileDestination = '../uploads/profiles/' . $NewFileName;
+            move_uploaded_file($fileTmpName, $fileDestination);
+            return $fileDestination;
+        }else {
+            return false;
+        }
+    }else {
+        return false;
+    }
 }

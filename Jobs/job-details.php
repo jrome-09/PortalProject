@@ -10,7 +10,10 @@ require "job-head.html";
 	</div>
 	<?php
 	require "../html/script.html";
-	session_start();
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+
 	if (isset($_SESSION["username"])) {
 		require "../Candidate/candidate-navigation.php";
 	} else {
@@ -27,6 +30,13 @@ require "job-head.html";
 	$highlights = explode("/", $row["job_highlights"]);
 	$requirements = explode("/", $row["job_requirements"]);
 	$responsibilities = explode("/", $row["job_responsibilities"]);
+	if (isset($_SESSION['username'])) {
+		require "../includes/functions.inc.php";
+		$uid = uidExists($conn, $_SESSION["uemail"]);
+		$application = get_application($conn, $uid['_id'], $_id_explode);
+	}
+
+
 	?>
 	<main>
 		<div class="bg-light pt-5">
@@ -41,26 +51,43 @@ require "job-head.html";
 							<p class="color-light fontsize-14 m-0">Address: <?php echo $row["job_address"]; ?></p>
 							<p class="color-light fontsize-14">Date Posted: <?php echo $row["date_posted"]; ?></p>
 						</div>
-						<div class="col-lg-3 d-flex flex-column justify-content-center ">
-							<!-- onclick="submit_job_id()" -->
-							<a href="#" id="apply_btn" type="button" <?php if (isset($_SESSION["username"])) {
-																			echo "onclick = submit_job_id()";
-																		} else {
-																			echo "onclick = show_toast_swal()";
-																		} ?> class="btn btn-primary my-2 font-500 fontsize-14 shadow-sm-hover d-block">Apply now</a>
-							<form action="../Candidate/profile-preview.php" method="post" id="hidden_job_id">
-								<input type="hidden" value="<?php echo $_id_explode; ?>" name="job_id-hidden_input">
-								<input type="hidden" value="<?php echo $row["job_title"]; ?>" name="job_name-hidden_input">
-								<input type="hidden" value="<?php echo $row["employer_id"]; ?>" name="employer_id-hidden_input">
-								<input type="hidden" value="<?php echo $row["employer_name"]; ?>" name="employer_name-hidden_input">
-							</form>
-							<div <?php if (isset($_SESSION["username"])) {
-										
-									} else {
-										echo "onclick = show_toast_swal()";
-									} ?> class="btn btn-light border my-2 fontsize-14 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
 
-						</div>
+						<?php if (isset($_SESSION['username'])) {
+							if (!$application) {
+
+						?>
+								<div class="col-lg-3 d-flex flex-column justify-content-center ">
+									<a href="#" id="apply_btn" type="button" <?php if (isset($_SESSION["username"])) {
+																															echo "onclick = submit_job_id()";
+																														} ?> class="btn btn-primary my-2 font-500 fontsize-14 shadow-sm-hover d-block"><span data-feather="send" class="text-white me-2"></span> Apply now</a>
+									<form action="../Candidate/profile-preview.php" method="post" id="hidden_job_id">
+										<input type="hidden" value="<?php echo $_id_explode; ?>" name="job_id-hidden_input">
+										<input type="hidden" value="<?php echo $row["job_title"]; ?>" name="job_name-hidden_input">
+										<input type="hidden" value="<?php echo $row["employer_id"]; ?>" name="employer_id-hidden_input">
+										<input type="hidden" value="<?php echo $row["employer_name"]; ?>" name="employer_name-hidden_input">
+									</form>
+									<div <?php if (isset($_SESSION["username"])) {
+												} ?> class="btn btn-light border my-2 fontsize-14 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
+								</div>
+							<?php
+							} else {
+							?>
+								<div class="col-lg-3 d-flex flex-column justify-content-center ">
+									<div class="btn bg-success text-white fontsize-14"><span data-feather="check-circle" class="text-white me-2"></span> Application Submitted</div>
+								</div>
+							<?php
+							}
+						} else {
+							?>
+							<div class="col-lg-3 d-flex flex-column justify-content-center ">
+								<a href="#" id="apply_btn" type="button" onclick=show_toast_swal() class="btn btn-primary my-2 font-500 fontsize-14 shadow-sm-hover d-block">Apply now</a>
+								<div onclick=show_toast_swal() class="btn btn-light border my-2 fontsize-14 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
+							</div>
+						<?php
+						}
+						?>
+
+
 					</div>
 				</div>
 				<div class=" p-5 bg-white border rounded">
@@ -86,16 +113,6 @@ require "job-head.html";
 						<?php
 						}
 						?>
-						<!-- <li class="bullets fontsize-13 color-black mb-1">Fluent in scripting HTML, CSS and JavaScript.</li>
-						<li class="bullets fontsize-13 color-black mb-1">Fluent in MS SQL database and SQL syntax.</li>
-						<li class="bullets fontsize-13 color-black mb-1">Fluent in relevant development software, particularly, Visual Studio, MS SQL.</li>
-						<li class="bullets fontsize-13 color-black mb-1">Experience applying theories related to web, database, interactive and mobile application.</li>
-						<li class="bullets fontsize-13 color-black mb-1">Understanding of basic designing tools such as Photoshop and Illustrator.</li>
-						<li class="bullets fontsize-13 color-black mb-1">Good communication skills.</li>
-						<li class="bullets fontsize-13 color-black mb-1">Ability to manage multiple timelines.</li>
-						<li class="bullets fontsize-13 color-black mb-1">Highly creative in thinking, concepts and designs.</li>
-						<li class="bullets fontsize-13 color-black mb-1">No specific paper qualification is required; anyone with the passion and the above requirement may apply.</li> -->
-
 					</ol>
 					<p class="font-500 fontsize-14 color-black">Job Responsibilities/Duties:</p>
 					<ol class="mb-5">
@@ -106,12 +123,6 @@ require "job-head.html";
 						<?php
 						}
 						?>
-
-						<!-- <li class="bullets fontsize-13 color-black mb-1">Work collaboratively to create design & development concepts.</li>
-						<li class="bullets fontsize-13 color-black mb-1">Collaborate with internal departments to ensure your development are consistent with corporate guidelines.</li>
-						<li class="bullets fontsize-13 color-black mb-1">Translate concepts into actual implementation with a focus on usability and speed.</li>
-						<li class="bullets fontsize-13 color-black mb-1">Handle all software and web development work.</li>
-						<li class="bullets fontsize-13 color-black mb-1">Manage and meet project deadline</li> -->
 					</ol>
 					<p class="font-500 fontsize-14">Additional Information</p>
 					<p class="fontsize-13 colorblack"><?php echo $row["additional_details"]; ?></p>

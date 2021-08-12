@@ -1,32 +1,32 @@
 <?php
 require "db_connection.inc.php";
 require "functions.inc.php";
-if (isset($_POST['firstname'])) {
-    session_start();
-    $first_name = $_POST['firstname'];
-    $last_name = $_POST['lastname'];
-    $contact_number = $_POST['contactnumber'];
-    $address = $_POST['address'];
-    $experience_type = $_POST['expType'];
-    $email_address = $_SESSION['uemail'];
-    $password = $_SESSION['pass'];
-    $self_desc = $_POST['selfDescription'];
+// if (isset($_POST['firstname'])) {
+//     session_start();
+//     $first_name = $_POST['firstname'];
+//     $last_name = $_POST['lastname'];
+//     $contact_number = $_POST['contactnumber'];
+//     $address = $_POST['address'];
+//     $experience_type = $_POST['expType'];
+//     $email_address = $_SESSION['uemail'];
+//     $password = $_SESSION['pass'];
+//     $self_desc = $_POST['selfDescription'];
 
-    $update_result = UpdateDetails($conn, $first_name, $last_name, $contact_number, $address, $experience_type, $email_address, $password, $self_desc);
+//     $update_result = UpdateDetails($conn, $first_name, $last_name, $contact_number, $address, $experience_type, $email_address, $password, $self_desc);
 
-    $university_name = $_POST['university'];
-    $university_address = $_POST['university-address'];
-    $graduation_year = $_POST['graduation_year'];
-    $selected_field = $_POST['field'];
+//     $university_name = $_POST['university'];
+//     $university_address = $_POST['university-address'];
+//     $graduation_year = $_POST['graduation_year'];
+//     $selected_field = $_POST['field'];
 
-    $user_name = $first_name . " " . $last_name;
+//     $user_name = $first_name . " " . $last_name;
 
-    $save_college_result = update_college_details($conn, $email_address, $user_name, $university_name, $university_address, $graduation_year, $selected_field);
+//     $save_college_result = update_college_details($conn, $email_address, $user_name, $university_name, $university_address, $graduation_year, $selected_field);
 
-    if ($update_result && $save_college_result) {
-        echo "Data Inserted Successfully!";
-    }
-}
+//     if ($update_result && $save_college_result) {
+//         echo "Data Inserted Successfully!";
+//     }
+// }
 
 if (isset($_POST['company_name'])) {
     session_start();
@@ -106,7 +106,43 @@ if (isset($_POST["resume_file"])) {
             echo "success";
         }
     }
-   
 }
 
+//User Profile Setup
 
+if (isset($_POST["profile_setup02_form"])) {
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
+    $uemail = $_SESSION['uemail'];
+    $uid = uidExists($conn, $uemail);
+    $first_name = $_POST['first_name'];
+    $middle_name = $_POST['middle_name'];
+    $last_name = $_POST['last_name'];
+    $age = $_POST['age'];
+    $sex = $_POST['sex'];
+    $contact_number = $_POST['contactnumber'];
+    $address = $_POST['address'];
+    $experience = $_POST['expType'];
+    $self = $_POST['selfDescription'];
+    $profile = $_FILES['user_profile'];
+    $new_profile = submit_profile($profile, $uid['_id']);
+
+    UpdateDetails($conn, $first_name, $middle_name, $last_name, $age, $sex, $contact_number, $address, $experience, $self, $new_profile, $uemail);
+    
+    $user_name = $first_name . " " . $last_name;
+
+    $university = $_POST['university'];
+    $university_address = $_POST['university_address'];
+    $year = $_POST['graduation_year'];
+    $field = $_POST['field'];
+
+    update_college_details($conn, $uemail, $user_name, $university, $university_address, $year, $field);
+}
+
+//User Work Experience Setup
+
+if (isset($_POST['college_setup03_form'])){
+    echo "Heyy !!!!";
+}

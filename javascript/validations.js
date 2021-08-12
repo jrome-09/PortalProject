@@ -536,3 +536,40 @@ function validate_af03_exp_employed() {
 		submit_alumni_form03(form_id);
 	}
 }
+
+function validate_setup_part01() {
+	var chckbxs = ["experienceType", "sex"]
+	clear_value(chckbxs);
+	var exp_chbx_ids = ['work--xp', 'student--xp'];
+	var exp = ["Experienced", "Student/Fresh Graduate"];
+	for (let i = 0; i < exp_chbx_ids.length; i++) {
+		if (document.getElementById(exp_chbx_ids[i]).checked) {
+			document.getElementById('experienceType').value = exp[i];
+			console.log("Experience Type: " + exp[i]);
+		}
+	}
+
+	var sex_chbx_ids = ['male_checkbox', 'female_checkbox'];
+	var sex = ["Male", "Female"];
+	for (let i = 0; i < sex_chbx_ids.length; i++) {
+		if (document.getElementById(sex_chbx_ids[i]).checked) {
+			document.getElementById('sex').value = sex[i];
+			console.log("Sex: " + sex[i]);
+		}
+	}
+
+	submit_profileSetup02();
+}
+
+function validate_setup_part03(){
+	document.getElementById('monthly_salary').value = "";
+	var salary_chbx_ids = ['php1_checkbox', 'php2_checkbox', 'php3_checkbox', 'php4_checkbox']
+	var salary = ['Below Php 10,000.00', 'PHP 10,000.00 - 19,999.99', 'Php 20,000.00 - 29,999.99', 'PHP 30,000.00 and above']
+	for (let i = 0; i < salary_chbx_ids.length; i++) {
+		if (document.getElementById(salary_chbx_ids[i]).checked) {
+			document.getElementById('monthly_salary').value = salary[i];
+		}
+	}
+
+	submit_collegeSetup03();
+}

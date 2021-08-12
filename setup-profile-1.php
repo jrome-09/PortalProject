@@ -1,10 +1,11 @@
 <?php
-session_start();
-if (isset($_SESSION["uemail"])) {
-    require "html/head.html";
+// session_start();
+// if (!isset($_SESSION["uemail"])) {
+     require "html/head.html";
 ?>
 
     <body>
+    <link rel="stylesheet" href="Alumni/index.css">
         <link rel="stylesheet" href="Candidate/candidate.css">
         <div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
             <div class="spinner-border text-primary" role="status">
@@ -17,7 +18,7 @@ if (isset($_SESSION["uemail"])) {
         ?>
         <main>
             <?php
-            require "html/setup-profile-1.html";
+            require "html/profile_setup02.html";
             require "html/ball-animation.html"
             ?>
         </main>
@@ -42,7 +43,7 @@ if (isset($_SESSION["uemail"])) {
     </body>
 
 <?php
-} else {
-    header("location: index.php");
-}
+// } else {
+//     header("location: index.php");
+// }
 ?>
