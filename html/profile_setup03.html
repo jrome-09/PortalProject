@@ -1,0 +1,105 @@
+<div class="mxw-900px m-auto">
+	<header class="max-width-container p-4 mx-900px bg-primary rounded text-white mb-2">
+		<h5 class="font-600 m-0">Work Experience</h5>
+		<p class="fontsize-13 m-0">Let us know you more</p>
+	</header>
+	<form action="#" id="profile_setup03_form">
+		<input type="hidden" name="college_setup03_form">
+		<header class="px-4 py-3 fontsize-14 font-500 border rounded-top background-thicker-light border-bottom-0">
+			Part 2: Work Experience
+		</header>
+		<div class="p-4 border rounded-bottom bg-white mb-2">
+			<label for="employer_name" class="required color-light text-start fontsize-13 mb-1">Company / Employer Name:</label>
+			<input type="text" class="form-control mb-2 fontsize-14" require id="employer_name" name="employer_name">
+
+			<label for="employer_address" class="required color-light text-start fontsize-13 mb-1">Company / Employer Address:</label>
+			<input type="text" class="form-control mb-2 fontsize-14" require id="employer_address" name="employer_address">
+
+			<label for="job_title" class="required color-light text-start fontsize-13 mb-1">Position Title:</label>
+			<input type="text" class="form-control mb-2 fontsize-14" require id="job_title" name="job_title">
+
+			<label for="graduationYear" class="required fontsize-13 color-light text-start">
+				Specialization
+			</label>
+			<div class="dropdown-container position-relative">
+				<div class="form-control mb-2" onclick="showSpecializationList()">
+					<span class="color-black fontsize-13" id="specialization-input"></span>
+					<span data-feather="chevron-down" class="color-black"></span>
+				</div>
+				<input type="hidden" id="hiddenSpecialization" name="specialization">
+				<div class="option-container border rounded shadow-sm bg-white p-2"
+					id="optionsSpecialization">
+					<ul class="p-0 color-black fontsize-13" id="list__ul__Specialization">
+						<li class="p-2 rounded" id="ActuarialScience/Statistic"
+							onclick="specialization_select(this.id)">Actuarial Science/Statistic</li>
+					</ul>
+				</div>
+			</div>
+
+			<label for="industry" class="required fontsize-13 color-light text-start">
+				Industry
+			</label>
+			<div class="dropdown-container position-relative">
+				<div class="form-control mb-2" onclick="showIndustryList()">
+					<span class="color-black fontsize-13" id="industry-input"></span>
+					<span data-feather="chevron-down" class="color-black"></span>
+				</div>
+				<input type="hidden" id="hiddenIndustry" name="industry">
+				<div class="option-container border rounded shadow-sm bg-white p-2" id="optionsIndustry">
+					<ul class="p-0 color-black fontsize-13" id="list__ul__Industry">
+						<li class="p-2 rounded" id="Accounting/Audit/TaxServices"
+							onclick="industry_select(this.id)">Accounting / Audit / Tax Services</li>
+					</ul>
+				</div>
+			</div>
+
+			<label for="position-level" class="required fontsize-13 color-light text-start">
+				Position Level
+			</label>
+			<div class="dropdown-container position-relative">
+				<div class="form-control mb-2" onclick="showPositionList()">
+					<span class="color-black fontsize-13" id="level-input"></span>
+					<span data-feather="chevron-down" class="color-black"></span>
+				</div>
+				<input type="hidden" id="hiddenPosition" name="position_level">
+				<div class="option-container border rounded shadow-sm bg-white p-2" id="optionsPosition">
+					<ul class="p-0 color-black fontsize-13" id="list__ul__Position">
+						<li class="p-2 rounded" id="CEO/SVP/AVP/VP/Director"
+							onclick="position_select(this.id)">CEO / SVP / AVP / VP / Director</li>
+					</ul>
+				</div>
+			</div>
+
+			<label for="monthly_salary" class="required color-light text-start fontsize-13 mb-1">Family Monthly Income:</label>
+			<div class="income_div mb-2">
+				<input type="checkbox" name="php1_checkbox" class="btn-check" id="php1_checkbox" autocomplete="off" onclick="salaryCheckBox()">
+				<label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="php1_checkbox">
+						Below Php 10,000.00
+				</label>
+				<br>
+				<input type="checkbox" name="php2_checkbox" class="btn-check" id="php2_checkbox" autocomplete="off" onclick="salaryCheckBox()">
+				<label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="php2_checkbox">
+						PHP 10,000.00 - 19,999.99
+				</label>
+				<br>
+				<input type="checkbox" name="php3_checkbox" class="btn-check" id="php3_checkbox" autocomplete="off" onclick="salaryCheckBox()">
+				<label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="php3_checkbox">
+						Php 20,000.00 - 29,999.99
+				</label>
+				<br>
+				<input type="checkbox" name="php4_checkbox" class="btn-check" id="php4_checkbox" autocomplete="off" onclick="salaryCheckBox()">
+				<label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="php4_checkbox">
+						PHP 30,000.00 and above
+				</label>
+				<input type="hidden" id="monthly_salary" name="monthly_salary">
+			</div>
+
+			<label for="self-description" class="required fontsize-13 color-light text-start">
+				Tell us something about your recent job.
+			</label>
+			<textarea class="form-control color-black fontsize-13" id="experience-description"
+				rows="5" name="experience_description"></textarea>
+		</div>
+		<button type="button" class="btn btn-primary fontsize-13 font-500 px-5 mt-2" onclick="validate_setup_part03()">Submit</button>
+	</form>
+</div>

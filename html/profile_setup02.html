@@ -1,0 +1,130 @@
+
+<div class="mxw-900px m-auto">
+  <header class="max-width-container p-4 mx-900px bg-primary rounded text-white mb-2">
+    <h5 class="font-600 m-0">Set Up Your Profile</h5>
+    <p class="fontsize-13 m-0">Let us know you more</p>
+  </header>
+	<form action="#" id="profile_setup02_form">
+		<input type="hidden" name="profile_setup02_form">
+		<header class="px-4 py-3 fontsize-14 font-500 border rounded-top background-thicker-light border-bottom-0">
+			Part 1: Personal Information
+		</header>
+		<div class="p-4 border rounded-bottom bg-white mb-2">
+			<div class="row">
+				<div class="col-md-6">
+					<label class="required color-light text-start fontsize-13 mb-1">Select Experience:</label>
+					<div class="civil_div">
+							<input type="checkbox" name="experiencedCheckbox" class="btn-check" id="work--xp" autocomplete="off">
+							<label class="btn btn-light mb-2 color-black font-500 border fontsize-13" for="work--xp" style="min-width: 225.34px;">
+									I have work experience
+							</label>
+							<br>
+							<input type="checkbox" name="studentCheckbox" class="btn-check" id="student--xp" autocomplete="off">
+							<label class=" btn btn-light mb-2 color-black font-500 border fontsize-13" for="student--xp" style="min-width: 225.34px;">
+								I am a student/fresh graduate
+							</label>
+							<input type="hidden" id="experienceType" name="expType">
+					</div>
+			</div>
+			<div class="col-md-6">
+				<div class="d-flex justify-content-end">
+					<div class="border rounded bg-light position-relative overflow-visible">
+							<div class="image-container rounded" id="image_container_upload" style="height: 130px; width: 130px;">
+								<img src="uploads/profiles/default_profile02.png" id="user_profile_upload" alt="" style="height: 100%;">					
+							</div>
+						<input type="file" class="d-none" onchange="readUpload(this)" id="user_profile_hiddeninput" name="user_profile">
+						<div class="rounded-circle border d-flex justify-content-center align-items-center position-absolute top-50 translate-middle background-thicker-light" style="height: 40px; width: 40px;">
+							<span data-feather="upload"></span>
+						</div>
+					</div>
+					<script>
+						$("#image_container_upload").click(function () {
+							$("#user_profile_hiddeninput").click();
+						})				
+					</script>
+				</div>
+			</div>
+		</div>
+			<label for="first_name" class="required color-light text-start fontsize-13 mb-1">First Name:</label>
+      		<input type="text" class="form-control mb-2 fontsize-14" require id="first_name" name="first_name">
+
+			<label for="middle_name" class="required color-light text-start fontsize-13 mb-1">Middle Name:</label>
+      		<input type="text" class="form-control mb-2 fontsize-14" require id="first_name" name="middle_name">
+
+			<label for="last_name" class="required color-light text-start fontsize-13 mb-1">Last Name:</label>
+      		<input type="text" class="form-control mb-2 fontsize-14" require id="last_name" name="last_name">
+
+			<label for="age" class="required color-light text-start fontsize-13 mb-1">Age:</label>
+      		<input type="text" class="form-control mb-2 fontsize-14" require id="age" name="age">
+
+			<label for="sex" class="required color-light text-start fontsize-13 mb-1">Sex:</label>
+			<div class="sex_div mb-2">
+					<input type="checkbox" name="male_checkbox" class="btn-check" id="male_checkbox" autocomplete="off" onclick="sexCheckBox()">
+					<label class="btn btn-light mb-2 color-black font-500 border fontsize-13 min-width-200" for="male_checkbox">
+							Male
+					</label>
+					<br>
+					<input type="checkbox" name="female_checkbox" class="btn-check" id="female_checkbox" autocomplete="off" onclick="sexCheckBox()">
+					<label class=" btn btn-light color-black font-500 border fontsize-13 min-width-200" for="female_checkbox">
+							Female
+					</label>
+					<input type="hidden" id="sex" name="sex">
+			</div>
+
+			<label for="contactnumber" class="required color-light text-start fontsize-13 mb-1">Contact Number:</label>
+      <input type="text" class="form-control mb-2 fontsize-14" require id="contactnumber" name="contactnumber">
+
+			<label for="address" class="required color-light text-start fontsize-13 mb-1">Address:</label>
+      <input type="text" class="form-control mb-2 fontsize-14" require id="address" name="address">
+
+			<label for="self-description" class="required color-light fontsize-14 text-start">
+				Tell us something about your self:
+			</label>
+			<textarea class="form-control color-black fontsize-13 mb-4" id="self-description" rows="4" name="selfDescription"></textarea>
+		</div>
+		<header class="px-4 py-3 fontsize-14 font-500 border rounded-top background-thicker-light border-bottom-0">
+			Part 1.2: College Details
+		</header>
+		<div class="p-4 border rounded-bottom bg-white mb-2">
+			<label for="university" class="required color-light text-start fontsize-13 mb-1">Attended University:</label>
+      <input type="text" class="form-control mb-2 fontsize-14" require id="university" name="university">
+
+			<label for="university_address" class="required color-light text-start fontsize-13 mb-1">University Address:</label>
+      <input type="text" class="form-control mb-2 fontsize-14" require id="university_address" name="university_address">
+		
+			<label for="graduation_year" class="required color-light text-start fontsize-13">
+				Graduation Year
+			</label>
+			<div class="position-relative dropdown-container">
+				<div class="form-control mb-2" onclick="showYearList()">
+					<span class="color-black fontsize-13" id="control-selected-year">Select Year</span>
+					<span data-feather="chevron-down" class="color-black"></span>
+				</div>
+				<input type="hidden" id="graduation_year" name="graduation_year">
+				<div class="option-container border rounded shadow-sm bg-white p-2" id="optionsYear">
+					<ul class="p-0 color-black fontsize-13" id="list__ul__Year">
+						<li class="p-2 rounded" id="2030" onclick="YearSelect(this.id)">2030</li>
+					</ul>
+				</div>
+			</div>
+
+			<label for="field" class="required color-light text-start fontsize-13">
+				Field of Study
+			</label>
+			<div class="position-relative dropdown-container">
+				<div class="form-control mb-1" onclick="showList()">
+					<span class="color-black fontsize-13" id="control-selected-field">Select Field</span>
+					<span data-feather="chevron-down" class="color-black"></span>
+				</div>
+				<input type="hidden" id="hiddenField" name="field">
+				<div class="option-container border rounded shadow-sm bg-white p-2" id="options">
+					<ul class="p-0 color-black fontsize-13" id="list__ul">
+						<li class="p-2 rounded" id="AdvertisingMedia" onclick="optionSelect(this.id)">
+							Advertising Media</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<button type="button" class="btn btn-primary fontsize-13 font-500 px-5 mt-2" onclick="validate_setup_part01()">Next</button>
+	</form>
+</div>
