@@ -71,7 +71,11 @@ require "job-head.html";
                     ?>
                         <div class="col-lg-4 pb-4" id="div_job0_<?php echo $row["_id"] ?>">
                             <div class="rounded p-4 bg-white shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
-                                <div class="image-container d-inline-block border rounded mb-2 background-thicker-light" style="height: 60px; width: 60px;"></div>
+                                <div class="d-inline-block overflow-hidden border rounded mb-2 background-thicker-light" style="height: 60px; width: 60px;">
+                                    <div class="image-container" style="height: 100%; width: 100%;">
+                                        <img src="<?php echo $row['company_logo']; ?>" alt="">
+                                    </div>
+                                </div>
                                 <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
                                 <a href="#" class="no-text-decor" id="btn-job0_<?php echo $row["_id"] ?>" onclick="job_submit(this.id)">
                                     <h6 class="mb-0 color-black"><?php echo $row["job_title"] ?></h6>
@@ -127,7 +131,7 @@ require "job-head.html";
                     <input type="hidden" id="form_job_input" name="job_input">
                 </form>
 
-                <div class="d-flex justify-content-end me-1">
+                <!-- <div class="d-flex justify-content-end me-1">
                     <nav aria-label="...">
                         <ul class="pagination">
                             <li class="page-item disabled">
@@ -143,15 +147,20 @@ require "job-head.html";
                             </li>
                         </ul>
                     </nav>
-                </div>
+                </div> -->
             </div>
         </div>
     </main>
     <?php
     require "../html/footer.html";
-    ?>
-    <?php
     if (isset($_SESSION["username"])) {
+    ?>
+        <script>
+            document.getElementById('jobs-link').classList.toggle('active');
+            document.getElementById('job-app-link').href = '../Candidate/job-applications.php'
+            document.getElementById('bookmarks-link').href = '../Candidate/bookmarks.php'
+        </script>
+    <?php
     } else {
     ?>
         <script>
@@ -178,7 +187,6 @@ require "job-head.html";
     <script>
         loadPage();
         feather.replace();
-        document.getElementById('jobs-link').classList.toggle('active');
         document.title = "CCIT | Job List";
         GetSpecializationList_inner();
     </script>

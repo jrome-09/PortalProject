@@ -2,7 +2,16 @@
 if (!isset($_SESSION)) {
 	session_start();
 }
+require "../includes/db_connection.inc.php";
+require "../includes/functions.inc.php";
 $nav_username;
+$profile_image;
+$get_uid = uidExists($conn, $_SESSION['uemail']);
+if ($get_uid!= "") {
+	$profile_image = $get_uid['user_profile'];
+}else{
+	$profile_image = "../uploads/profiles/default_profile02.png";
+}
 if (isset($_SESSION["username"])) {
 	$nav_username = $_SESSION["username"];
 } else {
@@ -40,7 +49,10 @@ if (isset($_SESSION["username"])) {
 					</ul>
 				</nav>
 				<div class="ms-auto position-relative" id="left">
-					<div class="btn-group">
+					<div class="btn-group align-items-center">
+						<div class="image-container bg-white border rounded-circle" style="height: 30px; width: 30px;">
+							<img src="<?php echo $profile_image;?>" alt="profile_picture" style="height: 100%;">
+						</div>
 						<button type="button" class="btn rounded-end color-black fontsize-14 font-500 hover-text-primary hover-text-feather" id="user-name" data-bs-toggle="dropdown"><?php echo $nav_username ?> <span data-feather="chevron-down" class="color-black"></span></button>
 						<ul class="dropdown-menu mt-1 p-2">
 							<li><a href="#" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">User Profile</a></li>

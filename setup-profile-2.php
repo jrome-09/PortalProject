@@ -3,6 +3,7 @@ require "html/head.html";
 ?>
 
 <body>
+    <link rel="stylesheet" href="Alumni/index.css">
     <link rel="stylesheet" href="Candidate/candidate.css">
     <div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
         <div class="spinner-border text-primary" role="status">
@@ -19,9 +20,9 @@ require "html/head.html";
     }
 
     ?>
-    <main>
+    <main class="bg-light" style="padding-top: 100px;">
         <?php
-        require "html/setup-profile-2.html";
+        require "html/profile_setup03.html";
         ?>
     </main>
     <?php
@@ -31,6 +32,7 @@ require "html/head.html";
     <script src="javascript/scroll.js"></script>
     <script src="javascript/validations.js"></script>
     <script src="javascript/jQueryRequest.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script>
         loadPage();
         feather.replace()

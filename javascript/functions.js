@@ -468,6 +468,39 @@ function show_alert(icon, title, text, button, location) {
   });
 }
 
+function show_alert_options(title, text, icon, cancel, confirmbtn_text, confirmed_title, confirmed_text, confirmed_icon) {
+  Swal.fire({
+    title: title,
+    text: text,
+    icon: icon,
+    showCancelButton: cancel,
+    confirmButtonColor: '#0d6efd',
+    cancelButtonColor: '#d33',
+    confirmButtonText: confirmbtn_text,
+    customClass: {
+      popup: "me-17px swal-width-400 font-poppins",
+      title: "color-black font-700 fontsize-24",
+      htmlContainer: "color-light pt-0 fontsize-13",
+      confirmButton: "btn swal-btn-primary px-2 fontsize-13 font-500",
+      cancelButton: "btn px-2 fontsize-13 font-500" 
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: confirmed_title,
+        text: confirmed_text,
+        icon: confirmed_icon,
+        customClass: {
+        popup: "me-17px swal-width-400 font-poppins",
+        title: "color-black font-700 fontsize-24",
+        htmlContainer: "color-light pt-0 fontsize-13",
+        confirmButton: "btn swal-btn-primary px-5 fontsize-13 font-500"
+        }
+      })
+    }
+  })
+}
+
 function show_toast_swal() {
   const Toast = Swal.mixin({
     toast: true,
@@ -484,16 +517,29 @@ function show_toast_swal() {
   Toast.fire({
     icon: "warning",
     title: "You must login first.",
-  })
+  });
 }
 
 function readUpload(input) {
   if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-          $('#user_profile_upload')
-              .attr('src', e.target.result)
-      };
-      reader.readAsDataURL(input.files[0]);
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $("#user_profile_upload").attr("src", e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
   }
+}
+
+function done() {
+  const icon = "success";
+  const title = "Information Saved!";
+  const text = "Your information has been saved. Thank you for filling up the form.";
+  const button = "Continue";
+  const location = "Candidate/candidate.php";
+  show_alert(icon, title, text, button, location);
+}
+
+function show_option(btn_id){
+  const option_id = 'application_option0' + btn_id;
+  document.getElementById(option_id).classList.toggle('active')
 }

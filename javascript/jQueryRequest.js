@@ -267,7 +267,9 @@ function submit_profileSetup02() {
     cache: false,
     timeout: 600000,
     success: function (data) {
-      console.log(data);
+      if (data === "Success") {
+        window.location = "setup-profile-2.php"
+      }
     },
     error: function (e) {
       console.log(e.responseText);
@@ -275,12 +277,15 @@ function submit_profileSetup02() {
   });
 }
 
-function submit_collegeSetup03(){
+function submit_experienceSetup03(){
   $.post(
     "includes/formSubmit.inc.php",
     $("#profile_setup03_form").serialize(),
     function (data) {
       console.log(data)
+      if (data === "Success") {
+        done();
+      }
     }
   );
 }

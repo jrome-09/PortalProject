@@ -28,18 +28,18 @@
 
             </div>
             <div class="mt-1 ms-3" id="infoflex-text">
-                <h5 class="text-primary"><?php echo $user["first_name"] . " " . $user["last_name"]; ?></h5>
+                <h5 class="text-primary"><?php echo $get_uid["first_name"] . " " . $get_uid["last_name"]; ?></h5>
                 <p class="fontsize-14 m-0 font-500 color-black"><?php echo $college["field"] . "(Graduation Year: " . $college["graduation_year"] . ")"; ?></p>
                 <p class="fontsize-14 font-500 color-black"><?php echo $college["university"] ?></p>
                 <div class="d-flex con-con">
                     <div class="mb-0 color-light fontsize-13 d-inline-block">
                         <span data-feather="phone"></span>
-                        <?php echo $user["contact_number"]; ?>
+                        <?php echo $get_uid["contact_number"]; ?>
                     </div>
                     <p class="mx-2 d-inline-block mb-0 separator">|</p>
                     <div class="mb-0 color-light fontsize-13 d-inline-block">
                         <span data-feather="mail"></span>
-                        <?php echo $user["email_address"]; ?>
+                        <?php echo $get_uid["email_address"]; ?>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
                     <p class="color-light fontsize-13">Monthly Salary:</p>
                 </div>
                 <div class="col-lg-10">
-                    <p class="color-black fontsize-14"><?php echo "PHP ". $experience["monthly_salary"]; ?></p>
+                    <p class="color-black fontsize-14"><?php echo "PHP " . $experience["monthly_salary"]; ?></p>
                 </div>
             </div>
             <div class="row">
@@ -181,7 +181,7 @@
                 <p class="color-light fontsize-13">Address:</p>
             </div>
             <div class="col-lg-10">
-                <p class="color-black fontsize-14"><?php echo $user["address"]; ?></p>
+                <p class="color-black fontsize-14"><?php echo $get_uid["address"]; ?></p>
             </div>
         </div>
         <div class="row">
@@ -189,7 +189,7 @@
                 <p class="color-light fontsize-13">Experience Type:</p>
             </div>
             <div class="col-lg-10">
-                <p class="color-black fontsize-14"><?php echo $user["experience_type"]; ?></p>
+                <p class="color-black fontsize-14"><?php echo $get_uid["experience_type"]; ?></p>
             </div>
         </div>
         <div class="row">
@@ -197,23 +197,25 @@
                 <p class="color-light fontsize-13">About Myself:</p>
             </div>
             <div class="col-lg-10">
-                <p class="color-black fontsize-14"><?php echo $user["self_description"]; ?></p>
+                <p class="color-black fontsize-14"><?php echo $get_uid["self_description"]; ?></p>
             </div>
         </div>
     </div>
 </div>
-<div class="d-flex flex-column my-4" style="max-width: 500px;">
-    <p class="fontsize-13 color-light font-500 mb-0">Submit your resume:</p>
-    <p class="font-super--small text-primary mb-2 font-500"> By submitting your resume, you let the employers to know you more and to make hiring decisions and help you get your first interview. </p>
-    <form action="#" id="hidden_application_form">
-        <input type="hidden" name="resume_file">
-        <input type="file" class="form-control fontsize-14" name="uploaded_resume_file">
-        <input type="hidden" name="job_id" value="<?php echo $_POST["job_id-hidden_input"]; ?>">
-        <input type="hidden" name="job_name" value="<?php echo $_POST["job_name-hidden_input"]; ?>">
-        <input type="hidden" name="employer_id" value="<?php echo $_POST["employer_id-hidden_input"]; ?>">
-        <input type="hidden" name="employer_name" value="<?php echo $_POST["employer_name-hidden_input"]; ?>">
-    </form>
-</div>
-<div class="text-end">
-    <button type="submit" onclick="submit_application()" type="button" class="btn btn-primary fontsize-13 font-500 px-5 py-2">Submit</button>
+<div id="preview_actions">
+    <div class="d-flex flex-column my-4" style="max-width: 500px;">
+        <p class="fontsize-13 color-light font-500 mb-0">Submit your resume:</p>
+        <p class="font-super--small text-primary mb-2 font-500"> By submitting your resume, you let the employers to know you more and to make hiring decisions and help you get your first interview. </p>
+        <form action="#" id="hidden_application_form">
+            <input type="hidden" name="resume_file">
+            <input type="file" class="form-control fontsize-14" name="uploaded_resume_file">
+            <input type="hidden" name="job_id" value="<?php echo $_POST["job_id-hidden_input"]; ?>">
+            <input type="hidden" name="job_name" value="<?php echo $_POST["job_name-hidden_input"]; ?>">
+            <input type="hidden" name="employer_id" value="<?php echo $_POST["employer_id-hidden_input"]; ?>">
+            <input type="hidden" name="employer_name" value="<?php echo $_POST["employer_name-hidden_input"]; ?>">
+        </form>
+    </div>
+    <div class="text-end">
+        <button type="submit" onclick="submit_application()" type="button" class="btn btn-primary fontsize-13 font-500 px-5 py-2">Submit</button>
+    </div>
 </div>

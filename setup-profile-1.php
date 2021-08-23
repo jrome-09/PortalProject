@@ -16,7 +16,7 @@
         require "html/script.html";
         require "Candidate/candidate-navigation.php";
         ?>
-        <main>
+        <main class="bg-light" style="padding-top: 100px;">
             <?php
             require "html/profile_setup02.html";
             require "html/ball-animation.html"

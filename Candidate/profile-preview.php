@@ -1,11 +1,5 @@
 <?php
 require "candidate-head.html";
-require "../includes/db_connection.inc.php";
-require "../includes/functions.inc.php";
-session_start();
-$user = uidExists($conn, $_SESSION["uemail"]);
-$college = get_college($conn, $user["_id"]);
-$experience = get_experience($conn, $user["_id"]);
 ?>
 
 <body>
@@ -16,19 +10,26 @@ $experience = get_experience($conn, $user["_id"]);
 	</div>
 	<?php
 	require "../html/script.html";
-	require "../Candidate/candidate-navigation.php"
+	require "../Candidate/candidate-navigation.php";
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+	
+	//$user = uidExists($conn, $_SESSION["uemail"]);
+	$college = get_college($conn, $get_uid["_id"]);
+	$experience = get_experience($conn, $get_uid["_id"]);
 	?>
 	<main>
 
 		<?php
 		if (isset($_POST["job_id-hidden_input"])) {
 		?>
-		<script>
-			console.log("<?php echo 'Job id: ' . $_POST["job_id-hidden_input"];?>");
-			console.log("<?php echo 'Job Name: ' . $_POST["job_name-hidden_input"];?>");
-			console.log("<?php echo 'Employer id: ' . $_POST["employer_id-hidden_input"];?>");
-			console.log("<?php echo 'Employer name: ' . $_POST["employer_name-hidden_input"];?>");
-		</script>
+			<script>
+				console.log("<?php echo 'Job id: ' . $_POST["job_id-hidden_input"]; ?>");
+				console.log("<?php echo 'Job Name: ' . $_POST["job_name-hidden_input"]; ?>");
+				console.log("<?php echo 'Employer id: ' . $_POST["employer_id-hidden_input"]; ?>");
+				console.log("<?php echo 'Employer name: ' . $_POST["employer_name-hidden_input"]; ?>");
+			</script>
 		<?php
 		}
 		?>

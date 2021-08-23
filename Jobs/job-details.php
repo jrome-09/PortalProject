@@ -18,20 +18,19 @@ require "job-head.html";
 		require "../Candidate/candidate-navigation.php";
 	} else {
 		require "../includes/nav.inc.php";
+		require "../includes/db_connection.inc.php";
 	}
-
 	$_id = $_POST["job_input"];
 	$_id_explode = explode("_", $_id)[1];
-
-	require "../includes/db_connection.inc.php";
-	$sql = "SELECT `_id`, `employer_id`, `employer_name`, `job_title`, `monthly_salary`, `job_address`, `date_posted`, `job_highlights`, `job_requirements`, `job_responsibilities`, `career_level`, `job_type`, `qualification`, `job_specialization`, `additional_details`, `verification` FROM `job_description` WHERE _id = $_id_explode";
+	$sql = "SELECT * FROM `job_description` WHERE _id = $_id_explode";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	$highlights = explode("/", $row["job_highlights"]);
 	$requirements = explode("/", $row["job_requirements"]);
 	$responsibilities = explode("/", $row["job_responsibilities"]);
+	$logo = $row['company_logo'];
 	if (isset($_SESSION['username'])) {
-		require "../includes/functions.inc.php";
+		// require "../includes/functions.inc.php";
 		$uid = uidExists($conn, $_SESSION["uemail"]);
 		$application = get_application($conn, $uid['_id'], $_id_explode);
 	}
@@ -44,7 +43,9 @@ require "job-head.html";
 				<div class=" p-5 bg-white rounded border mb-2">
 					<div class="row">
 						<div class="col-lg-9">
-							<div class="image-container rounded border bg-light mb-2" style="height: 70px; width: 70px;"></div>
+							<div class="image-container rounded border bg-light mb-2" style="height: 70px; width: 70px;">
+								<img src="<?php echo $logo; ?>" alt="">
+							</div>
 							<h5 class="color-black mb-0"><?php echo $row["job_title"]; ?></h5>
 							<p class="color-black fontsize-14"><?php echo $row["employer_name"]; ?></p>
 							<p class="color-light fontsize-14 m-0">Salary: PHP <?php echo $row["monthly_salary"]; ?> Monthly</p>
@@ -65,9 +66,9 @@ require "job-head.html";
 										<input type="hidden" value="<?php echo $row["job_title"]; ?>" name="job_name-hidden_input">
 										<input type="hidden" value="<?php echo $row["employer_id"]; ?>" name="employer_id-hidden_input">
 										<input type="hidden" value="<?php echo $row["employer_name"]; ?>" name="employer_name-hidden_input">
+										<input type="hidden" value="submit" name="preview_type">
 									</form>
-									<div <?php if (isset($_SESSION["username"])) {
-												} ?> class="btn btn-light border my-2 fontsize-14 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
+									<div class="btn btn-light border my-2 fontsize-14 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
 								</div>
 							<?php
 							} else {
@@ -153,12 +154,12 @@ require "job-head.html";
 	<script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 	<script>
 		loadPage();
-
 		<?php
 		if (isset($_SESSION["username"])) {
 		?>
 			document.getElementById('jobs-link').classList.toggle('active');
-
+			document.getElementById('job-app-link').href = '../Candidate/job-applications.php'
+            document.getElementById('bookmarks-link').href = '../Candidate/bookmarks.php'
 		<?php
 		} else {
 		?>

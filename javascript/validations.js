@@ -571,5 +571,5 @@ function validate_setup_part03(){
 		}
 	}
 
-	submit_collegeSetup03();
+	submit_experienceSetup03();
 }

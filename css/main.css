@@ -377,6 +377,13 @@ form label.required:after {
     }
 }
 
+@media screen and (max-width: 500px){
+    #image-title{
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+}
+
 .bg-image{
     background-image: url("../Images/Component01.png");
     background-repeat: no-repeat;
@@ -398,4 +405,14 @@ form label.required:after {
     height: 100%;
     width: 100%;
     opacity: 40%;
+}
+
+.application_option{
+    visibility: hidden;
+}
+
+.application_option.active{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.2s;
 }

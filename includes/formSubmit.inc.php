@@ -129,8 +129,8 @@ if (isset($_POST["profile_setup02_form"])) {
     $profile = $_FILES['user_profile'];
     $new_profile = submit_profile($profile, $uid['_id']);
 
-    UpdateDetails($conn, $first_name, $middle_name, $last_name, $age, $sex, $contact_number, $address, $experience, $self, $new_profile, $uemail);
-    
+    $update_result = UpdateDetails($conn, $first_name, $middle_name, $last_name, $age, $sex, $contact_number, $address, $experience, $self, $new_profile, $uemail);
+
     $user_name = $first_name . " " . $last_name;
 
     $university = $_POST['university'];
@@ -138,11 +138,54 @@ if (isset($_POST["profile_setup02_form"])) {
     $year = $_POST['graduation_year'];
     $field = $_POST['field'];
 
-    update_college_details($conn, $uemail, $user_name, $university, $university_address, $year, $field);
+    $save_college_result = update_college_details($conn, $uemail, $user_name, $university, $university_address, $year, $field);
+
+    if ($update_result && $save_college_result) {
+        echo "Success";
+    }
 }
 
 //User Work Experience Setup
 
-if (isset($_POST['college_setup03_form'])){
-    echo "Heyy !!!!";
+if (isset($_POST['college_setup03_form'])) {
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
+    $uemail = $_SESSION['uemail'];
+    $uid = uidExists($conn, $uemail);
+    $employer_name = $_POST['employer_name'];
+    $employer_address = $_POST['employer_address'];
+    $job_title = $_POST['job_title'];
+    $specialization = $_POST['specialization'];
+    $industry = $_POST['industry'];
+    $position_level = $_POST['position_level'];
+    $income = $_POST['monthly_salary'];
+    $experience = $_POST['experience_description'];
+
+    $data = [$employer_name, $employer_address, $job_title, $specialization, $industry, $position_level, $income, $experience];
+
+    if ($uid) {
+        $user_name = $_SESSION["username"];
+        $user_id = $uid['_id'];
+        $check_uid = check_userExperienceID_exist($conn, $user_id);
+        $user_type = "jobseeker";
+
+        if ($check_uid) {
+            // echo "Alert: Uid Exist! Update";
+            $update = update_user_experience($conn, $employer_name, $employer_address, $job_title, $specialization, $industry, $position_level, $income, $experience, $uid['_id']);
+            if ($update) {
+                echo "Success";
+            }
+            exit();
+        } else {
+            // echo "Alert: Uid Do not Exist! Insert";
+            $insert = insert_user_experience($conn, $user_id, $user_name, $employer_name, $employer_address, $job_title, $specialization, $industry, $position_level, $income, $experience, $user_type);
+            if ($insert) {
+                echo "Success";
+            }
+
+            exit();
+        }
+    }
 }
