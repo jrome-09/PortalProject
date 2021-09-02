@@ -45,20 +45,20 @@ div.jobs{
 }
 
 @media screen and (max-width: 960px) {
-    .search-box-container {
+    /* .search-box-container {
         flex-direction: column;
     }
 
     .min-50{
         min-width: 50px;
-    }
+    } */
 }
 
 
 
 
 @media screen and (max-width: 1096px) {
-    header nav ul {
+    /* header nav ul {
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -117,14 +117,14 @@ div.jobs{
 
     .notification_web{
         display: none;
-    }
+    } */
 
 }
 
-header nav{
+/* header nav{
     display: flex;
     align-items: center;
-}
+} */
 
 #bars {
     display: none;

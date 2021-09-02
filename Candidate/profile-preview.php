@@ -1,5 +1,6 @@
 <?php
 require "candidate-head.html";
+$submit_application = false;
 ?>
 
 <body>
@@ -10,12 +11,10 @@ require "candidate-head.html";
 	</div>
 	<?php
 	require "../html/script.html";
-	require "../Candidate/candidate-navigation.php";
+	require "../includes/nav.php";
 	if (!isset($_SESSION)) {
 		session_start();
 	}
-	
-	//$user = uidExists($conn, $_SESSION["uemail"]);
 	$college = get_college($conn, $get_uid["_id"]);
 	$experience = get_experience($conn, $get_uid["_id"]);
 	?>
@@ -23,6 +22,7 @@ require "candidate-head.html";
 
 		<?php
 		if (isset($_POST["job_id-hidden_input"])) {
+			$submit_application = true;
 		?>
 			<script>
 				console.log("<?php echo 'Job id: ' . $_POST["job_id-hidden_input"]; ?>");
@@ -33,7 +33,7 @@ require "candidate-head.html";
 		<?php
 		}
 		?>
-		<div class="bg-light pt-5">
+		<div class="bg-light">
 			<div class="max-width-container">
 				<?php
 				require "Includes/preview.php";
@@ -53,6 +53,11 @@ require "candidate-head.html";
 		loadPage();
 		feather.replace();
 		document.getElementById('jobs-link').classList.toggle('active');
+		<?php 
+			if (!$submit_application) {
+				echo 'document.getElementById("preview_actions").classList.add("d-none")';
+			}
+		?>
 	</script>
 </body>
 

@@ -11,24 +11,25 @@ require "candidate-head.html";
 
 	<?php
 	require "../html/script.html";
-	require "candidate-navigation.php";
+	//require "candidate-navigation.php";
+	require "../includes/nav.php";
 	if (!isset($_SESSION)) {
 		session_start();
 	}
 	?>
 	<main>
-		<div class="background-thicker-light position-relative">
+		<!-- <div class="background-thicker-light position-relative">
 			<div class="bg-image position-absolute top-0 left-0"></div>
 			<div class="max-width-container pb-3 mt-5">
 			<h6 class="font-700 color-black position-relative">Search for a Job</h6>
 				<?php
-				require "../html/search-form.html";
+				//require "../html/search-form.html";
 				?>
 			</div>
-		</div>
+		</div> -->
 		<div class="bg-light">
 			<div class="max-width-container">
-				<div class="border bg-white p-4 rounded mb-5 border-left-primary-2 shadow-sm">
+				<div class="border bg-white p-4 rounded mb-5 blp2 shadow-sm">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="d-flex">
@@ -54,17 +55,17 @@ require "candidate-head.html";
 				</div>
 				<div class="border rounded bg-white position-relative overflow-hidden shadow-sm">
 					<header class="bg-light p-4 border-bottom">
-						<div class="color-black d-flex align-items-center"><span data-feather="bookmark" class="me-1 text-primary"></span>
-							<p class="m-0 fontsize-14 font-700 text-primary"> 0 Saved Jobs</p>
+						<div class="color-black d-flex align-items-center"><span data-feather="bookmark" class="me-1 text-cp2"></span>
+							<p class="m-0 fontsize-14 font-700 text-cp2"> 0 Saved Jobs</p>
 						</div>
 					</header>
 					<main class="p-4">
 						<div class="hw-100pcent text-center p-4">
 							<div class="image-container hw-100pcent mb-2" style="height: 200px; max-height: 200px;">
-								<img src="../Images/svg/undraw_save.svg" alt="" style="filter: opacity(90%); height: 100%;">
+								<img src="../Images/svg/undraw_save2.svg" alt="" style="filter: opacity(90%); height: 100%;">
 							</div>
 							<div style="max-width: 220px;" class="text-center m-auto mt-2">
-								<p class="fontsize-13 color-black">Use the bookmark icon <span data-feather="bookmark" class="text-primary"></span> to save jobs that interest you.</p>
+								<p class="fontsize-13 color-black">Use the bookmark icon <span data-feather="bookmark" class="text-cp2"></span> to save jobs that interest you.</p>
 							</div>
 						</div>
 						<!-- <h5 class="color-black feather-20"><span data-feather="bookmark"></span> Saved Jobs</h5>
@@ -99,7 +100,7 @@ require "candidate-head.html";
                         </div>
                     </a> -->
 						<div class="text-end mt-4">
-							<a href="bookmarks.php" type="button" class="btn btn-primary font-500 fontsize-13">Open Bookmarks</a>
+							<a href="bookmarks.php" type="button" class="btn bg-cp2 font-500 text-white fontsize-13">Open Bookmarks</a>
 						</div>
 					</main>
 				</div>
@@ -116,9 +117,9 @@ require "candidate-head.html";
 	<script>
 		loadPage();
 		feather.replace();
-		document.getElementById('mypage-link').classList.toggle('active');
 		document.title = "Candidate | Homepage";
-		GetSpecializationList_inner();
+		var parent = document.getElementById('jobs-link-nav').parentElement
+        parent.classList.add('active');
 	</script>
 </body>
 

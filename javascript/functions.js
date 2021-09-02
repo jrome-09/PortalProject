@@ -460,11 +460,15 @@ function show_alert(icon, title, text, button, location) {
       popup: "me-17px swal-width-400 font-poppins",
       title: "color-black font-700 fontsize-24",
       htmlContainer: "color-light pt-0 fontsize-13",
-      confirmButton: "btn swal-btn-primary px-5",
+      confirmButton: "btn bg-cp2 bg-cp2h px-5",
     },
     confirmButtonText: button,
   }).then(function () {
-    window.location = location;
+    if (location != "") {
+      window.location = location;
+    }else{
+      return false
+    }
   });
 }
 
@@ -481,7 +485,7 @@ function show_alert_options(title, text, icon, cancel, confirmbtn_text, confirme
       popup: "me-17px swal-width-400 font-poppins",
       title: "color-black font-700 fontsize-24",
       htmlContainer: "color-light pt-0 fontsize-13",
-      confirmButton: "btn swal-btn-primary px-2 fontsize-13 font-500",
+      confirmButton: "btn bg-cp2 bg-cp2h px-2 fontsize-13 font-500",
       cancelButton: "btn px-2 fontsize-13 font-500" 
     }
   }).then((result) => {
@@ -494,7 +498,7 @@ function show_alert_options(title, text, icon, cancel, confirmbtn_text, confirme
         popup: "me-17px swal-width-400 font-poppins",
         title: "color-black font-700 fontsize-24",
         htmlContainer: "color-light pt-0 fontsize-13",
-        confirmButton: "btn swal-btn-primary px-5 fontsize-13 font-500"
+        confirmButton: "btn bg-cp2 bg-cp2h px-5 fontsize-13 font-500"
         }
       })
     }
@@ -542,4 +546,18 @@ function done() {
 function show_option(btn_id){
   const option_id = 'application_option0' + btn_id;
   document.getElementById(option_id).classList.toggle('active')
+}
+
+function toggle_dropdown_notification() {
+  document.getElementById('web_notification_dropdown').classList.toggle('active');
+}
+
+function readUpload02(input, _id) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $(_id).attr("src", e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
 }

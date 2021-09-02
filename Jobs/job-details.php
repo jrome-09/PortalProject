@@ -13,11 +13,8 @@ require "job-head.html";
 	if (!isset($_SESSION)) {
 		session_start();
 	}
-
-	if (isset($_SESSION["username"])) {
-		require "../Candidate/candidate-navigation.php";
-	} else {
-		require "../includes/nav.inc.php";
+	require "../includes/nav.php";
+	if (!isset($_SESSION["username"])) {
 		require "../includes/db_connection.inc.php";
 	}
 	$_id = $_POST["job_input"];
@@ -38,7 +35,7 @@ require "job-head.html";
 
 	?>
 	<main>
-		<div class="bg-light pt-5">
+		<div class="bg-light">
 			<div class="max-width-container">
 				<div class=" p-5 bg-white rounded border mb-2">
 					<div class="row">
@@ -55,12 +52,11 @@ require "job-head.html";
 
 						<?php if (isset($_SESSION['username'])) {
 							if (!$application) {
-
 						?>
 								<div class="col-lg-3 d-flex flex-column justify-content-center ">
 									<a href="#" id="apply_btn" type="button" <?php if (isset($_SESSION["username"])) {
 																															echo "onclick = submit_job_id()";
-																														} ?> class="btn btn-primary my-2 font-500 fontsize-14 shadow-sm-hover d-block"><span data-feather="send" class="text-white me-2"></span> Apply now</a>
+																														} ?> class="btn bg-cp2 bg-cp2h my-2 font-500 fontsize-14 shadow-sm-hover d-block"><span data-feather="send" class="text-white me-2"></span> Apply now</a>
 									<form action="../Candidate/profile-preview.php" method="post" id="hidden_job_id">
 										<input type="hidden" value="<?php echo $_id_explode; ?>" name="job_id-hidden_input">
 										<input type="hidden" value="<?php echo $row["job_title"]; ?>" name="job_name-hidden_input">
@@ -68,21 +64,21 @@ require "job-head.html";
 										<input type="hidden" value="<?php echo $row["employer_name"]; ?>" name="employer_name-hidden_input">
 										<input type="hidden" value="submit" name="preview_type">
 									</form>
-									<div class="btn btn-light border my-2 fontsize-14 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
+									<div class="btn btn-light border my-2 fontsize-14 color-black htl-cp2cb htfthr shadow-sm-hover"><span data-feather="bookmark"></span> Add to Bookmarks</div>
 								</div>
 							<?php
 							} else {
 							?>
 								<div class="col-lg-3 d-flex flex-column justify-content-center ">
-									<div class="btn bg-success text-white fontsize-14"><span data-feather="check-circle" class="text-white me-2"></span> Application Submitted</div>
+									<div class="btn bg-cp2 text-white fontsize-14"><span data-feather="check-circle" class="text-white me-2"></span> Application Submitted</div>
 								</div>
 							<?php
 							}
 						} else {
 							?>
 							<div class="col-lg-3 d-flex flex-column justify-content-center ">
-								<a href="#" id="apply_btn" type="button" onclick=show_toast_swal() class="btn btn-primary my-2 font-500 fontsize-14 shadow-sm-hover d-block">Apply now</a>
-								<div onclick=show_toast_swal() class="btn btn-light border my-2 fontsize-14 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
+								<a href="#" id="apply_btn" type="button" onclick=show_toast_swal() class="btn bg-cp2 bg-cp2h my-2 font-500 fontsize-14 shadow-sm-hover d-block"><span data-feather="send" class="text-white me-2"></span>Apply now</a>
+								<div onclick=show_toast_swal() class="btn btn-light htl-cp2cb htfthr border my-2 fontsize-14 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
 							</div>
 						<?php
 						}
@@ -151,38 +147,14 @@ require "job-head.html";
 	<script src="../javascript/functions.js"></script>
 	<script src="../javascript/onclick.js"></script>
 	<script src="../javascript/scroll.js"></script>
+	<script src="../javascript/jQueryRequest.js"></script>
+	<script src="../javascript/validations.js"></script>
 	<script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 	<script>
 		loadPage();
-		<?php
-		if (isset($_SESSION["username"])) {
-		?>
-			document.getElementById('jobs-link').classList.toggle('active');
-			document.getElementById('job-app-link').href = '../Candidate/job-applications.php'
-            document.getElementById('bookmarks-link').href = '../Candidate/bookmarks.php'
-		<?php
-		} else {
-		?>
-			document.getElementById('nav-stylesheet').href = "../css/index-nav.css"
-			document.getElementById('web-id').href = "../index.php"
-			document.getElementById('index-link').href = "../index.php"
-			document.getElementById('about-link').href = "../about.php"
-			document.getElementById('contacts-link').href = "../contacts.php"
-			document.getElementById('alumni-link').href = "../Alumni/alumni-index.php"
-			document.getElementById('emp-profiles-link').href = "../Employers/employers-profile-page.php"
-			document.getElementById('jobs-link-out').href = "../Jobs/jobs.php"
-			document.getElementById('forum-link').href = "../Forum/forum-index.php"
-			document.getElementById('signup-btn').href = "../signup-form.php"
-			document.getElementById('login-btn').href = "../candidate-login-form.php"
-			document.getElementById('for_emp').href = "../Employers/index.php"
-		<?php
-		}
-		?>
 		feather.replace();
 		document.title = "CCIT | Job Details";
 		console.log("<?php echo $_id; ?>");
-		// changeLink_inner();
-
 		function submit_job_id() {
 			form = document.getElementById("hidden_job_id");
 			form.submit();

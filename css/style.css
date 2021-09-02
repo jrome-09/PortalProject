@@ -57,16 +57,46 @@ input[type=number] {
     min-width: 200px;
 }
 
+.hw-120px{
+    min-width: 120px;
+    height: 120px;
+    width: 120px;
+}
+
 .hw-100px{
     min-width: 100px;
     height: 100px;
     width: 100px;
 }
 
+.hw-80px{
+    min-width: 80px;
+    height: 80px;
+    width: 80px;
+}
+
+.hw-30px{
+    min-width: 30px;
+    height: 30px;
+    width: 30px;
+}
+
 .hw-50px{
     min-width: 50px;
     height: 50px;
     width: 50px;
+}
+
+.hw-40px{
+    min-width: 40px;
+    height: 40px;
+    width: 40px;
+}
+
+.hw-70px{
+    min-width: 70px;
+    height: 70px;
+    width: 70px;
 }
 
 .hw-100pcent{
@@ -96,7 +126,11 @@ input[type=number] {
     margin: auto;
 }
 
-.no-text-decor{
+.bg-dark_blue{
+    background: rgb(13, 14, 44);
+}
+
+.no-text-decor, .ntd{
     text-decoration: none;
 }
 
@@ -143,6 +177,12 @@ input[type=number] {
 
 .hover-text-underline:hover{
     text-decoration: underline !important;
+    color: #0d6efd !important;
+    transition: 0.4s;
+}
+
+.hover-under-primary{
+    text-decoration: underline !important;
 }
 
 .part-time, .part-time:hover{
@@ -156,9 +196,14 @@ input[type=number] {
     color:#dc3545 !important;
 }
 
-.hover-text-primary:hover, .hover-text-feather:hover > .feather{
+.hover-text-primary:hover, .htp:hover, .htpf:hover > .feather, .hover-text-feather:hover > .feather{
     color: #0d6efd !important;
     transition: 0.4s;
+}
+
+.hover-primary-light:hover{
+    color: #0d6efd !important;
+    background-color: rgb(240, 240, 240);
 }
 
 .margin-top-nav{
@@ -212,18 +257,33 @@ input[type=number] {
 }
 
 .border-left-hover:hover::before, .border-left-primary-2::before{
-    transition: 2s;
+    /* transition: 2s; */
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
-    border: 2px solid #0d6efd;
-    border-bottom-left-radius: .25rem;
+    border: 1.5px solid #0d6efd;
+    background: #0d6efd;
+    /* border-bottom-left-radius: .25rem;
     border-top-left-radius: .25rem;  
     transition: 2s;
     -webkit-transition: all 2s;
-    -moz-transition: all 2s;
+    -moz-transition: all 2s; */
+}
+
+.blh, .blp2{
+    position: relative;
+}
+
+.blh:hover::before, .blp2::before, .blh.active::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border: 1.5px solid rgb(133, 156, 59);
+    background: rgb(133, 156, 59);
 }
 
 .bt-visible-primary-4{
@@ -253,4 +313,49 @@ input[type=number] {
     .flex-col-740{
         flex-direction: column;
     }
+}
+
+.bg-cp1{
+    background-color: rgb(71, 109, 62) !important;
+}
+
+.bg-cp2{
+    background-color: rgb(133, 156, 59) !important;
+}
+
+.bg-csfb{
+   background-color: rgb(230, 236, 240) !important;
+}
+
+.hbg-light:hover, .hbg-light.active{
+    background-color: rgb(240, 240, 240);
+    color: rgb(133, 156, 59) !important;
+}
+
+.bt-cp2-4{
+    border-top: 4px solid rgb(133, 156, 59) !important;
+}
+
+.htl-cp2, .ht-cp2, .htl-cp2cb:hover, .htfthr:hover > .feather{
+    color: rgb(133, 156, 59) !important;
+}
+
+.htl-cp1:hover{
+    color: rgb(71, 109, 62) !important;
+}
+
+.text-cp2{
+    color: rgb(133, 156, 59) !important;
+}
+
+.btn.bg-cp2, .btn.bg-cp2h:hover{
+    color: #fff !important;
+}
+
+.btn.bg-cp2:hover{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0);
+}
+
+.brd-t4{
+    border-top: 4px solid rgb(133, 156, 59);
 }

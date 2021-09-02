@@ -6,22 +6,26 @@
         <h4>Employer Login</h4>
         <p class="color-light font-small font-500">Start hiring now!</p>
     </div>
-    <form action="#">
+    <form action="#" id="employer_login_form">
+        <input type="hidden" name="employer_login">
         <label for="login--email" class="required color-light text-start">Email Address</label>
         <input type="email" name="login--email" id="login--email" required
-            class="form-control color-black mb-2 text-center" maxlength="15">
+            class="form-control color-black mb-2 text-center">
 
-        <label for="login-password" class="required color-light text-start">Password</label>
-        <input type="password" name="login-password" id="login-password" required
-            class="form-control color-black mb-2 text-center" maxlength="15">
+        <label for="login--password" class="required color-light text-start">Password</label>
+        <input type="password" name="login--password" id="login--password" required
+            class="form-control color-black mb-2 text-center">
         <div class="form-check d-flex ps-0">
             <input class="form-check-input me-1 ms-0" type="checkbox" value="" id="showhide-ckeckBox">
             <label class="form-check-label fontsize-13 color-light" for="Conditions-ckeckBox">
                 show/hide password
             </label>
         </div>
+        <div class="swal2-validation-message fontsize-13 my-2 d-none" id="swal2-validation-message02" style="display: flex;">
+            <!-- Invalid email address. -->
+        </div>
         <div class="d-flex justify-content-center">
-            <a type="button" href="employer-page.php" class="btn btn-primary font-small font-500 px-5 mt-2">
+            <a type="button" href="#" onclick="validate_emp_login()" class="btn btn-primary font-small font-500 px-5 mt-2">
                 Sign in
             </a>
         </div>

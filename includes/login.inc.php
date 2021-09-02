@@ -31,3 +31,34 @@ if (isset($_POST['login_email'])) {
         exit();
     }
 }
+
+if (isset($_POST['employer_login'])) {
+    $email = $_POST['login--email'];
+    $password = $_POST['login--password'];
+    
+    $emp_exist = emp_uidExists($conn, $email);
+
+    if (!$emp_exist) {
+        echo "email does not exist.";
+        exit();
+    }
+
+    $pwdEncrypt = $emp_exist["password"];
+    $checkPwd = password_verify($password, $pwdEncrypt);
+
+    if (!$checkPwd) {
+        echo "wrong password.";
+        exit();
+    }else {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $_SESSION['emp_uid'] = $emp_exist['_id'];
+        $_SESSION['emp_email'] = $emp_exist['email_address'];
+        $_SESSION['emp_fname'] = $emp_exist['first_name'];
+        $_SESSION['emp_mname'] = $emp_exist['middle_name'];
+        $_SESSION['emp_lname'] = $emp_exist['last_name'];
+        echo "logged in.";
+        exit();
+    }
+}

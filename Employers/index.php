@@ -18,36 +18,18 @@ require "style-link.html";
         ?>
         <main>
             <div class="bg-light position-relative">
-
                 <div class="max-width-container position-relative" style="z-index: 1;">
                     <div class="row">
+                        <div class="col-md-6 fontsize-13 mb-5">
+                            <h1 class="font-700 mb-0 color-black mt-5">Hire with Precision. <br> Thrive with Passion.</h1>
+                            <p class="color-black">Find the right person for your Company</p>
+                            <p class="color-black">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam nulla laborum ducimus alias facere, adipisci officiis, soluta illo maiores</p>
+                            <a href="#" class="btn btn-primary fontsize-13 font-500">Browse Registered Employers</a>
+                        </div>
                         <div class="col-md-6">
                             <?php
                             require "includes/emp-signupform.inc.php";
                             ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="background-thicker-light thick-container">
-                    <style>
-                        .thick-container {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            height: 450px;
-                            width: 100%;
-                            z-index: 0;
-                        }
-                    </style>
-                </div>
-            </div>
-            <div class="background-thicker-light">
-                <div class="max-width-container">
-                    <div class="row my-5">
-                        <div class="col-md-6 fontsize-14">
-                            <h2 class="font-700 mb-0 color-black">Hire with Precision.</h2>
-                            <p class="color-black">Find the right person for your Company</p>
-                            <p class="color-black">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam nulla laborum ducimus alias facere, adipisci officiis, soluta illo maiores</p>
                         </div>
                     </div>
                 </div>
@@ -60,7 +42,7 @@ require "style-link.html";
                     </div>
                     <div class="row color-black">
                         <div class="col-md-6 mb-4">
-                            <div class="image-container border rounded bg-white" style="height: 300px; width: 90%;">
+                            <div class="image-container border rounded bg-white m-auto" style="height: 300px; width: 90%;">
 
                             </div>
                         </div>
@@ -79,12 +61,12 @@ require "style-link.html";
 
                         </div>
                         <div class="col-md-6 mb-4">
-                            <div class="image-container border rounded bg-white" style="height: 300px; width: 90%;">
+                            <div class="image-container border rounded bg-white m-auto" style="height: 300px; width: 90%;">
 
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
-                            <div class="image-container border rounded bg-white" style="height: 300px; width: 90%;">
+                            <div class="image-container border rounded bg-white m-auto" style="height: 300px; width: 90%;">
 
                             </div>
                         </div>
@@ -105,9 +87,19 @@ require "style-link.html";
         <script src="../javascript/functions.js"></script>
         <script src="../javascript/scroll.js"></script>
         <script src="../javascript/onclick.js"></script>
+        <script src="../javascript/validations.js"></script>
+        <script src="../javascript/jQueryRequest.js"></script>
+        <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
         <script>
             loadPage();
             feather.replace();
+
+            function show_swal_validation_login(alert_text) {
+                var swal_id = document.getElementById("swal2-validation-message02");
+                swal_id.classList.remove("d-none");
+                swal_id.innerHTML = alert_text;
+            }
+            
         </script>
     </div>
 </body>

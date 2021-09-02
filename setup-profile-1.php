@@ -7,11 +7,11 @@
     <body>
     <link rel="stylesheet" href="Alumni/index.css">
         <link rel="stylesheet" href="Candidate/candidate.css">
-        <div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
+        <!-- <div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
             <div class="spinner-border text-primary" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
-        </div>
+        </div> -->
         <?php
         require "html/script.html";
         require "Candidate/candidate-navigation.php";
@@ -35,6 +35,7 @@
             changeLink();
             GetTextList();
             GetYearList();
+            document.getElementById('log-out-link').href = 'includes/logout.inc.php'
         </script>
 
     </body>

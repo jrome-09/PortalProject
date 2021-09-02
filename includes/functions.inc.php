@@ -343,3 +343,53 @@ function submit_profile($profile, $uid)
         return false;
     }
 }
+
+function submit_logo($logo, $c_name)
+{
+    $file = $logo;
+    $fileName = $file['name'];
+    $fileTmpName = $file['tmp_name'];
+    $fileError = $file['error'];
+    $fileType = $file['type'];
+
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+
+    $allowed = array('jpg', 'jpeg', 'png', 'gif');
+
+    if (in_array($fileActualExt, $allowed)) {
+        if ($fileError === 0) {
+            $NewFileName = "company_" . $c_name .  "." . $fileActualExt;
+            $fileDestination = '../uploads/company_logos/' . $NewFileName;
+            move_uploaded_file($fileTmpName, $fileDestination);
+            return $fileDestination;
+        }else {
+            return false;
+        }
+    }else {
+        return false;
+    }
+}
+
+function emp_uidExists($conn, $email)
+{
+    $sql = "SELECT * FROM employer_details WHERE email_address = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "Statement Error";
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}

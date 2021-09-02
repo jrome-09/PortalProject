@@ -10,13 +10,12 @@ require "html/head.html";
     </div>
     <?php
     require "html/script.html";
-    require "includes/nav.inc.php";
+    require "includes/nav.php";
     ?>
     <main>
-        <div class="hero-header bg-light position-relative text-center mt-4" style="height: 250px;">
-            <div class="bg-image m-auto d-block"></div>
+        <div class="hero-header bg-light position-relative text-center" style="height: 150px;">
             <div class="position-absolute top-50 start-50 translate-middle">
-                <h2 class="color-black mt-5 text-decoration-underline">Contacts</h2>
+                <h2 class="color-black text-decoration-underline">Contacts</h2>
             </div>
         </div>
         <!-- <div class="background-thicker-light">
@@ -42,27 +41,27 @@ require "html/head.html";
                         <input type="text" id="sender--subject" class="form-control color-black fontsize-14" placeholder="Message Subject">
                         <label for="sender--subject" class="color-light fontsize-13 mb-4">Please the message subject</label>
                         <textarea class="form-control color-black mb-4 fontsize-14" id="sender--message" rows="4" placeholder="Your Message"></textarea>
-                        <button type="button" class="btn btn-primary fontsize-13 font-500">SEND MESSAGE</button>
+                        <button type="button" class="btn bg-cp2 text-white fontsize-13 font-500">SEND MESSAGE</button>
                     </div>
                     <div class="col-md-6" id="address--section">
                         <h6 class="color-black font-500 mb-4">Contact Address</h6>
                         <div class="border p-4 fontsize-13">
                             <div class="d-flex align-items-center pb-5">
-                                <div class="bg-primary image-container round"><span data-feather="map-pin" class="color-white"></span></div>
+                                <div class="bg-cp2 image-container round"><span data-feather="map-pin" class="color-white"></span></div>
                                 <div class="ps-2">
                                     <div class="color-light">College: College of Communication and Information Technology</div>
                                     <div class="color-light">University Address: </div>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center pb-5">
-                                <div class="bg-primary image-container round"><span data-feather="mail" class="color-white"></span></div>
+                                <div class="bg-cp2 image-container round"><span data-feather="mail" class="color-white"></span></div>
                                 <div class="ps-2">
                                     <div class="color-light">Administrator: admin.ccit@unp.edu.ph</div>
                                     <div class="color-light">College: ccit@unp.edu.ph</div>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center pb-5">
-                                <div class="bg-primary image-container round"><span data-feather="phone" class="color-white"></span></div>
+                                <div class="bg-cp2 image-container round"><span data-feather="phone" class="color-white"></span></div>
                                 <div class="ps-2">
                                     <div class="color-light">Administrator: admin.ccit@unp.edu.ph</div>
                                     <div class="color-light">College: ccit@unp.edu.ph</div>
@@ -83,11 +82,14 @@ require "html/head.html";
 
     <script src="javascript/functions.js"></script>
     <script src="javascript/scroll.js"></script>
+    <script src="javascript/jQueryRequest.js"></script>
+    <script src="javascript/validations.js"></script>
     <script>
         loadPage();
         feather.replace();
-        document.getElementById('contacts-link').classList.toggle('active');
         document.title = "CCIT | Contacts"
+        var parent = document.getElementById('contacts-link').parentElement
+        parent.classList.add('active');
     </script>
 </body>
 

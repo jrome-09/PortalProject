@@ -2,16 +2,49 @@
 if (!isset($_SESSION)) {
 	session_start();
 }
-require "../includes/db_connection.inc.php";
-require "../includes/functions.inc.php";
+if (file_exists('../includes/db_connection.inc.php')) {
+	require "../includes/db_connection.inc.php";
+} else {
+	require "includes/db_connection.inc.php";
+}
+
+if (file_exists('../includes/functions.inc.php"')) {
+	require "../includes/functions.inc.php";
+} else {
+	require "includes/functions.inc.php";
+}
+
+
+
 $nav_username;
 $profile_image;
 $get_uid = uidExists($conn, $_SESSION['uemail']);
-if ($get_uid!= "") {
-	$profile_image = $get_uid['user_profile'];
-}else{
-	$profile_image = "../uploads/profiles/default_profile02.png";
+$uid = $get_uid['_id'];
+$college = get_college($conn, $uid);
+$university;
+
+if ($college) {
+	$university  = $college['university'];
+} else {
+	$university = "Undefined.";
 }
+
+if ($get_uid != "") {
+	if (file_exists($get_uid['user_profile'])) {
+		$profile_image = $get_uid['user_profile'];
+	} elseif ($get_uid['user_profile'] != "") {
+		$up = $get_uid['user_profile'];
+		$explode = explode("../", $up);
+		$profile_image = $explode[1];
+	} else {
+		if (file_exists('../uploads/profiles/default_profile02.png')) {
+			$profile_image = "../uploads/profiles/default_profile02.png";
+		} else {
+			$profile_image = "uploads/profiles/default_profile02.png";
+		}
+	}
+}
+
 if (isset($_SESSION["username"])) {
 	$nav_username = $_SESSION["username"];
 } else {
@@ -51,16 +84,18 @@ if (isset($_SESSION["username"])) {
 				<div class="ms-auto position-relative" id="left">
 					<div class="btn-group align-items-center">
 						<div class="image-container bg-white border rounded-circle" style="height: 30px; width: 30px;">
-							<img src="<?php echo $profile_image;?>" alt="profile_picture" style="height: 100%;">
+							<img src="<?php echo $profile_image ?>" alt="profile_picture" style="height: 100%;">
 						</div>
-						<button type="button" class="btn rounded-end color-black fontsize-14 font-500 hover-text-primary hover-text-feather" id="user-name" data-bs-toggle="dropdown"><?php echo $nav_username ?> <span data-feather="chevron-down" class="color-black"></span></button>
-						<ul class="dropdown-menu mt-1 p-2">
-							<li><a href="#" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">User Profile</a></li>
-							<li><a href="job-applications.php" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400" id="job-app-link">Job Applications</a></li>
-							<li><a href="bookmarks.php" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400" id="bookmarks-link">Bookmarks</a></li>
-							<li><a href="../includes/logout.inc.php" class="dropdown-item rounded py-2 pe-5 color-light fontsize-14 font-400">Logout</a></li>
-						</ul>
+						<button type="button" onclick="show_ul_dropdown()" class="btn rounded-end color-black fontsize-14 font-500 hover-text-primary hover-text-feather" id="user-name"><?php echo $nav_username ?> <span data-feather="chevron-down" class="color-black"></span></button>
 					</div>
+					<?php
+					if (file_exists('../html/dropdown_profile.html')) {
+						require '../html/dropdown_profile.html';
+					} else {
+						require 'html/dropdown_profile.html';
+					}
+
+					?>
 					<span class="notification_container me-3 notification_web">
 						<span data-feather="bell" onclick="toggle_dropdown_notification()"></span>
 						<div class="position-absolute bg-white shadow-sm border rounded notification_dropdown" id="web_notification_dropdown">
@@ -107,9 +142,17 @@ if (isset($_SESSION["username"])) {
 				id.classList.toggle('active');
 			}
 
-			function toggle_dropdown_notification() {
-				document.getElementById('web_notification_dropdown').classList.toggle('active');
+			function show_ul_dropdown() {
+				document.getElementById('dropdown_ul').classList.toggle('show');
 			}
+			// function toggle_dropdown_notification() {
+			// 	document.getElementById('web_notification_dropdown').classList.toggle('active');
+			// }
+			<?php
+			echo "document.getElementById('dropdown_img').src = '" . $profile_image . "';";
+			echo "document.getElementById('dropdown_username').innerHTML = '" . $nav_username . "';";
+			echo "document.getElementById('dropdown_university').innerHTML = '" . $university . "';";
+			?>
 		</script>
 
 	</div>

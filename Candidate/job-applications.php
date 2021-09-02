@@ -11,21 +11,13 @@ $application_count = 0;
 	</div>
 	<?php
 	require "../html/script.html";
-	require "candidate-navigation.php"
+	require "../includes/nav.php";
 	?>
 	<main>
-		<div class="background-thicker-light position-relative">
-			<div class="bg-image position-absolute top-0 left-0"></div>
-			<div class="max-width-container pb-3 mt-5">
-				<?php
-				require "../html/search-form.html";
-				?>
-			</div>
-		</div>
 		<div class="bg-light">
 			<div class="max-width-container">
 				<div class="bg-white border rounded px-4 py-3 mb-2">
-					<p class="m-0 fontsize-14 font-700 text-primary" id="application_count">All Applications ()</p>
+					<p class="m-0 fontsize-14 font-700 text-cp2" id="application_count">All Applications ()</p>
 				</div>
 				<div class="border rounded p-4 bg-white">
 					<?php
@@ -89,7 +81,7 @@ $application_count = 0;
 														<span data-feather="chevron-down" class="m-0"></span>
 													</div>
 													<div class="position-absolute bg-light border rounded shadow-sm p-2 application_option" id="application_option0<?php echo $row['_id']; ?>" style="width: 200px; top: 2rem; right: 0;">
-														<button class="border color-black text-start fontsize-13 btn btn-white d-block width-100 btn-hover-primary mb-1">View Application</button>
+														<button class="border color-black text-start fontsize-13 btn btn-white d-block width-100 btn-hover-primary mb-1" id="<?php echo 'view-btn_'.$row['_id']?>" onclick="view_application(this.id)">View Application</button>
 														<button class="border color-black text-start fontsize-13 btn btn-white d-block width-100 btn-hover-primary" onclick="withdraw_alert()">Withdraw Application</button>
 													</div>
 												</div>
@@ -110,13 +102,14 @@ $application_count = 0;
 				</div>
 			</div>
 		</div>
-		<form action="profile-preview.php" method="post" id="hidden_job_id">
-			<input type="hidden" value="<?php echo $_id_explode; ?>" name="job_id-hidden_input">
-			<input type="hidden" value="<?php echo $row["job_title"]; ?>" name="job_name-hidden_input">
-			<input type="hidden" value="<?php echo $row["employer_id"]; ?>" name="employer_id-hidden_input">
-			<input type="hidden" value="<?php echo $row["employer_name"]; ?>" name="employer_name-hidden_input">
+		
+		<!-- <form action="profile-preview.php" method="post" id="hidden_job_id">
+			<input type="hidden" value="<?php //echo $_id_explode; ?>" name="job_id-hidden_input">
+			<input type="hidden" value="<?php //echo $row["job_title"]; ?>" name="job_name-hidden_input">
+			<input type="hidden" value="<?php //echo $row["employer_id"]; ?>" name="employer_id-hidden_input">
+			<input type="hidden" value="<?php //echo $row["employer_name"]; ?>" name="employer_name-hidden_input">
 			<input type="hidden" value="submit" name="preview_type">
-		</form>
+		</form> -->
 		<form action="../Jobs/job-details.php" id="job_form_submit" method="post">
 			<input type="hidden" id="form_job_input" name="job_input">
 		</form>
@@ -128,6 +121,7 @@ $application_count = 0;
 	<script src="../javascript/scroll.js"></script>
 	<script src="../javascript/onclick.js"></script>
 	<script src="../javascript/jQueryRequest.js"></script>
+	<script src="../javascript/validations.js"></script>
 	<script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 	<script>
 		loadPage();
@@ -146,6 +140,10 @@ $application_count = 0;
 			show_alert_options(title, text, icon, cancel, confirmbtn_text, confirmed_title, confirmed_text, confirmed_icon);
 		}
 		document.getElementById('application_count').innerHTML = 'All Applications (<?php echo $application_count?>)'
+		function view_application(_id) {
+			window.location.href ='profile-preview.php'
+			console.log(_id);
+		}
 	</script>
 </body>
 

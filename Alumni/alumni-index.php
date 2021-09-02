@@ -10,23 +10,21 @@ require "alumni-head.html";
 	</div>
 	<?php
 	require "../html/script.html";
-	session_start();
-	if (isset($_SESSION['username'])) {
-		require "../Candidate/candidate-navigation.php";
-	}else {
-		require "../includes/nav.inc.php";
+	if (!isset($_SESSION)) {
+		session_start();
 	}
-	
+
+	require "../includes/nav.php";
+
 	?>
 	<div id="blur">
 		<main>
-			<div class="bg-light margin-top-nav">
+			<div class="bg-light">
 				<div class="max-width-container">
-
 					<div class="d-flex justify-content-end">
 						<div class="input-group mb-3" style="max-width: 500px;">
-							<input type="text" class="form-control fontsize-14" placeholder="Search Alumni">
-							<button class="btn btn-primary" type="button"><span data-feather="search" class="color-white" style="height: 18px; width: 18px;"></span></button>
+							<input type="text" class="form-control fontsize-13" placeholder="Search Alumni...">
+							<button class="btn bg-cp2 fontsize-13 font-500" type="button"><span data-feather="search" class="color-white"></span>Search</button>
 						</div>
 					</div>
 
@@ -41,7 +39,7 @@ require "alumni-head.html";
 								</div>
 								<div class="col-sm-2 d-flex justify-content-end position-relative">
 									<div class="filter-group color-black fontsize-13" style="min-width: 76px;">
-										<a type="button" id="filter-btn" onclick="setFilter()" class="color-black fontsize-13 px-2 py-1 btn font-500 hover-text-primary hover-text-feather">
+										<a type="button" id="filter-btn" onclick="setFilter()" class="color-black fontsize-13 px-2 py-1 btn font-500 htl-cp2cb htfthr">
 											Filters<span data-feather="chevron-down" class="color-black"></span>
 										</a>
 										<div class="border rounded bg-white shadow-sm position-absolute" id="filter-list-card">
@@ -77,13 +75,13 @@ require "alumni-head.html";
 										<div class="hw-100px mb-2 bg-light border  mx-auto rounded"></div>
 										<p class="font-500 mb-1">Jerome Cabrera</p>
 										<p class="font-500 color-light font-super--small">BS Information Technology</p>
-										<a href="#" type="button" onclick="toggleAlumniDetails()" class="btn btn-primary fontsize-13 font-500 px-5">
+										<a href="#" type="button" onclick="toggleAlumniDetails()" class="btn bg-cp2 fontsize-13 font-500 px-5">
 											View
 										</a>
 									</div>
 								</div>
 							</div>
-							<div class="d-flex justify-content-end">
+							<!-- <div class="d-flex justify-content-end">
 								<nav aria-label="...">
 									<ul class="pagination mb-0">
 										<li class="page-item disabled">
@@ -99,12 +97,15 @@ require "alumni-head.html";
 										</li>
 									</ul>
 								</nav>
-							</div>
+							</div> -->
+
+
 							<style>
 								.alumni-card {
-									border-top: 4px solid #0d6efd !important;
+									border-top: 4px solid rgb(133, 156, 59) !important;
 								}
-								#alumni-col{
+
+								#alumni-col {
 									min-width: 260px;
 								}
 							</style>
@@ -181,23 +182,14 @@ require "alumni-head.html";
 	<script src="../javascript/functions.js"></script>
 	<script src="../javascript/scroll.js"></script>
 	<script src="../javascript/onclick.js"></script>
+	<script src="../javascript/jQueryRequest.js"></script>
+	<script src="../javascript/validations.js"></script>
 	<script>
 		loadPage();
 		feather.replace();
-		document.getElementById('alumni-link').classList.toggle('active');
-		document.title = "CCIT | Alumni Page"
-		document.getElementById('web-id').href = "../index.php"
-        document.getElementById('index-link').href = "../index.php"
-        document.getElementById('about-link').href = "../about.php"
-        document.getElementById('contacts-link').href = "../contacts.php"
-        document.getElementById('alumni-link').href = "#"
-        document.getElementById('emp-profiles-link').href = "../Employers/employers-profile-page.php"
-        document.getElementById('jobs-link-out').href = "../Jobs/jobs.php"
-        document.getElementById('forum-link').href = "../Forum/forum-index.php"
-        document.getElementById('signup-btn').href = "../signup-form.php"
-        document.getElementById('login-btn').href = "../candidate-login-form.php"
-        document.getElementById('for_emp').href = "../Employers/index.php"
-		document.getElementById('nav-stylesheet').href = "../css/index-nav.css"
+		document.title = "CCIT | Alumni"
+		var parent = document.getElementById('alumni-link').parentElement
+		parent.classList.add('active');
 	</script>
 </body>
 

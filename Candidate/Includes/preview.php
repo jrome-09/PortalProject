@@ -25,7 +25,7 @@
         </div>
         <div class="d-flex" id="header-infoflex">
             <div class="border bg-light image-container rounded" style="height: 100px; width: 100px; min-width: 100px;">
-
+                <img src="<?php echo $get_uid['user_profile']?>" alt="">
             </div>
             <div class="mt-1 ms-3" id="infoflex-text">
                 <h5 class="text-primary"><?php echo $get_uid["first_name"] . " " . $get_uid["last_name"]; ?></h5>
@@ -216,6 +216,6 @@
         </form>
     </div>
     <div class="text-end">
-        <button type="submit" onclick="submit_application()" type="button" class="btn btn-primary fontsize-13 font-500 px-5 py-2">Submit</button>
+        <button type="submit" onclick="submit_application()" type="button" class="btn bg-cp2 fontsize-13 font-500 px-5 py-2">Submit</button>
     </div>
 </div>

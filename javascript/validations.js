@@ -27,7 +27,7 @@ function validatePhoneNumber(number) {
 	}
 }
 
-function validate_login() {
+function validate_login(dir, dir2) {
 	var ids = ["login--email", "login-password"];
 	var permission;
 
@@ -60,7 +60,7 @@ function validate_login() {
 	}
 
 	if (permission) {
-		login_user();
+		login_user(dir, dir2);
 	}
 
 }
@@ -572,4 +572,97 @@ function validate_setup_part03(){
 	}
 
 	submit_experienceSetup03();
+}
+
+function validate_employer_form(){
+	var ids = ["emp-fname", "emp-mname", "emp-lname", "comp-name", "contact-number", "company-address", "e-address", "emp-password", "emp-repassword"];
+	var permission;
+
+	var error_empty;
+	for (let i = 0; i < ids.length; i++) {
+		var value = document.getElementById(ids[i]).value;
+		var labels = document.getElementsByTagName('label');
+		if (value == "") {
+			for (let x = 0; x < labels.length; x++) {
+				if (labels[x].htmlFor === ids[i]) {
+					true_class(labels[x]);
+				}
+			}
+			error_empty = true;
+		} else {
+			for (let x = 0; x < labels.length; x++) {
+				if (labels[x].htmlFor === ids[i]) {
+					false_class(labels[x]);
+				}
+			}
+		}
+	}
+
+	if (error_empty) {
+		show_swal_validation("Please make sure to fill up all needed requirements.");
+		permission = false;
+	} else {
+		document.getElementById("swal2-validation-message").innerHTML = "";
+		const email = document.getElementById('e-address').value
+		const password = document.getElementById('emp-password').value
+		const repassword = document.getElementById('emp-repassword').value
+		if (validateEmail(email)) {
+			hide_swal_validation();
+			if (ValidatePassword(password)) {
+				document.getElementById('password-label').classList.remove("text-danger");
+				if (password != repassword) {
+					document.getElementById('password-label').classList.add("text-danger");
+					show_swal_validation("Password not matched.");
+				} else {
+					//VerificationPassed*CodeHere
+					submit_employer_form()
+				}
+			}else{
+				document.getElementById('password-label').classList.add("text-danger");
+				show_swal_validation("Check your password.");
+			}
+		}else{
+			show_swal_validation("Invalid Email address.");
+		}
+	}
+}
+
+function validate_emp_login() {
+	const ids = ['login--email', 'login--password']
+	var permission;
+
+	var error_empty;
+	for (let i = 0; i < ids.length; i++) {
+		var value = document.getElementById(ids[i]).value;
+		var labels = document.getElementsByTagName('label');
+		if (value == "") {
+			for (let x = 0; x < labels.length; x++) {
+				if (labels[x].htmlFor === ids[i]) {
+					true_class(labels[x]);
+				}
+			}
+			error_empty = true;
+		} else {
+			for (let x = 0; x < labels.length; x++) {
+				if (labels[x].htmlFor === ids[i]) {
+					false_class(labels[x]);
+				}
+			}
+		}
+	}
+
+	if (error_empty) {
+		show_swal_validation_login("Make sure to fill up all needed fields.");
+		permission = false;
+	}else{
+		const email = document.getElementById('login--email').value
+		const password = document.getElementById('login--password').value
+		if (validateEmail(email)) {
+			document.getElementById("swal2-validation-message02").classList.add("d-none")
+			employer_login()
+		}else{
+			show_swal_validation_login("Invalid Email address.")
+		}
+	}
+
 }

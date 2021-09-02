@@ -99,6 +99,9 @@ if (isset($_POST["resume_file"])) {
     //Upload Resume
     $resume_filename = submit_resume($resume, $uid);
 
+    if (!$resume_filename) {
+        $resume_filename = "None";
+    }
     //Add to Database
     if ($resume_filename) {
         $submit = submit_application($conn, $uid, $username, $job_id, $job_name, $employer_id, $employer_name, $resume_filename);
@@ -187,5 +190,35 @@ if (isset($_POST['college_setup03_form'])) {
 
             exit();
         }
+    }
+}
+
+if (isset($_POST['employer_registration_form'])) {
+    $emp_fname = $_POST["employer_fname"];
+    $emp_mname = $_POST["employer_mname"];
+    $emp_lname = $_POST["employer_lname"];
+    $company_name = $_POST["comp-name"];
+    $contact_number = $_POST["contact_number"];
+    $company_address = $_POST["company-address"];
+    $email_address = $_POST["e-address"];
+    $password = password_hash($_POST["emp-pword"], PASSWORD_DEFAULT);
+    $file = $_FILES['company_logo'];
+    $company_logo = submit_logo($file, $company_name);
+
+    if (emp_uidExists($conn, $email_address)) {
+        exit("Email is already taken");
+    }else {
+        $sql = "INSERT INTO `employer_details`(`first_name`, `middle_name`, `last_name`, `company_name`, `contact_number`, `company_address`, `email_address`, `password`, `company_logo`) VALUES (?,?,?,?,?,?,?,?,?)";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            return 'statement_error: user_experienc_insert';
+            exit();
+        }
+        mysqli_stmt_bind_param($stmt, "sssssssss", $emp_fname, $emp_mname, $emp_lname, $company_name, $contact_number, $company_address, $email_address, $password, $company_logo);
+        mysqli_stmt_execute($stmt);
+    
+        mysqli_stmt_close($stmt);
+
+        echo "Registration Complete";
     }
 }

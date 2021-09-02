@@ -10,21 +10,15 @@ require "html/head.html";
     </div>
     <?php
     require "html/script.html";
-    require "includes/nav.inc.php";
+    require "includes/nav.php";
     ?>
 
     <main>
-        <div class="hero-header bg-light position-relative text-center mt-4" style="height: 250px;">
-            <div class="bg-image m-auto d-block"></div>
+        <div class="hero-header bg-light position-relative text-center" style="height: 150px;">
             <div class="position-absolute top-50 start-50 translate-middle">
-                <h2 class="color-black mt-5 text-decoration-underline">About us</h2>
+                <h2 class="color-black text-decoration-underline">About us</h2>
             </div>
         </div>
-        <!-- <div class="background-thicker-light bg-header " style="height: 250px;">
-            <div class="max-width-container d-flex align-items-center justify-content-center mt-4">
-                <h3 class="color-white mt-5"><strong>About us</strong></h3>
-            </div>
-        </div> -->
         <div class="bg-white">
             <div class="max-width-container">
                 <h4 class="mb-4 font-500 color-black">University History</h4>
@@ -136,15 +130,16 @@ require "html/head.html";
     <?php
     require "html/footer.html";
     ?>
-
-
     <script src="javascript/functions.js"></script>
     <script src="javascript/scroll.js"></script>
+    <script src="javascript/jQueryRequest.js"></script>
+    <script src="javascript/validations.js"></script>
     <script>
         loadPage();
         feather.replace();
-        document.getElementById('about-link').classList.toggle('active');
         document.title = "CCIT | About"
+        var parent = document.getElementById('about-link').parentElement
+        parent.classList.add('active');
     </script>
 
 </body>

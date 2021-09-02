@@ -10,48 +10,14 @@ require "html/head.html";
    </div>
    <?php
    require "html/script.html";
-   require "includes/nav.inc.php";
+   //require "includes/nav.inc.php";
+   require "includes/nav.php";
    ?>
    <main>
-      <div id="first-container" class="bg-light position-relative">
+      <!-- <div id="first-container" class="bg-light position-relative">
          <div class="bg-full">
          </div>
          <div class="max-width-container position-relative" style="margin-top: 74px;">
-            <!-- <div class="row">
-               <div class="col-md-7" id="index-text">
-                  <h1 class="mt-5 color-white"><strong>College of<br>Communication and<br>Information Technology</strong></h1>
-                  <small class="color-white">
-                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti harum beatae mollitia?
-                        Odit illo, <br> tenetur porro iusto maiores expedita ut saepe.</p>
-                     <div class="font-small mb-2" id="featured-jobs">
-                        Featured Job Titles:
-                        <a href="#" class="btn color-white font-small p-1 m-1 shadow">Web Developer</a>
-                        <a href="#" class="btn color-white font-small p-1 m-1 shadow">Web Designer</a>
-                        <a href="#" class="btn color-white font-small p-1 m-1 shadow">IOS Developer</a>
-                        <a href="#" class="btn color-white font-small p-1 m-1 shadow">Android Designer</a>
-                     </div>
-                  </small>
-                  <div class="d-flex shadow">
-                     <input type="text" id="jobsearch-input" class="form-control" placeholder="Search Job..." aria-label="Username" aria-describedby="basic-addon1" style="width: 86%;">
-                     <div class="input-group">
-                        <select class="form-select" id="location-select" aria-label="Example select with button addon">
-                           <option selected>Location</option>
-                           <option value="1">One</option>
-                           <option value="2">Two</option>
-                           <option value="3">Three</option>
-                        </select>
-                        <button class="btn btn-primary" type="button" id="search-btn02">
-                           <span data-feather="search" class="color-white"></span></button>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-5" id="index-right">
-                  <div id="circle01" class="round image-container">
-
-                  </div>
-
-               </div>
-            </div> -->
             <div class="text-center m-auto color-black" style="max-width: 700px;">
                <h1>College of Communication and Information Technology</h1>
                <p class="color-black fontsize-13">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat nemo distinctio iure facilis ex illum quibusdam doloribus exercitationem similique quis beatae, odio dolorum quod alias aliquid officia eaque. Adipisci, facere.</p>
@@ -99,12 +65,13 @@ require "html/head.html";
                            </div>
 
                            <style>
-                              #chevron{
+                              #chevron {
                                  position: absolute;
                                  right: 2px;
                                  top: 10px;
                               }
-                              #optionsSpecialization{
+
+                              #optionsSpecialization {
                                  margin-top: 2.5rem;
                               }
                            </style>
@@ -118,7 +85,21 @@ require "html/head.html";
                </form>
             </div>
          </div>
-      </div>
+      </div> -->
+      <div class="max-width-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="color-black font-700 mt-5"> CCIT JOB PORTAL AND ALUMNI TRACING SYSTEM</h1>
+                    <p class="color-black fontsize-13"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti atque fugiat voluptate quo ipsum tenetur sit dolorem, nemo reprehenderit quaerat nihil iste quae ullam explicabo veniam! Minus sapiente vel dignissimos.</p>
+                    <div class="btn bg-cp2 fontsize-13 text-white">Register now</div>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div class="image-container overflow-visible" style="height: 400px; width: 400px;">
+                        <img src="Images/svg/undraw_interview02.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
       <div id="second-container" class="bg-light">
          <div class="max-width-container">
             <h4 class="color-black text-center mt-5"><strong>What we can do</strong></h4>
@@ -220,118 +201,11 @@ require "html/head.html";
          </div>
       </div>
       <div id="third-container" class="bg-white">
-         <!-- <div class="max-width-container">
-            <h4 class="color-black text-center mt-2"><strong>Featured Jobs</strong></h4>
-            <p class="text-center mb-2 color-light fontsize-14">Lorem, ipsum dolor sit amet consectetur adipisicing</p>
-            <div class="row">
-               <div class="col-lg-4">
-                  <div class="card shadow-sm p-4 d-flex flex-row">
-                     <div class="rounded shadow-sm">
-                        <img src="Images/svg/python.svg" alt="">
-                     </div>
-                     <section class="ps-3">
-                        <h5><a href="#" class="color-black no-text-decor font-600 hover-text-primary">Software
-                              Engineer</a></h5>
-                        <small>
-                           <p class="color-darker-light mb-1 font-600">CCIT</p>
-                           <p class="color-light mb-1"><span data-feather="map-pin"></span>Vigan City</p>
-                           <p class="color-light mb-2"><span data-feather="user"></span>Jerome Cabrera</p>
-                           <a href="#" class="no-text-decor part-time px-3 py-1 rounded-pill shadow-hover">PART TIME</a>
-                        </small>
-                     </section>
-                  </div>
-               </div>
-               <div class="col-lg-4">
-                  <div class="card shadow-sm p-4 d-flex flex-row">
-                     <div class="rounded shadow-sm">
-                        <img src="Images/svg/react.svg" alt="">
-                     </div>
-                     <section class="ps-3">
-                        <h5><a href="#" class="color-black no-text-decor font-600 hover-text-primary">Web Designer</a>
-                        </h5>
-                        <small>
-                           <p class="color-darker-light mb-1 font-600">CCIT</p>
-                           <p class="color-light mb-1"><span data-feather="map-pin"></span>Vigan City</p>
-                           <p class="color-light mb-2"><span data-feather="user"></span>Kathleen Joy Bernal</p>
-                           <a href="#" class="no-text-decor full-time px-3 py-1 rounded-pill shadow-hover">Full TIME</a>
-                        </small>
-                     </section>
-                  </div>
-               </div>
-               <div class="col-lg-4">
-                  <div class="card shadow-sm p-4 d-flex flex-row">
-                     <div class="rounded shadow-sm">
-                        <img src="images/svg/palette.svg" alt="">
-                     </div>
-                     <section class="ps-3">
-                        <h5><a href="#" class="color-black no-text-decor font-600 hover-text-primary">Analyst</a></h5>
-                        <small>
-                           <p class="color-darker-light mb-1 font-600">CCIT</p>
-                           <p class="color-light mb-1"><span data-feather="map-pin"></span>Vigan City</p>
-                           <p class="color-light mb-2"><span data-feather="user"></span>Jigs Cxyrel Crisologo</p>
-                           <a href="#" class="no-text-decor full-time px-3 py-1 rounded-pill shadow-hover">FULL TIME</a>
-                        </small>
-                     </section>
-                  </div>
-               </div>
-               <div class="col-lg-4">
-                  <div class="card shadow-sm p-4 d-flex flex-row">
-                     <div class="rounded shadow-sm">
-                        <img src="Images/svg/html-5.svg" alt="">
-                     </div>
-                     <section class="ps-3">
-                        <h5><a href="#" class="color-black no-text-decor font-600 hover-text-primary">Web Developer</a>
-                        </h5>
-                        <small>
-                           <p class="color-darker-light mb-1 font-600">CCIT</p>
-                           <p class="color-light mb-1"><span data-feather="map-pin"></span>Vigan City</p>
-                           <p class="color-light mb-2"><span data-feather="user"></span>Mhark Alfred Diaz</p>
-                           <a href="#" class="no-text-decor part-time px-3 py-1 rounded-pill shadow-hover">PART TIME</a>
-                        </small>
-                     </section>
-                  </div>
-               </div>
-               <div class="col-lg-4">
-                  <div class="card shadow-sm p-4 d-flex flex-row">
-                     <div class="rounded shadow-sm">
-                        <img src="Images/svg/graphic-designer.svg" alt="">
-                     </div>
-                     <section class="ps-3">
-                        <h5><a href="#" class="color-black no-text-decor font-600 hover-text-primary">Graphic
-                              Designer</a></h5>
-                        <small>
-                           <p class="color-darker-light mb-1 font-600">CCIT</p>
-                           <p class="color-light mb-1"><span data-feather="map-pin"></span>Vigan City</p>
-                           <p class="color-light mb-2"><span data-feather="user"></span>Jigs Cxyrel Crisologo</p>
-                           <a href="#" class="no-text-decor full-time px-3 py-1 rounded-pill shadow-hover">FULL TIME</a>
-                        </small>
-                     </section>
-                  </div>
-               </div>
-               <div class="col-lg-4">
-                  <div class="card shadow-sm p-4 d-flex flex-row">
-                     <div class="rounded shadow-sm">
-                        <img src="images/svg/python.svg" alt="">
-                     </div>
-                     <section class="ps-3">
-                        <h5><a href="#" class="color-black no-text-decor font-600 hover-text-primary">Software
-                              Engineer</a></h5>
-                        <small>
-                           <p class="color-darker-light mb-1 font-600">CCIT</p>
-                           <p class="color-light mb-1"><span data-feather="map-pin"></span>Vigan City</p>
-                           <p class="color-light mb-2"><span data-feather="user"></span>Kathleen Joy Bernal</p>
-                           <a href="#" class="no-text-decor part-time px-3 py-1 rounded-pill shadow-hover">PART TIME</a>
-                        </small>
-                     </section>
-                  </div>
-               </div>
-            </div>
-         </div> -->
          <div class="max-width-container">
             <h4 class="color-black text-center mt-2"><strong>Recently Posted Jobs</strong></h4>
             <p class="text-center mb-2 color-light fontsize-14">Lorem, ipsum dolor sit amet consectetur adipisicing</p>
             <div class="border rounded p-4 mb-2">
-               <div class="row" id="application-row-container">
+               <!-- <div class="row" id="application-row-container">
                   <div class="col-lg-4 pb-4" id="multiply-application">
                      <a href="Jobs/job-details.php" class="no-text-decor">
                         <div class="rounded p-4 bg-white shadow-sm-hover jobs bt-visible-primary-4 hover-bg-light position-relative">
@@ -352,17 +226,49 @@ require "html/head.html";
                         </div>
                      </a>
                   </div>
+               </div> -->
+
+               <div class="row" id="application-row-container">
+                  <?php
+                  require "includes/db_connection.inc.php";
+                  $sql = "SELECT * FROM `job_description`";
+                  $result = $conn->query($sql);
+                  while ($row = $result->fetch_assoc()) {
+                     $highlights = explode("/", $row["job_highlights"]);
+                     $logo = explode("../", $row['company_logo'])[1];
+                  ?>
+                     <div class="col-lg-4 pb-4" id="div_job0_<?php echo $row["_id"] ?>">
+                        <div class="rounded p-4 bg-white shadow-sm-hover jobs bt-cp2-4 border-start border-bottom border-end hover-bg-light position-relative">
+                           <div class="d-inline-block overflow-hidden border rounded mb-2 background-thicker-light" style="height: 60px; width: 60px;">
+                              <div class="image-container" style="height: 100%; width: 100%;">
+                                 <img src="<?php echo $logo ?>" alt="">
+                              </div>
+                           </div>
+                           <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
+                           <a href="#" class="no-text-decor" id="btn-job0_<?php echo $row["_id"] ?>" onclick="job_submit(this.id)">
+                              <h6 class="mb-0 color-black"><?php echo $row["job_title"] ?></h6>
+                              <p class="fontsize-13 color-black mb-3"><?php echo $row["employer_name"] ?></p>
+                              <p class="fontsize-13 color-black m-0"><?php echo $row["job_address"] ?></p>
+                              <p class="fontsize-13 color-black mb-3 font-500"><?php echo $row["monthly_salary"] . "Monthly" ?></p>
+                              <ul class="mb-5">
+                                 <li class="fontsize-13 color-black bullets"><?php echo $highlights[0]; ?></li>
+                                 <li class="fontsize-13 color-black bullets"><?php echo $highlights[1]; ?></li>
+                              </ul>
+                              <p class="fontsize-13 color-light mb-0"><?php echo $row["job_type"] ?></p>
+                              <div class="position-absolute date-posted">
+                                 <p class="font-super--small color-light m-0 text-end">Date Posted: <?php echo $row["date_posted"] ?></p>
+                              </div>
+                           </a>
+                        </div>
+
+                     </div>
+                  <?php
+                  }
+                  ?>
                </div>
+
             </div>
-            <script>
-               for (i = 0; i < 5; i++) {
-                  const Mydiv = document.getElementById("multiply-application");
-                  var divclone = Mydiv.cloneNode(true);
-                  var parentcon = document.getElementById("application-row-container");
-                  parentcon.appendChild(divclone);
-               }
-            </script>
-            <div class="d-flex justify-content-end">
+            <!-- <div class="d-flex justify-content-end">
                <nav aria-label="...">
                   <ul class="pagination">
                      <li class="page-item disabled">
@@ -378,10 +284,10 @@ require "html/head.html";
                      </li>
                   </ul>
                </nav>
-            </div>
+            </div> -->
          </div>
       </div>
-      <div id="fourth-container">
+      <!-- <div id="fourth-container">
          <div class="max-width-container">
             <h4 class="color-black text-center mb-5 m-auto" style="max-width: 800px;">
                <strong>Successful Graduates of the College of Communication and Information Technology</strong>
@@ -668,7 +574,7 @@ require "html/head.html";
                <a href="#" class="btn btn-primary fontsize-14 font-500">View More</a>
             </div>
          </div>
-      </div>
+      </div> -->
       <div id="fifth-container" class="background-blue">
          <div class="max-width-container">
             <h5 class="color-white text-center"><strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
@@ -688,12 +594,15 @@ require "html/head.html";
    ?>
    <script src="javascript/functions.js"></script>
    <script src="javascript/scroll.js"></script>
+   <script src="javascript/jQueryRequest.js"></script>
+   <script src="javascript/validations.js"></script>
+   <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
    <script>
       loadPage();
       feather.replace();
-      document.getElementById('index-link').classList.toggle('active');
       document.title = "CCIT Alumni Tracing and Job Portal";
-      GetSpecializationList();
+      var parent = document.getElementById('index-link').parentElement
+      parent.classList.add('active');
    </script>
 </body>
 

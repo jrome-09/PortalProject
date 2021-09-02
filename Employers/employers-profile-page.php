@@ -11,15 +11,14 @@ require "style-link.html";
     <link rel="stylesheet" href="../Candidate/candidate.css">
     <?php
     require "../html/script.html";
-    session_start();
-    if (isset($_SESSION["username"])) {
-        require "../Candidate/candidate-navigation.php";
-    } else {
-        require "../includes/nav.inc.php";
+    if (!isset($_SESSION)) {
+        session_start();
     }
+
+    require "../includes/nav.php";
     ?>
     <main>
-        <div class="background-thicker-light " style="margin-top: 74px; height: 168px;">
+        <!-- <div class="background-thicker-light " style="margin-top: 74px; height: 168px;">
         <div class="bg-image"></div>
             <div class="max-width-container posittion-relative" id="srch-mwidth">
                 <div class="bg-white border rounded p-5 pt-4 shadow-sm">
@@ -36,10 +35,21 @@ require "style-link.html";
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
         <div class="bg-light">
             <div class="max-width-container">
-                <div class="row justify-content-center mt-5" id="emp-card-row">
+                <div class="border rounded p-4 shadow-sm mb-5">
+                    <h6 class="font-700 color-black"><span data-feather="search" class="mb-1"></span> Search for an Employer</h6>
+                    <div class="input-group color-black  flex-nowrap me-1" style="max-width: 600px;">
+                        <div class="border px-2 d-flex justify-content-center align-items-center border-end-0 rounded-start bg-white">
+                            <span data-feather="user" class="color-black"></span>
+                        </div>
+                        <input type="text" class="form-control border-start-0 fontsize-14" placeholder="Employer or Company...">
+                        <button class="btn bg-cp2 fontsize-14">Search</button>
+                    </div>
+                </div>
+                <div class="row justify-content-center" id="emp-card-row">
                     <div class="col-sm-3 mb-4" id="emp-card-col" style="min-width: 270px;">
                         <div class="employer-card shadow-sm border rounded bg-white text-center" style="min-width: 260px;">
                             <div class="content p-4 fontsize-13">
@@ -103,34 +113,18 @@ require "style-link.html";
     require "../Jobs/details.php";
     require "../html/footer.html";
     ?>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <script src="../javascript/functions.js"></script>
     <script src="../javascript/scroll.js"></script>
     <script src="../javascript/onclick.js"></script>
+    <script src="../javascript/validations.js"></script>
     <script>
         loadPage();
         feather.replace();
-        document.getElementById('nav-stylesheet').href = "../css/index-nav.css"
+        document.title = "CCIT | Employer List"
         document.getElementById('web-id').href = "../index.php"
         document.getElementById('index-link').href = "../index.php"
-        document.getElementById('about-link').href = "../about.php"
-        document.getElementById('contacts-link').href = "../contacts.php"
-        document.getElementById('alumni-link').href = "../Alumni/alumni-index.php"
-        document.getElementById('emp-profiles-link').href = "#"
-        document.getElementById('jobs-link-out').href = "../Jobs/jobs.php"
-        document.getElementById('forum-link').href = "../Forum/forum-index.php"
-        document.getElementById('signup-btn').href = "../signup-form.php"
-        document.getElementById('login-btn').href = "../candidate-login-form.php"
-        document.getElementById('for_emp').href = "../Employers/index.php"
-        <?php
-        if (isset($_SESSION["username"])) {
-        ?>
-            document.getElementById('employer-prof-link').classList.toggle('active');
-        <?php
-        }
-        ?>
-        document.title = "CCIT | Employer List"
+        var parent = document.getElementById('employer-prof-link').parentElement
+        parent.classList.add('active');
     </script>
 </body>
 

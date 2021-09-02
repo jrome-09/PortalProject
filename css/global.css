@@ -16,10 +16,10 @@
     margin-right: 2px;
 }
 
-#web-id, #footer-web-id {
+/* #web-id, #footer-web-id {
     text-decoration: none;
     letter-spacing: 0.18em
-}
+} */
 
 #footer-nav a:hover, #footer-nav a.opened {
     color: #0d6efd !important;

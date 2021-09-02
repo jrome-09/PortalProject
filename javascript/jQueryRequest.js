@@ -72,9 +72,9 @@ function hide_swal_validation() {
   document.getElementById("swal2-validation-message").classList.add("d-none");
 }
 
-function login_user() {
+function login_user(dir, log_dir) {
   $.post(
-    "includes/login.inc.php",
+    dir,
     $("#login_form").serialize(),
     function (data) {
       console.log(data);
@@ -96,7 +96,7 @@ function login_user() {
           icon: "success",
           title: "Signed in successfully",
         }).then(function () {
-          window.location = "Candidate/candidate.php";
+          window.location = log_dir;
         });
 
         document.getElementById("swal2-validation-message").innerHTML = "";
@@ -277,7 +277,7 @@ function submit_profileSetup02() {
   });
 }
 
-function submit_experienceSetup03(){
+function submit_experienceSetup03() {
   $.post(
     "includes/formSubmit.inc.php",
     $("#profile_setup03_form").serialize(),
@@ -286,6 +286,78 @@ function submit_experienceSetup03(){
       if (data === "Success") {
         done();
       }
+    }
+  );
+}
+
+function submit_employer_form() {
+  var form = $("#employer_registration_form")[0];
+  var data = new FormData(form);
+  $.ajax({
+    type: "POST",
+    enctype: "multipart/form-data",
+    url: "../includes/formSubmit.inc.php",
+    data: data,
+    processData: false,
+    contentType: false,
+    cache: false,
+    timeout: 600000,
+    success: function (data) {
+      if (data === "Registration Complete") {
+        const icon = "success"
+        const title = "Registration Success!"
+        const text = "You have successfully registered as an Employer."
+        const button = "OK"
+        const location = ""
+        show_alert(icon, title, text, button, location)
+      } else if (data === "Email is already taken") {
+        const icon = "error"
+        const title = "Email is already Taken!"
+        const text = "Please try another email."
+        const button = "OK"
+        const location = ""
+        show_alert(icon, title, text, button, location)
+      }
+    },
+    error: function (e) {
+      console.log(e.responseText);
+    },
+  });
+}
+
+function employer_login() {
+  $.post(
+    "../includes/login.inc.php",
+    $("#employer_login_form").serialize(),
+    function (data) {
+      if (data === "email does not exist.") {
+        show_swal_validation_login("Invalid email or password.");
+      } else if (data === "wrong password.") {
+        show_swal_validation_login("Invalid email or password.");
+      } else if (data === "logged in.") {
+        document.getElementById("swal2-validation-message02").classList.add("d-none")
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Signed in successfully",
+        }).then(function () {
+          window.location = "employer-page.php";
+        });
+      } else {
+        console.log("console:" + data);
+      }
+
     }
   );
 }
