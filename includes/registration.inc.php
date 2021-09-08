@@ -15,13 +15,17 @@ if ($uidExists === false) {
         echo 'Statement Error';
         exit();
     }
-    $None = "None";
+    $None = "Undefined";
     mysqli_stmt_bind_param($stmt, "sssssss", $None, $None, $None, $None, $None, $email, $encrypted);
     mysqli_stmt_execute($stmt);
 
-    session_start();
+    if (!isset($_SESSION)) {
+       session_start();
+    }
+    $_SESSION['uid'] = uidExists($conn, $email)['_id'];
     $_SESSION["uemail"] = $email;
     $_SESSION["pass"] = $encrypted;
+    $_SESSION['username'] = 'username';
     
     $insert_college_details = insert_college($conn, $email);
 

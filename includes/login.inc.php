@@ -26,16 +26,21 @@ if (isset($_POST['login_email'])) {
         $_SESSION["userpassword"] = $uidExists["password"];
         $_SESSION["firstname"] = $uidExists["first_name"];
         $_SESSION["lastname"] = $uidExists["last_name"];
-        $_SESSION["username"] = $uidExists["first_name"]. " " . $uidExists["last_name"];
+        $_SESSION["username"] = $uidExists["first_name"] . " " . $uidExists["last_name"];
+
+        if ($_SESSION["username"] === "Undefined Undefined") {
+            $_SESSION['username'] = 'username';
+        }
+
         echo "logged in.";
         exit();
     }
 }
 
 if (isset($_POST['employer_login'])) {
-    $email = $_POST['login--email'];
-    $password = $_POST['login--password'];
-    
+    $email = $_POST['login_email-emp'];
+    $password = $_POST['login_password'];
+
     $emp_exist = emp_uidExists($conn, $email);
 
     if (!$emp_exist) {
@@ -49,7 +54,7 @@ if (isset($_POST['employer_login'])) {
     if (!$checkPwd) {
         echo "wrong password.";
         exit();
-    }else {
+    } else {
         if (!isset($_SESSION)) {
             session_start();
         }

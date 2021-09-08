@@ -118,8 +118,9 @@ require "candidate-head.html";
 		loadPage();
 		feather.replace();
 		document.title = "Candidate | Homepage";
-		var parent = document.getElementById('jobs-link-nav').parentElement
+		var parent = document.getElementById('mypage-link').parentElement
         parent.classList.add('active');
+		document.getElementById('dash-link').classList.add('active')
 	</script>
 </body>
 

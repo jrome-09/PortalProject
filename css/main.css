@@ -9,13 +9,13 @@
     font-family: 'Poppins', sans-serif
 }
 
-.feather {
+/* .feather {
     width: 16px;
     height: 16px;
     vertical-align: text-bottom;
     color: #555555;
     margin-right: 2px;
-}
+} */
 
 /* header{
     position: fixed;
@@ -343,8 +343,9 @@ form label.required:after {
 
 #work--xp:active + .btn-light, #work--xp:checked + .btn-light, #student--xp:active + .btn-light, #student--xp:checked + .btn-light{
     color: #fff !important;
-    background-color: #0a58ca !important;
-    border-color: #0a53be !important;
+    /* background-color: #0a58ca !important;
+    border-color: #0a53be !important; */
+    background-color: rgb(133, 156, 59) !important;
 }
 
 .jobs.bt-visible-primary-4 {

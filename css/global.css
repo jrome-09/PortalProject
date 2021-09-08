@@ -8,13 +8,13 @@
     font-family: 'Poppins', sans-serif
 }
 
-.feather {
+/* .feather {
     width: 16px;
     height: 16px;
     vertical-align: text-bottom;
     color: #555555;
     margin-right: 2px;
-}
+} */
 
 /* #web-id, #footer-web-id {
     text-decoration: none;
@@ -133,7 +133,7 @@
     transition: 0.2s;
 }
 
-#options.active, #optionsYear.active, #optionsPosition.active, #optionsSpecialization.active, #optionsIndustry.active, #optionsCourse.active, #optionsDegree.active {
+#options.active, #optionsYear.active, #optionsPosition.active, #optionsSpecialization.active, #optionsIndustry.active, #optionsCourse.active, #optionsDegree.active, #optionsJobType.active {
     visibility: visible;
     opacity: 1;
     transition: 0.2s;

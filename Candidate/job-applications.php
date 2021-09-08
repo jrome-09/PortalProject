@@ -127,7 +127,7 @@ $application_count = 0;
 		loadPage();
 		feather.replace();
 		document.title = "Candidate | Job Applications";
-		GetSpecializationList_inner();
+		//GetSpecializationList_inner();
 		function withdraw_alert() {
 			const title = 'Are you sure?'
 			const text = 'Your application will be withdrawn and will notify the employer.'
@@ -144,6 +144,7 @@ $application_count = 0;
 			window.location.href ='profile-preview.php'
 			console.log(_id);
 		}
+		document.getElementById('job-app-link').classList.add('active')
 	</script>
 </body>
 

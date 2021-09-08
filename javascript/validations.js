@@ -561,7 +561,7 @@ function validate_setup_part01() {
 	submit_profileSetup02();
 }
 
-function validate_setup_part03(){
+function validate_setup_part03() {
 	document.getElementById('monthly_salary').value = "";
 	var salary_chbx_ids = ['php1_checkbox', 'php2_checkbox', 'php3_checkbox', 'php4_checkbox']
 	var salary = ['Below Php 10,000.00', 'PHP 10,000.00 - 19,999.99', 'Php 20,000.00 - 29,999.99', 'PHP 30,000.00 and above']
@@ -574,7 +574,7 @@ function validate_setup_part03(){
 	submit_experienceSetup03();
 }
 
-function validate_employer_form(){
+function validate_employer_form() {
 	var ids = ["emp-fname", "emp-mname", "emp-lname", "comp-name", "contact-number", "company-address", "e-address", "emp-password", "emp-repassword"];
 	var permission;
 
@@ -617,18 +617,58 @@ function validate_employer_form(){
 					//VerificationPassed*CodeHere
 					submit_employer_form()
 				}
-			}else{
+			} else {
 				document.getElementById('password-label').classList.add("text-danger");
 				show_swal_validation("Check your password.");
 			}
-		}else{
+		} else {
 			show_swal_validation("Invalid Email address.");
 		}
 	}
 }
 
-function validate_emp_login() {
-	const ids = ['login--email', 'login--password']
+// function validate_emp_login() {
+// 	const ids = ['login--email', 'login--password']
+// 	var permission;
+
+// 	var error_empty;
+// 	for (let i = 0; i < ids.length; i++) {
+// 		var value = document.getElementById(ids[i]).value;
+// 		var labels = document.getElementsByTagName('label');
+// 		if (value == "") {
+// 			for (let x = 0; x < labels.length; x++) {
+// 				if (labels[x].htmlFor === ids[i]) {
+// 					true_class(labels[x]);
+// 				}
+// 			}
+// 			error_empty = true;
+// 		} else {
+// 			for (let x = 0; x < labels.length; x++) {
+// 				if (labels[x].htmlFor === ids[i]) {
+// 					false_class(labels[x]);
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	if (error_empty) {
+// 		show_swal_validation_login("Make sure to fill up all needed fields.");
+// 		permission = false;
+// 	}else{
+// 		const email = document.getElementById('login--email').value
+// 		const password = document.getElementById('login--password').value
+// 		if (validateEmail(email)) {
+// 			document.getElementById("swal2-validation-message02").classList.add("d-none")
+// 			employer_login()
+// 		}else{
+// 			show_swal_validation_login("Invalid Email address.")
+// 		}
+// 	}
+
+// }
+
+function validate_emp_login(dir, dir2) {
+	var ids = ["login--email", "login-password"];
 	var permission;
 
 	var error_empty;
@@ -652,17 +692,85 @@ function validate_emp_login() {
 	}
 
 	if (error_empty) {
-		show_swal_validation_login("Make sure to fill up all needed fields.");
+		const swal_id = document.getElementById("swal3-validation-message");
+		swal_id.classList.remove("d-none");
+		swal_id.innerHTML = "Please input your email and password.";
+		//show_swal_validation();
 		permission = false;
-	}else{
-		const email = document.getElementById('login--email').value
-		const password = document.getElementById('login--password').value
-		if (validateEmail(email)) {
-			document.getElementById("swal2-validation-message02").classList.add("d-none")
-			employer_login()
-		}else{
-			show_swal_validation_login("Invalid Email address.")
+	} else {
+		const swal_id = document.getElementById("swal3-validation-message");
+		swal_id.classList.add("d-none");
+		document.getElementById("swal3-validation-message").innerHTML = "";
+		permission = true;
+	}
+
+	if (permission) {
+		login_emp(dir, dir2);
+		console.log('ready')
+	}
+}
+
+function validate_jobsubmit() {
+	const ids = ['job_title', 'hiddenJobType', 'hiddenPosition', 'job_location', 'hiddenSpecialization', 'salary01', 'salary02', 'requirements', 'qualifications', 'responsibilities', 'job_description']
+	const addfields = ['requirements_div', 'qualifications_div', 'responsibilities_div']
+	const afld_inputs = ['requirements', 'qualifications', 'responsibilities'];
+	const slr1 = document.getElementById('salary01')
+	const slr2 = document.getElementById('salary02')
+	var permission;
+
+	clear_value(afld_inputs)
+	for (let a = 0; a < addfields.length; a++) {
+		const rq_div = document.getElementById(addfields[a])
+		var inpts = rq_div.getElementsByTagName('input')
+
+		for (let i = 0; i < inpts.length; i++) {
+			const dv_id = document.getElementById(afld_inputs[a])
+			if (dv_id.value != "") {
+				dv_id.value = dv_id.value + '/' + inpts[i].value
+			}else{
+				dv_id.value = inpts[i].value
+			}
 		}
 	}
 
+
+	var error_empty;
+	for (let i = 0; i < ids.length; i++) {
+		var value = document.getElementById(ids[i]).value;
+		var labels = document.getElementsByTagName('label');
+		if (value == "") {
+			for (let x = 0; x < labels.length; x++) {
+				if (labels[x].htmlFor === ids[i]) {
+					true_class(labels[x]);
+				}
+			}
+			error_empty = true;
+		} else {
+			for (let x = 0; x < labels.length; x++) {
+				if (labels[x].htmlFor === ids[i]) {
+					false_class(labels[x]);
+				}
+			}
+		}
+	}
+
+	if (slr1.value === "" || slr2.value === "") {
+		const label = document.getElementById('label_salary')
+		true_class(label);
+	} else {
+		const label = document.getElementById('label_salary')
+		false_class(label);
+	}
+
+	if (error_empty) {
+		show_swal_validation("Make sure to fill up all required fields.")
+		permission = false
+	} else {
+		hide_swal_validation()
+		permission = true;
+	}
+
+	if (permission) {
+		submit_jobpost()
+	}
 }

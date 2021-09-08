@@ -10,13 +10,24 @@ require "html/head.html";
     </div>
     <?php
     require "html/script.html";
-    require "includes/nav.inc.php";
+    require "includes/nav.php";
     ?>
-    <main>
-        <?php
-        require "html/signup-form.html";
-        require "html/ball-animation.html"
-        ?>
+    <main class="bg-light">
+        <div class="max-width-container">
+            <div class="row">
+                <div class="col-md-6 position-relative">
+                    <?php
+                    require "html/signup-form.html";
+                    require "html/ball-animation.html"
+                    ?>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <div class="image-container overflow-visible" style="height: 400px; width: 400px;">
+                        <img src="Images/svg/undraw_Access_account.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- <div class="border rounded p-4 bg-white shadow-sm" id="result-modal">
             <div id="success-card" class="text-center">
                 <div class="swal2-success-ring"></div>
@@ -51,7 +62,6 @@ require "html/head.html";
     <script>
         loadPage();
         feather.replace()
-        document.getElementById('signup-btn').classList.toggle('active');
     </script>
 
 </body>

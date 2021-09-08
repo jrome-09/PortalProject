@@ -385,6 +385,10 @@ function showCourseList() {
   document.getElementById("optionsCourse").classList.toggle("active");
 }
 
+function showjobTypeList() {
+  document.getElementById("optionsJobType").classList.toggle("active");
+}
+
 function CourseSelect(course_id) {
   const inner = document.getElementById(course_id).innerHTML;
   document.getElementById("control-selected-course").innerHTML = inner;
@@ -427,6 +431,14 @@ function position_select(position_ID) {
   document.getElementById("hiddenPosition").value = inner;
   console.log("Position Level:" + " " + inner);
   showPositionList();
+}
+
+function jobType_select(type_id){
+  const inner = document.getElementById(type_id).innerHTML;
+  document.getElementById("job-type").innerHTML = inner;
+  document.getElementById("hiddenJobType").value = inner;
+  console.log("Job Type:" + " " + inner);
+  showjobTypeList()
 }
 
 function specialization_select(specialization_ID) {

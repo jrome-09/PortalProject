@@ -87,19 +87,19 @@ require "html/head.html";
          </div>
       </div> -->
       <div class="max-width-container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1 class="color-black font-700 mt-5"> CCIT JOB PORTAL AND ALUMNI TRACING SYSTEM</h1>
-                    <p class="color-black fontsize-13"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti atque fugiat voluptate quo ipsum tenetur sit dolorem, nemo reprehenderit quaerat nihil iste quae ullam explicabo veniam! Minus sapiente vel dignissimos.</p>
-                    <div class="btn bg-cp2 fontsize-13 text-white">Register now</div>
-                </div>
-                <div class="col-md-6 d-flex justify-content-center">
-                    <div class="image-container overflow-visible" style="height: 400px; width: 400px;">
-                        <img src="Images/svg/undraw_interview02.svg" alt="">
-                    </div>
-                </div>
+         <div class="row">
+            <div class="col-md-6">
+               <h1 class="color-black font-700 mt-5"> CCIT JOB PORTAL AND ALUMNI TRACING SYSTEM</h1>
+               <p class="color-black fontsize-13"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti atque fugiat voluptate quo ipsum tenetur sit dolorem, nemo reprehenderit quaerat nihil iste quae ullam explicabo veniam! Minus sapiente vel dignissimos.</p>
+               <div class="btn bg-cp2 fontsize-13 text-white">Register now</div>
             </div>
-        </div>
+            <div class="col-md-6 d-flex justify-content-center">
+               <div class="image-container overflow-visible" style="height: 400px; width: 400px;">
+                  <img src="Images/svg/undraw_interview02.svg" alt="">
+               </div>
+            </div>
+         </div>
+      </div>
       <div id="second-container" class="bg-light">
          <div class="max-width-container">
             <h4 class="color-black text-center mt-5"><strong>What we can do</strong></h4>
@@ -234,14 +234,23 @@ require "html/head.html";
                   $sql = "SELECT * FROM `job_description`";
                   $result = $conn->query($sql);
                   while ($row = $result->fetch_assoc()) {
-                     $highlights = explode("/", $row["job_highlights"]);
-                     $logo = explode("../", $row['company_logo'])[1];
+                     $eid = $row['employer_id'];
+                     $data = get_emp($conn, $eid);
                   ?>
                      <div class="col-lg-4 pb-4" id="div_job0_<?php echo $row["_id"] ?>">
                         <div class="rounded p-4 bg-white shadow-sm-hover jobs bt-cp2-4 border-start border-bottom border-end hover-bg-light position-relative">
                            <div class="d-inline-block overflow-hidden border rounded mb-2 background-thicker-light" style="height: 60px; width: 60px;">
                               <div class="image-container" style="height: 100%; width: 100%;">
-                                 <img src="<?php echo $logo ?>" alt="">
+                                 <img src="<?php if ($data['company_logo'] != "") {
+                                                if (file_exists($data['company_logo'])) {
+                                                   echo $data['company_logo'];
+                                                } else {
+                                                   $dt = $data['company_logo'];
+                                                   echo str_replace("../", "", $dt);
+                                                }
+                                             } else {
+
+                                             }  ?>" alt="#">
                               </div>
                            </div>
                            <span data-feather="bookmark" class="float-end hover-text-primary" style="height: 22px; width: 22px;"></span>
@@ -249,18 +258,13 @@ require "html/head.html";
                               <h6 class="mb-0 color-black"><?php echo $row["job_title"] ?></h6>
                               <p class="fontsize-13 color-black mb-3"><?php echo $row["employer_name"] ?></p>
                               <p class="fontsize-13 color-black m-0"><?php echo $row["job_address"] ?></p>
-                              <p class="fontsize-13 color-black mb-3 font-500"><?php echo $row["monthly_salary"] . "Monthly" ?></p>
-                              <ul class="mb-5">
-                                 <li class="fontsize-13 color-black bullets"><?php echo $highlights[0]; ?></li>
-                                 <li class="fontsize-13 color-black bullets"><?php echo $highlights[1]; ?></li>
-                              </ul>
+                              <p class="fontsize-13 color-black mb-3 font-500"><?php echo "Salary Range: PHP " . $row["salary_range"]; ?></p>
                               <p class="fontsize-13 color-light mb-0"><?php echo $row["job_type"] ?></p>
                               <div class="position-absolute date-posted">
                                  <p class="font-super--small color-light m-0 text-end">Date Posted: <?php echo $row["date_posted"] ?></p>
                               </div>
                            </a>
                         </div>
-
                      </div>
                   <?php
                   }

@@ -317,6 +317,28 @@ function get_application($conn, $uid, $job_id)
     mysqli_stmt_close($stmt);
 }
 
+function get_emp($conn, $id)
+{
+    $sql = "SELECT * FROM employer_details WHERE _id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "<script>console.log('Statement Error')</script>";
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $id);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+    mysqli_stmt_close($stmt);
+}
+
 function submit_profile($profile, $uid)
 {
     $file = $profile;

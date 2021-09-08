@@ -13,17 +13,21 @@ require "html/head.html";
     <?php
     session_start();
     require "html/script.html";
-    if (isset($_SESSION["uemail"])) {
-        require "Candidate/candidate-navigation.php";
-    } else {
-        require "includes/nav.inc.php";
-    }
+    require "includes/nav.php";
+    // if (isset($_SESSION["uemail"])) {
+    //     require "Candidate/candidate-navigation.php";
+    // } else {
+    //     require "includes/nav.inc.php";
+    // }
 
     ?>
-    <main class="bg-light" style="padding-top: 100px;">
+    <main class="bg-light"">
+        <div class=" max-width-container">
         <?php
         require "html/profile_setup03.html";
         ?>
+        </div>
+
     </main>
     <?php
     require "html/footer.html";
@@ -36,7 +40,7 @@ require "html/head.html";
     <script>
         loadPage();
         feather.replace()
-        changeLink();
+        //changeLink();
         GetPositionList();
         GetSpecializationList();
         GetIndustryList();

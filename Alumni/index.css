@@ -115,6 +115,7 @@ header.bg-primary {
 #reason06_checkbox:active.btn-light, #reason06_checkbox:checked+.btn-light
 {
     color: #fff !important;
-    background-color: #0a58ca !important;
-    border-color: #0a53be !important;
+    /* background-color: #0a58ca !important;
+    border-color: #0a53be !important; */
+    background-color: rgb(133, 156, 59) !important;
 }

@@ -3,34 +3,41 @@ $directory;
 $log_directory;
 if (file_exists('includes/login.inc.php')) {
 	$directory = 'includes/login.inc.php';
-}else {
+} else {
 	$directory = '../includes/login.inc.php';
 }
 
 if (file_exists('Candidate/candidate.php')) {
 	$log_directory = 'Candidate/candidate.php';
-}else {
+} else {
 	$log_directory = '../Candidate/candidate.php';
 }
 
 if (!isset($_SESSION)) {
 	session_start();
 }
-if (isset($_SESSION['username'])) {
-	if (file_exists("includes/db_connection.inc.php")) {
-		require "includes/db_connection.inc.php";
-	} else {
-		require "../includes/db_connection.inc.php";
-	}
 
-	if (file_exists("includes/functions.inc.php")) {
-		require "includes/functions.inc.php";
-	} else {
-		require "../includes/functions.inc.php";
-	}
+if (file_exists("includes/db_connection.inc.php")) {
+	require "includes/db_connection.inc.php";
+} else {
+	require "../includes/db_connection.inc.php";
+}
 
+if (file_exists("includes/functions.inc.php")) {
+	require "includes/functions.inc.php";
+} else {
+	require "../includes/functions.inc.php";
+}
+
+if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
 	$nav_username;
 	$profile_image;
+	$cname;
+	$caddress;
+}
+
+if (isset($_SESSION['username'])) {
+
 	$get_uid = uidExists($conn, $_SESSION['uemail']);
 	$uid = $get_uid['_id'];
 	$college = get_college($conn, $uid);
@@ -58,7 +65,41 @@ if (isset($_SESSION['username'])) {
 	} else {
 		$nav_username = "Username";
 	}
+
+	if (!$profile_image) {
+		if (file_exists("uploads/profiles/default_profile02.png")) {
+			$profile_image = "uploads/profiles/default_profile02.png";
+		} else {
+			$profile_image = "../uploads/profiles/default_profile02.png";
+		}
+	}
 }
+
+if (isset($_SESSION['emp_email'])) {
+	$emp_email = $_SESSION['emp_email'];
+	$emp = emp_uidExists($conn, $emp_email);
+	if ($emp) {
+		$nav_username = $emp['first_name'] . " " . $emp['last_name'];
+		$cname = $emp['company_name'];
+		$caddress = $emp['company_address'];
+		if ($emp['company_logo'] != "") {
+			if (file_exists($emp['company_logo'])) {
+				$profile_image = $emp['company_logo'];
+			} else {
+				$a = $emp['company_logo'];
+				$profile_image = str_replace("../", "", $a);
+			}
+		} else {
+			if (file_exists("uploads/profiles/default_profile02.png")) {
+				$profile_image = "uploads/profiles/default_profile02.png";
+			} else {
+				$profile_image = "../uploads/profiles/default_profile02.png";
+			}
+		}
+	}
+}
+
+
 ?>
 
 <header class="border-bottom">
@@ -73,17 +114,17 @@ if (isset($_SESSION['username'])) {
 				<div class="col">
 					<div class="float-end d-flex align-items-center">
 						<span data-feather="briefcase" class="text-white me-2"></span>
-						<a href="#" class="ntd htp text-end fontsize-13 text-white me-4">For Employers</a>
+						<a href="#" id="emp-link" class="ntd htp text-end fontsize-13 text-white me-4">For Employers</a>
 						<span data-feather="arrow-right" class="text-white me-2"></span>
 
 						<?php
-						if (isset($_SESSION['username'])) {
+						if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
 						?>
 							<a href="includes/logout.inc.php" class="ntd htp text-end fontsize-13 text-white" id="log-out-link">Log out</a>
 						<?php
 						} else {
 						?>
-							<a href="#" class="ntd htp text-end fontsize-13 text-white">Register</a>
+							<a href="#" id="reg-link" class="ntd htp text-end fontsize-13 text-white">Register</a>
 						<?php
 						}
 						?>
@@ -115,7 +156,7 @@ if (isset($_SESSION['username'])) {
 				</div>
 				<div class="col-sm-3 d-flex align-items-center justify-content-end position-relative">
 					<div class="image-container border m-1 bg-csfb hw-30px rounded-circle">
-						<img src="<?php if (isset($_SESSION['username'])) {
+						<img src="<?php if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
 										echo $profile_image;
 									} else {
 										if (file_exists("uploads/profiles/default_profile02.png")) {
@@ -128,18 +169,37 @@ if (isset($_SESSION['username'])) {
 					<span data-feather="bell" class="text-white m-1 htp"></span>
 
 					<?php
-					if (isset($_SESSION['username'])) {
+					if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
+						if (isset($_SESSION['username'])) {
 					?>
-						<a href="#" onclick="show_ul_dropdown()" class="fontsize-13 text-white htp htpf m-1 ntd"><?php echo $nav_username; ?><span data-feather="chevron-down" class="text-white htp"></a>
+							<!-- <a href="#" onclick="show_ul_dropdown()" class="fontsize-13 text-white htp htpf m-1 ntd"><?php echo $nav_username; ?><span data-feather="chevron-down" class="text-white htp"></a> -->
+							<div class="ms-1">
+								<a href="#" onclick="show_ul_dropdown()" class="d-flex align-items-center fontsize-13 font-500 text-white htp htpf ntd">
+									<?php echo $nav_username; ?>
+									<span data-feather="chevron-down" class="text-white htp me-0"></span>
+								</a>
+								<div class="font-super--small text-warning font-500 m-0"><?php echo $university ?></div>
+							</div>
+							<?php
+							if (file_exists("html/dropdown_profile.html")) {
+								require 'html/dropdown_profile.html';
+							} else {
+								require '../html/dropdown_profile.html';
+							}
+						} elseif (isset($_SESSION['emp_email'])) {
+							?>
+							<div class="ms-1">
+								<a href="#" class="d-flex align-items-center fontsize-13 font-500 text-white htp htpf ntd">
+									<?php echo $nav_username; ?>
+									<span data-feather="chevron-down" class="text-white htp me-0"></span>
+								</a>
+								<div class="font-super--small text-warning font-500 m-0"><?php echo $cname ?></div>
+							</div>
 						<?php
-						if (file_exists("html/dropdown_profile.html")) {
-							require 'html/dropdown_profile.html';
-						} else {
-							require '../html/dropdown_profile.html';
 						}
 					} else {
 						?>
-						<a href="#" class="fontsize-14 text-white htp m-1 ntd" onclick="show_loggin()">Login</a>
+						<a href="#" id="lgn-btn" class="fontsize-14 text-white htp m-1 ntd" onclick="show_loggin()">Login</a>
 					<?php
 					}
 					?>
@@ -155,7 +215,7 @@ if (isset($_SESSION['username'])) {
 						<a href="index.php" class="ntd htp fontsize-13 mx-0 my-0 color-black font-500" id="index-link">Home</a>
 					</li>
 					<?php
-					if (isset($_SESSION['username'])) {
+					if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
 					?>
 						<li class="p-2 d-inline-block hbg-light">
 							<a href="Candidate/candidate.php" class="ntd mx-2 htp fontsize-13 mx-2 my-0 color-black font-500" id="mypage-link">My Page</a>
@@ -204,8 +264,8 @@ if (isset($_SESSION['username'])) {
 			confirmButtonText: 'Log in',
 			footer: '<p class="font-small text-center color-black m-0 mt-3">New User? <a href="signup-form.php">Sign up now</a></p>',
 			preConfirm: function validation() {
-				const dir = "<?php echo $directory;?>";
-				const log_dir = "<?php echo $log_directory;?>";
+				const dir = "<?php echo $directory; ?>";
+				const log_dir = "<?php echo $log_directory; ?>";
 				validate_login(dir, log_dir)
 				return false;
 			},
@@ -229,6 +289,26 @@ if (isset($_SESSION['username'])) {
 	}
 
 	<?php
+	if (isset($_SESSION['emp_email'])) {
+		$loglink_ids2 = ['log-out-link', 'mypage-link'];
+		$loglink_directories2 = ['includes/logout.inc.php', 'Employers/employer-page.php'];
+
+		for ($i = 0; $i < count($loglink_ids2); $i++) {
+			$explode = explode("/", $loglink_directories2[$i])[1];
+			if (file_exists($loglink_directories2[$i])) {
+				echo 'document.getElementById("' . $loglink_ids2[$i] . '").href ="' . $loglink_directories2[$i] . '";';
+				//echo "console.log('".$link_directories[$i] ."');";
+			} elseif (file_exists($explode)) {
+				echo 'document.getElementById("' . $loglink_ids2[$i] . '").href = "' . $explode . '";';
+			} elseif (file_exists('../' . $loglink_directories2[$i])) {
+				//echo "console.log('../".$link_directories[$i]."');";
+				echo 'document.getElementById("' . $loglink_ids2[$i] . '").href = "../' . $loglink_directories2[$i] . '";';
+			} else {
+				echo 'document.getElementById("' . $loglink_ids2[$i] . '").href = "#";';
+			}
+		}
+	}
+
 	if (isset($_SESSION['username'])) {
 		echo "document.getElementById('dropdown_img').src = '" . $profile_image . "';";
 		echo "document.getElementById('dropdown_username').innerHTML = '" . $nav_username . "';";
@@ -243,17 +323,17 @@ if (isset($_SESSION['username'])) {
 				//echo "console.log('".$link_directories[$i] ."');";
 			} elseif (file_exists($explode)) {
 				echo 'document.getElementById("' . $loglink_ids[$i] . '").href = "' . $explode . '";';
-			}elseif (file_exists('../' . $loglink_directories[$i])) {
+			} elseif (file_exists('../' . $loglink_directories[$i])) {
 				//echo "console.log('../".$link_directories[$i]."');";
 				echo 'document.getElementById("' . $loglink_ids[$i] . '").href = "../' . $loglink_directories[$i] . '";';
-			}else{
+			} else {
 				echo 'document.getElementById("' . $loglink_ids[$i] . '").href = "#";';
 			}
 		}
 	}
 
-	$link_ids = ['web-id', 'index-link', 'about-link', 'contacts-link', 'alumni-link', 'employer-prof-link', 'jobs-link-nav', 'forum-link'];
-	$link_directories = ['index.php', 'index.php', 'about.php', 'contacts.php', 'Alumni/alumni-index.php', 'Employers/employers-profile-page.php', 'Jobs/jobs.php', 'Forum/forum-index.php'];
+	$link_ids = ['web-id', 'index-link', 'about-link', 'contacts-link', 'alumni-link', 'employer-prof-link', 'jobs-link-nav', 'forum-link', 'emp-link', 'reg-link'];
+	$link_directories = ['index.php', 'index.php', 'about.php', 'contacts.php', 'Alumni/alumni-index.php', 'Employers/employers-profile-page.php', 'Jobs/jobs.php', 'Forum/forum-index.php', 'Employers/index.php', 'signup-form.php'];
 	for ($i = 0; $i < count($link_ids); $i++) {
 		if (file_exists($link_directories[$i])) {
 			echo 'document.getElementById("' . $link_ids[$i] . '").href ="' . $link_directories[$i] . '";';
