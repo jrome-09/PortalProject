@@ -40,8 +40,8 @@ $nn = 'None';
 //     echo 'failed:' . $conn->error;
 // }
 
-$stmt = $conn->prepare("INSERT INTO job_description (employer_id, employer_name, job_title, salary_range, job_address, job_type, career_level, job_requirements, job_qualifications, job_responsibilities, job_specialization, job_info, verification, company_logo, date_posted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
-$stmt->bind_param("isssssssssssss", $eid, $emp_name, $tt, $slr, $lc, $jt, $lv, $rq, $ql, $rs, $sp, $jd, $un, $nn);
+$stmt = $conn->prepare("INSERT INTO job_description (employer_id, employer_name, job_title, salary_range, job_address, job_type, career_level, job_requirements, job_qualifications, job_responsibilities, job_specialization, job_info, verification, date_posted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
+$stmt->bind_param("issssssssssss", $eid, $emp_name, $tt, $slr, $lc, $jt, $lv, $rq, $ql, $rs, $sp, $jd, $un);
 
 if ($stmt->execute()) {
     echo "Success";

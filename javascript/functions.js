@@ -484,7 +484,7 @@ function show_alert(icon, title, text, button, location) {
   });
 }
 
-function show_alert_options(title, text, icon, cancel, confirmbtn_text, confirmed_title, confirmed_text, confirmed_icon) {
+function show_alert_options(title, text, icon, cancel, confirmbtn_text, action, app_id) {
   Swal.fire({
     title: title,
     text: text,
@@ -502,17 +502,23 @@ function show_alert_options(title, text, icon, cancel, confirmbtn_text, confirme
     }
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire({
-        title: confirmed_title,
-        text: confirmed_text,
-        icon: confirmed_icon,
-        customClass: {
-        popup: "me-17px swal-width-400 font-poppins",
-        title: "color-black font-700 fontsize-24",
-        htmlContainer: "color-light pt-0 fontsize-13",
-        confirmButton: "btn bg-cp2 bg-cp2h px-5 fontsize-13 font-500"
-        }
-      })
+      if (action === "Approve") {
+       approve_app(app_id);
+      }else if (action === "Disapprove") {
+        disapprove_app(app_id)
+      }
+
+      // Swal.fire({
+      //   title: confirmed_title,
+      //   text: confirmed_text,
+      //   icon: confirmed_icon,
+      //   customClass: {
+      //   popup: "me-17px swal-width-400 font-poppins",
+      //   title: "color-black font-700 fontsize-24",
+      //   htmlContainer: "color-light pt-0 fontsize-13",
+      //   confirmButton: "btn bg-cp2 bg-cp2h px-5 fontsize-13 font-500"
+      //   }
+      // })
     }
   })
 }

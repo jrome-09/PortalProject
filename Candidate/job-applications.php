@@ -4,11 +4,11 @@ $application_count = 0;
 ?>
 
 <body>
-	<div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
+	<!-- <div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
 		<div class="spinner-border text-primary" role="status">
 			<span class="visually-hidden">Loading...</span>
 		</div>
-	</div>
+	</div> -->
 	<?php
 	require "../html/script.html";
 	require "../includes/nav.php";
@@ -42,37 +42,52 @@ $application_count = 0;
 								<?php
 								while ($row = mysqli_fetch_array($result)) {
 									$job = get_job($conn, $row['job_id']);
+									$eid = $row['employer_id'];
+									$data = get_emp($conn, $eid);
+									//echo "<script>console.log('" . $row['employer_id'] . "')</script>";
 									$application_count = $application_count  + 1;
 									$class = ['text-success', 'text-danger', 'text-warning'];
 									$text = ['Your Application has been approved by the Employer.', 'Your Application has been declined by the employer.', 'Your Application has been sent. Please wait for the result.'];
 									$status;
 									$text_result;
+									$feather;
 									if ($row['application_status'] === 'Under Review') {
 										$status = $class[2];
 										$text_result = $text[2];
+										$feather = 'more-horizontal';
 									} elseif ($row['application_status'] === 'Declined') {
 										$status = $class[1];
 										$text_result = $text[1];
+										$feather = 'alert-circle';
 									} elseif ($row['application_status'] === 'Approved') {
 										$status = $class[0];
 										$text_result = $text[0];
+										$feather = "check";
 									} else {
 										$status = 'color-black';
 										$text_result = "Something went wrong!";
 									}
 								?>
 									<div class="col-md-6">
-										<div class="border p-4 rounded bg-white">
+										<div class="border p-4 rounded bg-white mb-4">
 											<div class="d-flex">
 												<div class="flex-fill">
 													<div class="d-flex align-items-center " id="image-title">
 														<div class="image-container border align-self-start rounded bg-light hw-50px me-3 mb-2">
-															<img src="<?php echo $job['company_logo'] ?>" alt="" style="height: 100%;">
+															<img src="<?php if ($data['company_logo'] != "") {
+																			if (file_exists($data['company_logo'])) {
+																				echo $data['company_logo'];
+																			} else {
+																				$dt = $data['company_logo'];
+																				echo str_replace("../", "", $dt);
+																			}
+																		} else {
+																		}  ?>" alt="#">
 														</div>
 														<div class="mb-2">
 															<a href="#" class="fontsize-14 text-primary font-700 m-0" id="btn-job0_<?php echo $row["job_id"] ?>" onclick="job_submit(this.id)"><?php echo $row['job_title'] ?></a>
 															<p class="fontsize-14 color-black m-0"><?php echo $row['employer_name'] ?></p>
-															<p class="rounded-pill bg-light <?php echo $status; ?> font-super--small p-1 px-2 border"><?php echo $text_result; ?></p>
+															<p class="rounded-pill bg-light <?php echo $status; ?> font-super--small font-500 p-1 px-2 border"><span data-feather="<?php echo $feather;?>"></span><?php echo $text_result; ?></p>
 														</div>
 													</div>
 												</div>
@@ -81,7 +96,7 @@ $application_count = 0;
 														<span data-feather="chevron-down" class="m-0"></span>
 													</div>
 													<div class="position-absolute bg-light border rounded shadow-sm p-2 application_option" id="application_option0<?php echo $row['_id']; ?>" style="width: 200px; top: 2rem; right: 0;">
-														<button class="border color-black text-start fontsize-13 btn btn-white d-block width-100 btn-hover-primary mb-1" id="<?php echo 'view-btn_'.$row['_id']?>" onclick="view_application(this.id)">View Application</button>
+														<button class="border color-black text-start fontsize-13 btn btn-white d-block width-100 btn-hover-primary mb-1" id="<?php echo 'view-btn_' . $row['_id'] ?>" onclick="view_application(this.id)">View Application</button>
 														<button class="border color-black text-start fontsize-13 btn btn-white d-block width-100 btn-hover-primary" onclick="withdraw_alert()">Withdraw Application</button>
 													</div>
 												</div>
@@ -102,14 +117,6 @@ $application_count = 0;
 				</div>
 			</div>
 		</div>
-		
-		<!-- <form action="profile-preview.php" method="post" id="hidden_job_id">
-			<input type="hidden" value="<?php //echo $_id_explode; ?>" name="job_id-hidden_input">
-			<input type="hidden" value="<?php //echo $row["job_title"]; ?>" name="job_name-hidden_input">
-			<input type="hidden" value="<?php //echo $row["employer_id"]; ?>" name="employer_id-hidden_input">
-			<input type="hidden" value="<?php //echo $row["employer_name"]; ?>" name="employer_name-hidden_input">
-			<input type="hidden" value="submit" name="preview_type">
-		</form> -->
 		<form action="../Jobs/job-details.php" id="job_form_submit" method="post">
 			<input type="hidden" id="form_job_input" name="job_input">
 		</form>
@@ -139,9 +146,10 @@ $application_count = 0;
 			const confirmed_icon = 'success'
 			show_alert_options(title, text, icon, cancel, confirmbtn_text, confirmed_title, confirmed_text, confirmed_icon);
 		}
-		document.getElementById('application_count').innerHTML = 'All Applications (<?php echo $application_count?>)'
+		document.getElementById('application_count').innerHTML = 'All Applications (<?php echo $application_count ?>)'
+
 		function view_application(_id) {
-			window.location.href ='profile-preview.php'
+			window.location.href = 'profile-preview.php'
 			console.log(_id);
 		}
 		document.getElementById('job-app-link').classList.add('active')

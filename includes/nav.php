@@ -37,7 +37,6 @@ if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
 }
 
 if (isset($_SESSION['username'])) {
-
 	$get_uid = uidExists($conn, $_SESSION['uemail']);
 	$uid = $get_uid['_id'];
 	$college = get_college($conn, $uid);
@@ -187,15 +186,21 @@ if (isset($_SESSION['emp_email'])) {
 								require '../html/dropdown_profile.html';
 							}
 						} elseif (isset($_SESSION['emp_email'])) {
+
 							?>
 							<div class="ms-1">
-								<a href="#" class="d-flex align-items-center fontsize-13 font-500 text-white htp htpf ntd">
+								<a href="#" onclick="show_ul_dropdown()" class="d-flex align-items-center fontsize-13 font-500 text-white htp htpf ntd">
 									<?php echo $nav_username; ?>
 									<span data-feather="chevron-down" class="text-white htp me-0"></span>
 								</a>
 								<div class="font-super--small text-warning font-500 m-0"><?php echo $cname ?></div>
 							</div>
 						<?php
+							if (file_exists("html/emp_dropdown_profile.html")) {
+								require 'html/emp_dropdown_profile.html';
+							} else {
+								require '../html/emp_dropdown_profile.html';
+							}
 						}
 					} else {
 						?>
@@ -290,8 +295,12 @@ if (isset($_SESSION['emp_email'])) {
 
 	<?php
 	if (isset($_SESSION['emp_email'])) {
-		$loglink_ids2 = ['log-out-link', 'mypage-link'];
-		$loglink_directories2 = ['includes/logout.inc.php', 'Employers/employer-page.php'];
+		echo "document.getElementById('dropdown_img').src = '" . $profile_image . "';";
+		echo "document.getElementById('dropdown_username').innerHTML = '" . $nav_username . "';";
+		echo "document.getElementById('dropdown_university').innerHTML = '" . $cname . "';";
+
+		$loglink_ids2 = ['log-out-link', 'mypage-link', 'applicants-link'];
+		$loglink_directories2 = ['includes/logout.inc.php', 'Employers/employer-page.php', 'Employers/applicants.php'];
 
 		for ($i = 0; $i < count($loglink_ids2); $i++) {
 			$explode = explode("/", $loglink_directories2[$i])[1];

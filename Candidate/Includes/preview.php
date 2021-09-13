@@ -21,7 +21,7 @@
 <div class="border bg-white rounded">
     <div class="border-bottom p-4 ">
         <div class="text-end">
-            <p class="font-super--small color-light">Last Updated: 00 Jan 2021</p>
+            <p class="font-super--small color-light">Last Updated: <?php echo $get_uid['date_updated'];?></p>
         </div>
         <div class="d-flex" id="header-infoflex">
             <div class="border bg-light image-container rounded" style="height: 100px; width: 100px; min-width: 100px;">

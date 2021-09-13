@@ -258,7 +258,7 @@ function insert_user_experience($conn, $user_id, $user_name, $employer_name, $co
     mysqli_stmt_close($stmt);
 }
 
-function submit_resume($resume, $uid)
+function submit_resume($resume, $uname, $uid)
 {
     $file = $resume;
     $fileName = $file['name'];
@@ -273,23 +273,24 @@ function submit_resume($resume, $uid)
 
     if (in_array($fileActualExt, $allowed)) {
         if ($fileError === 0) {
-            $NewFileName = "resume_" . $uid .  "." . $fileActualExt;
+            $NewFileName = "resume_" . $uname . "_" . $uid .  "." . $fileActualExt;
             $fileDestination = '../uploads/resume/' . $NewFileName;
             move_uploaded_file($fileTmpName, $fileDestination);
             return $fileDestination;
-        }else {
+        } else {
             return false;
         }
-    }else {
+    } else {
         return false;
     }
 }
 
-function submit_application($conn, $uid, $username, $job_id, $job_name, $employer_id, $employer_name, $resume_filename){
+function submit_application($conn, $uid, $username, $job_id, $job_name, $employer_id, $employer_name, $resume_filename)
+{
     $sql = "INSERT INTO `application`(`applicant_id`, `applicant_name`, `job_id`, `job_title`, `employer_id`, `employer_name`, `applicant_resume`, `application_status`, `date_created`) VALUES ('$uid', '$username', '$job_id', '$job_name', '$employer_id', '$employer_name', '$resume_filename', 'Under Review', now())";
     if ($conn->query($sql) === TRUE) {
         return true;
-    }else {
+    } else {
         return false;
     }
 }
@@ -358,10 +359,10 @@ function submit_profile($profile, $uid)
             $fileDestination = '../uploads/profiles/' . $NewFileName;
             move_uploaded_file($fileTmpName, $fileDestination);
             return $fileDestination;
-        }else {
+        } else {
             return false;
         }
-    }else {
+    } else {
         return false;
     }
 }
@@ -385,10 +386,10 @@ function submit_logo($logo, $c_name)
             $fileDestination = '../uploads/company_logos/' . $NewFileName;
             move_uploaded_file($fileTmpName, $fileDestination);
             return $fileDestination;
-        }else {
+        } else {
             return false;
         }
-    }else {
+    } else {
         return false;
     }
 }
@@ -415,3 +416,50 @@ function emp_uidExists($conn, $email)
 
     mysqli_stmt_close($stmt);
 }
+
+function get_postedjobs($conn, $eid)
+{
+    $sql = "SELECT * FROM job_description WHERE employer_id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "Statement Error";
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $eid);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function getApplicants($conn, $jid)
+{
+    $sql = "SELECT * FROM application WHERE job_id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "Statement Error";
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $jid);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+

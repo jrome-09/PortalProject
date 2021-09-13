@@ -96,8 +96,9 @@ if (isset($_POST["resume_file"])) {
     $employer_name = $_POST["employer_name"];
     $resume = $_FILES["uploaded_resume_file"];
 
+    $flname = str_replace(" ", "", $username);
     //Upload Resume
-    $resume_filename = submit_resume($resume, $uid);
+    $resume_filename = submit_resume($resume, $flname, $uid);
 
     if (!$resume_filename) {
         $resume_filename = "None";
@@ -207,7 +208,7 @@ if (isset($_POST['employer_registration_form'])) {
 
     if (emp_uidExists($conn, $email_address)) {
         exit("Email is already taken");
-    }else {
+    } else {
         $sql = "INSERT INTO `employer_details`(`first_name`, `middle_name`, `last_name`, `company_name`, `contact_number`, `company_address`, `email_address`, `password`, `company_logo`) VALUES (?,?,?,?,?,?,?,?,?)";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -216,9 +217,19 @@ if (isset($_POST['employer_registration_form'])) {
         }
         mysqli_stmt_bind_param($stmt, "sssssssss", $emp_fname, $emp_mname, $emp_lname, $company_name, $contact_number, $company_address, $email_address, $password, $company_logo);
         mysqli_stmt_execute($stmt);
-    
+
         mysqli_stmt_close($stmt);
 
         echo "Registration Complete";
+    }
+}
+
+if (isset($_POST['resume_input'])) {
+    $file = $_POST['resume_input'];
+    if (file_exists($file)) {
+        $fileurl = $file;
+        header("Content-type:application/docs/pdf");
+        header('Content-Disposition: attachment; filename=' . $fileurl);
+        readfile( $fileurl );
     }
 }

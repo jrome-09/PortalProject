@@ -181,7 +181,7 @@ input[type=number] {
     transition: 0.4s;
 }
 
-.hover-under-primary{
+.hover-under-primary, .tu{
     text-decoration: underline !important;
 }
 
