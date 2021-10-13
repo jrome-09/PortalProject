@@ -17,7 +17,7 @@ $application_count = 0;
 		<div class="bg-light">
 			<div class="max-width-container">
 				<div class="bg-white border rounded px-4 py-3 mb-2">
-					<p class="m-0 fontsize-14 font-700 text-cp2" id="application_count">All Applications ()</p>
+					<p class="m-0 fontsize-14 font-500 color-black" id="application_count">All Applications ()</p>
 				</div>
 				<div class="border rounded p-4 bg-white">
 					<?php

@@ -579,3 +579,13 @@ function readUpload02(input, _id) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+function show_swal_validation02(id, alert_text) {
+  var swal_id = document.getElementById(id);
+  swal_id.classList.remove("d-none");
+  swal_id.innerHTML = alert_text;
+}
+
+function hide_swal_validation02(id){
+  document.getElementById(id).classList.add("d-none");
+}

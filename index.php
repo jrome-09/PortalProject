@@ -89,9 +89,9 @@ require "html/head.html";
       <div class="max-width-container">
          <div class="row">
             <div class="col-md-6">
-               <h1 class="color-black font-700 mt-5"> CCIT JOB PORTAL AND ALUMNI TRACING SYSTEM</h1>
+               <h1 class="color-black font-900 mt-5"> CCIT ONLINE ALUMNI TRACING AND JOB PORTAL SYSTEM</h1>
                <p class="color-black fontsize-13"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti atque fugiat voluptate quo ipsum tenetur sit dolorem, nemo reprehenderit quaerat nihil iste quae ullam explicabo veniam! Minus sapiente vel dignissimos.</p>
-               <div class="btn bg-cp2 fontsize-13 text-white">Register now</div>
+               <div class="btn bg-cp2 fontsize-13 text-white px-5">Register</div>
             </div>
             <div class="col-md-6 d-flex justify-content-center">
                <div class="image-container overflow-visible" style="height: 400px; width: 400px;">
@@ -102,7 +102,7 @@ require "html/head.html";
       </div>
       <div id="second-container" class="bg-light">
          <div class="max-width-container">
-            <h4 class="color-black text-center mt-5"><strong>What we can do</strong></h4>
+            <h4 class="color-black text-center mt-5 font-700">What we can do</h4>
             <p class="text-center mb-2 color-light fontsize-14">Lorem, ipsum dolor sit amet consectetur adipisicing</p>
             <div class="row p-3 justify-content-center">
                <div class="col-md-3 con-us">
@@ -202,7 +202,7 @@ require "html/head.html";
       </div>
       <div id="third-container" class="bg-white">
          <div class="max-width-container">
-            <h4 class="color-black text-center mt-2"><strong>Recently Posted Jobs</strong></h4>
+            <h4 class="color-black text-center mt-2 font-900">Recently Posted Jobs</h4>
             <p class="text-center mb-2 color-light fontsize-14">Lorem, ipsum dolor sit amet consectetur adipisicing</p>
             <div class="border rounded p-4 mb-2">
                <!-- <div class="row" id="application-row-container">
@@ -579,7 +579,7 @@ require "html/head.html";
             </div>
          </div>
       </div> -->
-      <div id="fifth-container" class="background-blue">
+      <!-- <div id="fifth-container" class="background-blue">
          <div class="max-width-container">
             <h5 class="color-white text-center"><strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
                   Deleniti harum beatae mollitia? Odit </strong></h5>
@@ -587,7 +587,7 @@ require "html/head.html";
                Meet our Team
             </button>
          </div>
-      </div>
+      </div> -->
       <div class="alert alert-light border alert-dismissible fade show d-inline-block shadow" role="alert" id="index-alert" style="z-index:20;">
          <a href="#" class="no-text-decor color-black fontsize-13"><strong>Welcome!</strong> Need Any Help?</a>
          <a type="button" class="btn-close" data-bs-dismiss="alert" a Fria-label="Close"></a>
@@ -605,8 +605,7 @@ require "html/head.html";
       loadPage();
       feather.replace();
       document.title = "CCIT Alumni Tracing and Job Portal";
-      var parent = document.getElementById('index-link').parentElement
-      parent.classList.add('active');
+      var parent = document.getElementById('index-link').classList.add('active');
    </script>
 </body>
 

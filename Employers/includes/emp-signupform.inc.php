@@ -45,7 +45,7 @@
         <input type="password" name="emp-repword" id="emp-repassword" class="form-control fontsize-13 mb-2">
       </div>
     </div>
-    <div class="swal2-validation-message fontsize-13 my-2 d-none" id="swal2-validation-message" style="display: flex;">
+    <div class="swal2-validation-message fontsize-13 my-2 d-none" id="swal2-validation-message-sign" style="display: flex;">
       <!-- Invalid email address. -->
     </div>
     <p class="mb-0 color-light">By continuing, you acknowledge that you accept the <a href="#">Privacy Policies</a> and <a href="#">Terms & Conditions.</a> </p>

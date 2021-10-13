@@ -10,8 +10,9 @@ require "style-link.html";
     </div>
     <?php
     //require "../html/emp-login-form.html";
-    require "../includes/nav.php";
     require "../html/script.html";
+    require "../includes/nav.php";
+    
     ?>
     <main>
         <div class="bg-light position-relative">
@@ -91,13 +92,21 @@ require "style-link.html";
         loadPage();
         feather.replace();
 
+        const link = document.getElementById('emp-link')
+        link.classList.remove('decor-none', 'text-white')
+        link.classList.add('text-yellow')
+        const span = document.getElementById('emp-span')
+        span.classList.add('text-yellow')
+        span.classList.remove('text-white')
+
         function show_swal_validation_login(alert_text) {
             var swal_id = document.getElementById("swal2-validation-message02");
             swal_id.classList.remove("d-none");
             swal_id.innerHTML = alert_text;
         }
-        document.getElementById('web-id').href = "../index.php"
-        document.getElementById('index-link').href = "../index.php"
+        
+        document.getElementById('web-id').href = "../index.php";
+        document.getElementById('index-link').href = "../index.php";
         document.getElementById('lgn-btn').onclick = show_emp_login;
 
         function show_emp_login() {

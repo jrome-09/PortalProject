@@ -18,154 +18,146 @@
         }
     }
 </style>
-<div class="border bg-white rounded">
-    <div class="border-bottom p-4 ">
-        <div class="text-end">
-            <p class="font-super--small color-light">Last Updated: <?php echo $get_uid['date_updated'];?></p>
+<div class="p-4 bg-white border rounded mb-2">
+    <div class="text-end">
+        <p class="font-super--small color-light">Last Updated: <?php echo $get_uid['date_updated']; ?></p>
+    </div>
+    <div class="d-flex" id="header-infoflex">
+        <div class="border bg-light image-container rounded" style="height: 100px; width: 100px; min-width: 100px;">
+            <img src="<?php echo $profile_image; ?>" alt="">
         </div>
-        <div class="d-flex" id="header-infoflex">
-            <div class="border bg-light image-container rounded" style="height: 100px; width: 100px; min-width: 100px;">
-                <img src="<?php echo $profile_image; ?>" alt="">
-            </div>
-            <div class="mt-1 ms-3" id="infoflex-text">
-                <h5 class="text-primary"><?php echo $get_uid["first_name"] . " " . $get_uid["last_name"]; ?></h5>
-                <p class="fontsize-14 m-0 font-500 color-black"><?php echo $college["field"] . "(Graduation Year: " . $college["graduation_year"] . ")"; ?></p>
-                <p class="fontsize-14 font-500 color-black"><?php echo $college["university"] ?></p>
-                <div class="d-flex con-con">
-                    <div class="mb-0 color-light fontsize-13 d-inline-block">
-                        <span data-feather="phone"></span>
+        <div class="mt-1 ms-3" id="infoflex-text">
+
+            <h4 class="color-black font-500"><?php echo $get_uid["first_name"] . " " . $get_uid["last_name"]; ?></h4>
+            <p class="fontsize-13 m-0 font-500 color-light"><?php echo $college["field"] . "(Graduation Year: " . $college["graduation_year"] . ")"; ?></p>
+            <p class="fontsize-13 font-500 color-light"><?php echo $college["university"] ?></p>
+            <div class="d-flex con-con">
+                <div class="mb-0 color-light fontsize-13 d-inline-block">
+                    <span data-feather="phone"></span>
+                    <span class="tu">
                         <?php echo $get_uid["contact_number"]; ?>
-                    </div>
-                    <p class="mx-2 d-inline-block mb-0 separator">|</p>
-                    <div class="mb-0 color-light fontsize-13 d-inline-block">
-                        <span data-feather="mail"></span>
+                    </span>
+                </div>
+                <p class="mx-2 d-inline-block mb-0 separator">|</p>
+                <div class="mb-0 color-light fontsize-13 d-inline-block">
+                    <span data-feather="mail"></span>
+                    <span class="tu">
                         <?php echo $get_uid["email_address"]; ?>
-                    </div>
+                    </span>
                 </div>
             </div>
         </div>
     </div>
-    <div class="p-4 border-bottom">
+</div>
+<div class="border bg-white rounded">
+    <div class="p-4">
         <div class="d-flex mb-3 align-items-center">
             <span data-feather="users" class="me-2"></span>
-            <h5 class="font-500 mb-0">Education</h5>
+            <p class="font-700 mb-0 fontsize-14 color-black">Education</p>
         </div>
-
-        <!-- <div class="row">
-            <div class="col-md-2">
-                <p class="m-0 color-light fontsize-13 font-500">Graduation Year: <?php echo $college["graduation_year"]; ?></p>
-            </div>
-            <div class="col-md-10">
-                <p class="fontsize-14 color-black font-500"><?php // echo $college["university"]; 
-                                                            ?></p>
-                <p class="fontsize-14 color-black font-500"><?php // echo $college["field"]; 
-                                                            ?></p>
-                <p class="fontsize-14 color-black font-500"><?php // echo $college["university_address"]; 
-                                                            ?></p>
-            </div>
-        </div> -->
-        <div class="row">
+        <div class="row ms-2">
             <div class="col-lg-2">
-                <p class="color-light fontsize-13">University:</p>
+                <p class="color-black mb-2 fontsize-13">University:</p>
             </div>
             <div class="col-lg-10">
-                <p class="color-black fontsize-14"><?php echo $college["university"]; ?></p>
+                <p class="color-black mb-2 fontsize-13"><?php echo $college["university"]; ?></p>
             </div>
         </div>
-        <div class="row">
+        <div class="row ms-2">
             <div class="col-lg-2">
-                <p class="color-light fontsize-13">Field of study:</p>
+                <p class="color-black mb-2 fontsize-13">Field of study:</p>
             </div>
             <div class="col-lg-10">
-                <p class="color-black fontsize-14"><?php echo $college["field"]; ?></p>
+                <p class="color-black mb-2 fontsize-13"><?php echo $college["field"]; ?></p>
             </div>
         </div>
-        <div class="row">
+        <div class="row ms-2">
             <div class="col-lg-2">
-                <p class="color-light fontsize-13">Graduation Year:</p>
+                <p class="color-black mb-2 fontsize-13">Graduation Year:</p>
             </div>
             <div class="col-lg-10">
-                <p class="color-black fontsize-14"><?php echo $college["graduation_year"]; ?></p>
+                <p class="color-black mb-2 fontsize-13"><?php echo $college["graduation_year"]; ?></p>
             </div>
         </div>
-        <div class="row">
+        <div class="row ms-2">
             <div class="col-lg-2">
-                <p class="color-light fontsize-13">University Address:</p>
+                <p class="color-black mb-2 fontsize-13">University Address:</p>
             </div>
             <div class="col-lg-10">
-                <p class="color-black fontsize-14"><?php echo $college["university_address"]; ?></p>
+                <p class="color-black mb-2 fontsize-13"><?php echo $college["university_address"]; ?></p>
             </div>
         </div>
+        <hr>
     </div>
     <?php if ($experience) {
     ?>
-        <div class="p-4 border-bottom">
+        <div class="pt-0 p-4 border-bottom">
             <div class="d-flex mb-3 align-items-center">
                 <span data-feather="briefcase" class="me-2"></span>
-                <h5 class="font-500 mb-0">Work Experience</h5>
+                <h5 class="font-700 fontsize-14 mb-0 color-black">Work Experience</h5>
             </div>
-            <div class="row">
+            <div class="row ms-2">
                 <div class="col-lg-2">
-                    <p class="color-light fontsize-13">Employer:</p>
+                    <p class="color-black mb-2 fontsize-13">Employer:</p>
                 </div>
                 <div class="col-lg-10">
-                    <p class="color-black fontsize-14"><?php echo $experience["employer_name"]; ?></p>
+                    <p class="color-black mb-2 fontsize-13"><?php echo $experience["employer_name"]; ?></p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row ms-2">
                 <div class="col-lg-2">
-                    <p class="color-light fontsize-13">Company Address:</p>
+                    <p class="color-black mb-2 fontsize-13">Company Address:</p>
                 </div>
                 <div class="col-lg-10">
-                    <p class="color-black fontsize-14"><?php echo $experience["company_address"]; ?></p>
+                    <p class="color-black mb-2 fontsize-13"><?php echo $experience["company_address"]; ?></p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row ms-2">
                 <div class="col-lg-2">
-                    <p class="color-light fontsize-13">Recent Position:</p>
+                    <p class="color-black mb-2 fontsize-13">Recent Position:</p>
                 </div>
                 <div class="col-lg-10">
-                    <p class="color-black fontsize-14"><?php echo $experience["position_title"]; ?></p>
+                    <p class="color-black mb-2 fontsize-13"><?php echo $experience["position_title"]; ?></p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row ms-2">
                 <div class="col-lg-2">
-                    <p class="color-light fontsize-13">Specialization:</p>
+                    <p class="color-black mb-2 fontsize-13">Specialization:</p>
                 </div>
                 <div class="col-lg-10">
-                    <p class="color-black fontsize-14"><?php echo $experience["specialization"]; ?></p>
+                    <p class="color-black mb-2 fontsize-13"><?php echo $experience["specialization"]; ?></p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row ms-2">
                 <div class="col-lg-2">
-                    <p class="color-light fontsize-13">Industry:</p>
+                    <p class="color-black mb-2 fontsize-13">Industry:</p>
                 </div>
                 <div class="col-lg-10">
-                    <p class="color-black fontsize-14"><?php echo $experience["industry"]; ?></p>
+                    <p class="color-black mb-2 fontsize-13"><?php echo $experience["industry"]; ?></p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row ms-2">
                 <div class="col-lg-2">
-                    <p class="color-light fontsize-13">Position Level:</p>
+                    <p class="color-black mb-2 fontsize-13">Position Level:</p>
                 </div>
                 <div class="col-lg-10">
-                    <p class="color-black fontsize-14"><?php echo $experience["position_level"]; ?></p>
+                    <p class="color-black mb-2 fontsize-13"><?php echo $experience["position_level"]; ?></p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row ms-2">
                 <div class="col-lg-2">
-                    <p class="color-light fontsize-13">Monthly Salary:</p>
+                    <p class="color-black mb-2 fontsize-13">Monthly Salary:</p>
                 </div>
                 <div class="col-lg-10">
-                    <p class="color-black fontsize-14"><?php echo "PHP " . $experience["monthly_salary"]; ?></p>
+                    <p class="color-black mb-2 fontsize-13"><?php echo "PHP " . $experience["monthly_salary"]; ?></p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row ms-2">
                 <div class="col-lg-2">
-                    <p class="color-light fontsize-13">Experience:</p>
+                    <p class="color-black mb-2 fontsize-13">Experience:</p>
                 </div>
                 <div class="col-lg-10">
-                    <p class="color-black fontsize-14"><?php echo $experience["experience_description"]; ?></p>
+                    <p class="color-black mb-2 fontsize-13"><?php echo $experience["experience_description"]; ?></p>
                 </div>
             </div>
         </div>
@@ -174,30 +166,46 @@
     <div class="p-4">
         <div class="d-flex mb-3 align-items-center">
             <span data-feather="menu" class="me-2"></span>
-            <h5 class="font-500 mb-0">Aditional Info</h5>
+            <h5 class="font-700 mb-0 fontsize-14 color-black">Aditional Info</h5>
         </div>
-        <div class="row">
+        <div class="row ms-2">
             <div class="col-lg-2">
-                <p class="color-light fontsize-13">Address:</p>
+                <p class="color-black mb-2 fontsize-13">Age:</p>
             </div>
             <div class="col-lg-10">
-                <p class="color-black fontsize-14"><?php echo $get_uid["address"]; ?></p>
+                <p class="color-black mb-2 fontsize-13"><?php echo $get_uid["age"]; ?></p>
             </div>
         </div>
-        <div class="row">
+        <div class="row ms-2">
             <div class="col-lg-2">
-                <p class="color-light fontsize-13">Experience Type:</p>
+                <p class="color-black mb-2 fontsize-13">Sex:</p>
             </div>
             <div class="col-lg-10">
-                <p class="color-black fontsize-14"><?php echo $get_uid["experience_type"]; ?></p>
+                <p class="color-black mb-2 fontsize-13"><?php echo $get_uid["sex"]; ?></p>
             </div>
         </div>
-        <div class="row">
+        <div class="row ms-2">
             <div class="col-lg-2">
-                <p class="color-light fontsize-13">About Myself:</p>
+                <p class="color-black mb-2 fontsize-13">Address:</p>
             </div>
             <div class="col-lg-10">
-                <p class="color-black fontsize-14"><?php echo $get_uid["self_description"]; ?></p>
+                <p class="color-black mb-2 fontsize-13"><?php echo $get_uid["address"]; ?></p>
+            </div>
+        </div>
+        <div class="row ms-2">
+            <div class="col-lg-2">
+                <p class="color-black mb-2 fontsize-13">Experience Type:</p>
+            </div>
+            <div class="col-lg-10">
+                <p class="color-black mb-2 fontsize-13"><?php echo $get_uid["experience_type"]; ?></p>
+            </div>
+        </div>
+        <div class="row ms-2">
+            <div class="col-lg-2">
+                <p class="color-black mb-2 fontsize-13">About Myself:</p>
+            </div>
+            <div class="col-lg-10">
+                <p class="color-black mb-2 fontsize-13"><?php echo $get_uid["self_description"]; ?></p>
             </div>
         </div>
     </div>

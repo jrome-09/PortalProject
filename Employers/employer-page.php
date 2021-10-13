@@ -4,6 +4,8 @@ if (!isset($_SESSION)) {
 }
 if (isset($_SESSION['emp_email'])) {
 	require "style-link.html";
+
+	$job_total = 0;
 ?>
 
 	<body>
@@ -49,7 +51,6 @@ if (isset($_SESSION['emp_email'])) {
 							</div>
 							<?php
 						} else {
-							$job_total = 0;
 							while ($row = mysqli_fetch_array($result)) {
 								$job_total = $job_total+1;
 								$jid = $row['_id'];

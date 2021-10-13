@@ -12,66 +12,51 @@ require "html/head.html";
     require "html/script.html";
     require "includes/nav.php";
     ?>
-    <main>
-        <div class="hero-header bg-light position-relative text-center" style="height: 150px;">
-            <div class="position-absolute top-50 start-50 translate-middle">
-                <h2 class="color-black text-decoration-underline">Contacts</h2>
-            </div>
-        </div>
-        <!-- <div class="background-thicker-light">
-            <div class="max-width-container d-flex align-items-center justify-content-center mt-4" style="height: 250px;">
-                <h3 class="color-black mt-5"><strong>Contacts</strong></h3>
-            </div>
-        </div> -->
-        <div class="max-width-container">
-            <div class="card p-4 border" style="box-shadow: 0 .125rem 1rem rgba(0,0,0,.075) !important;">
-                <div class="row">
+    <main class="bg-light">
+    <div class="max-width-container">
+            <h1 class="mb-4 font-500">Contacts</h1>
+            <div class="border rounded bg-white shadow-sm p-4">
+                <div class="row mb-4">
                     <div class="col-md-6">
-                        <h6 class="color-black font-500 mb-4">SEND US A MESSAGE</h6>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="text" id="sender--name" class="form-control color-black fontsize-14" placeholder="Your Name">
-                                <label for="Sender--name" class="color-light fontsize-13 mb-4">Please enter your name</label>
+                        <p class="font-500">SEND US A MESSAGE</p>
+                        <form action="">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="#" class="required">Your Name</label>
+                                    <input type="text" class="form-control mb-2">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="#" class="required">Email Address</label>
+                                    <input type="text" class="form-control mb-2">
+                                </div>
                             </div>
-                            <div class="col-lg-6">
-                                <input type="text" id="sender--email" class="form-control color-black fontsize-14" placeholder="Your Email">
-                                <label for="Sender--email" class="color-light fontsize-13 mb-4">Please enter your email</label>
-                            </div>
-                        </div>
-                        <input type="text" id="sender--subject" class="form-control color-black fontsize-14" placeholder="Message Subject">
-                        <label for="sender--subject" class="color-light fontsize-13 mb-4">Please the message subject</label>
-                        <textarea class="form-control color-black mb-4 fontsize-14" id="sender--message" rows="4" placeholder="Your Message"></textarea>
-                        <button type="button" class="btn bg-cp2 text-white fontsize-13 font-500">SEND MESSAGE</button>
+                            <label for="#" class="required">Message Subject</label>
+                            <input type="text" class="form-control mb-2">
+                            <label for="#" class="required">Your Message</label>
+                            <textarea name="#" id="#" cols="30" rows="4" class="form-control mb-2"></textarea>
+                            <button type="button" class="btn bg-2 px-5">Submit</button>
+                        </form>
                     </div>
-                    <div class="col-md-6" id="address--section">
-                        <h6 class="color-black font-500 mb-4">Contact Address</h6>
-                        <div class="border p-4 fontsize-13">
-                            <div class="d-flex align-items-center pb-5">
-                                <div class="bg-cp2 image-container round"><span data-feather="map-pin" class="color-white"></span></div>
-                                <div class="ps-2">
-                                    <div class="color-light">College: College of Communication and Information Technology</div>
-                                    <div class="color-light">University Address: </div>
-                                </div>
+                    <div class="col-md-6">
+                    <p class="font-500">CONTACT DETAILS</p>
+                        <div class="border rounded p-4">
+                            <div class="d-flex align-items-center mb-5">
+                                <span data-feather="map-pin" class="me-4"></span>
+                                <p class="m-0">College: College of Communication and Information Technology <br> Address: Vigan City Ilocos Sur</p>
                             </div>
-                            <div class="d-flex align-items-center pb-5">
-                                <div class="bg-cp2 image-container round"><span data-feather="mail" class="color-white"></span></div>
-                                <div class="ps-2">
-                                    <div class="color-light">Administrator: admin.ccit@unp.edu.ph</div>
-                                    <div class="color-light">College: ccit@unp.edu.ph</div>
-                                </div>
+                            <div class="d-flex align-items-center mb-5">
+                                <span data-feather="mail" class="me-4"></span>
+                                <p class="m-0">Administrator: admin.ccit@unp.edu.ph <br> College: ccit@unp.edu.ph</p>
                             </div>
-                            <div class="d-flex align-items-center pb-5">
-                                <div class="bg-cp2 image-container round"><span data-feather="phone" class="color-white"></span></div>
-                                <div class="ps-2">
-                                    <div class="color-light">Administrator: admin.ccit@unp.edu.ph</div>
-                                    <div class="color-light">College: ccit@unp.edu.ph</div>
-                                </div>
+                            <div class="d-flex align-items-center">
+                                <span data-feather="phone" class="me-4"></span>
+                                <p class="m-0">Administrator: +63 9876543211 <br> College: +63 9876543211</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="map-container border rounded mt-5">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3803.87284732816!2d120.38054531487872!3d17.561239487974625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x338e657c067e2799%3A0xd855b72932882627!2sUniversity%20Of%20Northern%20Philippines!5e0!3m2!1sen!2sph!4v1619351699495!5m2!1sen!2sph" width="1130" height="348" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="border rounded bg-white">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15215.491388301989!2d120.382734!3d17.5612395!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd855b72932882627!2sUniversity%20Of%20Northern%20Philippines!5e0!3m2!1sen!2ssg!4v1632295240248!5m2!1sen!2ssg" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -88,8 +73,7 @@ require "html/head.html";
         loadPage();
         feather.replace();
         document.title = "CCIT | Contacts"
-        var parent = document.getElementById('contacts-link').parentElement
-        parent.classList.add('active');
+        var parent = document.getElementById('contacts-link').classList.add('active')
     </script>
 </body>
 

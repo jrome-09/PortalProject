@@ -48,10 +48,10 @@ require "job-head.html";
 											}  ?>" alt="#">
 							</div>
 							<h5 class="color-black mb-0"><?php echo $row["job_title"]; ?></h5>
-							<p class="color-black fontsize-13"><?php echo $row["employer_name"]; ?></p>
-							<p class="color-light fontsize-13 m-0">Salary: PHP <?php echo $row["salary_range"]; ?></p>
+							<p class="color-black fontsize-13 tu"><?php echo $row["employer_name"]; ?></p>
+							<p class="color-light fontsize-13 m-0">Salary Range: PHP <?php echo $row["salary_range"]; ?></p>
 							<p class="color-light fontsize-13 m-0">Address: <?php echo $row["job_address"]; ?></p>
-							<p class="color-light fontsize-13">Date Posted: <?php echo $row["date_posted"]; ?></p>
+							<p class="color-light fontsize-13 m-0">Date Posted: <?php echo $row["date_posted"]; ?></p>
 						</div>
 
 						<?php if (isset($_SESSION['username'])) {
@@ -60,7 +60,7 @@ require "job-head.html";
 								<div class="col-lg-3 d-flex flex-column justify-content-center ">
 									<a href="#" id="apply_btn" type="button" <?php if (isset($_SESSION["username"])) {
 																					echo "onclick = submit_job_id()";
-																				} ?> class="btn bg-cp2 bg-cp2h my-2 font-500 fontsize-14 shadow-sm-hover d-block"><span data-feather="send" class="text-white me-2"></span> Apply now</a>
+																				} ?> class="btn bg-cp2 bg-cp2h my-2 font-500 fontsize-13 shadow-sm-hover d-block"><span data-feather="send" class="text-white me-2"></span> Apply now</a>
 									<form action="../Candidate/profile-preview.php" method="post" id="hidden_job_id">
 										<input type="hidden" value="<?php echo $_id_explode; ?>" name="job_id-hidden_input">
 										<input type="hidden" value="<?php echo $row["job_title"]; ?>" name="job_name-hidden_input">
@@ -68,7 +68,7 @@ require "job-head.html";
 										<input type="hidden" value="<?php echo $row["employer_name"]; ?>" name="employer_name-hidden_input">
 										<input type="hidden" value="submit" name="preview_type">
 									</form>
-									<div class="btn btn-light border my-2 fontsize-13 font-500 color-black htl-cp2cb htfthr shadow-sm-hover"><span data-feather="bookmark"></span> Add to Bookmarks</div>
+									<div class="btn btn-light border my-2 fontsize-13 font-500 color-black shadow-sm-hover"><span data-feather="bookmark"></span> Add to Bookmarks</div>
 								</div>
 							<?php
 							} else {
@@ -82,7 +82,7 @@ require "job-head.html";
 							?>
 							<div class="col-lg-3 d-flex flex-column justify-content-center ">
 								<a href="#" id="apply_btn" type="button" onclick=show_toast_swal() class="btn bg-cp2 bg-cp2h my-2 font-500 fontsize-13 font-500 shadow-sm-hover d-block"><span data-feather="send" class="text-white me-2"></span>Apply now</a>
-								<div onclick=show_toast_swal() class="btn btn-light htl-cp2cb htfthr border my-2 fontsize-13 font-500 color-black shadow-sm-hover hover-text-primary hover-text-feather"><span data-feather="bookmark"></span> Add to Bookmarks</div>
+								<div onclick=show_toast_swal() class="btn btn-light htl-cp2cb htfthr border my-2 fontsize-13 font-500 color-black shadow-sm-hover"><span data-feather="bookmark"></span> Add to Bookmarks</div>
 							</div>
 						<?php
 						}
@@ -105,8 +105,8 @@ require "job-head.html";
 						?>
 
 					</ol> -->
-					<p class="font-400 fontsize-14 color-black">Job Details</p>
-					<p class="font-500 fontsize-14 color-black">Job Requirements:</p>
+					<p class="font-700 fontsize-14 color-black tu">Job Details</p>
+					<p class="font-700 fontsize-13 color-black">Job Requirements:</p>
 					<ol>
 						<?php
 						for ($i = 0; $i < count($requirements); $i++) {
@@ -116,7 +116,8 @@ require "job-head.html";
 						}
 						?>
 					</ol>
-					<p class="font-500 fontsize-14 color-black">Job Responsibilities/Duties:</p>
+					<hr>
+					<p class="font-700 fontsize-13 color-black">Job Responsibilities/Duties:</p>
 					<ol class="mb-5">
 						<?php
 						for ($i = 0; $i < count($responsibilities); $i++) {
@@ -126,19 +127,22 @@ require "job-head.html";
 						}
 						?>
 					</ol>
-					<p class="font-500 fontsize-14">Job Description</p>
+					<hr>
+					<p class="font-700 fontsize-13">Job Description</p>
 					<p class="fontsize-13 colorblack"><?php echo $row["job_info"]; ?></p>
+					<br>
+					<hr>
 					<div class="row">
 						<div class="col-md-6">
-							<p class="fontsize-14 font-500 color-black m-0">Career Level</p>
+							<p class="fontsize-13 font-700 color-black m-0">Career Level</p>
 							<p class="fontsize-13 color-black"><?php echo $row["career_level"]; ?></p>
-							<p class="fontsize-14 font-500 color-black m-0">Job Type</p>
+							<p class="fontsize-13 font-700 color-black m-0">Job Type</p>
 							<p class="fontsize-13 color-black"><?php echo $row["job_type"]; ?></p>
 						</div>
 						<div class="col-md-6">
-							<p class="fontsize-14 font-500 color-black m-0">Qualification</p>
+							<p class="fontsize-13 font-700 color-black m-0">Qualifications</p>
 							<p class="fontsize-13 color-black"><?php echo $row["job_qualifications"]; ?></p>
-							<p class="fontsize-14 font-500 color-black m-0">Job Specializations</p>
+							<p class="fontsize-13 font-700 color-black m-0">Job Specialisations</p>
 							<p class="fontsize-13 color-black"><?php echo $row["job_specialization"]; ?></p>
 						</div>
 					</div>
@@ -165,7 +169,7 @@ require "job-head.html";
 			form = document.getElementById("hidden_job_id");
 			form.submit();
 		}
-		var parent = document.getElementById('jobs-link-nav').parentElement
+		var parent = document.getElementById('jobs-link-nav')
 		parent.classList.add('active');
 		document.getElementById('jobs-link').classList.add('active')
 	</script>

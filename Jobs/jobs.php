@@ -125,7 +125,7 @@ require "job-head.html";
         loadPage();
         feather.replace();
         document.title = "CCIT | Job List";
-        var parent = document.getElementById('jobs-link-nav').parentElement
+        var parent = document.getElementById('jobs-link-nav')
         parent.classList.add('active');
         document.getElementById('jobs-link').classList.add('active')
     </script>

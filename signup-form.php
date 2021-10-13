@@ -23,7 +23,7 @@ require "html/head.html";
                 </div>
                 <div class="col-md-6 d-flex justify-content-center align-items-center">
                     <div class="image-container overflow-visible" style="height: 400px; width: 400px;">
-                        <img src="Images/svg/undraw_Access_account.svg" alt="">
+                        <img src="Images/svg/undraw_access.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -62,6 +62,12 @@ require "html/head.html";
     <script>
         loadPage();
         feather.replace()
+        const link = document.getElementById('reg-link')
+        link.classList.remove('decor-none', 'text-white')
+        link.classList.add('text-yellow')
+        const span = document.getElementById('reg-span')
+        span.classList.add('text-yellow')
+        span.classList.remove('text-white')
     </script>
 
 </body>

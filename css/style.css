@@ -3,6 +3,7 @@
     height: 16px;
     vertical-align: middle;
     margin-right: 2px;
+    margin-bottom: .25rem;
 }
 
 input[type=number] {
@@ -39,6 +40,10 @@ input[type=number] {
 
 .font-700{
     font-weight: 700 !important;
+}
+
+.font-900{
+    font-weight: 900;
 }
 
 .min-h-200{
@@ -102,6 +107,10 @@ input[type=number] {
 .hw-100pcent{
     height: 100%;
     width: 100%;
+}
+
+.h100{
+    height: 100%;
 }
 
 .width-100{
@@ -197,7 +206,8 @@ input[type=number] {
 }
 
 .hover-text-primary:hover, .htp:hover, .htpf:hover > .feather, .hover-text-feather:hover > .feather{
-    color: #0d6efd !important;
+    /* color: #0d6efd !important; */
+    color: #004C2A !important;
     transition: 0.4s;
 }
 
@@ -241,11 +251,11 @@ input[type=number] {
 }
 
 .fontsize-13{
-    font-size: 13px !important;
+    font-size: 14px !important;
 }
 
 .fontsize-14{
-    font-size: 14px !important;
+    font-size: 16px !important;
 }
 
 .fontsize-24{
@@ -282,8 +292,11 @@ input[type=number] {
     top: 0;
     bottom: 0;
     left: 0;
-    border: 1.5px solid rgb(133, 156, 59);
-    background: rgb(133, 156, 59);
+    /* border: 1.5px solid rgb(133, 156, 59);
+    background: rgb(133, 156, 59); */
+    border: 1.5px solid #FCB900;
+    background: #FCB900;
+    
 }
 
 .bt-visible-primary-4{
@@ -320,7 +333,9 @@ input[type=number] {
 }
 
 .bg-cp2{
-    background-color: rgb(133, 156, 59) !important;
+    /* background-color: rgb(133, 156, 59) !important; */
+    background-color: #0C2440 !important;
+    color: #fff !important;
 }
 
 .bg-csfb{
@@ -329,11 +344,13 @@ input[type=number] {
 
 .hbg-light:hover, .hbg-light.active{
     background-color: rgb(240, 240, 240);
-    color: rgb(133, 156, 59) !important;
+    /* color: rgb(133, 156, 59) !important; */
+    color: #FCB900 !important;
 }
 
 .bt-cp2-4{
-    border-top: 4px solid rgb(133, 156, 59) !important;
+    /* border-top: 4px solid rgb(133, 156, 59) !important; */
+    border-top: 4px solid #0C2440 !important;
 }
 
 .htl-cp2, .ht-cp2, .htl-cp2cb:hover, .htfthr:hover > .feather{
@@ -358,4 +375,50 @@ input[type=number] {
 
 .brd-t4{
     border-top: 4px solid rgb(133, 156, 59);
+}
+
+
+/* FROM INDEX */
+a.active, .hvbg-ligth:hover{
+    background-color: rgb(240, 240, 240) !important;
+}
+
+.bg-1{
+    background-color: #004C2A !important;
+    color: #fff !important;
+}
+
+.bg-2{
+    background-color: #0C2440 !important;
+    color: #fff !important;
+}
+
+.text-yellow, .hvtext-yellow:hover, .hvtext-yellow.active, .hvtext-yellow:hover > .feather{
+    color: #FCB900 !important;
+}
+
+.search-btn{
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0!important;
+}
+
+.btn.bg-2:hover{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0) !important;
+    color: #FCB900 !important;
+}
+
+.under{
+    text-decoration: underline !important;
+}
+
+.bg-2xlight{
+    background-color: rgb(240, 240, 240);
+}
+
+.decor-none{
+    text-decoration: none !important;
+}
+
+.text-justify{
+    text-align: justify;
 }

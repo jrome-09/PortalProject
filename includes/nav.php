@@ -1,4 +1,5 @@
 <?php
+
 $directory;
 $log_directory;
 if (file_exists('includes/login.inc.php')) {
@@ -98,82 +99,97 @@ if (isset($_SESSION['emp_email'])) {
 	}
 }
 
+if (file_exists('css/mobile.css')) {
+	echo '<link rel="stylesheet" href="css/mobile.css">';
+} else {
+	echo '<link rel="stylesheet" href="../css/mobile.css">';
+}
+
+if (file_exists('scripts/libraries.php')) {
+	require_once 'scripts/libraries.php';
+} else {
+	require_once '../scripts/libraries.php';
+}
 
 ?>
-
-<header class="border-bottom">
-	<div class="bg-cp2">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<header class="bg-white shadow-sm">
+	<div class="bg-2">
 		<div class="max-width-container py-1">
 			<div class="row">
-				<div class="col">
-					<div class="fontsize-13 text-white d-inline-block">
-						University of Northern Philippines
-					</div>
+				<div class="col-sm-6 text-yellow hvtext-yellow">
+					University of Northern Philippines
 				</div>
-				<div class="col">
-					<div class="float-end d-flex align-items-center">
-						<span data-feather="briefcase" class="text-white me-2"></span>
-						<a href="#" id="emp-link" class="ntd htp text-end fontsize-13 text-white me-4">For Employers</a>
-						<span data-feather="arrow-right" class="text-white me-2"></span>
-
-						<?php
-						if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
-						?>
-							<a href="includes/logout.inc.php" class="ntd htp text-end fontsize-13 text-white" id="log-out-link">Log out</a>
-						<?php
-						} else {
-						?>
-							<a href="#" id="reg-link" class="ntd htp text-end fontsize-13 text-white">Register</a>
-						<?php
-						}
-						?>
-					</div>
+				<div class="col-sm-6 text-end">
+					<a href="#" id="emp-link" class="decor-none text-white me-4 hvtext-yellow">
+						<span data-feather="briefcase" class="text-white" id="emp-span"></span>
+						For Employers
+					</a>
+					<?php
+					if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
+					?>
+						<a href="#" id="log-out-link" class="decor-none text-white hvtext-yellow">
+							<span data-feather="arrow-right" class="text-white"></span>
+							Log out
+						</a>
+					<?php
+					} else {
+					?>
+						<a href="#" id="reg-link" class="decor-none text-white hvtext-yellow">
+							<span data-feather="arrow-right" class="text-white" id="reg-span"></span>
+							Register
+						</a>
+					<?php
+					}
+					?>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="bg-cp1">
+
+	<div class="bg-1">
 		<div class="max-width-container py-3">
 			<div class="row">
-				<div class="col-sm-9">
-					<div class="row">
-						<div class="col-sm-5 d-flex align-items-center">
-							<div class="image-container border rounded-circle hw-70px bg-csfb">
+				<div class="col-md-4 mb-2 d-flex align-items-center">
+					<div class="img-container border rounded-circle bg-white me-2" style="height: 50px; width: 50px; min-width: 50px;">
 
-							</div>
-							<div class="p-2">
-								<a href="index.php" class="ntd fontsize-13 font-700 text-white htp m-0" id="web-id">COLLEGE OF COMMUNICATION AND INFORMATION TECHNOLOGY</a>
-							</div>
-						</div>
-						<div class="col-sm-7 d-flex align-items-center">
-							<div class="input-group my-4">
-								<input type="text" class="form-control fontsize-13" placeholder="Search Job Title..." aria-describedby="button-addon2">
-								<button class="btn bg-cp2 text-white fontsize-13 font-500" type="button" id="button-addon2">Search</button>
-							</div>
+					</div>
+					<a href="#" id="web-id" class="decor-none font-900 text-white hvtext-yellow">
+						COLLEGE OF COMMUNICATION AND INFORMATION TECHNOLOGY
+					</a>
+				</div>
+				<div class="col-md-5 mb-2 d-flex align-items-center">
+					<div class="input-group mb-0">
+						<input type="text" class="form-control" placeholder="Search Job...">
+						<div class="input-group-append">
+							<button class="btn bg-2 rounded-right round search-btn border-secondary" type="button">Search</button>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-3 d-flex align-items-center justify-content-end position-relative">
-					<div class="image-container border m-1 bg-csfb hw-30px rounded-circle">
-						<img src="<?php if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
-										echo $profile_image;
-									} else {
-										if (file_exists("uploads/profiles/default_profile02.png")) {
-											echo "uploads/profiles/default_profile02.png";
-										} else {
-											echo "../uploads/profiles/default_profile02.png";
-										}
-									} ?>" alt="">
+				<div class="col-md-3 mb-2 d-flex align-items-center justify-content-end web position-relative">
+					<div class="image-container border rounded-circle me-2 bg-white" style="height: 30px; width: 30px;">
+						<img src="
+					<?php if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
+						echo $profile_image;
+					} else {
+						if (file_exists('images/default_profile.png')) {
+							echo 'images/default_profile.png';
+						} else {
+							echo '../images/default_profile.png';
+						}
+					} ?>" alt="">
 					</div>
-					<span data-feather="bell" class="text-white m-1 htp"></span>
-
 					<?php
 					if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
 						if (isset($_SESSION['username'])) {
+							if (file_exists('includes/notification.php')) {
+								require_once 'includes/notification.php';
+							} else {
+								require_once '../includes/notification.php';
+							}
 					?>
-							<!-- <a href="#" onclick="show_ul_dropdown()" class="fontsize-13 text-white htp htpf m-1 ntd"><?php echo $nav_username; ?><span data-feather="chevron-down" class="text-white htp"></a> -->
 							<div class="ms-1">
-								<a href="#" onclick="show_ul_dropdown()" class="d-flex align-items-center fontsize-13 font-500 text-white htp htpf ntd">
+								<a href="#" onclick="document.getElementById('dropdown_ul').style.display = 'block'" class="decor-none text-white font-500 hvtext-yellow">
 									<?php echo $nav_username; ?>
 									<span data-feather="chevron-down" class="text-white htp me-0"></span>
 								</a>
@@ -189,7 +205,7 @@ if (isset($_SESSION['emp_email'])) {
 
 							?>
 							<div class="ms-1">
-								<a href="#" onclick="show_ul_dropdown()" class="d-flex align-items-center fontsize-13 font-500 text-white htp htpf ntd">
+								<a href="#" onclick="document.getElementById('dropdown_ul').style.display = 'block'" class="decor-none text-white font-500 hvtext-yellow">
 									<?php echo $nav_username; ?>
 									<span data-feather="chevron-down" class="text-white htp me-0"></span>
 								</a>
@@ -204,7 +220,10 @@ if (isset($_SESSION['emp_email'])) {
 						}
 					} else {
 						?>
-						<a href="#" id="lgn-btn" class="fontsize-14 text-white htp m-1 ntd" onclick="show_loggin()">Login</a>
+						<a href="#" id="lgn-btn" onclick="show_loggin()" class="decor-none text-white font-500 hvtext-yellow">
+							<span data-feather="log-in" class="text-white"></span>
+							Log in
+						</a>
 					<?php
 					}
 					?>
@@ -212,42 +231,63 @@ if (isset($_SESSION['emp_email'])) {
 			</div>
 		</div>
 	</div>
-	<div class="bg-white">
-		<div class="max-width-container py-0">
-			<nav>
-				<ul class="m-0 text-center">
-					<li class="p-2 d-inline-block hbg-light">
-						<a href="index.php" class="ntd htp fontsize-13 mx-0 my-0 color-black font-500" id="index-link">Home</a>
-					</li>
-					<?php
-					if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
-					?>
-						<li class="p-2 d-inline-block hbg-light">
-							<a href="Candidate/candidate.php" class="ntd mx-2 htp fontsize-13 mx-2 my-0 color-black font-500" id="mypage-link">My Page</a>
-						</li>
-					<?php
-					}
-					?>
-					<li class="p-2 d-inline-block hbg-light">
-						<a href="about.php" class="ntd htp fontsize-13 mx-2 my-0 color-black font-500" id="about-link">About us</a>
-					</li>
-					<li class="p-2 d-inline-block hbg-light">
-						<a href="contacts.php" class="ntd htp fontsize-13 mx-2 my-0 color-black font-500" id="contacts-link">Contacts</a>
-					</li>
-					<li class="p-2 d-inline-block hbg-light">
-						<a href="Alumni/alumni-index.php" class="ntd htp fontsize-13 mx-2 my-0 color-black font-500" id="alumni-link">CCIT Alumni</a>
-					</li>
-					<li class="p-2 d-inline-block hbg-light">
-						<a href="Employers/employers-profile-page.php" class="ntd htp fontsize-13 mx-2 my-0 color-black font-500" id="employer-prof-link">Employer Profile</a>
-					</li>
-					<li class="p-2 d-inline-block hbg-light">
-						<a href="Jobs/jobs.php" class="ntd htp fontsize-13 mx-2 my-0 color-black font-500" id="jobs-link-nav">Search Jobs</a>
-					</li>
-					<li class="p-2 d-inline-block hbg-light">
-						<a href="Forum/forum-index.php" class="ntd htp fontsize-13 mx-2 my-0 color-black font-500" id="forum-link">Forum</a>
-					</li>
 
-				</ul>
+	<div class="border-bottom">
+		<div class="max-width-container py-0 ">
+			<nav class="navbar navbar-expand-lg navbar-light bg-white p-0">
+				<div class="navbar-brand align-items-center justify-self-start mobile d-none">
+					<div class="image-container border rounded-circle me-2 bg-white" style="height: 30px; width: 30px;">
+						<img src="
+                        <?php
+						if (file_exists('images/default_profile.png')) {
+							echo 'images/default_profile.png';
+						} else {
+							echo '../images/default_profile.png';
+						}
+						?>
+                        " alt="">
+					</div>
+					<a href="#" class="decor-none color-black font-500 hvtext-yellow">
+						Log in
+					</a>
+				</div>
+				<button class="navbar-toggler my-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link color-black font-400 px-4 hvbg-ligth hvtext-yellow" href="#" id="index-link">Home <span class="sr-only"></span></a>
+						</li>
+						<?php
+						if (isset($_SESSION['username']) || isset($_SESSION['emp_email'])) {
+						?>
+							<li class="nav-item">
+								<a class="nav-link color-black font-400 px-4 hvbg-ligth hvtext-yellow" href="#" id="mypage-link">My Page <span class="sr-only"></span></a>
+							</li>
+						<?php
+						}
+						?>
+						<li class="nav-item">
+							<a class="nav-link color-black font-400 px-4 hvbg-ligth hvtext-yellow" href="#" id="about-link">About us <span class="sr-only"></span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link color-black font-400 px-4 hvbg-ligth hvtext-yellow" href="#" id="contacts-link">Contacts <span class="sr-only"></span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link color-black font-400 px-4 hvbg-ligth hvtext-yellow" href="#" id="alumni-link">CCIT Alumni <span class="sr-only"></span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link color-black font-400 px-4 hvbg-ligth hvtext-yellow" href="#" id="employer-prof-link">Companies <span class="sr-only"></span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link color-black font-400 px-4 hvbg-ligth hvtext-yellow" href="#" id="jobs-link-nav">Search Jobs <span class="sr-only"></span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link color-black font-400 px-4 hvbg-ligth hvtext-yellow" href="#" id="forum-link">Forum <span class="sr-only"></span></a>
+						</li>
+					</ul>
+				</div>
 			</nav>
 		</div>
 	</div>
@@ -261,7 +301,7 @@ if (isset($_SESSION['emp_email'])) {
 			'<label for="login-password" class="required color-light text-start" >Password</label>' +
 			'<input type="password" name="login_password" class="form-control fontsize-13" id="login-password">' +
 			'</form>' +
-			'<div class="swal2-validation-message fontsize-13 d-none mb-2" id="swal2-validation-message" style="display: flex;"></div>'
+			'<div class="swal2-validation-message fontsize-13 d-none mb-2" id="swal2-validation-message-log" style="display: flex;"></div>'
 		Swal.fire({
 			title: 'User Login',
 			html: data,
@@ -277,7 +317,7 @@ if (isset($_SESSION['emp_email'])) {
 			customClass: {
 				popup: "me-17px swal-width-400 font-poppins",
 				title: "color-black font-700 fontsize-24 mb-4",
-				htmlContainer: "color-light pt-0 fontsize-13",
+				htmlContainer: "color-light pt-0 fontsize-13 text-start",
 				confirmButton: "btn bg-cp2 px-4 fontsize-13 font-500",
 				cancelButton: "btn px-4 fontsize-13 font-500",
 				footer: "py-1"
@@ -299,8 +339,8 @@ if (isset($_SESSION['emp_email'])) {
 		echo "document.getElementById('dropdown_username').innerHTML = '" . $nav_username . "';";
 		echo "document.getElementById('dropdown_university').innerHTML = '" . $cname . "';";
 
-		$loglink_ids2 = ['log-out-link', 'mypage-link', 'applicants-link'];
-		$loglink_directories2 = ['includes/logout.inc.php', 'Employers/employer-page.php', 'Employers/applicants.php'];
+		$loglink_ids2 = ['log-out-link', 'mypage-link', 'applicants-link', 'dash-link'];
+		$loglink_directories2 = ['includes/logout.inc.php', 'Employers/employer-page.php', 'Employers/applicants.php', 'Employers/employer-page.php'];
 
 		for ($i = 0; $i < count($loglink_ids2); $i++) {
 			$explode = explode("/", $loglink_directories2[$i])[1];
@@ -341,8 +381,20 @@ if (isset($_SESSION['emp_email'])) {
 		}
 	}
 
-	$link_ids = ['web-id', 'index-link', 'about-link', 'contacts-link', 'alumni-link', 'employer-prof-link', 'jobs-link-nav', 'forum-link', 'emp-link', 'reg-link'];
-	$link_directories = ['index.php', 'index.php', 'about.php', 'contacts.php', 'Alumni/alumni-index.php', 'Employers/employers-profile-page.php', 'Jobs/jobs.php', 'Forum/forum-index.php', 'Employers/index.php', 'signup-form.php'];
+	if (!isset($_SESSION['username']) && !isset($_SESSION['emp_email'])) {
+		$a = ['reg-link'];
+		$b = ['signup-form.php'];
+		for ($i = 0; $i < count($a); $i++) {
+			if (file_exists($b[$i])) {
+				echo 'document.getElementById("' . $a[$i] . '").href ="' . $b[$i] . '";';
+			} else {
+				echo 'document.getElementById("' . $a[$i] . '").href = "../' . $b[$i] . '";';
+			}
+		}
+	}
+
+	$link_ids = ['web-id', 'index-link', 'about-link', 'contacts-link', 'alumni-link', 'employer-prof-link', 'jobs-link-nav', 'forum-link', 'emp-link'];
+	$link_directories = ['index.php', 'index.php', 'about.php', 'contacts.php', 'Alumni/alumni-index.php', 'Employers/employers-profile-page.php', 'Jobs/jobs.php', 'Forum/forum-index.php', 'Employers/index.php'];
 	for ($i = 0; $i < count($link_ids); $i++) {
 		if (file_exists($link_directories[$i])) {
 			echo 'document.getElementById("' . $link_ids[$i] . '").href ="' . $link_directories[$i] . '";';

@@ -39,15 +39,15 @@ require "candidate-head.html";
 							<a href="#" class="no-text-decor color-black fontsize-13 hover-text-primary hover-text-feather"><span data-feather="settings"></span>Update your Profile</a>
 						</div>
 						<div class="col-md-6 d-flex align-items-center justify-content-center">
-							<ul>
+							<ul class="mb-0">
 								<li class="d-inline-block">
-									<a href="bookmarks.php" class="color-black fontsize-14 hover-text-primary hover-text-feather px-3"><span data-feather="bookmark"></span> Saved Jobs</a>
+									<a href="bookmarks.php" class="color-black hover-text-primary hover-text-feather px-3"><span data-feather="bookmark"></span> Saved Jobs</a>
 								</li>
 								<li class="d-inline-block">
-									<a href="job-applications.php" class="color-black fontsize-14 hover-text-primary hover-text-feather px-3"><span data-feather="activity"></span> Job Applications</a>
+									<a href="job-applications.php" class="color-black hover-text-primary hover-text-feather px-3"><span data-feather="activity"></span> Job Applications</a>
 								</li>
 								<li class="d-inline-block">
-									<a href="#" class="color-black fontsize-14 hover-text-primary hover-text-feather px-3"><span data-feather="bell"></span> Alerts</a>
+									<a href="#" class="color-black hover-text-primary hover-text-feather px-3"><span data-feather="bell"></span> Alerts</a>
 								</li>
 							</ul>
 						</div>
@@ -118,8 +118,8 @@ require "candidate-head.html";
 		loadPage();
 		feather.replace();
 		document.title = "Candidate | Homepage";
-		var parent = document.getElementById('mypage-link').parentElement
-        parent.classList.add('active');
+		var parent = document.getElementById('mypage-link')
+		parent.classList.add('active');
 		document.getElementById('dash-link').classList.add('active')
 	</script>
 </body>

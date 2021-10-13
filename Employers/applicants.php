@@ -94,7 +94,7 @@ require "style-link.html";
 												<td><?php echo $ab['date_created']; ?></td>
 												<td><span data-feather="<?php echo $status; ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $title ?>"></span></td>
 												<td>
-													<button type="button" onclick="approve_alert(this.id)" id="app_<?php echo $ab['_id']; ?>" class="btn btn-warning px-2 fontsize-13 font-500" data-bs-toggle="tooltip" data-bs-placement="top" title="Full Info"><span data-feather="eye" class="text-white m-0"></span></button>
+													<button type="button" class="btn btn-warning px-2 fontsize-13 font-500" data-bs-toggle="tooltip" data-bs-placement="top" title="Full Info"><span data-feather="eye" class="text-white m-0"></span></button>
 													<button type="button" onclick="download_resume(this.id)" id="<?php echo $ab['applicant_resume']; ?>" class="btn btn-primary px-2 fontsize-13 font-500" data-bs-toggle="tooltip" data-bs-placement="top" title="Download Resume"><span data-feather="download" class="text-white m-0"></span></button>
 													<button type="button" onclick="approve_alert(this.id)" id="app_<?php echo $ab['_id']; ?>" class="btn bg-cp2 px-2 fontsize-13 font-500" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve"><span data-feather="check" class="text-white m-0"></span></button>
 													<button type="button" onclick="disapprove_alert(this.id)" id="app_<?php echo $ab['_id']; ?>" class="btn btn-danger px-2 fontsize-13 font-500" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete/Disapprove"><span data-feather="trash" class="text-white m-0"></span></button>

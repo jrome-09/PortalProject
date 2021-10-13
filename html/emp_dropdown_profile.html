@@ -22,7 +22,7 @@
                     My Page</a>
                 <a href="#" id="profile-link" class="px-3 py-2 fontsize-13 color-black no-text-decor blh hbg-light">Your
                     Profile</a>
-                    <a href="applicants.php" id="applicants-link"
+                <a href="applicants.php" id="applicants-link"
                     class="px-3 py-2 fontsize-13 color-black no-text-decor blh hbg-light">
                     Applicants</a>
                 <!-- <a href="bookmarks.php" id="bookmarks-link"
@@ -31,7 +31,7 @@
                     class="px-3 py-2 fontsize-13 color-black no-text-decor blh hbg-light">Notifications</a> -->
             </div>
             <div class="d-flex flex-column flex-fill">
-                
+
                 <!-- <a href="job-applications.php" id="job-app-link"
                     class="px-3 py-2 fontsize-13 color-black no-text-decor blh hbg-light">Job
                     Applications</a> -->
@@ -44,3 +44,11 @@
         </div>
     </div>
 </ul>
+<script>
+    window.addEventListener('mouseup', function (event) {
+        var drop = document.getElementById('dropdown_ul');
+        if (event.target != drop && event.target.parentNode != drop) {
+            drop.style.display = 'none';
+        }
+    });
+</script>

@@ -52,10 +52,11 @@ function validate_login(dir, dir2) {
 	}
 
 	if (error_empty) {
-		show_swal_validation("Please input your email and password");
+		show_swal_validation02('swal2-validation-message-log',"Please input your email and password");
 		permission = false;
 	} else {
-		document.getElementById("swal2-validation-message").innerHTML = "";
+		hide_swal_validation02('swal2-validation-message-log')
+		//document.getElementById("swal2-validation-message-log").innerHTML = "";
 		permission = true;
 	}
 
@@ -251,10 +252,12 @@ function validate_alumni_form01() {
 	}
 
 	if (error_empty) {
-		document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+		//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+		show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
 		permission = false;
 	} else {
-		document.getElementById('error_result').innerHTML = "";
+		//document.getElementById('error_result').innerHTML = "";
+		hide_swal_validation02('swal2-validation-message')
 		permission = true;
 	}
 
@@ -280,7 +283,8 @@ function validate_employment_profile() {
 		for (let x = 0; x < labels.length; x++) {
 			if (labels[x].htmlFor === "employment_status") {
 				true_class(labels[x]);
-				document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+				//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+				show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
 			}
 		}
 		persmission = false;
@@ -360,10 +364,12 @@ function validate_alumni_form03_employed() {
 	}
 
 	if (error_empty) {
-		document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+		show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
+		//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
 		permission = false;
 	} else {
-		document.getElementById('error_result').innerHTML = "";
+		//document.getElementById('error_result').innerHTML = "";
+		hide_swal_validation02('swal2-validation-message')
 		permission = true;
 	}
 
@@ -423,10 +429,12 @@ function validate_alumni_form03_self_employed() {
 	}
 
 	if (error_empty) {
-		document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+		//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+		show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
 		permission = false;
 	} else {
-		document.getElementById('error_result').innerHTML = "";
+		//document.getElementById('error_result').innerHTML = "";
+		hide_swal_validation02('swal2-validation-message')
 		permission = true;
 	}
 
@@ -472,10 +480,12 @@ function validate_alumni_form03_unemployed() {
 	}
 
 	if (error_empty) {
-		document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+		//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+		show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
 		permission = false;
 	} else {
-		document.getElementById('error_result').innerHTML = "";
+		//document.getElementById('error_result').innerHTML = "";
+		hide_swal_validation02('swal2-validation-message')
 		permission = true;
 	}
 
@@ -524,10 +534,12 @@ function validate_af03_exp_employed() {
 	}
 
 	if (error_empty) {
-		document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+		//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
+		show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
 		permission = false;
 	} else {
-		document.getElementById('error_result').innerHTML = "";
+		//document.getElementById('error_result').innerHTML = "";
+		hide_swal_validation02('swal2-validation-message')
 		permission = true;
 	}
 
@@ -599,30 +611,30 @@ function validate_employer_form() {
 	}
 
 	if (error_empty) {
-		show_swal_validation("Please make sure to fill up all needed requirements.");
+		show_swal_validation02('swal2-validation-message-sign', "Please make sure to fill up all needed requirements.");
 		permission = false;
 	} else {
-		document.getElementById("swal2-validation-message").innerHTML = "";
+		hide_swal_validation02('swal2-validation-message-sign')
 		const email = document.getElementById('e-address').value
 		const password = document.getElementById('emp-password').value
 		const repassword = document.getElementById('emp-repassword').value
 		if (validateEmail(email)) {
-			hide_swal_validation();
+			document.getElementById("swal2-validation-message-sign").classList.add("d-none");
 			if (ValidatePassword(password)) {
 				document.getElementById('password-label').classList.remove("text-danger");
 				if (password != repassword) {
 					document.getElementById('password-label').classList.add("text-danger");
-					show_swal_validation("Password not matched.");
+					show_swal_validation02('swal2-validation-message-sign', "Password not matched.");
 				} else {
 					//VerificationPassed*CodeHere
 					submit_employer_form()
 				}
 			} else {
 				document.getElementById('password-label').classList.add("text-danger");
-				show_swal_validation("Check your password.");
+				show_swal_validation02('swal2-validation-message-sign', "Check your password.");
 			}
 		} else {
-			show_swal_validation("Invalid Email address.");
+			show_swal_validation02('swal2-validation-message-sign', "Invalid Email address.");
 		}
 	}
 }

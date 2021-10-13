@@ -99,11 +99,12 @@ function login_user(dir, log_dir) {
           window.location = log_dir;
         });
 
-        document.getElementById("swal2-validation-message").innerHTML = "";
+        //document.getElementById("swal2-validation-message").innerHTML = "";
+        hide_swal_validation02('swal2-validation-message-log')
       } else if (data === "email does not exist.") {
-        show_swal_validation("Invalid email or password.");
+        show_swal_validation02('swal2-validation-message-log', "Invalid email or password.");
       } else if (data === "wrong password.") {
-        show_swal_validation("Invalid email or password.");
+        show_swal_validation02('swal2-validation-message-log', "Invalid email or password.");
       }
     }
   );
@@ -413,18 +414,18 @@ function submit_jobpost() {
     $("#job_form").serialize(),
     function (data) {
       console.log(data)
-     if (data === "Success") {
-       
-       const icon = 'success'
-       const title = 'Success!!'
-       const text = 'The job has been posted and can now be seen by jobseekers.'
-       const button = 'Ok'
-       const location = 'employer-page.php'
+      if (data === "Success") {
 
-       show_alert(icon, title, text, button, location)
-     }else{
-       alert('Something went wrong while inserting the data. Please refresh the page.')
-     }
+        const icon = 'success'
+        const title = 'Success!!'
+        const text = 'The job has been posted and can now be seen by jobseekers.'
+        const button = 'Ok'
+        const location = 'employer-page.php'
+
+        show_alert(icon, title, text, button, location)
+      } else {
+        alert('Something went wrong while inserting the data. Please refresh the page.')
+      }
     }
   );
 }

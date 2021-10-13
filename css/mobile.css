@@ -1,0 +1,14 @@
+@media screen and (max-width: 900px){
+    .max-width-container{
+        padding: 1.5rem;
+        overflow: hidden;
+    }
+
+    div.mobile{
+        display: flex !important;
+    }
+
+    div.web{
+        display: none !important;
+    }
+}
