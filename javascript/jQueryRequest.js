@@ -174,7 +174,7 @@ function alumni_form02_submit() {
         "Employed",
         "Self-Employed",
         "Unemployed",
-        "Experienced Unemployed",
+        "Currently Unemployed but had been employed before",
       ];
 
       if (data === status[0]) {
@@ -230,29 +230,63 @@ function get_session() {
 
 //Alumni FORM
 function submit_session() {
-  $.post(
-    "includes/form_submit.inc.php",
-    $("#sessionsubmit_form").serialize(),
-    function (data) {
-      console.log(data);
+  var form = $("#sessionsubmit_form")[0];
+  var data = new FormData(form);
+  $.ajax({
+    type: "POST",
+    enctype: "multipart/form-data",
+    url: "includes/form_submit.inc.php",
+    data: data,
+    processData: false,
+    contentType: false,
+    cache: false,
+    timeout: 600000,
+    success: function (data) {
       if (data === "Information Saved!") {
         const icon = "success";
         const title = "Information Submitted!";
         const text = "You have successfully submitted your information.";
         const button = "Close";
-        const location = "";
-        show_alert(icon, title, text, button);
+        const location = "form01.php";
+        show_alert(icon, title, text, button, location);
       } else {
         const icon = "error";
-        const title = "Submittion Failed!";
+        const title = "Submission Failed!";
         const text =
           "Failed submitting your Information. Please refresh the page and try again.";
         const button = "Close";
         const location = "form04-identification.php";
-        show_alert(icon, title, text, button);
+        console.log(data)
+        show_alert(icon, title, text, button, location);
       }
-    }
-  );
+    },
+    error: function (e) {
+      console.log(e.responseText);
+    },
+  });
+  // $.post(
+  //   "includes/form_submit.inc.php",
+  //   $("#sessionsubmit_form").serialize(),
+  //   function (data) {
+  //     console.log(data);
+  //     if (data === "Information Saved!") {
+  //       const icon = "success";
+  //       const title = "Information Submitted!";
+  //       const text = "You have successfully submitted your information.";
+  //       const button = "Close";
+  //       const location = "form01.php";
+  //       show_alert(icon, title, text, button, location);
+  //     } else {
+  //       const icon = "error";
+  //       const title = "Submission Failed!";
+  //       const text =
+  //         "Failed submitting your Information. Please refresh the page and try again.";
+  //       const button = "Close";
+  //       const location = "form04-identification.php";
+  //       show_alert(icon, title, text, button, location);
+  //     }
+  //   }
+  // );
 }
 
 function submit_profileSetup02() {

@@ -25,7 +25,7 @@ require "../html/script.html";
                         <main class="p-4">
                             <label for="reasons" class="required color-light text-start fontsize-13 mb-2">Reasons for being Self-Employed:</label>
                             <div class="mb-2">
-                                <input type="checkbox" name="reason01_checkbox" class="btn-check" id="reason01_checkbox" autocomplete="off"">
+                                <!-- <input type="checkbox" name="reason01_checkbox" class="btn-check" id="reason01_checkbox" autocomplete="off"">
                                 <label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="reason01_checkbox">
                                 I am managing a family-owned company.
                                 </label>
@@ -53,7 +53,43 @@ require "../html/script.html";
                                 <input type="checkbox" name="reason06_checkbox" class="btn-check" id="reason06_checkbox" autocomplete="off"">
                                 <label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="reason06_checkbox">
                                 I applied for jobs relevant to my field but I lacked experience.
-                                </label>
+                                </label> -->
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason01_checkbox">
+                                    <label class="form-check-label" for="reason01_checkbox">
+                                        I am managing a family-owned company.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason02_checkbox">
+                                    <label class="form-check-label" for="reason02_checkbox">
+                                        I wanted to open my own business.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason03_checkbox">
+                                    <label class="form-check-label" for="reason03_checkbox">
+                                        I prefer working freelance than in a company.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason04_checkbox">
+                                    <label class="form-check-label" for="reason04_checkbox">
+                                        I cannot find a job opportunity related to my field.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason05_checkbox">
+                                    <label class="form-check-label" for="reason05_checkbox">
+                                        There are job offerings relevant to my course but the salary is too low.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason06_checkbox">
+                                    <label class="form-check-label" for="reason06_checkbox">
+                                        I applied for jobs relevant to my field but I lacked experience.
+                                    </label>
+                                </div>
                                 <br>
                                 <div class="d-flex flex-row">
                                     <label class=" btn bg-light rounded-0 rounded-start border-end-0 color-black font-500 border fontsize-13 text-start" for="otherreason_input">Other:</label>
@@ -79,7 +115,7 @@ require "../html/script.html";
                     <div class="p-4 border rounded bg-white mb-3 shadow-sm">
                         <label for="monthly_income" class="required color-light text-start fontsize-13 mb-1">Monthly Income:</label>
                         <div class="income_div mb-2">
-                            <input type="checkbox" name="php1_checkbox" class="btn-check" id="php1_checkbox" autocomplete="off" onclick="salaryCheckBox()">
+                            <!-- <input type="checkbox" name="php1_checkbox" class="btn-check" id="php1_checkbox" autocomplete="off" onclick="salaryCheckBox()">
                             <label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="php1_checkbox">
                                 Below Php 10,000.00
                             </label>
@@ -97,7 +133,31 @@ require "../html/script.html";
                             <input type="checkbox" name="php4_checkbox" class="btn-check" id="php4_checkbox" autocomplete="off" onclick="salaryCheckBox()">
                             <label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="php4_checkbox">
                                 PHP 30,000.00 and above
-                            </label>
+                            </label> -->
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" onclick="radio_check('monthly_income', this.name)" type="radio" name="salary_chk" id="radio9" value="Below Php 10,000.00">
+                                <label class="form-check-label" for="radio9">
+                                    Below Php 10,000.00
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" onclick="radio_check('monthly_income', this.name)" type="radio" name="salary_chk" id="radio10" value="PHP 10,000.00 - 19,999.99">
+                                <label class="form-check-label" for="radio10">
+                                    PHP 10,000.00 - 19,999.99
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" onclick="radio_check('monthly_income', this.name)" type="radio" name="salary_chk" id="radio11" value="Php 20,000.00 - 29,999.99">
+                                <label class="form-check-label" for="radio11">
+                                    Php 20,000.00 - 29,999.99
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" onclick="radio_check('monthly_income', this.name)" type="radio" name="salary_chk" id="radio12" value="PHP 30,000.00 and above">
+                                <label class="form-check-label" for="radio12">
+                                    PHP 30,000.00 and above
+                                </label>
+                            </div>
                             <input type="hidden" id="monthly_income" name="monthly_income">
                         </div>
                     </div>
@@ -129,7 +189,8 @@ require "../html/script.html";
     <script src="../javascript/validations.js"></script>
     <script>
         feather.replace();
-        document.title = 'CCIT Tracer'
+        document.title = 'CCIT Alumni Tracer'
+        document.getElementById('alumni-link').classList.toggle('active');
     </script>
 </body>
 

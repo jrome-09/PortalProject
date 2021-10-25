@@ -52,7 +52,7 @@ function validate_login(dir, dir2) {
 	}
 
 	if (error_empty) {
-		show_swal_validation02('swal2-validation-message-log',"Please input your email and password");
+		show_swal_validation02('swal2-validation-message-log', "Please input your email and password");
 		permission = false;
 	} else {
 		hide_swal_validation02('swal2-validation-message-log')
@@ -156,41 +156,41 @@ function clear_value(ids) {
 
 
 function validate_alumni_form01() {
-	var chckbxs = ['sex', 'civil_status', 'residence', 'monthly_salary', 'organization_affiliation', 'academic_awards']
-	clear_value(chckbxs);
-	var ids = ["full_name", "contact_number", "email_address", "address", "age", "sex", "civil_status", "residence", "monthly_salary", "graduation_year", "degree_earned", "organization_affiliation", "academic_awards", "ict_certification"];
+	// var chckbxs = ['organization_affiliation', 'academic_awards']
+	// clear_value(chckbxs);
+	var ids = ["first_name", "middle_name", "last_name", "contact_number", "email_address", "address", "age", "sex", "civil_status", "residence", "monthly_salary", "graduation_year", "degree_earned", "organization_affiliation", "academic_awards", "ict_certification"];
 	var permission;
 
-	var sex_chbx_ids = ['male_checkbox', 'female_checkbox'];
-	if (document.getElementById(sex_chbx_ids[0]).checked) {
-		document.getElementById('sex').value = "Male";
-	} else if (document.getElementById(sex_chbx_ids[1]).checked) {
-		document.getElementById('sex').value = "Female";
-	}
+	// var sex_chbx_ids = ['male_checkbox', 'female_checkbox'];
+	// if (document.getElementById(sex_chbx_ids[0]).checked) {
+	// 	document.getElementById('sex').value = "Male";
+	// } else if (document.getElementById(sex_chbx_ids[1]).checked) {
+	// 	document.getElementById('sex').value = "Female";
+	// }
 
-	var civil_chbx_ids = ['single_checkbox', 'married_checkbox', 'separated_checkbox', 'widowed_checkbox'];
-	var status = ['Single', 'Married', 'Separated', 'Widowed'];
-	for (let i = 0; i < civil_chbx_ids.length; i++) {
-		if (document.getElementById(civil_chbx_ids[i]).checked) {
-			document.getElementById('civil_status').value = status[i];
-		}
-	}
+	// var civil_chbx_ids = ['single_checkbox', 'married_checkbox', 'separated_checkbox', 'widowed_checkbox'];
+	// var status = ['Single', 'Married', 'Separated', 'Widowed'];
+	// for (let i = 0; i < civil_chbx_ids.length; i++) {
+	// 	if (document.getElementById(civil_chbx_ids[i]).checked) {
+	// 		document.getElementById('civil_status').value = status[i];
+	// 	}
+	// }
 
-	var residence_chbx_ids = ['urban_checkbox', 'rural_checkbox'];
-	var residence = ["Urban", "Rural"];
-	for (let i = 0; i < residence_chbx_ids.length; i++) {
-		if (document.getElementById(residence_chbx_ids[i]).checked) {
-			document.getElementById('residence').value = residence[i];
-		}
-	}
+	// var residence_chbx_ids = ['urban_checkbox', 'rural_checkbox'];
+	// var residence = ["Urban", "Rural"];
+	// for (let i = 0; i < residence_chbx_ids.length; i++) {
+	// 	if (document.getElementById(residence_chbx_ids[i]).checked) {
+	// 		document.getElementById('residence').value = residence[i];
+	// 	}
+	// }
 
-	var salary_chbx_ids = ['php1_checkbox', 'php2_checkbox', 'php3_checkbox', 'php4_checkbox']
-	var salary = ['Below Php 10,000.00', 'PHP 10,000.00 - 19,999.99', 'Php 20,000.00 - 29,999.99', 'PHP 30,000.00 and above']
-	for (let i = 0; i < salary_chbx_ids.length; i++) {
-		if (document.getElementById(salary_chbx_ids[i]).checked) {
-			document.getElementById('monthly_salary').value = salary[i];
-		}
-	}
+	// var salary_chbx_ids = ['php1_checkbox', 'php2_checkbox', 'php3_checkbox', 'php4_checkbox']
+	// var salary = ['Below Php 10,000.00', 'PHP 10,000.00 - 19,999.99', 'Php 20,000.00 - 29,999.99', 'PHP 30,000.00 and above']
+	// for (let i = 0; i < salary_chbx_ids.length; i++) {
+	// 	if (document.getElementById(salary_chbx_ids[i]).checked) {
+	// 		document.getElementById('monthly_salary').value = salary[i];
+	// 	}
+	// }
 
 	var affiliation_chbx_ids = ['studentleader_checkbox', 'studentjournalist_checkbox', 'organizationmember_checkbox']
 	var affiliation = ['Student Leader', 'Student Journalist', 'Organization Member'];
@@ -200,6 +200,7 @@ function validate_alumni_form01() {
 			affiliation_checked = affiliation_checked + "/" + affiliation[i];
 		}
 	}
+
 	if (document.getElementById('otheraffiliation_input').value != "") {
 		affiliation_checked = affiliation_checked + "/" + document.getElementById('otheraffiliation_input').value;
 	}
@@ -253,7 +254,7 @@ function validate_alumni_form01() {
 
 	if (error_empty) {
 		//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
-		show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
+		show_swal_validation02('swal2-validation-message', 'Please fill up all required fields.')
 		permission = false;
 	} else {
 		//document.getElementById('error_result').innerHTML = "";
@@ -267,16 +268,16 @@ function validate_alumni_form01() {
 }
 
 function validate_employment_profile() {
-	$("#employment_status").val("");
+	//$("#employment_status").val("");
 	var permission = false;
 
-	var employments_chbx_ids = ["employed_checkbox", "self-employed_checkbox", "unemployed_checkbox", "exp-unemployed_checkbox"];
-	var employments = ["Employed", "Self-Employed", "Unemployed", "Experienced Unemployed"];
-	for (let i = 0; i < employments_chbx_ids.length; i++) {
-		if (document.getElementById(employments_chbx_ids[i]).checked) {
-			document.getElementById('employment_status').value = employments[i];
-		}
-	}
+	// var employments_chbx_ids = ["employed_checkbox", "self-employed_checkbox", "unemployed_checkbox", "exp-unemployed_checkbox"];
+	// var employments = ["Employed", "Self-Employed", "Unemployed", "Experienced Unemployed"];
+	// for (let i = 0; i < employments_chbx_ids.length; i++) {
+	// 	if (document.getElementById(employments_chbx_ids[i]).checked) {
+	// 		document.getElementById('employment_status').value = employments[i];
+	// 	}
+	// }
 
 	if (document.getElementById("employment_status").value == "") {
 		var labels = document.getElementsByTagName('label');
@@ -284,7 +285,7 @@ function validate_employment_profile() {
 			if (labels[x].htmlFor === "employment_status") {
 				true_class(labels[x]);
 				//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
-				show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
+				show_swal_validation02('swal2-validation-message', 'Please fill up all required fields.')
 			}
 		}
 		persmission = false;
@@ -298,50 +299,50 @@ function validate_employment_profile() {
 }
 
 function validate_alumni_form03_employed() {
-	var chckbxs = ['employment_field', 'monthly_income', 'employment_field', 'employment_length', 'ict_related']
-	clear_value(chckbxs);
+	// var chckbxs = ['employment_field', 'monthly_income', 'employment_field', 'employment_length', 'ict_related']
+	// clear_value(chckbxs);
 	var ids = ["employer_name", "employer_address", "present_position", "employment_type", "monthly_income", "employment_field", "employment_length", "ict_related"];
 	var permission;
 
-	var status_chbx_ids = ['permanent_checkbox', 'temporary_checkbox', 'contractual_checkbox', 'casual_checkbox'];
-	var status = ['Permanent', 'Temporary', 'Contractual', 'Casual'];
-	for (let i = 0; i < status_chbx_ids.length; i++) {
-		if (document.getElementById(status_chbx_ids[i]).checked) {
-			document.getElementById('employment_type').value = status[i];
-		}
-	}
+	// var status_chbx_ids = ['permanent_checkbox', 'temporary_checkbox', 'contractual_checkbox', 'casual_checkbox'];
+	// var status = ['Permanent', 'Temporary', 'Contractual', 'Casual'];
+	// for (let i = 0; i < status_chbx_ids.length; i++) {
+	// 	if (document.getElementById(status_chbx_ids[i]).checked) {
+	// 		document.getElementById('employment_type').value = status[i];
+	// 	}
+	// }
 
-	var income_chbx_ids = ['php1_checkbox', 'php2_checkbox', 'php3_checkbox', 'php4_checkbox'];
-	var income = ['Below Php 10,000.00', 'PHP 10,000.00 - 19,999.99', 'Php 20,000.00 - 29,999.99', 'PHP 30,000.00 and above']
-	for (let i = 0; i < income_chbx_ids.length; i++) {
-		if (document.getElementById(income_chbx_ids[i]).checked) {
-			document.getElementById('monthly_income').value = income[i];
-		}
-	}
+	// var income_chbx_ids = ['php1_checkbox', 'php2_checkbox', 'php3_checkbox', 'php4_checkbox'];
+	// var income = ['Below Php 10,000.00', 'PHP 10,000.00 - 19,999.99', 'Php 20,000.00 - 29,999.99', 'PHP 30,000.00 and above']
+	// for (let i = 0; i < income_chbx_ids.length; i++) {
+	// 	if (document.getElementById(income_chbx_ids[i]).checked) {
+	// 		document.getElementById('monthly_income').value = income[i];
+	// 	}
+	// }
 
-	var field_chbx_ids = ['government_checkbox', 'private_checkbox'];
-	var field = ['Government', 'Private']
-	for (let i = 0; i < field_chbx_ids.length; i++) {
-		if (document.getElementById(field_chbx_ids[i]).checked) {
-			document.getElementById('employment_field').value = field[i];
-		}
-	}
+	// var field_chbx_ids = ['government_checkbox', 'private_checkbox'];
+	// var field = ['Government', 'Private']
+	// for (let i = 0; i < field_chbx_ids.length; i++) {
+	// 	if (document.getElementById(field_chbx_ids[i]).checked) {
+	// 		document.getElementById('employment_field').value = field[i];
+	// 	}
+	// }
 
-	var length_chbx_ids = ['day0006_checkbox', 'day0712_checkbox', 'day1318_checkbox', 'day1924_checkbox', 'day24above_checkbox'];
-	var length = ['0 - 6 months', '7 - 12 months', '13 - 18 months', '19 - 24 months', 'more than 24 months']
-	for (let i = 0; i < length_chbx_ids.length; i++) {
-		if (document.getElementById(length_chbx_ids[i]).checked) {
-			document.getElementById('employment_length').value = length[i];
-		}
-	}
+	// var length_chbx_ids = ['day0006_checkbox', 'day0712_checkbox', 'day1318_checkbox', 'day1924_checkbox', 'day24above_checkbox'];
+	// var length = ['0 - 6 months', '7 - 12 months', '13 - 18 months', '19 - 24 months', 'more than 24 months']
+	// for (let i = 0; i < length_chbx_ids.length; i++) {
+	// 	if (document.getElementById(length_chbx_ids[i]).checked) {
+	// 		document.getElementById('employment_length').value = length[i];
+	// 	}
+	// }
 
-	var related_chbx_ids = ['ictyes_checkbox', 'ictno_checkbox'];
-	var related = ['Yes', 'No']
-	for (let i = 0; i < related_chbx_ids.length; i++) {
-		if (document.getElementById(related_chbx_ids[i]).checked) {
-			document.getElementById('ict_related').value = related[i];
-		}
-	}
+	// var related_chbx_ids = ['ictyes_checkbox', 'ictno_checkbox'];
+	// var related = ['Yes', 'No']
+	// for (let i = 0; i < related_chbx_ids.length; i++) {
+	// 	if (document.getElementById(related_chbx_ids[i]).checked) {
+	// 		document.getElementById('ict_related').value = related[i];
+	// 	}
+	// }
 
 	var error_empty;
 	for (let i = 0; i < ids.length; i++) {
@@ -364,7 +365,7 @@ function validate_alumni_form03_employed() {
 	}
 
 	if (error_empty) {
-		show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
+		show_swal_validation02('swal2-validation-message', 'Please fill up all required fields.')
 		//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
 		permission = false;
 	} else {
@@ -380,8 +381,8 @@ function validate_alumni_form03_employed() {
 }
 
 function validate_alumni_form03_self_employed() {
-	var chckbxs = ['reasons', 'monthly_income']
-	clear_value(chckbxs);
+	// var chckbxs = ['reasons', 'monthly_income']
+	// clear_value(chckbxs);
 	var ids = ["reasons", "business_type", "business_name", "business_description", "monthly_income"];
 	var permission;
 
@@ -400,13 +401,13 @@ function validate_alumni_form03_self_employed() {
 	}
 	document.getElementById('reasons').value = reason_checked;
 
-	var income_chbx_ids = ['php1_checkbox', 'php2_checkbox', 'php3_checkbox', 'php4_checkbox'];
-	var income = ['Below Php 10,000.00', 'PHP 10,000.00 - 19,999.99', 'Php 20,000.00 - 29,999.99', 'PHP 30,000.00 and above']
-	for (let i = 0; i < income_chbx_ids.length; i++) {
-		if (document.getElementById(income_chbx_ids[i]).checked) {
-			document.getElementById('monthly_income').value = income[i];
-		}
-	}
+	// var income_chbx_ids = ['php1_checkbox', 'php2_checkbox', 'php3_checkbox', 'php4_checkbox'];
+	// var income = ['Below Php 10,000.00', 'PHP 10,000.00 - 19,999.99', 'Php 20,000.00 - 29,999.99', 'PHP 30,000.00 and above']
+	// for (let i = 0; i < income_chbx_ids.length; i++) {
+	// 	if (document.getElementById(income_chbx_ids[i]).checked) {
+	// 		document.getElementById('monthly_income').value = income[i];
+	// 	}
+	// }
 
 	var error_empty;
 	for (let i = 0; i < ids.length; i++) {
@@ -430,7 +431,7 @@ function validate_alumni_form03_self_employed() {
 
 	if (error_empty) {
 		//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
-		show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
+		show_swal_validation02('swal2-validation-message', 'Please fill up all required fields.')
 		permission = false;
 	} else {
 		//document.getElementById('error_result').innerHTML = "";
@@ -440,7 +441,7 @@ function validate_alumni_form03_self_employed() {
 
 	if (permission) {
 		var form_id = "employment_profile_self_employed_form"
-		submit_alumni_form03(form_id);
+		// submit_alumni_form03(form_id);
 	}
 }
 
@@ -481,7 +482,7 @@ function validate_alumni_form03_unemployed() {
 
 	if (error_empty) {
 		//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
-		show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
+		show_swal_validation02('swal2-validation-message', 'Please fill up all required fields.')
 		permission = false;
 	} else {
 		//document.getElementById('error_result').innerHTML = "";
@@ -535,7 +536,7 @@ function validate_af03_exp_employed() {
 
 	if (error_empty) {
 		//document.getElementById('error_result').innerHTML = "* Please make sure to fill up all needed requirements."
-		show_swal_validation02('swal2-validation-message','Please fill up all required fields.')
+		show_swal_validation02('swal2-validation-message', 'Please fill up all required fields.')
 		permission = false;
 	} else {
 		//document.getElementById('error_result').innerHTML = "";
@@ -739,7 +740,7 @@ function validate_jobsubmit() {
 			const dv_id = document.getElementById(afld_inputs[a])
 			if (dv_id.value != "") {
 				dv_id.value = dv_id.value + '/' + inpts[i].value
-			}else{
+			} else {
 				dv_id.value = inpts[i].value
 			}
 		}
@@ -785,4 +786,30 @@ function validate_jobsubmit() {
 	if (permission) {
 		submit_jobpost()
 	}
+}
+
+function validate_form(form_id) {
+    var result = true
+    const form = document.getElementById(form_id)
+    const input = form.getElementsByTagName('input')
+
+    for (let i = 0; i < input.length; i++) {
+        if (input[i].value === "") {
+            const label = form.getElementsByTagName('label')
+            for (let x = 0; x < label.length; x++) {
+                if (label[x].htmlFor === input[i].id) {
+                    true_class(label[x]);
+                }
+            }
+            result = false
+        }else{
+            const label = form.getElementsByTagName('label')
+            for (let x = 0; x < label.length; x++) {
+                if (label[x].htmlFor === input[i].id) {
+                    false_class(label[x]);
+                }
+            }
+        }
+    }
+    return result
 }

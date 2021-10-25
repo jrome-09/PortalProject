@@ -379,7 +379,7 @@ input[type=number] {
 
 
 /* FROM INDEX */
-a.active, .hvbg-ligth:hover{
+a.active, .hvbg-ligth:hover, .hvbg-light:hover{
     background-color: rgb(240, 240, 240) !important;
 }
 
@@ -421,4 +421,19 @@ a.active, .hvbg-ligth:hover{
 
 .text-justify{
     text-align: justify;
+}
+
+.char-50{
+    width: 100%;
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    text-align: justify;
+}
+
+.fontsize-n12{
+    font-size: 12px !important;
 }

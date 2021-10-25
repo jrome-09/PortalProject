@@ -4,11 +4,11 @@ $application_count = 0;
 ?>
 
 <body>
-	<!-- <div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
+	<div id="spinner-wrapper" class="d-flex justify-content-center align-items-center">
 		<div class="spinner-border text-primary" role="status">
 			<span class="visually-hidden">Loading...</span>
 		</div>
-	</div> -->
+	</div>
 	<?php
 	require "../html/script.html";
 	require "../includes/nav.php";

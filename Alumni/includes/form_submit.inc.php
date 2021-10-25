@@ -1,7 +1,9 @@
 <?php
-if (isset($_POST["full_name"])) {
+if (isset($_POST["alumni_first_form"])) {
 	session_start();
-	$_SESSION["form01_full_name"] = $_POST["full_name"];
+	$_SESSION["form01_first_name"] = $_POST["first_name"];
+	$_SESSION["form01_middle_name"] = $_POST["middle_name"];
+	$_SESSION["form01_last_name"] = $_POST["last_name"];
 	$_SESSION["form01_phone_number"] = $_POST["contact_number"];
 	$_SESSION["form01_email_address"] = $_POST["email_address"];
 	$_SESSION["form01_address"] = $_POST["address"];
@@ -73,7 +75,7 @@ if (isset($_POST["experienced_unemployed"])) {
 if (isset($_POST["getSession"])) {
 	session_start();
 	$array = [
-		"form01_full_name", "form01_phone_number", "form01_email_address", "form01_address", "form01_age",
+		"form01_first_name", "form01_middle_name", "form01_last_name", "form01_phone_number", "form01_email_address", "form01_address", "form01_age",
 		"form01_sex", "form01_civil_status", "form01_residence", "form01_monthly_salary", "form01_graduation_year", "form01_course", "form01_organization_affiliation", "form01_academic_awards", "form01_ict_certification"
 	];
 
@@ -111,38 +113,44 @@ if (isset($_POST["getSession"])) {
 //Submit Information saved by Sessions
 if (isset($_POST["submit_session"])) {
 	$result;
+	$undefined = "undefined";
 	try {
 		require "../../includes/db_connection.inc.php";
 		session_start();
 
-		$sql = "INSERT INTO `alumni`(`name`, `contact_number`, `email_adddress`, `address`, `age`, `sex`, `civil_status`, `residence`, `family_mothly_income`, `graduation_year`, `degree_earned`, `organizational_affiliation`, `academic_awards`, `ict_related`, `employment_type`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		$stmt = mysqli_stmt_init($conn);
-		if (!mysqli_stmt_prepare($stmt, $sql)) {
-			echo 'Statement Error';
-			exit();
-		}
-		mysqli_stmt_bind_param(
-			$stmt,
-			"sisssssssssssss",
-			$_SESSION["form01_full_name"],
-			$_SESSION["form01_phone_number"],
-			$_SESSION["form01_email_address"],
-			$_SESSION["form01_address"],
-			$_SESSION["form01_age"],
-			$_SESSION["form01_sex"],
-			$_SESSION["form01_civil_status"],
-			$_SESSION["form01_residence"],
-			$_SESSION["form01_monthly_salary"],
-			$_SESSION["form01_graduation_year"],
-			$_SESSION["form01_course"],
-			$_SESSION["form01_organization_affiliation"],
-			$_SESSION["form01_academic_awards"],
-			$_SESSION["form01_ict_certification"],
-			$_SESSION["form02_employment_status"]
-		);
-		mysqli_stmt_execute($stmt);
 
-		$alumni_id = mysqli_insert_id($conn);
+		$stmt = $conn->prepare("INSERT INTO `alumni`(`first_name`, `middle_name`, `last_name`, `contact_number`, `email_address`, `address`, `age`, `sex`, `civil_status`, `residence`, `income_range`, `graduation_year`, `degree_earned`, `organizational_affiliation`, `academic_awards`, `ict_related`, `employment_type`, `alumni_profile`, `date_submitted`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())");
+		$stmt->bind_param("sssissssssssssssss", $_SESSION["form01_first_name"], $_SESSION["form01_middle_name"], $_SESSION["form01_last_name"], $_SESSION["form01_phone_number"], $_SESSION["form01_email_address"], $_SESSION["form01_address"], $_SESSION["form01_age"], $_SESSION["form01_sex"], $_SESSION["form01_civil_status"], $_SESSION["form01_residence"], $_SESSION["form01_monthly_salary"], $_SESSION["form01_graduation_year"], $_SESSION["form01_course"], $_SESSION["form01_organization_affiliation"], $_SESSION["form01_academic_awards"], $_SESSION["form01_ict_certification"], $_SESSION["form02_employment_status"], $undefined);
+		$alumni_id;
+		if ($stmt->execute()) {
+			$alumni_id = mysqli_insert_id($conn);
+
+			if ($_FILES['alumni_img']['error'] > 0) {
+			} else {
+				$file = $_FILES['alumni_img'];
+				$extensions = array('jpg', 'jpeg', 'png', 'gif');
+				$file_path = ua_profile($file, $alumni_id, "alumni_profile", "../../uploads/alumni_profiles/", $extensions);
+
+				if ($file_path) {
+					$stmt01 = $conn->prepare("UPDATE `alumni` SET `alumni_profile`=? WHERE _id = ?");
+					$stmt01->bind_param("si", $file_path, $alumni_id);
+
+					if ($stmt01->execute()) {
+					} else {
+						echo "Statement Error: 140 " . htmlspecialchars($stmt01->error);
+						exit;
+					}
+				} else {
+					echo "Path Error: 144";
+					exit;
+				}
+			}
+		} else {
+			echo "Statement Error: 149 " . htmlspecialchars($stmt->error);
+			exit;
+		}
+
+		$stmt->close();
 
 		if ($_SESSION["form02_employment_status"] === "Employed") {
 			$employed_sql = "INSERT INTO `employed_alumni`(`alumni_id`, `employer_name`, `employer_address`, `present_position`, `employment_type`, `monthly_salary`, `employment_field`, `employment_months`, `ict_related`) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -221,10 +229,37 @@ if (isset($_POST["submit_session"])) {
 		$result = true;
 	} catch (Exception $e) {
 		$result = false;
-		echo "Error: ". $e;
+		echo "Error: " . $e;
 	}
 
 	if ($result) {
 		echo "Information Saved!";
+	}
+}
+
+function ua_profile($profile, $uid, $nfn, $path, $extensions)
+{
+	$file = $profile;
+	$fileName = $file['name'];
+	$fileTmpName = $file['tmp_name'];
+	$fileError = $file['error'];
+	$fileType = $file['type'];
+
+	$fileExt = explode('.', $fileName);
+	$fileActualExt = strtolower(end($fileExt));
+	// 'jpg', 'jpeg', 'png', 'gif'
+	$allowed = $extensions;
+
+	if (in_array($fileActualExt, $allowed)) {
+		if ($fileError === 0) {
+			$NewFileName = $nfn . "_" . $uid .  "." . $fileActualExt;
+			$fileDestination = $path . $NewFileName;
+			move_uploaded_file($fileTmpName, $fileDestination);
+			return $fileDestination;
+		} else {
+			return false;
+		}
+	} else {
+		return false;
 	}
 }

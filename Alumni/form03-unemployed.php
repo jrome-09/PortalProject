@@ -25,7 +25,7 @@ require "../html/script.html";
                         <form action="#" id="employment_profile_unemployed_form">
                             <label for="reasons" class="required color-light text-start fontsize-13 mb-2">Reasons for being Unemployed:</label>
                             <div class="income_div mb-2">
-                                <input type="checkbox" name="reason01_checkbox" class="btn-check" id="reason01_checkbox" autocomplete="off"">
+                                <!-- <input type="checkbox" name="reason01_checkbox" class="btn-check" id="reason01_checkbox" autocomplete="off"">
                                 <label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="reason01_checkbox">
                                 I cannot find a job opportunity related to my field.
                                 </label>
@@ -48,7 +48,37 @@ require "../html/script.html";
                                 <input type="checkbox" name="reason05_checkbox" class="btn-check" id="reason05_checkbox" autocomplete="off"">
                                 <label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="reason05_checkbox">
                                 I have health problem.
-                                </label>
+                                </label> -->
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason01_checkbox">
+                                    <label class="form-check-label" for="reason01_checkbox">
+                                        I cannot find a job opportunity related to my field.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason02_checkbox">
+                                    <label class="form-check-label" for="reason02_checkbox">
+                                        There are IT-related job offerings but the salary is too low.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason03_checkbox">
+                                    <label class="form-check-label" for="reason03_checkbox">
+                                        I wasn’t hired because of lack of work experience.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason04_checkbox">
+                                    <label class="form-check-label" for="reason04_checkbox">
+                                        had to take care of family concerns.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason05_checkbox">
+                                    <label class="form-check-label" for="reason05_checkbox">
+                                        I have health problem.
+                                    </label>
+                                </div>
                                 <br>
                                 <div class="d-flex flex-row">
                                     <label class=" btn bg-light rounded-0 rounded-start border-end-0 color-black font-500 border fontsize-13 text-start" for="otherreason_input">Other:</label>
@@ -86,7 +116,8 @@ require "../html/script.html";
     <script src="../javascript/validations.js"></script>
     <script>
         feather.replace();
-        document.title = 'CCIT Tracer'
+        document.title = 'CCIT Alumni Tracer'
+        document.getElementById('alumni-link').classList.toggle('active');
     </script>
 </body>
 

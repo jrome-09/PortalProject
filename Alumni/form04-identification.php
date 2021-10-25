@@ -28,11 +28,11 @@ session_start();
 					</div>
 					<label class="color-light text-start fontsize-13 mb-1 d-block text-center">Upload Your Photo</label>
 					<label for="alumni_img" class="btn bg-2 px-4 mb-2 m-auto">Upload Photo</label>
-					<input type="file" name="alumni_img" id="alumni_img" class="d-none" onchange="readUpload02(this, '#alumni_upimg')">
+
 				</div>
 				<label class="color-light text-start fontsize-13 mb-1">Name: (LastName, FirstName, MiddleName)</label>
-				<p class="color-black fontsize-13"><?php if (isset($_SESSION["form01_full_name"])) {
-														echo $_SESSION["form01_full_name"];
+				<p class="color-black fontsize-13"><?php if (isset($_SESSION["form01_last_name"])) {
+														echo $_SESSION["form01_last_name"] . ", " . $_SESSION["form01_first_name"] . ", " . $_SESSION["form01_middle_name"];
 													} ?></p>
 				<label class="color-light text-start fontsize-13 mb-1">Phone/Mobile No.: (use the format: 09XX-XXX-XXX)</label>
 				<p class="color-black fontsize-13"><?php if (isset($_SESSION["form01_phone_number"])) {
@@ -76,15 +76,27 @@ session_start();
 													} ?></p>
 				<label class="color-light text-start fontsize-13 mb-1">Organization Affiliation in College:</label>
 				<p class="color-black fontsize-13"><?php if (isset($_SESSION["form01_organization_affiliation"])) {
-														echo $_SESSION["form01_organization_affiliation"];
+														if (strpos($_SESSION["form01_organization_affiliation"], "/") !== false) {
+															echo ltrim($_SESSION["form01_organization_affiliation"], "/");
+														} else {
+															echo $_SESSION["form01_organization_affiliation"];
+														}
 													} ?></p>
 				<label class="color-light text-start fontsize-13 mb-1">Academic Award(s) received:</label>
 				<p class="color-black fontsize-13"><?php if (isset($_SESSION["form01_academic_awards"])) {
-														echo $_SESSION["form01_academic_awards"];
+														if (strpos($_SESSION["form01_academic_awards"], "/") !== false) {
+															echo ltrim($_SESSION["form01_academic_awards"], "/");
+														} else {
+															echo $_SESSION["form01_academic_awards"];
+														}
 													} ?></p>
 				<label class="color-light text-start fontsize-13 mb-1">ICT Certification:</label>
 				<p class="color-black fontsize-13"><?php if (isset($_SESSION["form01_ict_certification"])) {
-														echo $_SESSION["form01_ict_certification"];
+														if (strpos($_SESSION["form01_ict_certification"], "/") !== false) {
+															echo ltrim($_SESSION["form01_ict_certification"], "/");
+														} else {
+															echo $_SESSION["form01_ict_certification"];
+														}
 													} ?></p>
 			</div>
 			<?php if (isset($_SESSION["form02_employment_status"])) {
@@ -139,7 +151,11 @@ session_start();
 						<p class="color-black fontsize-13"><?php echo $_SESSION["form02_employment_status"]; ?></p>
 						<label class="color-light text-start fontsize-13 mb-1">Reasons for being Unemployed:</label>
 						<p class="color-black fontsize-13"><?php if (isset($_SESSION["form03_reasons"])) {
-																echo $_SESSION["form03_reasons"];
+																if (strpos($_SESSION["form03_reasons"], "/") !== false) {
+																	echo ltrim($_SESSION["form03_reasons"], "/");
+																} else {
+																	echo $_SESSION["form03_reasons"];
+																}
 															} ?></p>
 						<label class="color-light text-start fontsize-13 mb-1">Work/Business Type:</label>
 						<p class="color-black fontsize-13"><?php if (isset($_SESSION["form03_business_type"])) {
@@ -168,7 +184,11 @@ session_start();
 						<p class="color-black fontsize-13"><?php echo $_SESSION["form02_employment_status"]; ?></p>
 						<label class="color-light text-start fontsize-13 mb-1">Reasons for being Unemployed:</label>
 						<p class="color-black fontsize-13"><?php if (isset($_SESSION["form03_reasons"])) {
-																echo $_SESSION["form03_reasons"];
+																if (strpos($_SESSION["form03_reasons"], "/") !== false) {
+																	echo ltrim($_SESSION["form03_reasons"], "/");
+																} else {
+																	echo $_SESSION["form03_reasons"];
+																}
 															} ?></p>
 					</div>
 				<?php
@@ -189,7 +209,11 @@ session_start();
 															} ?></p>
 						<label class="color-light text-start fontsize-13 mb-1">Reasons for leaving your recent work:</label>
 						<p class="color-black fontsize-13"><?php if (isset($_SESSION["form03_reasons"])) {
-																echo $_SESSION["form03_reasons"];
+																if (strpos($_SESSION["form03_reasons"], "/") !== false) {
+																	echo ltrim($_SESSION["form03_reasons"], "/");
+																} else {
+																	echo $_SESSION["form03_reasons"];
+																}
 															} ?></p>
 					</div>
 			<?php
@@ -212,6 +236,7 @@ session_start();
 	</footer>
 	<form action="#" id="sessionsubmit_form">
 		<input type="hidden" name="submit_session">
+		<input type="file" name="alumni_img" id="alumni_img" class="d-none" onchange="readUpload02(this, '#alumni_upimg')">
 	</form>
 	<script>
 	</script>
@@ -220,7 +245,9 @@ session_start();
 	<script src="../javascript/validations.js"></script>
 	<script>
 		feather.replace();
-		document.title = 'CCIT Tracer'
+		document.title = 'CCIT Alumni Tracer'
+		document.getElementById('alumni-link').classList.toggle('active');
+		document.getElementById("alumni_img").value = null
 	</script>
 </body>
 

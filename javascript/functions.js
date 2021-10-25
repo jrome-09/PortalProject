@@ -17,6 +17,11 @@ function changeColor() {
   }
 }
 
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
 function loadPage() {
   document.onreadystatechange = function () {
     if (document.readyState !== "complete") {
@@ -433,7 +438,7 @@ function position_select(position_ID) {
   showPositionList();
 }
 
-function jobType_select(type_id){
+function jobType_select(type_id) {
   const inner = document.getElementById(type_id).innerHTML;
   document.getElementById("job-type").innerHTML = inner;
   document.getElementById("hiddenJobType").value = inner;
@@ -478,7 +483,7 @@ function show_alert(icon, title, text, button, location) {
   }).then(function () {
     if (location != "") {
       window.location = location;
-    }else{
+    } else {
       return false
     }
   });
@@ -498,13 +503,13 @@ function show_alert_options(title, text, icon, cancel, confirmbtn_text, action, 
       title: "color-black font-700 fontsize-24",
       htmlContainer: "color-light pt-0 fontsize-13",
       confirmButton: "btn bg-cp2 bg-cp2h px-2 fontsize-13 font-500",
-      cancelButton: "btn px-2 fontsize-13 font-500" 
+      cancelButton: "btn px-2 fontsize-13 font-500"
     }
   }).then((result) => {
     if (result.isConfirmed) {
       if (action === "Approve") {
-       approve_app(app_id);
-      }else if (action === "Disapprove") {
+        approve_app(app_id);
+      } else if (action === "Disapprove") {
         disapprove_app(app_id)
       }
 
@@ -561,7 +566,7 @@ function done() {
   show_alert(icon, title, text, button, location);
 }
 
-function show_option(btn_id){
+function show_option(btn_id) {
   const option_id = 'application_option0' + btn_id;
   document.getElementById(option_id).classList.toggle('active')
 }
@@ -586,6 +591,18 @@ function show_swal_validation02(id, alert_text) {
   swal_id.innerHTML = alert_text;
 }
 
-function hide_swal_validation02(id){
+function hide_swal_validation02(id) {
   document.getElementById(id).classList.add("d-none");
+}
+
+function radio_check(select, name) {
+  const rbs = document.querySelectorAll('input[name="' + name + '"]');
+  let selectedValue;
+  for (const rb of rbs) {
+      if (rb.checked) {
+          selectedValue = rb.value;
+          break;
+      }
+  }
+  document.getElementById(select).value = selectedValue
 }

@@ -230,6 +230,34 @@ if (isset($_POST['resume_input'])) {
         $fileurl = $file;
         header("Content-type:application/docs/pdf");
         header('Content-Disposition: attachment; filename=' . $fileurl);
-        readfile( $fileurl );
+        readfile($fileurl);
     }
 }
+
+// if (isset($_POST['notification_input'])) {
+
+//     $source = $_POST['source'];
+//     $source_id = $_POST['source_id'];
+//     $receiver = $_POST['receiver'];
+//     $receiver_id = $_POST['receiver_id'];
+//     $message = $_POST['message'];
+//     $sub = submit_notification($conn, $source, $source_id, $receiver, $receiver_id, $message);
+
+//     if ($sub) {
+//         echo 'success';
+//     }else{
+//         echo 'failed';
+//     }
+//     // $stmt = $conn->prepare("INSERT INTO `notification`(`receiver_id`, `receiver_type`, `source_id`, `source_type`, `message`, `date_created`) VALUES (?, ?, ?, ?, ?, now())");
+//     // $stmt->bind_param("iiiis", $receiver, $receiver_id, $source, $source_id, $message);
+
+//     // if ($stmt->execute()) {
+//     //    echo 'success';
+//     // } else {s
+//     //     echo 'failed:' . $conn->error;
+//     // }
+
+//     // $stmt->close();
+//     // $conn->close();
+//     // exit;
+// }

@@ -34,7 +34,7 @@ require "../html/script.html";
                         <main class="p-4">
                             <label for="reasons" class="required color-light text-start fontsize-13 mb-2">Reason for leaving your recent work:</label>
                             <div class="mb-2">
-                                <input type="checkbox" name="reason01_checkbox" class="btn-check" id="reason01_checkbox" autocomplete="off">
+                                <!-- <input type="checkbox" name="reason01_checkbox" class="btn-check" id="reason01_checkbox" autocomplete="off">
                                 <label class="btn min-width-285 btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="reason01_checkbox">
                                     My salary was low.
                                 </label>
@@ -53,6 +53,35 @@ require "../html/script.html";
                                 <label class=" btn min-width-285 btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="reason04_checkbox">
                                     My recent work was not related to my specialization
                                 </label>
+                                <div class="d-flex flex-row">
+                                    <label class=" btn bg-light rounded-0 rounded-start border-end-0 color-black font-500 border fontsize-13 text-start" for="otherreason_input">Other:</label>
+                                    <input type="text" class="form-control rounded-0 rounded-end fontsize-14 color-black" id="otherreason_input" name="othereason_input">
+                                </div> -->
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason01_checkbox">
+                                    <label class="form-check-label" for="reason01_checkbox">
+                                    My salary was low.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason02_checkbox">
+                                    <label class="form-check-label" for="reason02_checkbox">
+                                    I had to take care of family concerns.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason03_checkbox">
+                                    <label class="form-check-label" for="reason03_checkbox">
+                                    I have health problem.
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reason04_checkbox">
+                                    <label class="form-check-label" for="reason04_checkbox">
+                                    My recent work was not related to my specialization
+                                    </label>
+                                </div>
+                                <br>
                                 <div class="d-flex flex-row">
                                     <label class=" btn bg-light rounded-0 rounded-start border-end-0 color-black font-500 border fontsize-13 text-start" for="otherreason_input">Other:</label>
                                     <input type="text" class="form-control rounded-0 rounded-end fontsize-14 color-black" id="otherreason_input" name="othereason_input">
@@ -86,8 +115,9 @@ require "../html/script.html";
     <script src="../javascript/functions.js"></script>
     <script src="../javascript/validations.js"></script>
     <script>
-        document.title = "CCIT Tracer"
+        document.title = "CCIT Alumni Tracer"
         feather.replace();
+        document.getElementById('alumni-link').classList.toggle('active');
     </script>
 </body>
 

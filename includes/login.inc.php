@@ -67,3 +67,34 @@ if (isset($_POST['employer_login'])) {
         exit();
     }
 }
+
+if (isset($_POST['admin_login'])) {
+    $username = $_POST['admin_username'];
+    $password = $_POST['admin_password'];
+
+    $uEx = get_admin($conn, $username);
+
+    if (!$uEx) {
+        echo 'invalid username.';
+        exit;
+    }
+
+    $checkp = password_verify($password, $uEx['password']);
+
+    if (!$checkp) {
+        echo 'wrong password.';
+        exit;
+    } else {
+
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        session_unset();
+        session_destroy();
+
+        session_start();
+        $_SESSION['admin'] = $username;
+        echo "logged in.";
+    }
+}

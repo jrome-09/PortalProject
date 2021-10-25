@@ -25,7 +25,7 @@ require "../html/script.html";
 						<form action="#" id="employment_profile_form">
 							<label for="employment_status" class="required color-light text-start fontsize-13 mb-2">Employment Status:</label>
 							<div class="income_div mb-2">
-								<input type="checkbox" name="employed_checkbox" class="btn-check" id="employed_checkbox" autocomplete="off" onclick="employmentCheckBox()">
+								<!-- <input type="checkbox" name="employed_checkbox" class="btn-check" id="employed_checkbox" autocomplete="off" onclick="employmentCheckBox()">
 								<label class="btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="employed_checkbox">
 									Employed
 								</label>
@@ -43,7 +43,32 @@ require "../html/script.html";
 								<input type="checkbox" name="exp-unemployed_checkbox" class="btn-check" id="exp-unemployed_checkbox" autocomplete="off" onclick="employmentCheckBox()">
 								<label class=" btn btn-light mb-2 color-black font-500 border fontsize-13 text-start min-width-200" for="exp-unemployed_checkbox">
 									Currently Unemployed but Had Been Employed Before
-								</label>
+								</label> -->
+								<div class="form-check mb-2">
+									<input class="form-check-input" onclick="radio_check('employment_status', this.name)" type="radio" name="employment_status_chk" id="radio1" value="Employed">
+									<label class="form-check-label" for="radio1">
+									Employed
+									</label>
+								</div>
+								<div class="form-check mb-2">
+									<input class="form-check-input" onclick="radio_check('employment_status', this.name)" type="radio" name="employment_status_chk" id="radio2" value="Self-Employed">
+									<label class="form-check-label" for="radio2">
+									Self-Employed
+									</label>
+								</div>
+								<div class="form-check mb-2">
+									<input class="form-check-input" onclick="radio_check('employment_status', this.name)" type="radio" name="employment_status_chk" id="radio3" value="Unemployed">
+									<label class="form-check-label" for="radio3">
+									Unemployed
+									</label>
+								</div>
+								<div class="form-check mb-2">
+									<input class="form-check-input" onclick="radio_check('employment_status', this.name)" type="radio" name="employment_status_chk" id="radio4" value="Currently Unemployed but had been employed before">
+									<label class="form-check-label" for="radio4">
+									Currently Unemployed but had been employed before
+								</label> -->
+									</label>
+								</div>
 
 								<input type="hidden" id="employment_status" name="employment_status">
 							</div>
@@ -77,7 +102,8 @@ require "../html/script.html";
 	<script src="../javascript/jQueryRequest.js"></script>
 	<script>
 		feather.replace();
-		document.title = 'CCIT Tracer'
+		document.title = 'CCIT Alumni Tracer'
+		document.getElementById('alumni-link').classList.toggle('active');
 	</script>
 </body>
 

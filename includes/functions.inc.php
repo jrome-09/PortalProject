@@ -181,6 +181,16 @@ function update_college_details($conn, $email_address, $user_name, $university_n
 
     return true;
     mysqli_stmt_close($stmt);
+
+    if ($user_type === 'alumni') {
+        $usr = uidExists($conn, $email_address);
+        $source = 0;
+        $source_id = 0;
+        $receiver = 1;
+        $receiver_id = $usr['_id'];
+        $message = 'Hi! We are conducting a tracer study of ICT graduates of the University of Northern Philippines and the system has detected that you are a graduate of CCIT. Please fill up // Alumni/form01.php //.';
+        $sub = submit_notification($conn, $source, $source_id, $receiver, $receiver_id, $message);
+    }
     exit();
 }
 
@@ -463,3 +473,83 @@ function getApplicants($conn, $jid)
     mysqli_stmt_close($stmt);
 }
 
+function submit_notification($conn, $s, $sid, $r, $rid, $msg)
+{
+    $source = $s;
+    $source_id = $sid;
+    $receiver = $r;
+    $receiver_id = $rid;
+    $message = $msg;
+    $status = 0;
+
+    $stmt = $conn->prepare("INSERT INTO `notification`(`receiver_id`, `receiver_type`, `source_id`, `source_type`, `message`, `status`, `date_created`) VALUES (?, ?, ?, ?, ?, ?, now())");
+    $stmt->bind_param("iiiisi", $receiver, $receiver_id, $source, $source_id, $message, $status);
+
+    if ($stmt->execute()) {
+        return true;
+    } else {
+        return false;
+    }
+
+    $stmt->close();
+    $conn->close();
+    exit;
+}
+
+function alumni_uidExists($conn, $_id)
+{
+    $sql = "SELECT * FROM alumni WHERE _id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "Statement Error";
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $_id);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function get_admin($conn, $username)
+{
+    $sql = "SELECT * FROM admin WHERE username = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "Statement Error";
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $username);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function get_result_count($conn, $sql)
+{
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            return $row["COUNT(*)"];
+        }
+    } else {
+        return 0;
+    }
+}
