@@ -213,6 +213,9 @@ require "../html/script.html";
                             <input type="hidden" id="monthly_salary" name="monthly_salary">
                         </div>
                     </div>
+                    <header class="mt-5 px-4 py-3 fontsize-14 font-500 border rounded-top bg-white border-bottom-0 shadow-sm">
+                        Academic Information
+                    </header>
                     <div class="p-4 border rounded bg-white mb-2 shadow-sm">
                         <!-- <label class="required fontsize-13 color-light text-start">
                         Course:

@@ -10,10 +10,17 @@
         <header class="border-bottom background-thicker-light py-3 px-4 color-black fontsize-14">
             Notifications
         </header>
-        <main>
+        <main class="position-relative py-1">
             <?php
 
-            $sql = "SELECT * FROM `notification` WHERE receiver_id = $uid ORDER BY _id DESC ";
+
+            if (isset($_SESSION['username'])) {
+                $utype = 1;
+            } elseif (isset($_SESSION['emp_email'])) {
+                $utype = 2;
+            }
+
+            $sql = "SELECT * FROM `notification` WHERE receiver_id = $uid AND receiver_type = $utype ORDER BY _id DESC ";
             $result = $conn->query($sql);
             $nc = 0;
             if (mysqli_num_rows($result) === 0) {
@@ -30,55 +37,70 @@
                 " alt="">
                 </div>
                 <p class="text-secondary text-center mt-2">0 Notification</p>
-                <?php
+            <?php
             } else {
-                while ($row = $result->fetch_assoc()) {
-                    if ($row['status'] == 0) {
-                        $nc = $nc + 1;
-                    }
-                    if (strpos($row['message'], '//') !== false) {
-                        $array = explode('//', $row['message']);
-                        $link;
-                        if (file_exists($array[1])) {
-                            $link = $array[1];
-                        } else {
-                            $link = '../' . $array[1];
-                        }
-                ?>
-                        <div class="p-3 hvbg-light blh">
-                            <div class="d-flex align-items-start">
-                                <div class="image-container rounded-circle border hw-30px bg-white me-2">
+            ?>
+                <ul class="m-0 p-0">
 
-                                </div>
-                                <div>
-                                    <a href="#" onclick="submit_notification(this.id)" id="notification_<?php echo $row['_id'] ?>" class="mb-2 hvtext-yellow color-black ntd fontsize-13 char-50">
-                                        <?php echo $array[0] . " " . 'This Form' . " " . $array[2] ?>
-                                    </a>
-                                    <p class="text-secondary fontsize-n12 m-0 text-start"><?php echo $row['date_created'] ?></p>
-                                </div>
-
-                            </div>
-                        </div>
 
                     <?php
-                    } else {
-                    ?>
-                        <div class="p-3 hvbg-light blh">
-                            <div class="d-flex align-items-start">
-                                <div class="image-container rounded-circle border hw-30px bg-white me-2">
+                    while ($row = $result->fetch_assoc()) {
+                        if ($row['status'] == 0) {
+                            $nc = $nc + 1;
+                            $n_status = "active";
+                        } else {
+                            $n_status = "";
+                        }
 
+                        if ($row['source_type'] == 0) {
+                            $source_ = "CCIT Alumni Tracer";
+                        }
+
+                        if (strpos($row['message'], '//') !== false) {
+                            $array = explode('//', $row['message']);
+                    ?>
+
+                            <li class="position-relative d-flex">
+                                <a href="#" id="notification_<?php echo $row['_id'] ?>" onclick="submit_notification(this.id)" class="<?php echo $n_status ?> ntd color-black hvtext-yellow p-3 py-2 hvbg-light blh char-50">
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <div class="image-container rounded-circle border bg-white me-2" style="height: 18px; width: 18px;"></div>
+                                        <p class="text-primary font-500 fontsize-n12 m-0"><?php echo $source_ ?></p>
+                                    </div>
+                                    <p class="overflow-hidden"><?php echo $array[0] . " " . 'This Form' . " " . $array[2] ?></p>
+                                    <p class="text-secondary fontsize-n12 m-0 text-end">
+                                        <?php
+                                        echo date_format(date_create($row['date_created']), "F d, Y");
+                                        ?>
+                                    </p>
+                                </a>
+                            </li>
+
+                        <?php
+                        } else {
+                        ?>
+                            <!-- <div class="p-3 hvbg-light blh">
+                                <div class="d-flex align-items-start">
+                                    <div class="image-container rounded-circle border hw-30px bg-white me-2">
+
+                                    </div>
+                                    <div>
+                                        <a href="#" onclick="submit_notification(this.id)" id="notification_<?php //echo $row['_id'] 
+                                                                                                            ?>" class="<?php //echo $n_status 
+                                                                                                                        ?> hvtext-yellow color-black ntd fontsize-13 char-50">
+                                            <?php //echo $row['message'] 
+                                            ?>
+                                        </a>
+                                        <p class="text-secondary fontsize-n12 m-0 text-start"><?php //echo $row['date_created'] 
+                                                                                                ?></p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <a href="#" onclick="submit_notification(this.id)" id="notification_<?php echo $row['_id'] ?>" class="hvtext-yellow color-black ntd fontsize-13 char-50">
-                                        <?php echo $row['message'] ?>
-                                    </a>
-                                    <p class="text-secondary fontsize-n12 m-0 text-start"><?php echo $row['date_created'] ?></p>
-                                </div>
-                            </div>
-                        </div>
-            <?php
+                            </div> -->
+                    <?php
+                        }
                     }
-                }
+                    ?>
+                </ul>
+            <?php
             }
             ?>
         </main>
@@ -92,8 +114,8 @@ if (file_exists('notification.php')) {
     $notification_path = '../notification.php';
 }
 ?>
-<form action="<?php echo $notification_path; ?>" method="post" id="notification_form">
-    <input type="hidden" id="notification_input" name="notification_input">
+<form action="<?php echo $notification_path; ?>" method="get" id="notification_form">
+    <input type="hidden" id="notification_input" name="notif_id">
 </form>
 <style>
     #notif_wrapper {
@@ -142,5 +164,4 @@ if (file_exists('notification.php')) {
     <?php
     }
     ?>
-    
 </script>

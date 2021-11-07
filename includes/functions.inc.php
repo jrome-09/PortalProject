@@ -143,7 +143,7 @@ function UpdateDetails($conn, $first_name, $middle_name, $last_name, $age, $sex,
 
 function insert_college($conn, $user_email)
 {
-    $none = "None";
+    $none = "Undefined";
 
     $sql = "INSERT INTO `college_details`(`user_id`, `user_name`, `university`, `university_address`, `graduation_year`, `field`, `user_type`) VALUES (?,?,?,?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
@@ -174,24 +174,26 @@ function update_college_details($conn, $email_address, $user_name, $university_n
 
     $user_id = uidExists($conn, $email_address);
 
-    $user_type = getUser_Type($university_name, $field, $graduation_year);
+    $user_type = getUser_type($university_name, $field, $graduation_year);
 
     mysqli_stmt_bind_param($stmt, "sssssss", $user_name, $university_name, $university_address, $graduation_year, $field, $user_type, $user_id["_id"],);
     mysqli_stmt_execute($stmt);
 
-    return true;
     mysqli_stmt_close($stmt);
 
-    if ($user_type === 'alumni') {
-        $usr = uidExists($conn, $email_address);
+    if ($user_type == 'alumni') {
         $source = 0;
         $source_id = 0;
         $receiver = 1;
-        $receiver_id = $usr['_id'];
+        $receiver_id = $user_id['_id'];
         $message = 'Hi! We are conducting a tracer study of ICT graduates of the University of Northern Philippines and the system has detected that you are a graduate of CCIT. Please fill up // Alumni/form01.php //.';
         $sub = submit_notification($conn, $source, $source_id, $receiver, $receiver_id, $message);
+        if ($sub) {
+            return true;
+        }
+    } else {
+        return true;
     }
-    exit();
 }
 
 function getUser_type($university_name, $field, $graduation_year)
@@ -483,7 +485,7 @@ function submit_notification($conn, $s, $sid, $r, $rid, $msg)
     $status = 0;
 
     $stmt = $conn->prepare("INSERT INTO `notification`(`receiver_id`, `receiver_type`, `source_id`, `source_type`, `message`, `status`, `date_created`) VALUES (?, ?, ?, ?, ?, ?, now())");
-    $stmt->bind_param("iiiisi", $receiver, $receiver_id, $source, $source_id, $message, $status);
+    $stmt->bind_param("iiiisi", $receiver_id, $receiver, $source, $source_id, $message, $status);
 
     if ($stmt->execute()) {
         return true;

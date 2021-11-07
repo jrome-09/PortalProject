@@ -94,7 +94,7 @@ require "../html/script.html";
                     <div class="swal2-validation-message fontsize-13 d-none mb-4 shadow-sm" id="swal2-validation-message" style="display: flex;">
                         <!-- Invalid email address. -->
                     </div>
-                    <button class="btn bg-2 px-5 me-2">Back</button>
+                    <a href="form02.php" class="btn bg-2 px-5 me-2">Back</a>
                     <button type="button" class="btn bg-2 px-5" onclick="validate_af03_exp_employed()">Next</button>
 
                     <input type="hidden" name="experienced_unemployed" value="">

@@ -42,7 +42,7 @@ require_once "../includes/head.php";
                                         <div>
                                             <p class="color-black font-500 m-0">Job Post</p>
                                             <p class="color-black m-0">
-                                            <?php
+                                                <?php
                                                 $sql = "SELECT COUNT(*) FROM job_description";
                                                 echo $count = get_result_count($conn, $sql);
                                                 ?>
@@ -58,7 +58,7 @@ require_once "../includes/head.php";
                                         <div>
                                             <p class="color-black font-500 m-0">Employers</p>
                                             <p class="color-black m-0">
-                                            <?php
+                                                <?php
                                                 $sql = "SELECT COUNT(*) FROM employer_details";
                                                 echo $count = get_result_count($conn, $sql);
                                                 ?>
@@ -161,7 +161,7 @@ require_once "../includes/head.php";
                                 <header class="bg-2xlight py-3 px-4 color-black border-bottom">
                                     <div class="d-flex justify-content-between">
                                         <div class="color-black">
-                                            Alumni
+                                            <span data-feather="bell"></span> Alerts
                                         </div>
                                         <div class="color-black">
                                             <a href="#" class="ntd">
@@ -170,8 +170,40 @@ require_once "../includes/head.php";
                                         </div>
                                     </div>
                                 </header>
-                                <main class="p-4">
-
+                                <main class="p-0 position-relative pt-1">
+                                    <ul class="p-0 m-0">
+                                        <?php
+                                        $sql = "SELECT * FROM `notification` WHERE receiver_type = 3 ORDER BY _id DESC";
+                                        $result = $conn->query($sql);
+                                        while ($row = $result->fetch_assoc()) {
+                                            if ($row["status"] == 0) {
+                                                $n_status = "active";
+                                            } else {
+                                                $n_status = "";
+                                            }
+                                        ?>
+                                            <li class="position-relative d-flex">
+                                                <a href="#" id="notification_<?php echo $row['_id'] ?>" onclick="submit_notification(this.id)" class="<?php echo $n_status ?> ntd color-black hvtext-yellow p-4 hvbg-light blh d-block pe-5" style=" flex-grow: 2;">
+                                                    <?php echo $row['message'] ?>
+                                                </a>
+                                                <a href="#" class="p-4 ntd position-absolute hvbg-light hvtext-yellow" style="right: 0;" onclick="show_option()">
+                                                    <span data-feather="trash-2" class="me-0"></span>
+                                                </a>
+                                            </li>
+                                        <?php
+                                        }
+                                        ?>
+                                    </ul>
+                                    <form action="../notification.php" method="get" id="notification_form">
+                                        <input type="hidden" id="notification_input" name="notif_id">
+                                    </form>
+                                    <script>
+                                        function submit_notification(_id) {
+                                            document.getElementById('notification_input').value = _id
+                                            const form = document.getElementById('notification_form')
+                                            form.submit();
+                                        }
+                                    </script>
                                 </main>
                             </div>
                         </div>
@@ -188,6 +220,18 @@ require_once "../includes/head.php";
         document.title = "CCIT Admin Dashboard";
         document.getElementById("a_dash-link").classList.add('active')
         document.getElementById("ad_dash-link").classList.add('active')
+
+        function show_option() {
+            const title = 'Are you sure?'
+            const text = "The message will be deleted and can't be recovered."
+            const icon = 'warning'
+            const cancel = true
+            const confirmbtn_text = 'Yes! Delete'
+            const confirmed_title = 'Success!'
+            const confirmed_text = 'The message has been deleted.'
+            const confirmed_icon = 'success'
+            show_alert_options(title, text, icon, cancel, confirmbtn_text, confirmed_title, confirmed_text, confirmed_icon);
+        }
     </script>
 </body>
 

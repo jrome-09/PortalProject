@@ -226,7 +226,18 @@ if (isset($_POST["submit_session"])) {
 
 			mysqli_stmt_execute($experienced_unemployed_stmt);
 		}
+
+        $source = 0;
+        $source_id = 0;
+        $receiver = 3;
+        $receiver_id = 1;
+        $message = $_SESSION["form01_first_name"]. " " . $_SESSION["form01_middle_name"] . " " . $_SESSION["form01_last_name"] . " Submitted a form.";
+        $sub = submit_notification($conn, $source, $source_id, $receiver, $receiver_id, $message);
+
 		$result = true;
+
+
+
 	} catch (Exception $e) {
 		$result = false;
 		echo "Error: " . $e;

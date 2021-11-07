@@ -489,7 +489,7 @@ function show_alert(icon, title, text, button, location) {
   });
 }
 
-function show_alert_options(title, text, icon, cancel, confirmbtn_text, action, app_id) {
+function show_alert_options(title, text, icon, cancel, confirmbtn_text, confirmed_title, confirmed_text, confirmed_icon) {
   Swal.fire({
     title: title,
     text: text,
@@ -502,28 +502,28 @@ function show_alert_options(title, text, icon, cancel, confirmbtn_text, action, 
       popup: "me-17px swal-width-400 font-poppins",
       title: "color-black font-700 fontsize-24",
       htmlContainer: "color-light pt-0 fontsize-13",
-      confirmButton: "btn bg-cp2 bg-cp2h px-2 fontsize-13 font-500",
-      cancelButton: "btn px-2 fontsize-13 font-500"
+      confirmButton: "btn bg-2 px-2 fontsize-13 font-500 hvtext-yellow",
+      cancelButton: "btn px-2 fontsize-13 font-500 hvtext-yellow"
     }
   }).then((result) => {
     if (result.isConfirmed) {
-      if (action === "Approve") {
-        approve_app(app_id);
-      } else if (action === "Disapprove") {
-        disapprove_app(app_id)
-      }
+      // if (action === "Approve") {
+      //   approve_app(app_id);
+      // } else if (action === "Disapprove") {
+      //   disapprove_app(app_id)
+      // }
 
-      // Swal.fire({
-      //   title: confirmed_title,
-      //   text: confirmed_text,
-      //   icon: confirmed_icon,
-      //   customClass: {
-      //   popup: "me-17px swal-width-400 font-poppins",
-      //   title: "color-black font-700 fontsize-24",
-      //   htmlContainer: "color-light pt-0 fontsize-13",
-      //   confirmButton: "btn bg-cp2 bg-cp2h px-5 fontsize-13 font-500"
-      //   }
-      // })
+      Swal.fire({
+        title: confirmed_title,
+        text: confirmed_text,
+        icon: confirmed_icon,
+        customClass: {
+        popup: "me-17px swal-width-400 font-poppins",
+        title: "color-black font-700 fontsize-24",
+        htmlContainer: "color-light pt-0 fontsize-13",
+        confirmButton: "btn bg-2 px-5 fontsize-13 font-500 hvtext-yellow"
+        }
+      })
     }
   })
 }

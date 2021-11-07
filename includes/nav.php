@@ -334,6 +334,9 @@ if (file_exists('scripts/libraries.php')) {
 						<li class="nav-item">
 							<a class="nav-link color-black font-400 px-4 hvbg-ligth hvtext-yellow" href="#" id="forum-link">Forum <span class="sr-only"></span></a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link color-black font-400 px-4 hvbg-ligth hvtext-yellow" href="#" id="events-link">Events & Updates <span class="sr-only"></span></a>
+						</li>
 						<?php
 						if (isset($_SESSION['admin'])) {
 						?>
@@ -462,8 +465,8 @@ if (file_exists('scripts/libraries.php')) {
 		}
 	}
 
-	$link_ids = ['web-id', 'index-link', 'about-link', 'contacts-link', 'alumni-link', 'employer-prof-link', 'jobs-link-nav', 'forum-link'];
-	$link_directories = ['index.php', 'index.php', 'about.php', 'contacts.php', 'Alumni/form01.php', 'Employers/employers-profile-page.php', 'Jobs/jobs.php', 'Forum/forum-index.php'];
+	$link_ids = ['web-id', 'index-link', 'about-link', 'contacts-link', 'alumni-link', 'employer-prof-link', 'jobs-link-nav', 'forum-link', 'events-link'];
+	$link_directories = ['index.php', 'index.php', 'about.php', 'contacts.php', 'Alumni/form01.php', 'Employers/employers-profile-page.php', 'Jobs/jobs.php', 'Forum/forum-index.php', 'events/events_updates.php'];
 	if (!isset($_SESSION['admin'])) {
 		array_push($link_ids, 'emp-link');
 		array_push($link_directories, 'Employers/index.php');

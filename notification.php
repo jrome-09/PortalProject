@@ -1,8 +1,8 @@
 <?php
 require "html/head.html";
-if (isset($_POST['notification_input'])) {
+if (isset($_GET['notif_id'])) {
     require_once "includes/db_connection.inc.php";
-    $notification_id = str_replace("notification_", "", $_POST['notification_input']);
+    $notification_id = str_replace("notification_", "", $_GET['notif_id']);
     $sql = "SELECT * FROM `notification` WHERE _id = $notification_id";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
@@ -117,7 +117,7 @@ if (isset($_POST['notification_input'])) {
         feather.replace();
         document.title = "CCIT Alumni Tracing and Job Portal";
         <?php
-        if (isset($_POST['notification_input'])) {
+        if (isset($_GET['notif_id'])) {
         ?>
             const date = document.getElementById('notification_date')
             const message = document.getElementById('notification_message')

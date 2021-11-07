@@ -66,7 +66,7 @@ require "../html/script.html";
 									<input class="form-check-input" onclick="radio_check('employment_status', this.name)" type="radio" name="employment_status_chk" id="radio4" value="Currently Unemployed but had been employed before">
 									<label class="form-check-label" for="radio4">
 									Currently Unemployed but had been employed before
-								</label> -->
+								</label>
 									</label>
 								</div>
 

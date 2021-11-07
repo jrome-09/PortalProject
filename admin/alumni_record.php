@@ -68,7 +68,7 @@ require_once "../includes/head.php";
                                             <td data-label="Actions" scope="col" class="p-1">
                                                 <a href="#" class="ntd me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="View" id="<?php echo "view_" . $row['_id'] ?>" onclick="view_detail(this.id, '<?php echo $row['first_name'] . '_' . $row['last_name'] ?>')"><span data-feather="eye"></span></a>
                                                 <a href="#" class="ntd me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" id="<?php echo "edit_" . $row['_id'] ?>"><span data-feather="edit-3"></span></a>
-                                                <a href="#" class="ntd me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" id="<?php echo "delete_" . $row['_id'] ?>"><span data-feather="trash"></span></a>
+                                                <a href="#" class="ntd me-2" data-bs-toggle="tooltip" data-bs-placement="top" onclick="show_option()" title="Delete" id="<?php echo "delete_" . $row['_id'] ?>"><span data-feather="trash"></span></a>
                                             </td>
                                         </tr>
                                     <?php
@@ -98,6 +98,18 @@ require_once "../includes/head.php";
             document.getElementById('alumni_id').value = _id
             document.getElementById('alumni_name').value = name
             form.submit()
+        }
+
+        function show_option() {
+            const title = 'Are you sure?'
+			const text = "The message will be deleted and can't be recovered."
+			const icon = 'warning'
+			const cancel = true
+			const confirmbtn_text = 'Yes! Delete'
+			const confirmed_title = 'Success!'
+			const confirmed_text = 'The message has been deleted.'
+			const confirmed_icon = 'success'
+			show_alert_options(title, text, icon, cancel, confirmbtn_text, confirmed_title, confirmed_text, confirmed_icon);
         }
     </script>
     <style>

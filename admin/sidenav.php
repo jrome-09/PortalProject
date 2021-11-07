@@ -11,17 +11,20 @@
                 <a href="page.php" class="ntd color-black hvtext-yellow hvbg-light d-block ps-4 py-3" id="a_dash-link">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="ntd color-black hvtext-yellow hvbg-light d-block ps-4 py-3" id="a_accounts-link">Accounts</a>
+                <a href="alumni_record.php" class="ntd color-black hvtext-yellow hvbg-light d-block ps-4 py-3" id="a_events-link">Add Events</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="ntd color-black hvtext-yellow hvbg-light d-block ps-4 py-3" id="a_accounts-link">User Accounts</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="ntd color-black hvtext-yellow hvbg-light d-block ps-4 py-3" id="a_jobs-link">Manage Job Posts</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="#" class="ntd color-black hvtext-yellow hvbg-light d-block ps-4 py-3" id="a_seekers-link">Jobs Seekers</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="ntd color-black hvtext-yellow hvbg-light d-block ps-4 py-3" id="a_employers-link">Employers</a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a href="#" class="ntd color-black hvtext-yellow hvbg-light d-block ps-4 py-3" id="a_requests-link">Requests</a>
             </li>

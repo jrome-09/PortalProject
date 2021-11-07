@@ -250,7 +250,7 @@ require "../html/script.html";
                         <!-- Invalid email address. -->
                     </div>
                     <div class="fontsize-13 text-danger" id="error_result"></div>
-                    <button class="btn bg-2 px-5 me-2">Back</button>
+                    <a href="form02.php" class="btn bg-2 px-5 me-2">Back</a>
                     <button type="button" class="btn bg-2 px-5" onclick="validate_alumni_form03_employed()">Next</button>
                 </form>
             </div>
